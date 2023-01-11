@@ -1,9 +1,10 @@
 import React from 'react';
+import HrBusiness from './HrBusiness/HrBusiness';
 
 const Home = () => {
     return (
         <div>
-            <h2>This is Home Page</h2>
+            <HrBusiness></HrBusiness>
         </div>
     );
 };
