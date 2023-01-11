@@ -39,13 +39,13 @@ const CustomerReview = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3   gap-5">
-        {clients.map((client) => (
-          <div key={client.key}>
+        {clients.map((client, i) => (
+          <div key={i}>
             <div className="text-center rounded-lg bg-indigo-400 text-white shadow-xl p-4">
               <div className=" flex justify-between">
                   <div className=" font-bold flex items-center ">
                     <img
-                      className="h-16 w-16 rounded-full"
+                      className="h-16 w-16 rounded-full object-cover"
                       src={client.img}
                       alt=""
                     />
