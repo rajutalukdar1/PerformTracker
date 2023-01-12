@@ -65,11 +65,11 @@ const PricePlans = () => {
     },
   ]
   return (
-    <div className='text-center bg-slate-100 py-24 mt-10'>
+    <div className='text-center bg-slate-100 py-24 mt-10 w-full max-w-[1440px] mx-auto'>
       <div className='container mx-auto'>
         <div className='mb-16'>
-          <p className='uppercase text-gray-700 font-semibold'>Plans & Pricing</p>
-          <h2 className='font-bold text-5xl'>Choose Your Plan</h2>
+          <p className='uppercase text-gray-700 font-semibold text-xs sm:text-base'>Plans & Pricing</p>
+          <h2 className='font-bold text-2xl sm:text-3xl md:text-5xl'>Choose Your Plan</h2>
         </div>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10 mx-6 sm:mx-4'>
           {

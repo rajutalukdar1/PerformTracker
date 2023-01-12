@@ -30,7 +30,7 @@ const CustomerReview = () => {
 
   ];
   return (
-    <div className="my-14 px-2 md:px-20 pb-10">
+    <div className="my-14 px-2 md:px-20 pb-10 w-full max-w-[1440px] mx-auto">
       <div className="text-center py-5">
         <h2 className="text-4xl font-bold pb-2">
           Our Happy <span className="text-orange-600  ">Client </span>
@@ -61,7 +61,7 @@ const CustomerReview = () => {
             <p className="py-4 text-base">{client.review}</p>
           </div>
         ))}
-    </div>
+      </div>
     </div >
   );
 };
