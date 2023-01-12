@@ -1,4 +1,8 @@
 import React from 'react';
+import img1 from '../../../../Assets/success_img/christian-buehner-DItYlc26zVI-unsplash.jpg'
+import img2 from '../../../../Assets/success_img/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg'
+import img3 from '../../../../Assets/success_img/michael-dam-mEZ3PoFGs_k-unsplash.jpg'
+import img4 from '../../../../Assets/success_img/vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg'
 
 const Success = () => {
     return (
@@ -13,37 +17,37 @@ const Success = () => {
                 <div className='my-6'>
                     <div className="avatar">
                         <div className="w-48 rounded-full">
-                            <img src="https://placeimg.com/192/192/people" alt='' />
+                            <img src={img1} alt='' />
                         </div>
                     </div>
-                    <p className='text-xl font-semibold'>Jessica Brown</p>
+                    <p className='text-xl font-semibold'>Christian Buehner</p>
                     <p>Employer</p>
                 </div>
                 <div className='my-6'>
                     <div className="avatar">
                         <div className="w-48 rounded-full">
-                            <img src="https://placeimg.com/192/192/people" alt='' />
+                            <img src={img2} alt='' />
                         </div>
                     </div>
-                    <p className='text-xl font-semibold'>Chris Micheal</p>
+                    <p className='text-xl font-semibold'>Joseph Gonzalez</p>
                     <p>Employer</p>
                 </div>
                 <div className='my-6'>
                     <div className="avatar">
                         <div className="w-48 rounded-full">
-                            <img src="https://placeimg.com/192/192/people" alt='' />
+                            <img src={img3} alt='' />
                         </div>
                     </div>
-                    <p className='text-xl font-semibold'>Sara Albert</p>
+                    <p className='text-xl font-semibold'>Michael</p>
                     <p>Employer</p>
                 </div>
                 <div className='my-6'>
                     <div className="avatar">
                         <div className="w-48 rounded-full">
-                            <img src="https://placeimg.com/192/192/people" alt='' />
+                            <img src={img4} alt='' />
                         </div>
                     </div>
-                    <p className='text-xl font-semibold'>Ruben Tavil</p>
+                    <p className='text-xl font-semibold'>Vicky</p>
                     <p>Employer</p>
                 </div>
             </div>
