@@ -8,11 +8,10 @@ import Success from './Success/Success';
 const Home = () => {
     return (
         <div>
-            <FAQSection />
-            <CustomerReview />
             <CustomerReview />
             <Success />
             <PricePlans />
+            <FAQSection />
         </div>
     );
 };

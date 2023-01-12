@@ -87,13 +87,13 @@ const PricePlans = () => {
                 <div className='mb-5'>
                   {
                     plan.services.map((service, i) => <div
-                    key={i}
-                    className="flex justify-center items-center gap-3"
+                      key={i}
+                      className="flex justify-center items-center gap-3"
                     >
                       {
-                        service.status ? 
-                        <FaCheck color='green' className='' /> :
-                        <FaTimes color='#ba0000' className='' />
+                        service.status ?
+                          <FaCheck color='green' className='' /> :
+                          <FaTimes color='#ba0000' className='' />
                       }
                       <p className='text-gray-400 font-semibold text-left'>{service.name}</p>
                     </div>)
