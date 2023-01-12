@@ -14,6 +14,7 @@ const Home = () => {
             <CustomerReview />
             <Success />
             <PricePlans />
+            <FAQSection />
         </div>
     );
 };

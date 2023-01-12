@@ -1,6 +1,6 @@
 import React from "react";
 import FAQCard from "./FAQCard";
-import FAQ from "../../../../assets/Home-Images/FAQ.jpg";
+import FAQ from "../../../../Assets/Home-Images/FAQ.jpg";
 import "./FAQSection.css";
 
 const questions = [
