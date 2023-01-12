@@ -9,8 +9,7 @@ import Success from './Success/Success';
 const Home = () => {
     return (
         <div>
-            <HrBusiness></HrBusiness>
-            <FAQSection />
+            <HrBusiness />
             <CustomerReview />
             <Success />
             <PricePlans />

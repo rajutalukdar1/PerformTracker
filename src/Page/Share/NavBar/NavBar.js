@@ -11,7 +11,6 @@ const NavBar = () => {
 
 
         <>
-            <li className='font-semibold'><Link to='/addServices'>Add service</Link></li>
             <li className='font-semibold'><Link to='/myReview'>My Review</Link></li>
 
             {/* <li className='font-semibold'>
@@ -22,7 +21,6 @@ const NavBar = () => {
 
         <>
             <li className='font-semibold'><Link to='/login'>Login</Link></li>
-            <li className='font-semibold'><Link to='/signup'>Register</Link></li>
         </>
 
 

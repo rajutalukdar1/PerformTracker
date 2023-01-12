@@ -15,7 +15,7 @@ const CustomerReview = () => {
       c_name: "ahmed rakib ",
       designation: "HR of NewTechnology",
       review:
-        "Your software is very good. Using this software will save a lot of HR's time. And employees can be managed accurately.",
+        "Your software is very good. Using this software will save a lot of HR's time. And employees can be managed.",
       date: "05/10/1022",
       img: "https://d38b044pevnwc9.cloudfront.net/cutout-nuxt/passport/1-change.jpg",
     },
