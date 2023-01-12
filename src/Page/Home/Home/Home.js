@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div>
             <HrBusiness></HrBusiness>
-            <h2>This is Home Page</h2>
+            
             <CustomerReview />
         </div>
     );
