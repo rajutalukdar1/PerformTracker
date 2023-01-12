@@ -34,7 +34,7 @@ const NavBar = () => {
                 <div className="navbar-start w-80">
                     <Link className='flex items-center gap-3' to='/'>
                         <img className='w-8 sm:w-12 md:w-16' src={logo} alt="" />
-                        <span className='font-bold text-lg sm:text-xl md:text-2xl'>Perform Tracker</span>
+                        <span className='font-bold text-lg sm:text-xl md:text-2xl text-black'>Perform Tracker</span>
                     </Link>
                 </div>
                 <div className="navbar-end w-3/4">
