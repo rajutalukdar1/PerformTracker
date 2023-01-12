@@ -8,13 +8,12 @@ import Success from './Success/Success';
 
 const Home = () => {
     return (
-        <div>
+        <div className='max-w-screen-2xl mx-auto'>
             <HrBusiness></HrBusiness>
             <FAQSection />
             <CustomerReview />
             <Success />
             <PricePlans />
-            <FAQSection />
         </div>
     );
 };
