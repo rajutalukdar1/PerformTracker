@@ -27,7 +27,7 @@ const CustomerReview = () => {
       date: "07/10/1022",
       img: "https://visafoto.com/img/source355x388_in.jpg",
     },
-    
+
   ];
   return (
     <div className="my-14 px-2 md:px-20">
@@ -43,18 +43,18 @@ const CustomerReview = () => {
           <div key={client.key}>
             <div className="text-center rounded-lg bg-indigo-400 text-white shadow-xl p-4">
               <div className=" flex justify-between">
-                  <div className=" font-bold flex items-center ">
-                    <img
-                      className="h-16 w-16 rounded-full"
-                      src={client.img}
-                      alt=""
-                    />
-                    <div className="text-start pl-2">
-                        <p className="text-xl">{client.c_name}</p>
-                        <p className="text-xs">{client.designation}</p>
-                        
-                    </div>
+                <div className=" font-bold flex items-center ">
+                  <img
+                    className="h-16 w-16 rounded-full"
+                    src={client.img}
+                    alt=""
+                  />
+                  <div className="text-start pl-2">
+                    <p className="text-xl">{client.c_name}</p>
+                    <p className="text-xs">{client.designation}</p>
+
                   </div>
+                </div>
                 <p className="font-bold text-xs">{client.date}</p>
               </div>
               <p className="py-4 text-base">{client.review}</p>
