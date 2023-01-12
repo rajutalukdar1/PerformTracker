@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import logo from '../../../Assets/logo (1).png'
+import logo from '../../../Assets/logo (1).png';
+import './Nav.css'
 
 const NavBar = () => {
     const menuItems = <>
@@ -27,8 +28,8 @@ const NavBar = () => {
 
     </>
     return (
-        <div className="navbar bg-base-100  justify-between fixed z-50 top-0 shadow">
-            <div className='flex w-full max-w-[1440px] mx-auto'>
+        <div className="navbar bg-base-100 justify-between shadow mx-auto stop">
+            <div className='flex w-full'>
                 <div className="navbar-start w-80">
                     <Link className='flex items-center gap-3' to='/'>
                         <img className='w-8 sm:w-12 md:w-16' src={logo} alt="" />
