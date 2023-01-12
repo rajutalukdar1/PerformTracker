@@ -43,27 +43,26 @@ const CustomerReview = () => {
           <div key={i}>
             <div className="text-center rounded-lg bg-indigo-400 text-white shadow-xl p-4">
               <div className=" flex justify-between">
-                  <div className="font-bold flex items-center ">
-                    <img
-                      className="h-16 w-16 rounded-full object-cover"
-                      src={client.img}
-                      alt=""
-                    />
-                    <div className="text-start pl-2">
-                        <p className="text-xl">{client.c_name}</p>
-                        <p className="text-xs">{client.designation}</p>
-                        
-                    </div>
+                <div className=" font-bold flex items-center ">
+                  <img
+                    className="h-16 w-16 rounded-full object-cover"
+                    src={client.img}
+                    alt=""
+                  />
+                  <div className="text-start pl-2">
+                    <p className="text-xl">{client.c_name}</p>
+                    <p className="text-xs">{client.designation}</p>
+
                   </div>
                 </div>
-                <p className="font-bold text-xs">{client.date}</p>
               </div>
-              <p className="py-4 text-base">{client.review}</p>
+              <p className="font-bold text-xs">{client.date}</p>
             </div>
+            <p className="py-4 text-base">{client.review}</p>
           </div>
         ))}
-      </div>
     </div>
+    </div >
   );
 };
 export default CustomerReview;
