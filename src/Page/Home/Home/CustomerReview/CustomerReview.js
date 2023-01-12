@@ -30,7 +30,7 @@ const CustomerReview = () => {
 
   ];
   return (
-    <div className="my-14 px-2 md:px-20">
+    <div className="my-14 px-2 md:px-20 pb-10 w-full max-w-[1440px] mx-auto">
       <div className="text-center py-5">
         <h2 className="text-4xl font-bold pb-2">
           Our Happy <span className="text-orange-600  ">Client </span>
@@ -39,13 +39,13 @@ const CustomerReview = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3   gap-5">
-        {clients.map((client) => (
-          <div key={client.key}>
+        {clients.map((client, i) => (
+          <div key={i}>
             <div className="text-center rounded-lg bg-indigo-400 text-white shadow-xl p-4">
               <div className=" flex justify-between">
                 <div className=" font-bold flex items-center ">
                   <img
-                    className="h-16 w-16 rounded-full"
+                    className="h-16 w-16 rounded-full object-cover"
                     src={client.img}
                     alt=""
                   />
@@ -55,14 +55,14 @@ const CustomerReview = () => {
 
                   </div>
                 </div>
-                <p className="font-bold text-xs">{client.date}</p>
               </div>
-              <p className="py-4 text-base">{client.review}</p>
+              <p className="font-bold text-xs">{client.date}</p>
             </div>
+            <p className="py-4 text-base">{client.review}</p>
           </div>
         ))}
       </div>
-    </div>
+    </div >
   );
 };
 export default CustomerReview;
