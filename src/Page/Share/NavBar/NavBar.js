@@ -29,15 +29,15 @@ const NavBar = () => {
 
     </>
     return (
-        <div>
-            <div className="navbar bg-base-100 border-b justify-between">
+        <div className="navbar bg-base-100  justify-between fixed z-50 top-0 shadow">
+            <div className='flex w-full max-w-[1440px] mx-auto'>
                 <div className="navbar-start w-80">
                     <Link className='flex items-center gap-3' to='/'>
                         <img className='w-8 sm:w-12 md:w-16' src={logo} alt="" />
                         <span className='font-bold text-lg sm:text-xl md:text-2xl text-black'>Perform Tracker</span>
                     </Link>
                 </div>
-                <div className="navbar-end w-3/4">
+                <div className="flex navbar-end w-3/4">
                     <ul className="menu menu-horizontal px-1 hidden lg:flex">
                         {
                             menuItems

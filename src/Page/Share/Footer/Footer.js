@@ -3,8 +3,8 @@ import f_logo from '../../../Assets/logo (1).png'
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer p-10 bg-base-200 text-base-content justify-center">
+        <div className='bg-base-200 text-base-content'>
+            <footer className="footer p-10 justify-between w-full max-w-[1440px] mx-auto">
                 <div>
                     <img className='w-1/4' src={f_logo} alt="" />
                     <p >
