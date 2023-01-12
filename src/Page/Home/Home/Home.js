@@ -1,11 +1,13 @@
 import React from 'react';
 import CustomerReview from './CustomerReview/CustomerReview';
+import FAQSection from './FAQSection/FAQSection';
 
 const Home = () => {
     return (
         <div>
-            <h2>This is Home Page</h2>
+            <FAQSection />
             <CustomerReview />
+
         </div>
     );
 };
