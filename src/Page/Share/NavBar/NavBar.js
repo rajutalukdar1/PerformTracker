@@ -1,67 +1,73 @@
-import React from 'react';
-import { FaBars } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import logo from '../../../Assets/logo (1).png'
+import React from "react";
+import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import logo from "../../../Assets/logo (1).png";
+import "./Nav.css";
 
 const NavBar = () => {
-    const menuItems = <>
-        <li className='font-semibold'><Link to='/'>Home</Link></li>
-        <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
-        <li className='font-semibold'><Link to='/services'>Services</Link></li>
+  const menuItems = (
+    <>
+      <li className="font-semibold">
+        <Link to="/">Home</Link>
+      </li>
+      <li className="font-semibold">
+        <Link to="/blog">Blog</Link>
+      </li>
+      <li className="font-semibold">
+        <Link to="/services">Services</Link>
+      </li>
 
+      <>
+        <li className="font-semibold">
+          <Link to="/myReview">My Review</Link>
+        </li>
 
-        <>
-            <li className='font-semibold'><Link to='/addServices'>Add service</Link></li>
-            <li className='font-semibold'><Link to='/myReview'>My Review</Link></li>
-
-            {/* <li className='font-semibold'>
+        {/* <li className='font-semibold'>
                 <button className='btn-ghost'>Log Out</button>
                 onClick={handelLogOut}
             </li> */}
-        </>
+      </>
 
-        <>
-            <li className='font-semibold'><Link to='/login'>Login</Link></li>
-            <li className='font-semibold'><Link to='/signup'>Register</Link></li>
-        </>
-
-
-
+      <>
+        <li className="font-semibold">
+          <Link to="/login">Login</Link>
+        </li>
+      </>
     </>
-    return (
-        <div className="navbar bg-base-100  justify-between fixed z-50 top-0 shadow">
-            <div className='flex w-full max-w-[1440px] mx-auto'>
-                <div className="navbar-start w-80">
-                    <Link className='flex items-center gap-3' to='/'>
-                        <img className='w-8 sm:w-12 md:w-16' src={logo} alt="" />
-                        <span className='font-bold text-lg sm:text-xl md:text-2xl text-black'>Perform Tracker</span>
-                    </Link>
-                </div>
-                <div className="flex navbar-end w-3/4">
-                    <ul className="menu menu-horizontal px-1 hidden lg:flex">
-                        {
-                            menuItems
-                        }
-                    </ul>
-                    <div className="dropdown">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <FaBars className='text-lg sm:text-xl' />
-                        </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow-xl bg-slate-50 rounded-box w-52 right-2">
-                            {
-                                menuItems
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  );
+  return (
+    <div className="navbar bg-base-100 justify-between shadow mx-auto stop">
+      <div className="flex w-full">
+        <div className="navbar-start w-80">
+          <Link className="flex items-center gap-3" to="/">
+            <img className="w-8 sm:w-12 md:w-16" src={logo} alt="" />
+            <span className="font-bold text-lg sm:text-xl md:text-2xl text-black">
+              Perform Tracker
+            </span>
+          </Link>
         </div>
-    );
+        <div className="flex navbar-end w-3/4">
+          <ul className="menu menu-horizontal px-1 hidden lg:flex">
+            {menuItems}
+          </ul>
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <FaBars className="text-lg sm:text-xl" />
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow-xl bg-slate-50 rounded-box w-52 right-2"
+            >
+              {menuItems}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default NavBar;
-
-
 
 // import React from 'react';
 // import { Link } from 'react-router-dom';
