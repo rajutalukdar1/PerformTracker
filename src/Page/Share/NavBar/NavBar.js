@@ -1,17 +1,17 @@
 import React from 'react';
+import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import logo from '../../../Assets/logo (1).png'
-import './NavBar.css'
+import logo from '../../../Assets/logo (1).png';
+import './Nav.css'
 
 const NavBar = () => {
     const menuItems = <>
-        <li className='font-semibold'><Link to='/home'>Home</Link></li>
+        <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
         <li className='font-semibold'><Link to='/services'>Services</Link></li>
 
 
         <>
-            <li className='font-semibold'><Link to='/addServices'>Add service</Link></li>
             <li className='font-semibold'><Link to='/myReview'>My Review</Link></li>
 
             {/* <li className='font-semibold'>
@@ -22,33 +22,31 @@ const NavBar = () => {
 
         <>
             <li className='font-semibold'><Link to='/login'>Login</Link></li>
-            <li className='font-semibold'><Link to='/signup'>Register</Link></li>
         </>
 
 
 
     </>
     return (
-        <div className='sumu'>
-            <div className='anika'>
-                <div className="navbar">
-                    <div className="navbar-start">
-                        <div className="dropdown">
-                            <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-                            </label>
-                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                {
-                                    menuItems
-                                }
-                            </ul>
-                        </div>
-                        <Link to='/' className='w-1/12'>
-                            <img className='' src={logo} alt="" />
-                        </Link>
-                    </div>
-                    <div className="navbar-end hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1">
+        <div className="navbar bg-base-100 justify-between shadow mx-auto stop">
+            <div className='flex w-full'>
+                <div className="navbar-start w-80">
+                    <Link className='flex items-center gap-3' to='/'>
+                        <img className='w-8 sm:w-12 md:w-16' src={logo} alt="" />
+                        <span className='font-bold text-lg sm:text-xl md:text-2xl text-black'>Perform Tracker</span>
+                    </Link>
+                </div>
+                <div className="flex navbar-end w-3/4">
+                    <ul className="menu menu-horizontal px-1 hidden lg:flex">
+                        {
+                            menuItems
+                        }
+                    </ul>
+                    <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                            <FaBars className='text-lg sm:text-xl' />
+                        </label>
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow-xl bg-slate-50 rounded-box w-52 right-2">
                             {
                                 menuItems
                             }
