@@ -1,10 +1,11 @@
 import React from 'react';
+import Bennar from '../Bennar/Bennar';
 import CustomerReview from './CustomerReview/CustomerReview';
 
 const Home = () => {
     return (
         <div>
-            <h2>This is Home Page</h2>
+            <Bennar></Bennar>
             <CustomerReview />
         </div>
     );
