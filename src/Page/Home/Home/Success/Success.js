@@ -11,7 +11,7 @@ const Success = () => {
                 <p className='text-blue-500 font-semibold mb-2'>PEOPLE BEHIND THE SUCCESS</p>
                 <h1 className='text-3xl font-bold'>Meet Our Expert People
                     <br />
-                    of Payonline</h1>
+                    of Perform Tracker</h1>
             </div>
             <div className='my-6 grid lg:grid-cols-4 md:grid-cols-2 gap-0'>
                 <div className='my-6'>
