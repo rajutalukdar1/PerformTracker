@@ -1,5 +1,5 @@
 import React from 'react';
-import HrBusiness from './HrBusiness/HrBusiness';
+import Bennar from '../Bennar/Bennar';
 import CustomerReview from './CustomerReview/CustomerReview';
 import FAQSection from './FAQSection/FAQSection';
 import PricePlans from './PricePlans/PricePlans';
@@ -10,7 +10,7 @@ import Counter from '../../Counter/Counter';
 const Home = () => {
     return (
         <div>
-            <HrBusiness />
+            <Bennar></Bennar>
             <CustomerReview />
             <Success />
             <PricePlans />
