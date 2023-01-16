@@ -28,8 +28,8 @@ const NavBar = () => {
 
     </>
     return (
-        <div className="navbar bg-base-100 justify-between shadow mx-auto stop">
-            <div className='flex w-full'>
+        <div className="w-full navbar bg-base-100  justify-between mx-auto stop ">
+            <div className='flex w-full justify-between'>
                 <div className="navbar-start w-80">
                     <Link className='flex items-center gap-3' to='/'>
                         <img className='w-8 sm:w-12 md:w-16' src={logo} alt="" />
