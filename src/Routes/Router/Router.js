@@ -3,6 +3,8 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Dashboard from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Home from "../../Page/Home/Home/Home";
+import Client from "../../Page/Others/Client/Client";
+import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 const router = createBrowserRouter([
@@ -22,10 +24,14 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>
       },
-      // {
-      //   path: "/dashboard",
-      //   element: <Drawer></Drawer>
-      // }
+      {
+        path: "/client",
+        element: <Client></Client>
+      },
+      {
+        path: "/clientDetails",
+        element: <ClientDetails></ClientDetails>
+      }
     ]
   },
   {
