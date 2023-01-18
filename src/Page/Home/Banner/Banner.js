@@ -26,7 +26,7 @@ const Banner = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img className='relative' src="http://finestwp.com/payonline/wp-content/uploads/2022/12/banner-1-1.jpg" alt='' />
+                    <img className=' relative' src="http://finestwp.com/payonline/wp-content/uploads/2022/12/banner-1-1.jpg" alt='' />
                     <div className='absolute top-[25%] left-[10%] text-white'>
                         <h1 className='text-8xl font-bold'>Payroll &</h1>
                         <h2 className='text-8xl font-bold mt-2'>HR Solutions</h2>
@@ -46,7 +46,7 @@ const Banner = () => {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className='relative' src="http://finestwp.com/payonline/wp-content/uploads/2022/12/banner-1-2.jpg" alt='' />
+                    <img className=' relative' src="http://finestwp.com/payonline/wp-content/uploads/2022/12/banner-1-2.jpg" alt='' />
                     <div className='absolute top-[25%] left-[10%] text-white'>
                         <h1 className='lg:text-8xl font-bold text-2xl'>Payroll &</h1>
                         <h2 className='lg:text-8xl font-bold mt-2'>HR Solutions</h2>

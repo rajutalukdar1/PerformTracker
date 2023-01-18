@@ -48,7 +48,7 @@ const FAQSection = () => {
         </div>
       </div>
 
-      <div className="grid  md:grid-cols-2 gap-6 ">
+      <div class="grid  md:grid-cols-2 gap-6  items-center">
         <div className="img-pearent">
           <img
             style={{
