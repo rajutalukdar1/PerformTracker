@@ -2,15 +2,12 @@ import React from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../../Assets/logo (1).png';
-import './Nav.css'
 
 const NavBar = () => {
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
         <li className='font-semibold'><Link to='/services'>Services</Link></li>
-
-
         <>
             <li className='font-semibold'><Link to='/myReview'>My Review</Link></li>
 
@@ -19,16 +16,12 @@ const NavBar = () => {
                 onClick={handelLogOut}
             </li> */}
         </>
-
         <>
             <li className='font-semibold'><Link to='/login'>Login</Link></li>
         </>
-
-
-
     </>
     return (
-        <div className="navbar bg-base-100 justify-between shadow mx-auto stop">
+        <div className="navbar fixed top-0 w-full bg-base-100 justify-between shadow mx-auto z-50">
             <div className='flex w-full'>
                 <div className="navbar-start w-80">
                     <Link className='flex items-center gap-3' to='/'>

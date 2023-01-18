@@ -6,12 +6,12 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import './Bennar.css'
+import './Banner.css'
 
 // import required modules
 import { EffectFade, Navigation, Pagination } from "swiper";
 import { Link } from 'react-router-dom';
-const Bennar = () => {
+const Banner = () => {
     return (
         <>
 
@@ -91,4 +91,4 @@ const Bennar = () => {
     );
 };
 
-export default Bennar;
+export default Banner;
