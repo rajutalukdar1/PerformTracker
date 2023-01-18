@@ -1,8 +1,10 @@
-import React from "react";
-import img1 from '../../../../Assets/success_img/Christian.jpg';
-import img2 from '../../../../Assets/success_img/Joseph.webp';
-import img3 from '../../../../Assets/success_img/Michael.webp';
-import img4 from '../../../../Assets/success_img/Vicky.jpg';
+import React from 'react';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import img1 from '../../../../Assets/success_img/christian-buehner-DItYlc26zVI-unsplash.jpg'
+import img2 from '../../../../Assets/success_img/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg'
+import img3 from '../../../../Assets/success_img/michael-dam-mEZ3PoFGs_k-unsplash.jpg'
+import img4 from '../../../../Assets/success_img/vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg'
+import './Sucess.css'
 
 const Success = () => {
     return (

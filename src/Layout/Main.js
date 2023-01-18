@@ -8,7 +8,7 @@ const Main = () => {
     return (
         <div>
             <NavBar></NavBar>
-            <div className='mt-32'>
+            <div className='mt-5'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
