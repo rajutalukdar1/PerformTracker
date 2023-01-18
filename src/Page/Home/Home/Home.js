@@ -7,7 +7,6 @@ import Success from './Success/Success';
 import Counter from '../../Counter/Counter';
 import HrBusiness from './HrBusiness/HrBusiness';
 
-
 const Home = () => {
     return (
         <div>
