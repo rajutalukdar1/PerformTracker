@@ -1,23 +1,24 @@
-import React from "react";
-import HrBusiness from "./HrBusiness/HrBusiness";
-import CustomerReview from "./CustomerReview/CustomerReview";
-import FAQSection from "./FAQSection/FAQSection";
-import PricePlans from "./PricePlans/PricePlans";
-import Success from "./Success/Success";
-import Counter from "../../Counter/Counter";
+import React from 'react';
+import Bennar from '../Bennar/Bennar';
+import CustomerReview from './CustomerReview/CustomerReview';
+import FAQSection from './FAQSection/FAQSection';
+import PricePlans from './PricePlans/PricePlans';
+import Success from './Success/Success';
+import Counter from '../../Counter/Counter';
+import HrBusiness from './HrBusiness/HrBusiness';
 
 const Home = () => {
     return (
         <div>
-        <h2>This is Home Page</h2>
-      <HrBusiness></HrBusiness>
-      <FAQSection />
-      <CustomerReview />
-      <Success />
-      <PricePlans />
-      <Counter />
-    </div>
-  );
+            <Bennar></Bennar>
+            <HrBusiness />
+            <CustomerReview />
+            <Success />
+            <PricePlans />
+            <FAQSection />
+            <Counter></Counter>
+        </div>
+    );
 };
 
 export default Home;
