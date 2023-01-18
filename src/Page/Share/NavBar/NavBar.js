@@ -19,6 +19,15 @@ const NavBar = () => {
       <li className="font-semibold">
         <Link to="/blog">Blog</Link>
       </li>
+      <li className="font-semibold">
+        <Link to="/client">Client</Link>
+      </li>
+      <li className="font-semibold">
+        <Link to="/clientDetails">Client Details</Link>
+      </li>
+      <li className="font-semibold">
+        <Link to="/services">Services</Link>
+      </li>
       <>
 
         {user?.uid ? (
