@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Dashboard from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/EmployeeProfile";
 import Home from "../../Page/Home/Home/Home";
 import Client from "../../Page/Others/Client/Client";
 import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
@@ -23,14 +24,6 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
-      },
-      {
-        path: "/client",
-        element: <Client></Client>
-      },
-      {
-        path: "/clientDetails",
-        element: <ClientDetails></ClientDetails>
       }
     ]
   },
@@ -41,7 +34,15 @@ const router = createBrowserRouter([
       // {
       //   path: "/dashboard",
       //   element: <Dashboard></Dashboard>
-      // }
+      // },
+      {
+        path: "dashboard/employee-profile",
+        element: <EmployeeProfile />
+      },
+      {
+        path: "dashboard/clientDetails",
+        element: <ClientDetails></ClientDetails>
+      }
     ]
   }
 ]);
