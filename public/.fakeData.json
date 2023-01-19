@@ -1,0 +1,115 @@
+[
+    {
+        
+        "service_id": "01",
+        "company": "Global Technologies",
+        "name": "Barry Cuda",
+        "email": "barrycuda@example.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/fQx0D9z/Christian.jpg",
+        "position": "CEO"
+
+      
+    },
+    {
+        
+        "service_id": "02",
+        "company": "Delta Infotech",
+        "name": "Tressa Wexler",
+        "email": "rofiqul01941056960@gmail.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/YjcPzZP/Joseph.webp",
+        "position": "Manager"
+      
+    },
+    {
+        
+        "service_id": "03",
+        "company": "Cream Inc",
+        "name": "Ruby Bartlett",
+        "email": "rofiqul01941056960@gmail.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
+        "position": "CEO"
+
+      
+    },
+    {
+        
+        "service_id": "04",
+        "company": "Wellware Company",
+        "name": "Misty Tison",
+        "email": "rofiqul01941056960@gmail.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
+        "position": "CEO"
+
+      
+    },
+    {
+        
+        "service_id": "05",
+        "company": "Mustang Technologies",
+        "name": "Daniel Deacon",
+        "email": "rofiqul01941056960@gmail.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
+        "position": "CEO"
+
+      
+    },
+    {
+        
+        "service_id": "06",
+        "company": "International Software",
+        "name": "Walter Weaver",
+        "email": "rofiqul01941056960@gmail.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
+        "position": "CEO"
+
+      
+    },
+    {
+        
+        "service_id": "07",
+        "company": "Mercury Software Inc",
+        "name": "Amanda Warren",
+        "email": "rofiqul01941056960@gmail.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
+        "position": "CEO"
+
+      
+    },
+    {
+        
+        "service_id": "08",
+        "company": "Carlson Tech",
+        "name": "Betty Carlson",
+        "email": "rofiqul01941056960@gmail.com",
+        "phone": "9876543210",
+        "birthday": "2nd August",
+        "address": "2nd August",
+        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
+        "position": "CEO"
+
+      
+    }
+    
+   
+]
