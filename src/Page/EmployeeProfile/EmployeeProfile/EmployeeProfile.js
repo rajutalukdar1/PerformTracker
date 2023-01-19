@@ -10,8 +10,6 @@ const EmployeeProfile = () => {
     queryFn: () =>
       fetch(`http://localhost:5000/employees/${id}`).then(res => res.json()),
   });
-
-  console.log(name);
   
   return (
     <div className='w-full max-w-[1440px] mx-auto mb-20'>
