@@ -15,7 +15,7 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 bg-base-100 text-base-content font-normal">
+                    <ul className="menu p-4 bg-slate-100 text-base-content font-normal">
 
                         {/* <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to="/"><AiOutlineHome /> Home</Link></li> */}
                         <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to=""><GoFileMedia /> Media</Link></li>
