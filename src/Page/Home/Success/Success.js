@@ -4,6 +4,7 @@ import img1 from '../../../Assets/success_img/Christian.jpg'
 import img2 from '../../../Assets/success_img/Joseph.webp'
 import img3 from '../../../Assets/success_img/Michael.webp'
 import img4 from '../../../Assets/success_img/Vicky.jpg'
+import "./Success.css"
 
 const Success = () => {
     return (

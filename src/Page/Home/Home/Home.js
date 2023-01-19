@@ -4,8 +4,8 @@ import CustomerReview from '../CustomerReview/CustomerReview';
 import FAQSection from '../FAQSection/FAQSection';
 import PricePlans from '../PricePlans/PricePlans';
 import Success from '../Success/Success';
-import Counter from '../../Counter/Counter';
 import HrBusiness from '../HrBusiness/HrBusiness';
+import Counter from '../Counter/Counter';
 
 const Home = () => {
     return (
