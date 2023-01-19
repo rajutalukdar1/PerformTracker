@@ -10,7 +10,7 @@ const Client = ({client}) => {
                 <div className="card-body items-center text-center">
                     <div className="avatar">
                         <div className="w-20 rounded-full">
-                            <Link to={`/clientdetails/${_id}`}>
+                            <Link to={`/dashboard/clientDetails/${_id}`}>
                                 <img src={img} alt="" />
                             </Link>
                         </div>
@@ -24,7 +24,7 @@ const Client = ({client}) => {
                         </div>
                         <div>
                             
-                            <Link to={`/clientdetails/${_id}`}>
+                            <Link to={`/dashboard/clientDetails/${_id}`}>
                                 <button className='text-[#BBC4CC]'>View Profile</button>
                             </Link>
                         </div>
