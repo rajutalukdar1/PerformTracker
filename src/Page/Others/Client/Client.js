@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import img1 from '../../../Assets/success_img/Vicky.jpg'
 
 const Client = () => {
     return (
-        <div>
-            <p>Client design</p>
+        <div className='mb-12 grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-4'>
+            
             <div className="card w-96 bg-[#16191C] rounded text-neutral-content">
                 <div className="card-body items-center text-center">
                     <div className="avatar">
                         <div className="w-20 rounded-full">
                             <Link>
-                                <img src="https://placeimg.com/192/192/people" alt='' />
+                                <img src={img1} alt='' />
                             </Link>
                         </div>
                     </div>
