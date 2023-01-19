@@ -19,12 +19,8 @@ const Success = () => {
                 <h1 className="text-3xl font-bold">
                     Meet Our Expert People
                     <br />
-<<<<<<< HEAD:src/Page/Home/Success/Success.js
-                    of Perform Tracker</h1>
-=======
                     of Payonline
                 </h1>
->>>>>>> 927d92519eb9462ac66b787e8fac8622b6abf85d:src/Page/Home/Home/Success/Success.js
             </div>
             <div className="my-6 grid lg:grid-cols-4 md:grid-cols-2 gap-0">
                 <div className="my-6">
