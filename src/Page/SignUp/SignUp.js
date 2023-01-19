@@ -18,9 +18,9 @@ const SignUp = () => {
   const googleProvider = new GoogleAuthProvider();
   const { providerLogin} = useContext(AuthContext);
   const navigate = useNavigate();
-    const location = useLocation();
+  const location = useLocation();
 
-    const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/dashboard';
 
   const handleSignUp = (data) => {
     setSignUoError();
@@ -34,7 +34,7 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            navigate('/')
+            navigate('/dashboard')
           })
           .catch((err) => console.log(err));
       })
@@ -43,22 +43,22 @@ const SignUp = () => {
         setSignUoError(error.message);
       });
   };
-  const handleGoogleSign = () =>{
-        
+  const handleGoogleSign = () => {
+
     providerLogin(googleProvider)
-    .then(result => {
+      .then(result => {
         const user = result.user;
-        navigate(from, {replace: true}); 
-        
+        navigate(from, { replace: true });
+
         const currentUser = {
-            email: user.email
+          email: user.email
         }
 
         console.log(currentUser);
-        
-    })
-    .catch(error => console.error(error))
-}
+
+      })
+      .catch(error => console.error(error))
+  }
   return (
     <div>
       <div className="hero min-h-screen text-black">
@@ -145,9 +145,9 @@ const SignUp = () => {
                           alt=""
                         ></img>
                       </div>
-                      <div 
-                      onClick={handleGoogleSign}
-                      className=" font-semibold ">
+                      <div
+                        onClick={handleGoogleSign}
+                        className=" font-semibold ">
                         Continue with Google
                       </div>
                       <div className="mr-6"></div>
@@ -169,7 +169,7 @@ const SignUp = () => {
                   </div>
                 </Link>
               </div>
-              
+
               <small>
                 <p className="flex justify-center mt-2">
                   Already have a accounts?
