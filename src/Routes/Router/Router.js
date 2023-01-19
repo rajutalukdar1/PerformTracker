@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/clientDetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/clients/${params._id}`)
+        loader: ({params})=> fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
         
     },
       {
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/clientdetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/clients/${params._id}`)
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
       }
     ]
   }
