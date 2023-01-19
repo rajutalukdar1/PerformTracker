@@ -1,0 +1,20 @@
+.img-pearent {
+    position: relative;
+
+}
+
+.img-child {
+    padding: 50px;
+    background-color: rgb(247, 48, 48);
+    height: 150px;
+    border-radius: 10px;
+    position: absolute;
+    color: white;
+    font-weight: 600;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 15px;
+    bottom: 15px;
+}

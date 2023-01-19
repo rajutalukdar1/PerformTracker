@@ -5,12 +5,12 @@ const Client = ({client}) => {
     const {_id, img, company,name, position } = client;
     return (
         <div>
-            <p>Client design</p>
+            
             <div className="card w-full bg-[#16191C] rounded text-neutral-content">
                 <div className="card-body items-center text-center">
                     <div className="avatar">
                         <div className="w-20 rounded-full">
-                            <Link>
+                            <Link to={`/clientdetails/${_id}`}>
                                 <img src={img} alt="" />
                             </Link>
                         </div>
