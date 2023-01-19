@@ -1,35 +1,4 @@
 .social-media {
-<<<<<<< HEAD:src/Page/Home/Success/Success.css
-  color: #001328;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 50%;   
-  transition: all linear .3s;
-}
-.teams:hover .social-media{
-  background-color: #007bff;
-  color: white;
-  box-shadow:  5px 10px 10px -7px rgba(0,123,255,0.5);
-}
-
-.team:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: #001328;
-  opacity: .6;
-  border-radius: 50%;
-  transition: all linear .3s;
-  transform: scale(0);
-}
-.teams:hover .team:before{ 
-  transform: scale(1.1);
-}
-=======
     color: #001328;
     width: 60px;
     height: 60px;
@@ -60,4 +29,3 @@
     transform: scale(1.1);
 }
 
->>>>>>> ef87df7ecaff4485aea97c2d411c1ae7ee335756:src/Page/Home/Home/Success/Success.css
