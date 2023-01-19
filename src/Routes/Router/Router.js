@@ -6,6 +6,7 @@ import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/Employee
 import Home from "../../Page/Home/Home/Home";
 import Client from "../../Page/Others/Client/Client";
 import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
+import Clients from "../../Page/Others/Clients/Clients";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 const router = createBrowserRouter([
@@ -24,7 +25,21 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
+<<<<<<< HEAD
+      },
+      {
+        path: "/client",
+        element: <Clients></Clients>
+      },
+      {
+        path:'/clientdetails/:_id',
+        element: <ClientDetails></ClientDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/clients/${params._id}`)
+        
+    }
+=======
       }
+>>>>>>> cb44d8ee8e4884cf8ef015c6bda65e4d566d5b7a
     ]
   },
   {
