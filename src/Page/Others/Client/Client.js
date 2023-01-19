@@ -24,7 +24,6 @@ const Client = ({ client }) => {
                             <button className='text-[#BBC4CC]'>Message</button>
                         </div>
                         <div>
-
                             <Link to={`/clientdetails/${_id}`}>
                                 <button className='text-[#BBC4CC]'>View Profile</button>
                             </Link>

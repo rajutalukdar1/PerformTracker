@@ -4,7 +4,6 @@ import img1 from '../../../Assets/success_img/Vicky.jpg'
 const ClientDetails = () => {
     return (
         <div className='mb-8 max-w-6xl mx-auto'>
-            <p>Client Details</p>
 
             <div className="hero flex justify-between w-full bg-[#16191C]">
                 <div className="hero-content flex justify-start">
