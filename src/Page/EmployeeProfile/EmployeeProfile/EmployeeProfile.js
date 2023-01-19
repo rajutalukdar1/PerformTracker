@@ -1,7 +1,18 @@
 import React from 'react';
+import { useQuery } from '@tanstack/react-query'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
 
 const EmployeeProfile = () => {
+  const {id} = useParams();
+  const { data: {name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary}, refetch } = useQuery({
+    queryKey: ['employee', id],
+    queryFn: () =>
+      fetch(`http://localhost:5000/employees/${id}`).then(res => res.json()),
+  });
+
+  console.log(name);
+  
   return (
     <div className='w-full max-w-[1440px] mx-auto mb-20'>
       <div className="mx-5 md:mx-10">
@@ -12,13 +23,13 @@ const EmployeeProfile = () => {
               <div>
                 <div className="avatar">
                   <div className="w-24 rounded-full">
-                    <img src="https://placeimg.com/192/192/people" alt='img' />
+                    <img src={`${img}`} alt='img' />
                   </div>
                 </div>
               </div>
               <div>
-                <h3 className="text-2xl font-bold">John Doe</h3>
-                <p>Web Developer</p>
+                <h3 className="text-2xl font-bold">{name}</h3>
+                <p>{designation}</p>
                 <div className='flex justify-between'>
                   <a className='text-primary' href=""><FaFacebook /></a>
                   <a className='text-primary' href=""><FaLinkedin /></a>
@@ -29,31 +40,31 @@ const EmployeeProfile = () => {
             <div>
               <div className='flex'>
                 <span className='w-36 md:w-32 font-bold'>Phone:</span>
-                <a className='link text-blue-600' href='tel:+8801700112233'>01700112233</a>
+                <a className='link text-blue-600' href={`tel:${phone}`}>{phone}</a>
               </div>
               <div className='flex'>
                 <span className='w-36 md:w-32 font-bold'>Email:</span>
-                <a className='link text-blue-600' href='mailto:johndoe@example.com'>johndoe@example.com</a>
+                <a className='link text-blue-600' href={`mailto:${email}`}>{email}</a>
               </div>
               <div className='flex'>
                 <span className='w-36 md:w-32 font-bold'>Address:</span>
-                <span>Panchdona, Narsingdi</span>
+                <span>{address}</span>
               </div>
               <div className='flex'>
                 <span className='w-36 md:w-32 font-bold'>Gender:</span>
-                <span>Male</span>
+                <span>{gender}</span>
               </div>
               <div className='flex'>
                 <span className='w-36 md:w-32 font-bold'>Nationality:</span>
-                <span>Bangladeshi</span>
+                <span>{nationality}</span>
               </div>
               <div className='flex'>
-                <span className='w-36 md:w-32 font-bold'>Religion:</span>
-                <span>Islam</span>
+                <span className='w-36 md:w-32 font-bold'>Salary:</span>
+                <span>{salary}</span>
               </div>
               <div className='flex'>
                 <span className='w-36 md:w-32 font-bold'>Marital status:</span>
-                <span>Unmarried</span>
+                <span>{maritalStatus}</span>
               </div>
             </div>
           </div>

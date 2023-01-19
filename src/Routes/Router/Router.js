@@ -36,11 +36,15 @@ const router = createBrowserRouter([
       //   element: <Dashboard></Dashboard>
       // },
       {
-        path: "dashboard/employee-profile",
+        path: "/dashboard/employee-profile/:id",
         element: <EmployeeProfile />
       },
       {
-        path: "dashboard/clientDetails",
+        path: "/dashboard/clients",
+        element: <Client />
+      },
+      {
+        path: "/dashboard/clientDetails",
         element: <ClientDetails></ClientDetails>
       }
     ]
