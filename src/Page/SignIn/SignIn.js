@@ -93,8 +93,6 @@ const SignIn = () => {
                 <label className="label"><span className="label-text">Forget Password?</span></label>
               </div>
 
-              {/*  */}
-
               {loginError && <p className='text-red-500'>{loginError}</p>
               }
               <label className="label">
@@ -125,7 +123,6 @@ const SignIn = () => {
                   </div>
                 </Link>
                 <Link>
-                  {/* onClick={handleSignInWithFacebook} */}
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-10 h-8 ml-1">
@@ -139,7 +136,6 @@ const SignIn = () => {
                   </div>
                 </Link>
               </div>
-
               <small>
                 <p>
                   Don't have an accounts?
