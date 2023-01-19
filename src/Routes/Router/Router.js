@@ -5,6 +5,7 @@ import Main from "../../Layout/Main";
 import Home from "../../Page/Home/Home/Home";
 import Client from "../../Page/Others/Client/Client";
 import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
+import Clients from "../../Page/Others/Clients/Clients";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 const router = createBrowserRouter([
@@ -26,12 +27,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/client",
-        element: <Client></Client>
+        element: <Clients></Clients>
       },
       {
-        path: "/clientDetails",
-        element: <ClientDetails></ClientDetails>
-      }
+        path:'/clientdetails/:_id',
+        element: <ClientDetails></ClientDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/clients/${params._id}`)
+        
+    }
     ]
   },
   {
