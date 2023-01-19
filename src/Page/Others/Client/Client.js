@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img1 from '../../../Assets/success_img/Vicky.jpg'
+// import img1 from '../../../Assets/success_img/Vicky.jpg'
 
-const Client = ({client}) => {
-    const {_id, img, company,name, position } = client;
+const Client = ({ client }) => {
+    const { _id, img, company, name, position } = client;
     return (
         <div>
             <p>Client design</p>
@@ -12,7 +12,7 @@ const Client = ({client}) => {
                     <div className="avatar">
                         <div className="w-20 rounded-full">
                             <Link>
-                                <img src="https://placeimg.com/192/192/people" alt='' />
+                                <img src={img} alt='' />
                             </Link>
                         </div>
                     </div>
@@ -24,7 +24,7 @@ const Client = ({client}) => {
                             <button className='text-[#BBC4CC]'>Message</button>
                         </div>
                         <div>
-                            
+
                             <Link to={`/clientdetails/${_id}`}>
                                 <button className='text-[#BBC4CC]'>View Profile</button>
                             </Link>

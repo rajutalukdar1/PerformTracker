@@ -25,21 +25,18 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
-<<<<<<< HEAD
       },
       {
         path: "/client",
         element: <Clients></Clients>
       },
       {
-        path:'/clientdetails/:_id',
+        path: '/clientdetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/clients/${params._id}`)
-        
-    }
-=======
+        loader: ({ params }) => fetch(`http://localhost:5000/clients/${params._id}`)
+
       }
->>>>>>> cb44d8ee8e4884cf8ef015c6bda65e4d566d5b7a
+
     ]
   },
   {
