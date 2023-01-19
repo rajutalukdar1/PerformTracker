@@ -1,10 +1,9 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
-import img1 from '../../../../Assets/success_img/christian-buehner-DItYlc26zVI-unsplash.jpg'
-import img2 from '../../../../Assets/success_img/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg'
-import img3 from '../../../../Assets/success_img/michael-dam-mEZ3PoFGs_k-unsplash.jpg'
-import img4 from '../../../../Assets/success_img/vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg'
-import './Sucess.css'
+import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa";
+import img1 from '../../../Assets/success_img/christian-buehner-DItYlc26zVI-unsplash.jpg'
+import img2 from '../../../Assets/success_img/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg'
+import img3 from '../../../Assets/success_img/michael-dam-mEZ3PoFGs_k-unsplash.jpg'
+import img4 from '../../../Assets/success_img/vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg'
 
 const Success = () => {
     return (
@@ -21,7 +20,7 @@ const Success = () => {
                         <a className='social-media absolute bg-base-100 bottom-0 right-0 z-10' href='/'><FaTwitter className='inline-block text-xl' /></a>
                         <div className="w-48 team rounded-full relative">
                             <img src={img1} alt='' />
-                            
+
                         </div>
                     </div>
                     <p className='text-xl font-semibold'>Christian Buehner</p>
@@ -29,7 +28,7 @@ const Success = () => {
                 </div>
                 <div className='my-6 teams'>
                     <div className="avatar relative inline-block">
-                    <a className='social-media absolute bg-base-100 bottom-0 right-0 z-10' href='/'><FaInstagram className='inline-block text-xl' /></a>
+                        <a className='social-media absolute bg-base-100 bottom-0 right-0 z-10' href='/'><FaInstagram className='inline-block text-xl' /></a>
                         <div className="w-48 team rounded-full relative">
                             <img src={img2} alt='' />
                         </div>
@@ -39,7 +38,7 @@ const Success = () => {
                 </div>
                 <div className='my-6 teams'>
                     <div className="avatar relative inline-block">
-                    <a className='social-media absolute bg-base-100 bottom-0 right-0 z-10' href='/'><FaFacebook className='inline-block text-xl' /></a>
+                        <a className='social-media absolute bg-base-100 bottom-0 right-0 z-10' href='/'><FaFacebook className='inline-block text-xl' /></a>
                         <div className="w-48 team rounded-full relative">
                             <img src={img3} alt='' />
                         </div>
@@ -49,7 +48,7 @@ const Success = () => {
                 </div>
                 <div className='my-6 teams'>
                     <div className="avatar relative inline-block">
-                    <a className='social-media absolute bg-base-100 bottom-0 right-0 z-10' href='/'><FaLinkedin className='inline-block text-xl' /></a>
+                        <a className='social-media absolute bg-base-100 bottom-0 right-0 z-10' href='/'><FaLinkedin className='inline-block text-xl' /></a>
                         <div className="w-48 team rounded-full relative">
                             <img src={img4} alt='' />
                         </div>
