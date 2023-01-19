@@ -8,15 +8,15 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import { AuthContext } from "../../context/AuthContext";
 
 const SignIn = () => {
-  const {register,formState: { errors },handleSubmit,} = useForm();
-  const {userLogin, providerLogin} = useContext(AuthContext);
+  const { register, formState: { errors }, handleSubmit, } = useForm();
+  const { userLogin, providerLogin } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
-  
+  const from = location.state?.from?.pathname || '/dashboard';
+
 
   const handleLogin = (data) => {
     console.log(data);
@@ -35,23 +35,23 @@ const SignIn = () => {
       });
   };
 
-  const handleGoogleSign = () =>{
-        
+  const handleGoogleSign = () => {
+
     providerLogin(googleProvider)
-    .then(result => {
+      .then(result => {
         const user = result.user;
-        navigate(from, {replace: true}); 
+        navigate(from, { replace: true });
 
 
         const currentUser = {
-            email: user.email
+          email: user.email
         }
 
         console.log(currentUser);
-        
-    })
-    .catch(error => console.error(error))
-}
+
+      })
+      .catch(error => console.error(error))
+  }
 
   return (
     <div>
@@ -81,21 +81,22 @@ const SignIn = () => {
                 )}
               </div>
 
-<div className="form-control">
-                        <label className="label"><span className="label-text text-black">Password</span></label>
-                        <input type="password" {...register("password", {required: "Password is Required",
-                        minLength:{value: 6, message: 'Password must be 6 character'}
-                    })}
-                     placeholder="Password"
-                     className="input input-bordered" />
-                        {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}
-                        <label className="label"><span className="label-text">Forget Password?</span></label>
-                    </div>
-                    
-                    {/*  */}
+              <div className="form-control">
+                <label className="label"><span className="label-text text-black">Password</span></label>
+                <input type="password" {...register("password", {
+                  required: "Password is Required",
+                  minLength: { value: 6, message: 'Password must be 6 character' }
+                })}
+                  placeholder="Password"
+                  className="input input-bordered" />
+                {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}
+                <label className="label"><span className="label-text">Forget Password?</span></label>
+              </div>
 
-                    { loginError && <p className='text-red-500'>{loginError}</p>
-                      }
+              {/*  */}
+
+              {loginError && <p className='text-red-500'>{loginError}</p>
+              }
               <label className="label">
                 <Link to="" className="label-text-alt link text-black">
                   Forgot password?
@@ -105,7 +106,7 @@ const SignIn = () => {
               <p className="text-center">-------------Or-------------</p>
               <div>
                 <Link>
-                
+
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-10 h-10 ml-1">
@@ -115,8 +116,8 @@ const SignIn = () => {
                         ></img>
                       </div>
                       <div
-                      onClick={handleGoogleSign}
-                      className=" font-semibold ">
+                        onClick={handleGoogleSign}
+                        className=" font-semibold ">
                         Continue with Google
                       </div>
                       <div className="mr-6"></div>
@@ -138,7 +139,7 @@ const SignIn = () => {
                   </div>
                 </Link>
               </div>
-             
+
               <small>
                 <p>
                   Don't have an accounts?

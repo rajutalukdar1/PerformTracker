@@ -35,7 +35,7 @@ const questions = [
 
 const FAQSection = () => {
   return (
-    <div className="blog-container py-12 ">
+    <div className="blog-container py-12">
       <div className="text-center flex justify-center">
         <div>
           <div className="section-cap text-align">
@@ -48,7 +48,7 @@ const FAQSection = () => {
         </div>
       </div>
 
-      <div class="grid  md:grid-cols-2 gap-6  items-center">
+      <div class="grid  md:grid-cols-2 gap-6 items-center">
         <div className="img-pearent">
           <img
             style={{
