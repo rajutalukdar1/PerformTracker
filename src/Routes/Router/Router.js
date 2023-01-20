@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import AllEmployees from "../../Page/EmployeeProfile/AllEmployees/AllEmployees"
 import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/EmployeeProfile";
 import Home from "../../Page/Home/Home/Home";
 import Client from "../../Page/Others/Client/Client";
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>
       },
       {
-        path: "/client",
+        path: "/dashboard/client",
         element: <Clients></Clients>
       },
       {
@@ -47,12 +48,23 @@ const router = createBrowserRouter([
       //   element: <Dashboard></Dashboard>
       // },
       {
-        path: "/dashboard/employee-profile/:id",
-        element: <EmployeeProfile />
+        path: "/dashboard/employees",
+        element: <AllEmployees />
       },
       {
+        path: "/dashboard/employee/:id",
+        element: <EmployeeProfile />
+      },
+
+      {
+        path:'/dashboard/clientDetails/:_id',
+        element: <ClientDetails></ClientDetails>,
+        loader: ({params})=> fetch(`http://localhost:5000/clients/${params._id}`)
+        
+    },
+      {
         path: "/dashboard/clients",
-        element: <Client />
+        element: <Clients></Clients>
       },
       {
         path: "/dashboard/clientDetails",

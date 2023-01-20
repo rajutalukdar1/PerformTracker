@@ -11,7 +11,7 @@ const Client = ({ client }) => {
                     <div className="avatar">
                         <div className="w-20 rounded-full">
                             <Link to={`/dashboard/clientDetails/${_id}`}>
-                                <img src={img} alt='' />
+                                <img src={img} alt="" />
                             </Link>
                         </div>
                     </div>
@@ -23,6 +23,7 @@ const Client = ({ client }) => {
                             <button className='text-[#BBC4CC]'>Message</button>
                         </div>
                         <div>
+                            
                             <Link to={`/dashboard/clientDetails/${_id}`}>
                                 <button className='text-[#BBC4CC]'>View Profile</button>
                             </Link>
