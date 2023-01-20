@@ -57,11 +57,11 @@ const router = createBrowserRouter([
       },
 
       {
-        path:'/dashboard/clientDetails/:_id',
+        path: '/dashboard/clientDetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({params})=> fetch(`http://localhost:5000/clients/${params._id}`)
-        
-    },
+        loader: ({ params }) => fetch(`http://localhost:5000/clients/${params._id}`)
+
+      },
       {
         path: "/dashboard/clients",
         element: <Clients></Clients>
