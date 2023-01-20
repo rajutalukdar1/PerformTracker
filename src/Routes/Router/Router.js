@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
-import AllEmployees from "../../Page/DashBoard/AllEmployees";
+import AllEmployees from "../../Page/EmployeeProfile/AllEmployees/AllEmployees"
 import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/EmployeeProfile";
 import Home from "../../Page/Home/Home/Home";
 import Client from "../../Page/Others/Client/Client";
@@ -26,10 +26,7 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp></SignUp>
       },
-      {
-        path: "/Employees",
-        element: <AllEmployees />
-      }
+      
 
     ]
   },
@@ -42,9 +39,14 @@ const router = createBrowserRouter([
       //   element: <Dashboard></Dashboard>
       // },
       {
-        path: "/dashboard/employee-profile/:id",
+        path: "/dashboard/employees",
+        element: <AllEmployees />
+      },
+      {
+        path: "/dashboard/employee/:id",
         element: <EmployeeProfile />
       },
+
       {
         path:'/dashboard/clientDetails/:_id',
         element: <ClientDetails></ClientDetails>,
