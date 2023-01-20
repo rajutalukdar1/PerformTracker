@@ -6,12 +6,11 @@ const Client = ({ client }) => {
     const { _id, img, company, name, position } = client;
     return (
         <div>
-            <p>Client design</p>
             <div className="card w-96 bg-[#16191C] rounded text-neutral-content">
                 <div className="card-body items-center text-center">
                     <div className="avatar">
                         <div className="w-20 rounded-full">
-                            <Link>
+                            <Link to={`/dashboard/clientDetails/${_id}`}>
                                 <img src={img} alt='' />
                             </Link>
                         </div>
@@ -24,7 +23,7 @@ const Client = ({ client }) => {
                             <button className='text-[#BBC4CC]'>Message</button>
                         </div>
                         <div>
-                            <Link to={`/clientdetails/${_id}`}>
+                            <Link to={`/dashboard/clientDetails/${_id}`}>
                                 <button className='text-[#BBC4CC]'>View Profile</button>
                             </Link>
                         </div>
