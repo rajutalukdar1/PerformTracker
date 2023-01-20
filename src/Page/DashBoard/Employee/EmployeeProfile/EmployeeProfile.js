@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 const EmployeeProfile = () => {
   const {id} = useParams();
-  const { data: {name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary}, refetch } = useQuery({
+  const { data: {name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary} = {}, refetch } = useQuery({
     queryKey: ['employee', id],
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`).then(res => res.json()),

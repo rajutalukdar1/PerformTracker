@@ -1,10 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
-import AllEmployees from "../../Page/DashBoard/AllEmployees";
-import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/EmployeeProfile";
+import AllEmployees from "../../Page/Dashboard/Employee/AllEmployees/AllEmployees";
+import EmployeeProfile from "../../Page/Dashboard/Employee/EmployeeProfile/EmployeeProfile";
 import Home from "../../Page/Home/Home/Home";
-// import Client from "../../Page/Others/Client/Client";
 import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
 import Clients from "../../Page/Others/Clients/Clients";
 import SignIn from "../../Page/SignIn/SignIn";
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
-      },
-      {
-        path: "/Employees",
-        element: <AllEmployees />
       }
 
     ]
@@ -42,7 +37,11 @@ const router = createBrowserRouter([
       //   element: <Dashboard></Dashboard>
       // },
       {
-        path: "/dashboard/employee-profile/:id",
+        path: "/dashboard/employees",
+        element: <AllEmployees />
+      },
+      {
+        path: "/dashboard/employees/:id",
         element: <EmployeeProfile />
       },
       {
