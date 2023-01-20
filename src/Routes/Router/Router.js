@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
-import AllEmployees from "../../Page/EmployeeProfile/AllEmployees/AllEmployees"
-import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/EmployeeProfile";
+import AllEmployees from "../../Page/Dashboard/Employee/AllEmployees/AllEmployees";
+import EmployeeProfile from "../../Page/Dashboard/Employee/EmployeeProfile/EmployeeProfile";
 import Home from "../../Page/Home/Home/Home";
 import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
 import Clients from "../../Page/Others/Clients/Clients";
