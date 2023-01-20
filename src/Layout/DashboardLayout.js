@@ -17,7 +17,7 @@ const DashboardLayout = () => {
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 bg-base-100 text-base-content font-normal">
-                        <div className="dropdown">
+                        {/* <div className="dropdown">
                             <label tabIndex={0} className="btn m-1">Click</label>
                             <div tabIndex={0} className="dropdown-content card card-compact w-64 p-2 
                             shadow bg-primary text-primary-content">
@@ -27,11 +27,11 @@ const DashboardLayout = () => {
                                     <li><a>Item 2</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to="/"><AiOutlineHome /> Home</Link></li> */}
-                        <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to=""><AiOutlineUser />Employee</Link></li>
-                        <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to=""><HiOutlineUserGroup />Clients</Link></li>
+                        <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to="/dashboard/employees"><AiOutlineUser />Employee</Link></li>
+                        <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to="/dashboard/clients"><HiOutlineUserGroup />Clients</Link></li>
                         <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to="/dashboard/reports"><GoReport /> Reports</Link></li>
                     </ul>
                 </div>

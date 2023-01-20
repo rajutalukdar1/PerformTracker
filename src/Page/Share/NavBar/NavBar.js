@@ -19,19 +19,15 @@ const NavBar = () => {
       <li className="font-semibold">
         <Link to="/blog">Blog</Link>
       </li>
-      <li className="font-semibold">
-        <Link to="/dashboard/clients">Client</Link>
-      </li>
-      
-      <li className="font-semibold">
+      {/* <li className="font-semibold">
         <Link to="/services">Services</Link>
-      </li>
+      </li> */}
       <>
 
         {user?.uid ? (
           <>
             <li className="font-semibold">
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/dashboard/employees">Dashboard</Link>
             </li>
             <li className="font-semibold">
               <button onClick={handleLogout}>Log Out</button>
