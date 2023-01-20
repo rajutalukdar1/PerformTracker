@@ -3,7 +3,7 @@ import React from "react";
 const FAQCard = ({ question }) => {
   const { title, desc } = question;
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto mb-2">
       <div
         tabIndex={0}
         className="collapse collapse-plus border border-base-300 shadow rounded-box"
