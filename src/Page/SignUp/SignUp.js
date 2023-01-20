@@ -20,7 +20,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/dashboard';
+  const from = location.state?.from?.pathname || '/dashboard/employees';
 
   const handleSignUp = (data) => {
     setSignUoError();
