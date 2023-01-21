@@ -35,7 +35,7 @@ const questions = [
 
 const FAQSection = () => {
   return (
-    <div className="blog-container py-12">
+    <div className="blog-container py-12 ">
       <div className="text-center flex justify-center">
         <div>
           <div className="section-cap text-align">

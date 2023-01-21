@@ -1,17 +1,15 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import img1 from '../../../Assets/success_img/Vicky.jpg'
-
+// import img1 from '../../../Assets/success_img/Vicky.jpg'
 
 const ClientDetails = () => {
-    const {_id,img, company,name, email, phone, birthday, address, position, gender } = useLoaderData();
+    const { _id, img, company, name, email, phone, birthday, address, position, gender } = useLoaderData();
     return (
-        <div className='mb-8 max-w-6xl mx-auto'>
-            
+        <div className='mb-8 lg:max-w-screen-lg mx-5 lg:mx-auto'>
 
-
-            <div className="hero flex justify-between  w-full bg-[#16191C]">
-                <div className="hero-content flex justify-start">
+            <div className="lg:flex sm:block justify-between rounded-xl shadow-sm
+             py-4 lg:w-full sm:w-full bg-[#16191C]">
+                <div className="hero-content lg:w-1/2 sm:w-full flex justify-start">
                     <div className="avatar inline-block m-4">
                         <div className="w-32 rounded-full">
                             <img src={img} alt='' />
@@ -22,14 +20,19 @@ const ClientDetails = () => {
                         <p className='text-white font-semibold'>{name}</p>
                         <p><span className='text-white'>{position}</span></p>
                         <p className='text-white font-semibold'>Employee ID: CLT-0001</p>
-                        <button className="btn btn-sm mt-8 text-white rounded bg-[#FD7265]
-                         hover:bg-[#FD7265]">Send Message</button>
+
+                        <a
+                            class="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium
+                             text-white transition hover:scale-110 hover:shadow-xl focus:outline-none
+                              focus:ring active:bg-[#FD7265]"
+                            href=' '
+                        >
+                            Send Message
+                        </a>
                     </div>
                 </div>
-                <div className="flex flex-col w-full lg:flex-row">
-                    <div className="divider lg:divider-horizontal text-white"></div>
-                </div>
-                <div className='flex justify-evenly w-full'>
+
+                <div className='flex justify-evenly lg:w-1/2 sm:w-full'>
                     <div className="">
                         <p className='text-white font-semibold mb-4'>Phone:</p>
                         <p className='text-white font-semibold mb-4'>Email:</p>
@@ -52,19 +55,3 @@ const ClientDetails = () => {
 
 
 export default ClientDetails;
-
-
-// import React from 'react';
-// import { useLoaderData } from 'react-router-dom';
-
-// const ClientDetails = () => {
-//     const {_id,img, company } = useLoaderData();
-//     return (
-//         <div>
-//             <p>{company}</p>
-//             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta ea assumenda fugiat officiis doloribus? Voluptates voluptate aut esse facilis iusto atque, praesentium excepturi ipsa, architecto maiores minus rem laboriosam inventore.</p>
-//         </div>
-//     );
-// };
-
-// export default ClientDetails;

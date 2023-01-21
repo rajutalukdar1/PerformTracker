@@ -1,10 +1,24 @@
 import React from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+<<<<<<< HEAD
+<<<<<<< HEAD:src/Page/Home/Success/Success.js~HEAD
+import img1 from '../../../../Assets/success_img/Christian.jpg'
+import img2 from '../../../../Assets/success_img/Joseph.webp'
+import img3 from '../../../../Assets/success_img/Michael.webp'
+import img4 from '../../../../Assets/success_img/Vicky.jpg'
+import './Sucess.css'
+=======
+=======
+>>>>>>> 9b2aedfa24cb373a4e7f580c08996e9f0073ed4a
 import img1 from '../../../../Assets/success_img/Christian.jpg';
 import img2 from '../../../../Assets/success_img/Joseph.webp';
 import img3 from '../../../../Assets/success_img/Michael.webp';
 import img4 from '../../../../Assets/success_img/Vicky.jpg';
 import './Success.css';
+<<<<<<< HEAD
+>>>>>>> ef87df7ecaff4485aea97c2d411c1ae7ee335756:src/Page/Home/Home/Success/Success.js
+=======
+>>>>>>> 9b2aedfa24cb373a4e7f580c08996e9f0073ed4a
 
 const Success = () => {
     return (
