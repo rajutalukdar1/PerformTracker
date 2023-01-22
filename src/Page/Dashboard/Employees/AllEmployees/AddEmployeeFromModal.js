@@ -6,52 +6,52 @@ const AddEmployeeFromModal = () => {
       <input type="checkbox" id="my-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">
-          <form action="" class="space-y-4">
+          <form action="" className="space-y-4">
             <div>
-              <label class="sr-only" for="name">
+              <label className="sr-only" htmlFor="name">
                 Name
               </label>
               <input
                 name="name"
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm"
                 placeholder="Name"
                 type="text"
                 id="name"
               />
             </div>
             <div>
-              <label class="sr-only" for="name">
+              <label className="sr-only" htmlFor="name">
                 designation
               </label>
               <input
                 name="designation"
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm"
                 placeholder="designation"
                 type="text"
                 id="name"
               />
             </div>
             <div>
-              <label class="sr-only" for="name">
+              <label className="sr-only" htmlFor="name">
                 Address
               </label>
               <input
                 name="address"
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm"
                 placeholder="Address"
                 type="text"
                 id="name"
               />
             </div>
 
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label class="sr-only" for="email">
+                <label className="sr-only" htmlFor="email">
                   Salary
                 </label>
                 <input
                   name="salary"
-                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Salary"
                   type="text"
                
@@ -59,13 +59,13 @@ const AddEmployeeFromModal = () => {
               </div>
 
               <div>
-                <label class="sr-only" for="phone">
+                <label className="sr-only" htmlFor="phone">
                   Nationality
                 </label>
                 <input
             
                   name="nationality"
-                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="nationality"
                   type="tel"
                   id="phone"
@@ -73,14 +73,14 @@ const AddEmployeeFromModal = () => {
               </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <label class="sr-only" for="email">
+                <label className="sr-only" htmlFor="email">
                   Email
                 </label>
                 <input
                   name="email"
-                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Email address"
                   type="email"
                   id="email"
@@ -88,19 +88,19 @@ const AddEmployeeFromModal = () => {
               </div>
 
               <div>
-                <label class="sr-only" for="phone">
+                <label className="sr-only" htmlFor="phone">
                   Phone
                 </label>
                 <input
                   name="phone"
-                  class="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Phone Number"
                   type="tel"
                   id="phone"
                 />
               </div>
             </div>
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <select className="select  rounded-lg border-gray-200 p-3 w-full max-w-xs">
                   <option disabled selected>
