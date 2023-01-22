@@ -4,7 +4,6 @@ import AddEmployeeFromModal from "./AddEmployeeFromModal";
 
 const AllEmployees = () => {
   const [AllEmployees, setAllEmployees] = useState([]);
-  console.log(AllEmployees);
 
   useEffect(() => {
     fetch(`https://perform-tracker-server.vercel.app/employees`)
@@ -31,8 +30,8 @@ const AllEmployees = () => {
         style={{ backgroundColor: "#F7F7F7" }}
         className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6"
       >
-        {AllEmployees.map((singleEmployee) => (
-          <Link to={`/dashboard/employee/${singleEmployee._id}`}>
+        {AllEmployees.map((singleEmployee, i) => (
+          <Link key={i} to={`/dashboard/employee/${singleEmployee._id}`}>
             <div className=" shadow-md  rounded-md   bg-white py-8">
               <div className="flex  justify-center ">
                 <img
@@ -41,7 +40,7 @@ const AllEmployees = () => {
                   alt=""
                 />
               </div>
-              <div className="text-center  pt-4">
+              <div className="text-center pt-4">
                 <h4 className="font-bold text-xl text-gray-900">
                   {singleEmployee.name}
                 </h4>

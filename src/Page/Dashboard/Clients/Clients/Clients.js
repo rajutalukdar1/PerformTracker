@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Client from '../Client/Client';
+import Client from './Client';
 
 const Clients = () => {
 
