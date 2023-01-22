@@ -6,8 +6,8 @@ const Client = ({ client }) => {
     const { _id, img, company, name, position } = client;
     return (
         <div>
-            <div className="card w-96 bg-[#16191C] rounded text-neutral-content">
-                <div className="card-body items-center text-center">
+            <div className="card w-full  rounded text-neutral-content shadow-2xl">
+                <div className="card-body bg-[#16191C] rounded-xl items-center text-center">
                     <div className="avatar">
                         <div className="w-20 rounded-full">
                             <Link to={`/dashboard/clientDetails/${_id}`}>
@@ -15,7 +15,7 @@ const Client = ({ client }) => {
                             </Link>
                         </div>
                     </div>
-                    <h2 className="card-title text-[#BBC4CC]">{company}</h2>
+                    <h2 className="card-title whitespace-nowrap text-[#BBC4CC]">{company}</h2>
                     <p className='text-[#BBC4CC]'>{name}</p>
                     <p><span className='text-[#BBC4CC]'>{position}</span></p>
                     <div className='flex justify-evenly w-full'>
