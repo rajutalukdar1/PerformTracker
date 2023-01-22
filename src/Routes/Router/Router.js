@@ -31,12 +31,7 @@ const router = createBrowserRouter([
         path: '/blog',
         element: <Blog></Blog>
       },
-      {
-        path: '/dashboard/clientDetails/:_id',
-        element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
-
-      }
+      
     ]
   },
   {
@@ -65,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/clients",
         element: <Clients></Clients>
+      },
+      {
+        path: "/dashboard/clients",
+        element: <
       },
       {
         path: "/dashboard/clientDetails",
