@@ -6,7 +6,7 @@ import './Main.css'
 
 const Main = () => {
     return (
-        <div>
+        <div className='w-[95%] mx-auto'>
             <NavBar></NavBar>
             <div className='mt-5'>
                 <Outlet></Outlet>
