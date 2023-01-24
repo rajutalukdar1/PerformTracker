@@ -5,7 +5,7 @@ const Reports = () => {
     const [reports, setReports] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/employees')
+        fetch('https://perform-tracker-server.vercel.app/employees')
             .then(res => res.json())
             .then(data => {
                 setReports(data)

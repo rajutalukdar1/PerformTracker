@@ -1,13 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
-import AllEmployees from "../../Page/EmployeeProfile/AllEmployees/AllEmployees"
-import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/EmployeeProfile";
+import Blog from "../../Page/Blog/Blog";
+import ClientDetails from "../../Page/Dashboard/Clients/ClientDetails/ClientDetails";
+import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
+import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
+import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
+import Reports from "../../Page/Dashboard/Reports/Reports";
 import Home from "../../Page/Home/Home/Home";
-import Client from "../../Page/Others/Client/Client";
-import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
-import Clients from "../../Page/Others/Clients/Clients";
-import Reports from "../../Page/Reports/Reports";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 const router = createBrowserRouter([
@@ -28,14 +28,8 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>
       },
       {
-        path: "/dashboard/client",
-        element: <Clients></Clients>
-      },
-      {
-        path: '/dashboard/clientDetails/:_id',
-        element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/clients/${params._id}`)
-
+        path: '/blog',
+        element: <Blog></Blog>
       }
     ]
   },
@@ -52,25 +46,20 @@ const router = createBrowserRouter([
         element: <AllEmployees />
       },
       {
-        path: "/dashboard/employee/:id",
+        path: "/dashboard/employees/:id",
         element: <EmployeeProfile />
       },
 
       {
         path: '/dashboard/clientDetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/clients/${params._id}`)
-
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
       },
       {
         path: "/dashboard/clients",
-        element: <Clients></Clients>
+        element: <Clients />
       },
       {
-        path: "/dashboard/clientDetails",
-        element: <ClientDetails></ClientDetails>
-      }
-      , {
         path: "/dashboard/reports",
         element: <Reports></Reports>
       }

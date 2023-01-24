@@ -6,7 +6,7 @@ import { MdLooks, MdSupervisedUserCircle } from "react-icons/md";
 
 const HrBusiness = () => {
   return (
-    <div className="my-14 px-2  md:px-20">
+    <div className="my-14 px-2 md:px-20">
       <div className=" my-12 ">
         <MdLooks className="text-center mx-auto text-blue-600"></MdLooks>
         <h5 className="hover:text-rose-600 text-center font-bold text-blue-600 ">
@@ -16,7 +16,7 @@ const HrBusiness = () => {
           All-in-one payroll and HR <br /> your business
         </h2>
       </div>
-      <div className="grid grid-cols-5  gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-4">
         <div className="">
           <div className="text-center shadow-md w-20 h-20 lg:w-36 lg:h-36 rounded-full card bg-gray-200 flex items-center justify-center p-3 hover:bg-rose-600 text-blue-600 hover:text-white mx-auto">
             <div className="">

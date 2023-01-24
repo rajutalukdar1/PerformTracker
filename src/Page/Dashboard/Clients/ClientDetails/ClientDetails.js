@@ -22,7 +22,7 @@ const ClientDetails = () => {
                         <p className='text-white font-semibold'>Employee ID: CLT-0001</p>
 
                         <a
-                            class="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium
+                            className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium
                              text-white transition hover:scale-110 hover:shadow-xl focus:outline-none
                               focus:ring active:bg-[#FD7265]"
                             href=' '

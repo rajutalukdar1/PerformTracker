@@ -16,11 +16,11 @@ const SignUp = () => {
   const { createUser, updateUser } = useContext(AuthContext);
   const [signUpError, setSignUoError] = useState("");
   const googleProvider = new GoogleAuthProvider();
-  const { providerLogin} = useContext(AuthContext);
+  const { providerLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || '/dashboard';
+  const from = location.state?.from?.pathname || '/dashboard/employees';
 
   const handleSignUp = (data) => {
     setSignUoError();
@@ -34,7 +34,7 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            navigate('/dashboard')
+            navigate('/dashboard/employees')
           })
           .catch((err) => console.log(err));
       })
