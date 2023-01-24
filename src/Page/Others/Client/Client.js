@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // import img1 from '../../../Assets/success_img/Vicky.jpg'
 
-const Client = ({ client }) => {
+const Client = ({ client}) => {
     const { _id, img, company, name, position } = client;
     return (
         <div>

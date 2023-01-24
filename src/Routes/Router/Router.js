@@ -5,6 +5,8 @@ import Blog from "../../Page/Blog/Blog";
 import AllEmployees from "../../Page/EmployeeProfile/AllEmployees/AllEmployees"
 import EmployeeProfile from "../../Page/EmployeeProfile/EmployeeProfile/EmployeeProfile";
 import Home from "../../Page/Home/Home/Home";
+import AddClient from "../../Page/Others/AddClient/AddClient";
+
 import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
 import Clients from "../../Page/Others/Clients/Clients";
 import Reports from "../../Page/Reports/Reports";
@@ -57,17 +59,20 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
 
       },
+      
       {
         path: "/dashboard/clients",
-        element: <Clients></Clients>
+        element: <Clients></Clients>,
+        loader: () => fetch('https://perform-tracker-server.vercel.app/clients')
       },
       {
-        path: "/dashboard/clients",
-        element: <
+        path: "/dashboard/addclient",
+        element: <AddClient></AddClient>
       },
       {
         path: "/dashboard/clientDetails",
-        element: <ClientDetails></ClientDetails>
+        element: <ClientDetails></ClientDetails>,
+        loader: () => fetch('https://perform-tracker-server.vercel.app/clients')
       }
       , {
         path: "/dashboard/reports",

@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Client from '../Client/Client';
 import { FaBars, FaPlus, FaTh } from "react-icons/fa";
+import { Link, useLoaderData } from 'react-router-dom';
+import AddClient from '../AddClient/AddClient';
 
 const Clients = () => {
-
+    const user = useLoaderData();
     const [clients, setClients] = useState([]);
-    useEffect(() => {
-        fetch('https://perform-tracker-server.vercel.app/clients')
-            .then(res => res.json())
-            .then(data => setClients(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('https://perform-tracker-server.vercel.app/clients')
+    //         .then(res => res.json())
+    //         .then(data => setClients(data))
+    // }, [])
     return (
         <div className='bg-slate-100 mt-6'>
+            <h2>{user?.length}</h2>
             <div className='grid grid-cols-2 justify-end '>
                 <div>
                     <h2 className='text-3xl font-bold p-4'>Clients</h2>
@@ -20,7 +23,14 @@ const Clients = () => {
                     <h2 className='cursor-pointer rounded-md p-4 bg-base-100 shadow-xl'><FaTh></FaTh></h2>
                     
                     <h2 className='cursor-pointer rounded-md p-4 bg-base-100 shadow-xl'><FaBars className='text-black'></FaBars></h2>
-                    <h2 className="px-12 btn rounded-full bg-orange-500  cursor-pointer text-white"> <FaPlus className='mr-4 text-white'></FaPlus>Add Client</h2>
+                        
+                        <label
+                    //  disabled={slots.length === 0}
+                     htmlFor="booking-modal" 
+                     className="px-12 btn rounded-full bg-orange-500  cursor-pointer text-white"
+                     ><FaPlus className='mr-4 text-white'></FaPlus>Add Client</label>
+                    
+                    
                 </div>
             </div>
             <div className='grid gap-6 mx-4  my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
@@ -44,12 +54,17 @@ const Clients = () => {
             <div className='grid gap-6 mx-4  my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
 
                 {
-                    clients.map(client => <Client
+                    user?.map(client => <Client
                         key={client._id}
                         client={client}
                     ></Client>)
                 }
             </div>
+            {
+                    clients &&
+                    <AddClient
+                ></AddClient>
+                }
         </div>
     );
 };
