@@ -28,7 +28,6 @@ const DashboardLayout = () => {
                                 </ul>
                             </div>
                         </div>
-
                         {/* <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to="/"><AiOutlineHome /> Home</Link></li> */}
                         <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to=""><AiOutlineUser />Employee</Link></li>
                         <li className='rounded-md mb-4'><Link className='pl-0 text-2xl' to=""><HiOutlineUserGroup />Clients</Link></li>

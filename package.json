@@ -16,8 +16,10 @@
     "react-hook-form": "^7.42.1",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.7.1",
+    "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
+    "react-spinners": "^0.13.8",
     "swiper": "^8.4.5",
     "web-vitals": "^2.1.4"
   },
