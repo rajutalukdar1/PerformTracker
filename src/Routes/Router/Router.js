@@ -9,10 +9,6 @@ import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/Empl
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Home from "../../Page/Home/Home/Home";
 import AddClient from "../../Page/Others/AddClient/AddClient";
-
-import ClientDetails from "../../Page/Others/ClientDetails/ClientDetails";
-import Clients from "../../Page/Others/Clients/Clients";
-import Reports from "../../Page/Reports/Reports";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 const router = createBrowserRouter([
