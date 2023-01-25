@@ -6,7 +6,7 @@ const Client = ({ client }) => {
     const { _id, img, company, name, position } = client;
     return (
         <div>
-            <div className="card w-96 bg-[#16191C] rounded text-neutral-content">
+            <div className="card bg-[#16191C] rounded text-neutral-content">
                 <div className="card-body items-center text-center">
                     <div className="avatar">
                         <div className="w-20 rounded-full">
