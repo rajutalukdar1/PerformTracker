@@ -6,9 +6,9 @@ import './Main.css'
 
 const Main = () => {
     return (
-        <div className='w-[95%] mx-auto'>
+        <div>
             <NavBar></NavBar>
-            <div className='mt-5'>
+            <div className='w-[95%] mx-auto mt-5'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>

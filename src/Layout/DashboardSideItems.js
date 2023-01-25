@@ -21,7 +21,7 @@ const DashboardSideItems = ({ icon, title, subMenus }) => {
         <div className='flex items-center gap-4 text-gray-300 hover:text-white' onClick={toggle}>
           {icon}
           <span>{title}</span>
-          <FaAngleRight className={`transition-all ${rotate}`} />
+          <FaAngleRight className={`transition-all ml-auto ${rotate}`} />
         </div>
         <div className={`overflow-hidden transition-[max-height] ease-linear duration-300 ${height}`}>
           <ul className="menu text-gray-300">
