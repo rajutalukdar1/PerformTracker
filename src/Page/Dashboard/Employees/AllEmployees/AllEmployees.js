@@ -31,7 +31,7 @@ const AllEmployees = () => {
         className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6"
       >
         {AllEmployees.map((singleEmployee, i) => (
-          <Link key={i} to={`/dashboard/employee/${singleEmployee._id}`}>
+          <Link key={i} to={`/dashboard/employees/${singleEmployee._id}`}>
             <div className=" shadow-md  rounded-md   bg-white py-8">
               <div className="flex  justify-center ">
                 <img

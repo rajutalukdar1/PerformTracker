@@ -4,13 +4,13 @@ import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 
 const EmployeeProfile = () => {
-  const {id} = useParams();
-  const { data: {name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary} = {}, refetch } = useQuery({
+  const { id } = useParams();
+  const { data: { name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary } = {}, refetch } = useQuery({
     queryKey: ['employee', id],
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`).then(res => res.json()),
   });
-  
+
   return (
     <div className='w-full max-w-[1440px] mx-auto mb-20'>
       <div className="mx-5 md:mx-10">
