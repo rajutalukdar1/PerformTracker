@@ -32,7 +32,7 @@ const AllEmployees = () => {
       >
         {AllEmployees.map((singleEmployee, i) => (
           <Link key={i} to={`/dashboard/employees/${singleEmployee._id}`}>
-            <div className=" shadow-md  rounded-md   bg-white py-8">
+            <div className=" shadow-md  rounded-md bg-white py-8">
               <div className="flex  justify-center ">
                 <img
                   className="w-20 h-20 rounded-full object-cover"

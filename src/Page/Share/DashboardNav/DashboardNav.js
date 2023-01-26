@@ -6,7 +6,13 @@ import { FaCog } from 'react-icons/fa';
 import { AuthContext } from '../../../context/AuthContext';
 
 const DashboardNav = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then(() => { })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="navbar bg-black fixed border-b-2 border-gray-900 z-50">
       <div className="flex-1">
@@ -48,7 +54,7 @@ const DashboardNav = () => {
               </Link>
             </li>
             <li className='mb-3'>
-              <button className='items-center'>
+              <button onClick={handleLogout} className='items-center'>
                 <ImExit />
                 <span>Logout</span>
               </button>
