@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { GoReport } from "react-icons/go";
-import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
 import { HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
@@ -18,8 +18,24 @@ const DashboardLayout = () => {
                 <div className="drawer-side fixed h-full w-full sm:w-[220px] overflow-y-auto">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu bg-black text-base-content font-semibold py-5 w-full sm:w-[220px]">
+
                         <DashboardSideItems
-                            icon={<AiOutlineUser className='text-2xl' />}
+                            icon={<AiOutlineDashboard className='text-2xl mt-2' />}
+                            title='Dashboard'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/admin",
+                                    title: "Admin"
+                                },
+                                {
+                                    to: "/dashboard/dashboardEmployees",
+                                    title: "Employees"
+                                },
+                            ]}
+                        />
+
+                        <DashboardSideItems
+                            icon={<AiOutlineUser className='text-2xl mt-2' />}
                             title='Employees'
                             subMenus={[
                                 {
@@ -29,7 +45,7 @@ const DashboardLayout = () => {
                             ]}
                         />
                         <DashboardSideItems
-                            icon={<HiOutlineUserGroup className='text-2xl' />}
+                            icon={<HiOutlineUserGroup className='text-2xl mt-2' />}
                             title='Clients'
                             subMenus={[
                                 {
@@ -39,7 +55,7 @@ const DashboardLayout = () => {
                             ]}
                         />
                         <DashboardSideItems
-                            icon={<GoReport className='text-2xl' />}
+                            icon={<GoReport className='text-2xl mt-2' />}
                             title='Reports'
                             subMenus={[
                                 {
