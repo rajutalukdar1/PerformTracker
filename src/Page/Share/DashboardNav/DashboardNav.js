@@ -6,7 +6,7 @@ import { FaCog } from 'react-icons/fa';
 
 const DashboardNav = () => {
   return (
-    <div className="navbar bg-black fixed border-b-2 border-gray-900 z-50">
+    <div className="navbar bg-black fixed border-b-2 border-gray-900 ">
       <div className="flex-1">
         <Link className="flex items-center gap-3 py-2" to="/">
           <img className="w-6 sm:w-8 md:w-12 border-2 rounded-full" src={logo} alt="" />

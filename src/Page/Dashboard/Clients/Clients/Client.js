@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Client = ({ client}) => {
     const { _id, img, company, name, position } = client;
     return (
-        <div>
+        <div className=''>
             <div className="card w-full  rounded text-neutral-content shadow-2xl">
                 <div className="card-body bg-[#16191C] rounded-xl items-center text-center">
                     <div className="avatar">

@@ -2,13 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Blog from "../../Page/Blog/Blog";
+import AddClient from "../../Page/Dashboard/AddClient/AddClient";
 import ClientDetails from "../../Page/Dashboard/Clients/ClientDetails/ClientDetails";
 import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Home from "../../Page/Home/Home/Home";
-import AddClient from "../../Page/Others/AddClient/AddClient";
+
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 const router = createBrowserRouter([
