@@ -10,7 +10,6 @@ import { useQuery } from "@tanstack/react-query";
 const AllEmployees = () => {
   const [ employee , setEmployee] = useState(null)
   const [AllEmployees, setAllEmployees] = useState([]);
-  console.log(AllEmployees);
 
   useEffect(() => {
     fetch(`https://perform-tracker-server.vercel.app/employees`)
@@ -21,7 +20,7 @@ const AllEmployees = () => {
   
   return (
     <section className="md:px-20">
-      <div className="flex  justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-6">
         <div>
           <h2 className="px-3 py-2 bg-gray-900 rounded-tr-3xl text-white font-semibold text-xl">
             Employees
@@ -43,7 +42,7 @@ const AllEmployees = () => {
       }
       <div
         style={{ backgroundColor: "#F7F7F7" }}
-        className="grid  grid-cols-4 gap-6"
+        className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6"
       >
         {AllEmployees.map((singleEmployee) => (
          
@@ -75,12 +74,12 @@ const AllEmployees = () => {
               <Link to={`/dashboard/employee/${singleEmployee._id}`}>
               <div className="flex  justify-center ">
                 <img
-                  className="w-20 h-20 rounded-full"
+                  className="w-20 h-20 rounded-full object-cover"
                   src={singleEmployee.img}
                   alt=""
                 />
               </div>
-              <div className="text-center  pt-4">
+              <div className="text-center pt-4">
                 <h4 className="font-bold text-xl text-gray-900">
                   {singleEmployee.name}
                 </h4>
