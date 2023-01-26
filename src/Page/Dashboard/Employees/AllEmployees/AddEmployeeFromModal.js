@@ -3,10 +3,11 @@ import React from "react";
 const AddEmployeeFromModal = () => {
   return (
     <div>
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
+      <input type="checkbox" id="add-employee-modal" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box">
-          <form action="" className="space-y-4">
+          <label htmlFor="add-employee-modal" className="btn btn-sm btn-circle bg-white hover:bg-gray-50 border-transparent hover:border-transparent text-gray-600 absolute right-2 top-2">✕</label>
+          <form action="" className="space-y-4 mt-6">
             <div>
               <label className="sr-only" htmlFor="name">
                 Name
@@ -54,7 +55,7 @@ const AddEmployeeFromModal = () => {
                   className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Salary"
                   type="text"
-               
+
                 />
               </div>
 
@@ -63,7 +64,7 @@ const AddEmployeeFromModal = () => {
                   Nationality
                 </label>
                 <input
-            
+
                   name="nationality"
                   className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="nationality"
@@ -109,7 +110,7 @@ const AddEmployeeFromModal = () => {
                   <option>Male</option>
                   <option>Female</option>
                   <option>Others</option>
-                 
+
                 </select>
               </div>
 
@@ -120,14 +121,14 @@ const AddEmployeeFromModal = () => {
                   </option>
                   <option>unmarried</option>
                   <option>married</option>
-                  
-                 
+
+
                 </select>
               </div>
             </div>
             <div className="modal-action">
               <label
-                htmlFor="my-modal"
+                htmlFor="add-employee-modal"
                 className="px-3 py-2 rounded-lg bg-orange-600  text-white font-semibold text-xl"
               >
                 <button type="submit">Submit</button>
