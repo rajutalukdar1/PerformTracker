@@ -14,7 +14,7 @@ const DashboardNav = () => {
   };
 
   return (
-    <div className="navbar bg-black fixed border-b-2 border-gray-900 ">
+    <div className="navbar bg-black fixed border-b-2 border-gray-900 z-50">
       <div className="flex-1">
         <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden pl-0">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -34,7 +34,7 @@ const DashboardNav = () => {
             </div>
             <span className='text-white hidden sm:block'>{user?.displayName}</span>
           </label>
-          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-900 text-slate-200 rounded-box w-52">
+          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-900 text-slate-200 rounded-box w-52 ">
             <li className='border-b-2 pb-2 mx-4 mt-3'>
               <div className="bg-transparent flex flex-col gap-0 items-center">
                 <div className="avatar">

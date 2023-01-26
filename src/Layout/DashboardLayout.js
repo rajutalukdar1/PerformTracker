@@ -12,7 +12,7 @@ const DashboardLayout = () => {
             <DashboardNav />
             <div className="drawer drawer-mobile pt-16 md:pt-20">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content px-4 py-10 lg:ml-[222px] -z-10">
+                <div className="drawer-content px-4 py-10 lg:ml-[222px] ">
                 
                     <Outlet></Outlet>
                 </div>

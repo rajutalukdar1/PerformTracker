@@ -73,7 +73,7 @@ const AddClient = ({refetch, setClients}) => {
       <>
        <div className=''>    
       <input type="checkbox" id="booking-modal" className="modal-toggle " />
-      <div className="modal">
+      <div className="modal pt-24">
       <div className="modal-box relative ">
           <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2  top-2">✕</label>
           
