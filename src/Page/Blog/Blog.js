@@ -12,7 +12,7 @@ const Blog = () => {
     const { data: blogs = [], refetch } = useQuery({
         queryKey: ['blogs'],
         queryFn: () =>
-            fetch('http://localhost:5000/blogs').then(res => res.json()),
+            fetch('https://perform-tracker-server.vercel.app/blogs').then(res => res.json()),
     });
 
     return (
