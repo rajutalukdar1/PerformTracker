@@ -9,7 +9,7 @@ const Clients = () => {
 
     const [clients, setClients] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/clients')
+        fetch('https://perform-tracker-server.vercel.app/clients')
             .then(res => res.json())
             .then(data => setClients(data))
     }, []);

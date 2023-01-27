@@ -41,7 +41,7 @@ const AddClient = ({refetch, setClients}) => {
                     }
 
                     // save doctor information to the database
-                    fetch('http://localhost:5000/clients', {
+                    fetch('https://perform-tracker-server.vercel.app/clients', {
                         method: 'POST',
                         headers: {
                             'content-type' : 'application/json',
