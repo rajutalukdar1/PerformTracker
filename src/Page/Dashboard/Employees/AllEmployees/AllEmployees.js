@@ -28,7 +28,8 @@ const AllEmployees = () => {
   const handleReviewDelete= (id) =>{
     const process = window.confirm("are you sure delete this Employee")
     if(process){
-        fetch(`https://perform-tracker-server.vercel.app/employees/${id}`,{
+        fetch(`https://perform-tracker-server.vercel.app
+        /employees/${id}`,{
             method: 'DELETE',
            
         })
