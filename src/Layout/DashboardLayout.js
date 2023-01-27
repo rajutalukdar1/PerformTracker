@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { GoReport } from "react-icons/go";
-import { AiOutlineUser } from 'react-icons/ai';
+import { GoReport, GoRocket } from "react-icons/go";
+import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
 import { HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
@@ -12,14 +12,31 @@ const DashboardLayout = () => {
             <DashboardNav />
             <div className="drawer drawer-mobile pt-16 md:pt-20">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content px-4 py-10 lg:ml-[222px]">
+                <div className="drawer-content px-4 py-10 lg:ml-[222px] ">
+
                     <Outlet></Outlet>
                 </div>
                 <div className="drawer-side fixed h-full w-full sm:w-[220px] overflow-y-auto">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu bg-black text-base-content font-semibold py-5 w-full sm:w-[220px]">
+
                         <DashboardSideItems
-                            icon={<AiOutlineUser className='text-2xl' />}
+                            icon={<AiOutlineDashboard className='text-2xl mt-2' />}
+                            title='Dashboard'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/admin",
+                                    title: "Admin"
+                                },
+                                {
+                                    to: "/dashboard/dashboardEmployees",
+                                    title: "Employees"
+                                },
+                            ]}
+                        />
+
+                        <DashboardSideItems
+                            icon={<AiOutlineUser className='text-2xl mt-2' />}
                             title='Employees'
                             subMenus={[
                                 {
@@ -29,7 +46,7 @@ const DashboardLayout = () => {
                             ]}
                         />
                         <DashboardSideItems
-                            icon={<HiOutlineUserGroup className='text-2xl' />}
+                            icon={<HiOutlineUserGroup className='text-2xl mt-2' />}
                             title='Clients'
                             subMenus={[
                                 {
@@ -39,12 +56,36 @@ const DashboardLayout = () => {
                             ]}
                         />
                         <DashboardSideItems
-                            icon={<GoReport className='text-2xl' />}
+                            icon={<GoReport className='text-2xl mt-2' />}
                             title='Reports'
                             subMenus={[
                                 {
                                     to: "/dashboard/reports",
                                     title: "Employee Reports"
+                                },
+                            ]}
+                        />
+                        <DashboardSideItems
+                            icon={<GoRocket className='text-2xl mt-2' />}
+                            title='Projects'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/reports",
+                                    title: "Projects"
+                                },
+                            ]}
+                        />
+                        <DashboardSideItems
+                            icon={<AiOutlineUser className='text-2xl mt-2' />}
+                            title='Profile'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/reports",
+                                    title: "Employees Profile"
+                                },
+                                {
+                                    to: "/dashboard/reports",
+                                    title: "Client Profile"
                                 },
                             ]}
                         />
