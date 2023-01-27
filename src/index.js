@@ -5,6 +5,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './context/AuthContext';
+import { Provider } from 'react-redux';
+import store from './app/store';
 
 const queryClient = new QueryClient()
 
@@ -12,9 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
+      <Provider store={store}>
         <App />
-      </AuthProvider>
+      </Provider>
     </QueryClientProvider>
   </React.StrictMode>
 );

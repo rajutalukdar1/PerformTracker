@@ -1,14 +1,24 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { toast } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../Assets/logo (1).png";
-import { AuthContext } from "../../../context/AuthContext";
+import { logOut } from "../../../features/auths/AuthSlice";
 import "./Nav.css";
 
 const NavBar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useSelector(state => state.userReducer);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Logout With Firebase and Redux
   const handleLogout = () => {
-    logOut()
-      .then(() => { })
+    dispatch(logOut())
+      .then(() => {
+        toast("You are Logged Out");
+        console.log("Logged Out");
+        navigate("/login");
+      })
       .catch((err) => console.log(err));
   };
   const menuItems = (
@@ -19,11 +29,7 @@ const NavBar = () => {
       <li className="font-semibold">
         <Link to="/blog">Blog</Link>
       </li>
-      {/* <li className="font-semibold">
-        <Link to="/services">Services</Link>
-      </li> */}
       <>
-
         {user?.uid ? (
           <>
             <li className="font-semibold">
@@ -41,6 +47,7 @@ const NavBar = () => {
       </>
     </>
   );
+
   return (
     <div className="stop bg-base-100 border-b-2">
       <div className="navbar w-[95%] max-w-[1440px] mx-auto flex justify-between">
