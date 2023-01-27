@@ -17,7 +17,7 @@ const Clients = () => {
   });
   console.log(user);
   return (
-    <div className="bg-slate-100 mt-16 px-8 pt-6">
+    <div className="bg-slate-100 px-8">
       <div className="grid grid-cols-2 justify-end ">
         <div>
           <h2 className="text-3xl font-bold p-4">Clients</h2>
@@ -73,9 +73,9 @@ const Clients = () => {
           <Client key={client._id} client={client}></Client>
         ))}
       </div>
-      {clients && <AddClient 
-      refetch={refetch}
-      setClients={setClients}
+      {clients && <AddClient
+        refetch={refetch}
+        setClients={setClients}
       ></AddClient>}
     </div>
   );

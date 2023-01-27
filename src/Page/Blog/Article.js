@@ -38,7 +38,7 @@ const Article = ({ article, setId }) => {
             </div>
           </div>
           <div>
-            <h4 className='font-semibold leading-5'>Sumon Kaysar</h4>
+            <h4 className='font-semibold leading-5'>{author.name}</h4>
             <p className='leading-5'><small>{publishDate}</small></p>
           </div>
         </div>
