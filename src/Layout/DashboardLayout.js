@@ -8,7 +8,7 @@ import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 
 const DashboardLayout = () => {
     return (
-        <div>
+        <div className=''>
             <DashboardNav />
             <div className="drawer drawer-mobile pt-16 md:pt-20">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
