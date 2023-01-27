@@ -11,11 +11,11 @@ const DashboardLayout = () => {
         <div>
             <DashboardNav />
             <div className="drawer drawer-mobile pt-16 md:pt-20">
-                <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
+                <input id="dashboard-drawer" type="checkbox" className="drawer-toggle peer" />
                 <div className="drawer-content px-4 py-10 lg:ml-[222px]">
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side fixed h-full w-full sm:w-[220px] overflow-y-auto">
+                <div className="drawer-side fixed h-full w-0 lg:w-[220px] peer-checked:w-full lg:peer-checked:w-[220px] overflow-y-auto">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu bg-black text-base-content font-semibold py-5 w-full sm:w-[220px]">
                         <DashboardSideItems

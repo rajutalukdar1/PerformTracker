@@ -1,54 +1,49 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/Home-Images/image.png";
 
 import "./SignIn.css";
 import { GoogleAuthProvider } from 'firebase/auth';
-import { AuthContext } from "../../context/AuthContext";
+import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
 
 const SignIn = () => {
   const { register, formState: { errors }, handleSubmit, } = useForm();
-  const { userLogin, providerLogin } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
+
+
   const from = location.state?.from?.pathname || '/dashboard/employees';
 
-
+  // Login With Firebase and Redux
   const handleLogin = (data) => {
-    console.log(data);
     setLoginError();
-    userLogin(data.email, data.password)
+    dispatch(userLogin(data.email, data.password, () => { }))
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        toast.success("Logged In Successfully.");
+        console.log("Logged In");
         setLoginUserEmail(data.email);
-        navigate(from)
-
+        navigate(from, { replace: true })
       })
-      .catch((error) => {
-        console.log(error.message);
-        setLoginError(error.message);
-      });
+      .catch(e => {
+        console.log(e.message);
+        setLoginError(e.message);
+      })
   };
 
+  // Google Provider Login With Firebase and Redux
   const handleGoogleSign = () => {
-
-    providerLogin(googleProvider)
+    dispatch(providerLogin(googleProvider))
       .then(result => {
-        const user = result.user;
+        toast.success("Google Logged In Successfully.");
         navigate(from, { replace: true });
-
-
-        const currentUser = {
-          email: user.email
-        }
-
-        console.log(currentUser);
-
+        console.log("Provider Logged In");
       })
       .catch(error => console.error(error))
   }

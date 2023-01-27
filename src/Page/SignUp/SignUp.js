@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/Home-Images/image.png";
-import { AuthContext } from "../../context/AuthContext";
 import { GoogleAuthProvider } from 'firebase/auth';
+import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
+import { useDispatch } from "react-redux";
 
 
 const SignUp = () => {
@@ -13,52 +14,47 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { createUser, updateUser } = useContext(AuthContext);
-  const [signUpError, setSignUoError] = useState("");
+  const [signUpError, setSignUpError] = useState("");
   const googleProvider = new GoogleAuthProvider();
-  const { providerLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const from = location.state?.from?.pathname || '/dashboard/employees';
 
+  // Signup With Firebase and Redux
   const handleSignUp = (data) => {
-    setSignUoError();
-    createUser(data.email, data.password)
+    setSignUpError();
+    dispatch(createUser(data.email, data.password))
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        toast("User Created Successfully.");
+        toast.success("User Created Successfully.");
         const userInfo = {
           displayName: data.name,
         };
-        updateUser(userInfo)
+        dispatch(updateUser(userInfo))
           .then(() => {
+            console.log("Signed Up");
             navigate('/dashboard/employees')
           })
           .catch((err) => console.log(err));
       })
       .catch((error) => {
         console.log(error);
-        setSignUoError(error.message);
+        setSignUpError(error.message);
       });
   };
+
+  // Google Provider Login With Firebase and Redux
   const handleGoogleSign = () => {
-
-    providerLogin(googleProvider)
+    dispatch(providerLogin(googleProvider))
       .then(result => {
-        const user = result.user;
+        toast.success("Logged In Successfully.");
         navigate(from, { replace: true });
-
-        const currentUser = {
-          email: user.email
-        }
-
-        console.log(currentUser);
-
+        console.log("Provider Logged In");
       })
       .catch(error => console.error(error))
   }
+
   return (
     <div>
       <div className="hero min-h-screen text-black">
