@@ -54,7 +54,7 @@ const DashboardNav = () => {
                 </div>
                 <h3 className='text-lg p-0'>{user?.displayName}</h3>
                 <p className='p-0'>Admin</p>
-                <Link to='/profile' className='btn text-white bg-gradient-to-r from-purple-600 to-red-500 mt-2'>View Profile</Link>
+                <Link to='/dashboard/employees/63d144b298f23efc47e1f053' className='btn text-white bg-gradient-to-r from-purple-600 to-red-500 mt-2'>View Profile</Link>
               </div>
             </li>
             <li>

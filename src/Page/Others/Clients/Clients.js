@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../context/AuthContext';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import Client from '../Client/Client';
 import Loading from '../Loading/Loading';
 
 const Clients = () => {
 
-    const { loading } = useContext(AuthContext);
+    const { loading } = useSelector(state => state.userReducer);
 
     const [clients, setClients] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/clients')
+        fetch('https://perform-tracker-server.vercel.app/clients')
             .then(res => res.json())
             .then(data => setClients(data))
     }, []);
