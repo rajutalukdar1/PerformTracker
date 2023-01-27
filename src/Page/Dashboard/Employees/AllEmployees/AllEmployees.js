@@ -71,7 +71,7 @@ const AllEmployees = () => {
         style={{ backgroundColor: "#F7F7F7" }}
         className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6"
       >
-        {refetch && AllEmployees.map((singleEmployee) => (
+        { AllEmployees.map((singleEmployee) => (
          
             <div className=" shadow-md  rounded-sm   bg-white pb-8">
               <div className="dropdown dropdown-bottom dropdown-right">
