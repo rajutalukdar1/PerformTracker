@@ -1,15 +1,25 @@
-import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import logo from "../../../Assets/logo (1).png";
 import { ImExit } from "react-icons/im";
 import { FaCog } from 'react-icons/fa';
-import { AuthContext } from '../../../context/AuthContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '../../../features/auths/AuthSlice';
+import { toast } from 'react-hot-toast';
 
 const DashboardNav = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useSelector(state => state.userReducer);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // Logout With Firebase and Redux
   const handleLogout = () => {
-    logOut()
-      .then(() => { })
+    dispatch(logOut())
+      .then(() => {
+        toast("You are Logged Out");
+        console.log("Logged Out");
+        navigate("/login");
+      })
       .catch((err) => console.log(err));
   };
 
@@ -17,7 +27,7 @@ const DashboardNav = () => {
     <div className="navbar bg-black fixed border-b-2 border-gray-900 z-50">
       <div className="flex-1">
         <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden pl-0">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
         </label>
         <Link className="flex items-center gap-3 py-2" to="/">
           <img className="w-6 sm:w-8 md:w-12 border-2 rounded-full" src={logo} alt="" />
@@ -44,7 +54,7 @@ const DashboardNav = () => {
                 </div>
                 <h3 className='text-lg p-0'>{user?.displayName}</h3>
                 <p className='p-0'>Admin</p>
-                <Link to='/profile' className='btn text-white bg-gradient-to-r from-purple-600 to-red-500 mt-2'>View Profile</Link>
+                <Link to='/dashboard/employees/63d144b298f23efc47e1f053' className='btn text-white bg-gradient-to-r from-purple-600 to-red-500 mt-2'>View Profile</Link>
               </div>
             </li>
             <li>
