@@ -18,7 +18,8 @@ const EmployeeProfile = () => {
         <h3 className='text-2xl font-semibold text-center'>Profile</h3>
         <div className="card w-full bg-slate-200 rounded-lg">
           <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
-            <div className='flex gap-4 pb-5 md:pb-0 border-b-2 md:border-b-0 md:border-r-2 border-black border-dashed'>
+            <div className='flex gap-4 pb-5 md:pb-0 border-b-2 md:border-b-0 md:border-r-2
+             border-black border-dashed'>
               <div>
                 <div className="avatar">
                   <div className="w-24 rounded-full">
@@ -30,9 +31,9 @@ const EmployeeProfile = () => {
                 <h3 className="text-2xl font-bold">{name}</h3>
                 <p>{designation}</p>
                 <div className='flex gap-2 text-primary text-2xl mt-2'>
-                  <a href=""><FaFacebook /></a>
-                  <a href=""><FaLinkedin /></a>
-                  <a href=""><FaGithub /></a>
+                  <a href=" "><FaFacebook /></a>
+                  <a href=" "><FaLinkedin /></a>
+                  <a href=" "><FaGithub /></a>
                 </div>
               </div>
             </div>

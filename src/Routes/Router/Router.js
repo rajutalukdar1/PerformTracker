@@ -8,6 +8,8 @@ import ClientDetails from "../../Page/Dashboard/Clients/ClientDetails/ClientDeta
 import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
+import ClientProfile from "../../Page/Dashboard/Profile/ClientProfile";
+import EmployeesProfile from "../../Page/Dashboard/Profile/EmployeesProfile";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
@@ -59,7 +61,7 @@ const router = createBrowserRouter([
         element: <ClientDetails></ClientDetails>,
         loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
       },
-      
+
       {
         path: "/dashboard/clients",
         element: <Clients></Clients>,
@@ -85,6 +87,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
+      },
+      {
+        path: "/dashboard/profile/employees",
+        element: <EmployeesProfile></EmployeesProfile>
+      },
+      {
+        path: "/dashboard/profile/client",
+        element: <ClientProfile></ClientProfile>
       }
     ]
   }
