@@ -28,7 +28,7 @@ export const setAuthListener = () => (dispatch, state) => {
   const unsubscribe = onAuthStateChanged(auth, currentUser => {
     dispatch(SET_USER({user: currentUser}))
     dispatch(SET_LOADING(false))
-    console.log('Logged in');
+    currentUser && console.log('Logged in');
   })
   return () => unsubscribe();
 }

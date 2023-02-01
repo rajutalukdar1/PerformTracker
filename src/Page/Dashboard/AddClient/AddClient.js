@@ -83,19 +83,16 @@ const AddClient = ({refetch, setClients}) => {
           <div className='grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-2'>
           <div>
           <input type="text" 
-          // disabled value={date}
            className="input input-bordered my-2 w-full " {...register("company", {required: "Your Name is required" })}/>
             {errors.company && <p className='text-red-600' role="alert">{errors.company?.message}</p>}
           </div>
           <div>
-          <input name='name' type="text" 
-          // defaultValue={user?.displayName}
+          <input name='name' type="text"
             placeholder="Your Name" className="input input-bordered my-2 w-full " {...register("name", {required: "Your Name is required" })}/>
            {errors.name && <p className='text-red-600' role="alert">{errors.name?.message}</p>}
           </div>
           <div>
-          <input name='email' type="email" 
-          // defaultValue={user?.email}
+          <input name='email' type="email"
              placeholder="Email Address" className="input input-bordered my-2 w-full " {...register("company", {required: "Your Name is required" })} />
              {errors.email && <p className='text-red-600' role="alert">{errors.email?.message}</p>}
           </div>
