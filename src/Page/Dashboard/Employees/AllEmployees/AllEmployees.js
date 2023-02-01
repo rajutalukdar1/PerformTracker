@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { GrFormAdd } from 'react-icons/gr';
 import AddEmployeeFromModal from "./AddEmployeeFromModal";
 import EditEmployeeDetails from "./EditEmployeeDetails";
 import { useQuery } from "@tanstack/react-query";
@@ -47,9 +48,9 @@ const AllEmployees = () => {
           {/* The button to open modal */}
           <label
             htmlFor="my-modal"
-            className="px-3 py-2 bg-orange-600 rounded-tl-3xl text-white font-semibold text-xl"
+            className="px-3 py-2 flex items-center bg-gray-900 rounded-full text-white font-semibold text-xl"
           >
-            Add Employee
+            <GrFormAdd className=" bg-white rounded-full text-white mr-3" /> Add Employee
           </label>
           <AddEmployeeFromModal />
         </div>
@@ -65,7 +66,6 @@ const AllEmployees = () => {
 
           <div key={singleEmployee._id} className="shadow-md  rounded-sm   bg-white pb-8">
             <div className="dropdown dropdown-bottom dropdown-right">
-
               {/* <label  className="btn bg-white border-0 ">
                 <span className="text-center"></span>
                 </label> */}
@@ -77,10 +77,10 @@ const AllEmployees = () => {
                 className="dropdown-content menu p-2 border-2 bg-white rounded-box w-40"
               >
                 <li>
-                  <label onClick={() => setId(singleEmployee._id)} htmlFor="my-modal-2"><a> <GrEdit />edit</a> </label>
+                  <label onClick={() => setId(singleEmployee._id)} htmlFor="my-modal-2"><a className="flex  items-center text-bold"> <GrEdit className=" mr-3" />edit</a> </label>
                 </li>
                 <li>
-                  <Link onClick={() => handleReviewDelete(singleEmployee._id)} > <RiDeleteBinLine />delete</Link>
+                  <Link className="text-bold" onClick={() => handleReviewDelete(singleEmployee._id)} > <RiDeleteBinLine />delete</Link>
                 </li>
               </ul>
             </div>

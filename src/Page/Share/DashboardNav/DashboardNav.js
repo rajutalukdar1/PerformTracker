@@ -40,7 +40,7 @@ const DashboardNav = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="flex items-center gap-3 cursor-pointer">
             <div className="w-6 sm:w-10 rounded-full overflow-hidden">
-              <img src={user?.photoURL || 'https://i.ibb.co/Qj8XhH5/user.png'} />
+              <img src={user?.photoURL || 'https://i.ibb.co/Qj8XhH5/user.png'} alt='' />
             </div>
             <span className='text-white hidden sm:block'>{user?.displayName}</span>
           </label>
@@ -49,7 +49,7 @@ const DashboardNav = () => {
               <div className="bg-transparent flex flex-col gap-0 items-center">
                 <div className="avatar">
                   <div className="w-20 rounded-full">
-                    <img src={user?.photoURL || 'https://i.ibb.co/Qj8XhH5/user.png'} />
+                    <img src={user?.photoURL || 'https://i.ibb.co/Qj8XhH5/user.png'} alt='' />
                   </div>
                 </div>
                 <h3 className='text-lg p-0'>{user?.displayName}</h3>
