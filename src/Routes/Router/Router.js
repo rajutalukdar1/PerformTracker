@@ -8,6 +8,7 @@ import ClientDetails from "../../Page/Dashboard/Clients/ClientDetails/ClientDeta
 import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
+import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
+      },
+      {
+        path: "/dashboard/projects",
+        element: <AllProjects></AllProjects>
       }
     ]
   }
