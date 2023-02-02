@@ -7,13 +7,13 @@ const Project = ({ project }) => {
 
 
   return (
-    <div className="card bg-slate-200 rounded-sm">
+    <div className="card bg-[#16191C] rounded-md text-white">
       <div className="card-body block py-6 px-4">
         <h2 className="card-title leading-4">{name}</h2>
         <p className='mb-2'>
           <small>{allTasks.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
-          </p>
-        <div className='mb-6 text-gray-500'>
+        </p>
+        <div className='mb-6 text-gray-300'>
           <p>
             {
               details.length > 100 ? details.slice(0, 99) + "..." : details
@@ -32,7 +32,7 @@ const Project = ({ project }) => {
             {
               assignedleaders.map(leader => <Link className="avatar" key={leader.uid} to={`/dashboard/employees/${leader.uid}`} title={leader.name}>
                 <div className="w-10 h-10 rounded-full">
-                  <img src={leader.img} />
+                  <img src={leader.img} alt=" " />
                 </div>
               </Link>)
             }
@@ -44,24 +44,25 @@ const Project = ({ project }) => {
                 team && (team.length > 4 ? <> {team.slice(0, 3).map(t =>
                   <Link key={t.uid} to={`/dashboard/employees/${t.uid}`} className="avatar" title={t.name}>
                     <div className="w-10 h-10 rounded-full">
-                      <img src={t.img} />
+                      <img src={t.img} alt=" " />
                     </div>
                   </Link>)}
-                  <div className="w-10 h-10 rounded-full bg-red-400 flex items-center justify-center text-white font-semibold cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-red-400 flex items-center 
+                  justify-center text-white font-semibold cursor-pointer">
                     <small>+{team.slice(3, team.length - 1).length}5</small>
                   </div>
                 </> :
                   team.map(t => <Link to={`/dashboard/employees/${t.uid}`} className="avatar">
                     <div className="w-8 h-8 rounded-full">
-                      <img src={t.img} />
+                      <img src={t.img} alt=" " />
                     </div>
                   </Link>))
               }
             </div>
           </div>
           <div>
-            <div className='flex justify-end font-bold text-gray-600'>{progressed}%</div>
-            <progress className="progress progress-success w-full" value={progressed} max="100"></progress>
+            <div className='flex justify-end font-bold text-white'>{progressed}%</div>
+            <progress className="progress progress-success bg-white w-full" value={progressed} max="100">   </progress>
           </div>
         </div>
       </div>
