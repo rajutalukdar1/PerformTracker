@@ -16,9 +16,14 @@ import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
+import MainTasks from "../../Page/MainTasks/MainTasks";
 
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
+import MainTask from "../../TaskLayoute/MainTask/MainTask";
+import TaskLayoute from "../../TaskLayoute/TaskLayoute";
+
+
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 const router = createBrowserRouter([
   {
@@ -116,6 +121,21 @@ const router = createBrowserRouter([
         path: "/dashboard/projects",
         element: <AllProjects></AllProjects>
       }
+     
+    ]
+  },
+  {
+    path: '/dashboard/task',
+    element: <TaskLayoute></TaskLayoute>,
+    children: [
+     
+      {
+        path: "/dashboard/task",
+        element: <MainTask></MainTask>
+      },
+      
+     
+      
     ]
   }
 ]);
