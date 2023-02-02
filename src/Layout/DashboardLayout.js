@@ -73,6 +73,10 @@ const DashboardLayout = () => {
                                     to: "/dashboard/reports",
                                     title: "Projects"
                                 },
+                                {
+                                    to: "/dashboard/task",
+                                    title: "Task"
+                                },
                             ]}
                         />
                         <DashboardSideItems

@@ -11,9 +11,14 @@ import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/Empl
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
+import MainTasks from "../../Page/MainTasks/MainTasks";
 
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
+import MainTask from "../../TaskLayoute/MainTask/MainTask";
+import TaskLayoute from "../../TaskLayoute/TaskLayoute";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -85,7 +90,21 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
-      }
+      },
+     
+    ]
+  },
+  {
+    path: '/dashboard/task',
+    element: <TaskLayoute></TaskLayoute>,
+    children: [
+     
+      {
+        path: "/dashboard/task",
+        element: <MainTask></MainTask>
+      },
+      
+     
     ]
   }
 ]);
