@@ -5,9 +5,16 @@ import { HiCalendar, HiOutlineBars3BottomLeft, IconName } from "react-icons/hi2"
 const MarkComplete = () => {
     return (
         <div className='h-screen'>
-            <div className='overflow-x-auto w-full shadow-lg bg-white pt-4 py-2 sticky flex justify-between border-b-2 border-gray-400 '>
+            <div className=' w-full shadow-lg bg-white pt-4 py-2 sticky flex justify-between border-b-2 border-gray-400 '>
           <button className=" shadow-xl bg-slate-100 px-2 py-1 ml-2 border border-gray-500 rounded-md flex justify-center items-center gap-2"><FaCheck></FaCheck> Mark Complete </button>
-          <FaEllipsisV className='px-2 py-1 mr-2 border rounded-lg text-4xl cursor-pointer text-slate-400'></FaEllipsisV>
+          <div className="dropdown dropdown-end ">
+          <label tabIndex={0}><FaEllipsisV className='px-2 py-1 mr-2 border rounded-lg text-4xl cursor-pointer text-slate-400'></FaEllipsisV></label>
+          <ul tabIndex={0} className="menu menu-compact dropdown-content  p-2 shadow bg-base-100 rounded-box w-52  fixed">
+            <li><a>Delete</a></li>
+            <li><a>Edit</a></li>
+          </ul>
+        </div>
+          
           </div>
           <div className='pl-2 py-2'>
             <h2 className='text-lg font-bold text-black '>Hospital Administration Phase 1</h2>
