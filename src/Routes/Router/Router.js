@@ -19,6 +19,7 @@ import MainTask from "../../TaskLayoute/MainTask/MainTask";
 import TaskLayoute from "../../TaskLayoute/TaskLayoute";
 
 
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
       // {
       //   path: "/dashboard/clientdetails",
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
         element: <ClientDetails></ClientDetails>,
         loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
       },
-      
+
       {
         path: "/dashboard/clients",
         element: <Clients></Clients>,

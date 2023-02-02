@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form';
 import moment from 'moment';
-import { AuthContext } from '../../context/AuthContext';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const AddBlogModal = ({ refetch, setShowModal }) => {
-  const { user } = useContext(AuthContext);
+  const { user } = useSelector(state => state.userReducer);
   const { register, formState: { errors }, reset, handleSubmit } = useForm();
 
   const tags = ['Redux', 'React.js', 'Javascript', 'CSS', 'HTML', 'Node.js', 'MongoDB', 'Express.js'];
