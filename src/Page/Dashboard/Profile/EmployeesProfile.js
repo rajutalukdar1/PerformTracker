@@ -1,16 +1,16 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { useState } from 'react';
 import EmployeeProfileInfo from './EmployeeProfileInfo';
+import { Link, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const EmployeesProfile = () => {
-
-    const [employee, SetEmployee] = useState(null);
+    const { user } = useSelector(state => state.userReducer);
 
     const { data: Employees = [], refetch } = useQuery({
-        queryKey: ['employees'],
+        queryKey: ['employees', user?.email],
         queryFn: () =>
-            fetch(`http://localhost:5000/employees/63d144b298f23efc47e1f054`).then(res => res.json()),
+            fetch(`http://localhost:5000/employee?email=${user?.email}`).then(res => res.json()),
     });
 
     const { img, name, employeeType, email, department, designation, joiningDate, DOB,
@@ -21,11 +21,12 @@ const EmployeesProfile = () => {
         <div>
             <div className='w-full max-w-[1440px] mx-auto mb-20'>
                 <div className="mx-5 md:mx-5">
-                    <div className="card w-full bg-[#16191C] rounded-lg">
+                    <div className="card w-full bg-[#16191C] rounded-b-none rounded-t-md
+                     border-[#BBC4CC] border-b-2">
                         <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
                             <div className='flex text-white gap-4 pb-5 md:pb-0 
                             border-b-2 md:border-b-0 md:border-r-2
-                        border-[#BBC4CC] border-dashed'>
+                            border-[#BBC4CC] border-dashed'>
                                 <div>
                                     <div className="avatar">
                                         <div className="w-24 rounded-full">
@@ -98,6 +99,25 @@ const EmployeesProfile = () => {
                             </div>
                         </div>
                     </div>
+                    {/* <hr className='bg-red' /> */}
+                    <div className="flex-none w-full bg-[#16191C] text-white text-sm font-semibold 
+                    rounded-b-md">
+                        <ul className="menu menu-horizontal px-1">
+                            <li>
+                                <Link to='/dashboard/profile/employees'>Profile</Link>
+                            </li>
+                            <li tabIndex={0}>
+                                <Link to='/dashboard/profile/employees/projects'>
+                                    Projects
+                                </Link>
+                            </li>
+                            <li><Link to='/dashboard/profile/employees/bank'>
+                                Bank & Statutory<span className='text-[#F62D51]'>(Admin Only)</span>
+                            </Link></li>
+                        </ul>
+                    </div>
+                    <Outlet>
+                    </Outlet>
                 </div>
             </div>
         </div>
