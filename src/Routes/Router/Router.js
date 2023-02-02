@@ -9,17 +9,17 @@ import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
 import BankAndStatutory from "../../Page/Dashboard/Profile/BankAndStatutory";
-import ClientProfile from "../../Page/Dashboard/Profile/ClientProfile";
-import EmployeeProfileInfo from "../../Page/Dashboard/Profile/EmployeeProfileInfo";
 import EmployeesProfile from "../../Page/Dashboard/Profile/EmployeesProfile";
 import PersonalInfo from "../../Page/Dashboard/Profile/PersonalInfo";
 import Projects from "../../Page/Dashboard/Profile/Projects";
+import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
 
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
+import PrivetRoute from "../PrivetRoute/PrivetRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
       // {
       //   path: "/dashboard/clientdetails",
@@ -111,8 +111,10 @@ const router = createBrowserRouter([
         ]
       },
       {
-        path: "/dashboard/profile/client",
-        element: <ClientProfile></ClientProfile>
+        // path: "/dashboard/profile/client",
+        // element: <ClientProfile></ClientProfile>,
+        path: "/dashboard/projects",
+        element: <AllProjects></AllProjects>
       }
     ]
   }

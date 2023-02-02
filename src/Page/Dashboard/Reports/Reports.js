@@ -17,7 +17,7 @@ const Reports = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th>Employee Name</th>
+                            <th style={{"position": "static"}}>Employee Name</th>
                             <th>Employee Type</th>
                             <th>Email</th>
                             <th>Department</th>
@@ -37,7 +37,7 @@ const Reports = () => {
                     </thead>
                     {
                         reports?.map(report => <EmployeesReports
-                            key={report.id}
+                            key={report._id}
                             report={report}
                         ></EmployeesReports>)
                     }

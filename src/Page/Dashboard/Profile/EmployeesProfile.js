@@ -117,6 +117,7 @@ const EmployeesProfile = () => {
                         </ul>
                     </div>
                     <Outlet>
+                        
                     </Outlet>
                 </div>
             </div>
