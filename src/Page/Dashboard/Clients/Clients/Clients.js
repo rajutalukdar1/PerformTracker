@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
-
+import React, { useState } from "react";
 import { FaBars, FaPlus, FaTh } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
 import AddClient from "../../AddClient/AddClient";
 
 import Client from "./Client";
@@ -15,7 +13,7 @@ const Clients = () => {
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/clients`).then((res) => res.json()),
   });
-  console.log(user);
+  
   return (
     <div className="bg-slate-100 px-8">
       <div className="grid grid-cols-2 justify-end ">
@@ -57,7 +55,7 @@ const Clients = () => {
         </div>
         <div>
           <select className="select select-bordered w-full max-w-xs">
-            <option disabled selected>
+            <option value="" hidden>
               Who shot first?
             </option>
             <option>Han Solo</option>

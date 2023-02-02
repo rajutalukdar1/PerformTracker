@@ -2,12 +2,10 @@ import { UserPlusIcon } from '@heroicons/react/20/solid';
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { AiOutlineDelete} from "react-icons/ai";
-import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaRegSun, FaUserPlus} from "react-icons/fa";
 import AddTaskDetails from '../AddTaskDetails/AddTaskDetails';
-import AddTaskModal from '../AddTaskModal/AddTaskModal';
-import TaskModal from '../TaskModal/TaskModal';
+import { HiArrowSmRight, IconName } from "react-icons/hi";
+
 
 const AddTask = () => {
   const [tasks, setTasks] = useState([]);
@@ -67,8 +65,9 @@ const AddTask = () => {
         <div className="dropdown dropdown-end ">
           <label tabIndex={0}><FaRegSun className='px-2 py-1 mr-2 border rounded-lg text-4xl cursor-pointer'></FaRegSun></label>
           <ul tabIndex={0} className="menu menu-compact dropdown-content  p-2 shadow bg-base-100 rounded-box w-52  fixed">
-            <li><a>Item 1</a></li>
-            <li><a>Item 2</a></li>
+            <li><a>Pending Task</a></li>
+            <li><a>Complete Task</a></li>
+            <li><a>All Task</a></li>
           </ul>
         </div>
            
@@ -79,15 +78,19 @@ const AddTask = () => {
           <AddTaskDetails key={task._id} task={task}></AddTaskDetails>
         ))}
       </div>
-      <div>
+      <div className='mx-8'>
       <form 
       onSubmit={handleSubmit}
-      className={`w-full col-span-4 ${hidden}`}>
-            <input type="text"  placeholder="Type here" name='title' className="p-1 w-full max-w-xs " />
-            <button type="submit" > Submit</button>
-            <button
+      className={`w-full  ${hidden}`}>
+            <input type="text"  placeholder="Type here" name='title' className="p-1 w-full  mx-auto  py-3  " />
+            <br />
+            <div className='flex justify-end gap-3 mr-3 mt-4'>
+            
+            <button className='px-4 py-2 bg-slate-200 hover:bg-slate-500 hover:text-white rounded-md shadow-lg font-bold'
             onClick={() => setHidden('hidden')}
             type="button"> Cancel</button>
+            <button className='px-4 py-2 bg-slate-200 hover:bg-slate-500 hover:text-white rounded-md shadow-lg flex justify-center items-center gap-2 font-bold' type="submit" > Submit <HiArrowSmRight></HiArrowSmRight> </button>
+            </div>
           </form>
       </div>
       {/* {tasks && <AddTaskModal
@@ -96,7 +99,7 @@ const AddTask = () => {
         tasks={tasks}
       ></AddTaskModal>} */}
 
-      <TaskModal></TaskModal>
+      
           {/* <AddTaskModal>
 
           </AddTaskModal> */}

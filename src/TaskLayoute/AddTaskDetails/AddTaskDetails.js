@@ -6,7 +6,7 @@ const AddTaskDetails = ({task}) => {
   const [disabled, setDisabled] = useState(true);
 
     return (
-        <div className='grid grid-cols-6 overflow-x-auto  shadow-lg bg-slate-100 hover:bg-slate-200 border border-gray-500  py-2  mx-4'>
+        <div className='grid grid-cols-6 overflow-x-auto  shadow-lg bg-slate-100 hover:bg-slate-400 border border-gray-500  py-2  mx-4'>
 
 
           <div className='col-span-1 mx-auto'>
@@ -16,7 +16,7 @@ const AddTaskDetails = ({task}) => {
             <input type="text" defaultValue={task.title} placeholder="Type here" className="p-1 w-full max-w-xs " disabled={task.title && disabled} />
           </div>
           <div className='col-span-1'>
-          <button className='whitespace-nowrap flex justify-end gap-2  visibility-hidden pointer-events-none '><FaUserPlus className='text-xl '></FaUserPlus><AiOutlineDelete className='text-xl'></AiOutlineDelete></button>
+          <button className='whitespace-nowrap flex justify-end gap-2   '><FaUserPlus className='text-xl text-slate-100  hover:text-slate-900'></FaUserPlus><AiOutlineDelete className='text-xl text-slate-100 hover:text-slate-900'></AiOutlineDelete></button>
           
           </div>
           
