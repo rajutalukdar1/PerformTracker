@@ -9,7 +9,7 @@ const AllProjects = () => {
   const { data: projects = [], refetch } = useQuery({
     queryKey: ['projects'],
     queryFn: () =>
-      fetch(`http://localhost:5000/projects`).then(res => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/projects`).then(res => res.json()),
   });
 
   console.log(projects);

@@ -10,7 +10,7 @@ const SelectRole = ({ userData }) => {
     const role = e.target.role.value;
 
     if (role === 'Employee' || role === 'Client') {
-      fetch(`http://localhost:5000/users`, {
+      fetch(`https://perform-tracker-server.vercel.app/users`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

@@ -1,7 +1,7 @@
 const useIsUserExist = () => {
   const isUserExist = (id) => {
     console.log(id);
-    fetch(`http://localhost:5000/users/${id}`)
+    fetch(`https://perform-tracker-server.vercel.app/users/${id}`)
       .then(res => res.json())
       .then(data => {
         return data;
