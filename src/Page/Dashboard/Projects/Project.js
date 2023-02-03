@@ -13,7 +13,7 @@ const Project = ({ project, setProjectData }) => {
   }
 
   return (
-    <div className="card bg-slate-200 rounded-sm">
+    <div className="card light:bg-slate-200 bg-[#16191C] text-white rounded-sm">
       <div className="card-body block py-6 px-4 relative">
         <h2 className="card-title leading-4">
           <Link to={`/dashboard/projects/${_id}`}>{name}</Link>
@@ -21,7 +21,7 @@ const Project = ({ project, setProjectData }) => {
         <p className='mb-2'>
           <small>{allTasks.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
         </p>
-        <div className='mb-6 text-gray-500'>
+        <div className='mb-6 text-gray-300 light:text-gray-500'>
           <p>
             {
               details.length > 100 ? details.slice(0, 99) + "..." : details
@@ -40,7 +40,7 @@ const Project = ({ project, setProjectData }) => {
             {
               assignedleaders.map(leader => <Link className="avatar" key={leader.uid} to={`/dashboard/employees/${leader.uid}`} title={leader.name}>
                 <div className="w-10 h-10 rounded-full">
-                  <img src={leader.img} />
+                  <img src={leader.img} alt=" " />
                 </div>
               </Link>)
             }
@@ -52,24 +52,25 @@ const Project = ({ project, setProjectData }) => {
                 team && (team.length > 4 ? <> {team.slice(0, 3).map(t =>
                   <Link key={t.uid} to={`/dashboard/employees/${t.uid}`} className="avatar" title={t.name}>
                     <div className="w-10 h-10 rounded-full">
-                      <img src={t.img} />
+                      <img src={t.img} alt=" " />
                     </div>
                   </Link>)}
-                  <div className="w-10 h-10 rounded-full bg-red-400 flex items-center justify-center text-white font-semibold cursor-pointer">
+                  <div className="w-10 h-10 rounded-full bg-red-400 flex items-center 
+                  justify-center text-white font-semibold cursor-pointer">
                     <small>+{team.slice(3, team.length - 1).length}5</small>
                   </div>
                 </> :
                   team.map(t => <Link to={`/dashboard/employees/${t.uid}`} className="avatar">
                     <div className="w-8 h-8 rounded-full">
-                      <img src={t.img} />
+                      <img src={t.img} alt=" " />
                     </div>
                   </Link>))
               }
             </div>
           </div>
           <div>
-            <div className='flex justify-end font-bold text-gray-600'>{progressed}%</div>
-            <progress className="progress progress-success w-full" value={progressed} max="100"></progress>
+            <div className='flex justify-end font-bold text-white'>{progressed}%</div>
+            <progress className="progress progress-success bg-white w-full" value={progressed} max="100">   </progress>
           </div>
         </div>
         <div className="dropdown dropdown-bottom dropdown-left absolute top-2 right-3">

@@ -3,7 +3,9 @@ import { FaUserAlt } from 'react-icons/fa';
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { SlDiamond } from "react-icons/sl";
+import Reports from '../Dashboard/Reports/Reports';
 import Rechart from '../Rechart/Rechart';
+import AdminProgress from './AdminProgress/AdminProgress';
 
 const Admin = () => {
     return (
@@ -12,7 +14,7 @@ const Admin = () => {
                 <h2 className='text-3xl'>Welcome Admin!!</h2>
                 <h4>Dashboard</h4>
             </div>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10'>
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-2 mt-10'>
                 <div>
                     <div className="stats shadow-md w-72 h-24 rounded-none bg-slate-800">
                         <div className="stat flex justify-between">
@@ -22,8 +24,8 @@ const Admin = () => {
                                 </div>
                             </div>
                             <div className='font-extrabold place-self-center text-white'>
-                                <p>112</p>
-                                <p>projects</p>
+                                <p>152</p>
+                                <p>Projects</p>
                             </div>
                         </div>
                     </div>
@@ -37,7 +39,7 @@ const Admin = () => {
                                 </div>
                             </div>
                             <div className='font-extrabold place-self-center text-white'>
-                                <p>112</p>
+                                <p>142</p>
                                 <p>Clients</p>
                             </div>
                         </div>
@@ -76,6 +78,19 @@ const Admin = () => {
             </div>
             <div>
                 <Rechart></Rechart>
+            </div>
+            <div>
+                <AdminProgress></AdminProgress>
+            </div>
+            <div className='flex'>
+                <div className='w-1/2'>
+                    <h2 className='text-3xl font-bold'>Clients Data</h2>
+                    <Reports></Reports>
+                </div>
+                <div className='w-1/2'>
+                    <h2 className='text-3xl font-bold'>Employees Data</h2>
+                    <Reports></Reports>
+                </div>
             </div>
         </div>
     );
