@@ -1,123 +1,19 @@
 [
     {
         
-        "employee_id": "CLT-0001",
-        "company": "Global Technologies",
-        "name": "Barry Cuda",
-        "email": "barrycuda@example.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/fQx0D9z/Christian.jpg",
-        "position": "CEO",
-        "gender": "Male"
+        
+        "title": "Global Technologies"
+        
 
       
     },
     {
         
-        "employee_id": "CLT-0002",
-        "company": "Delta Infotech",
-        "name": "Tressa Wexler",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/YjcPzZP/Joseph.webp",
-        "position": "Manager",
-        "gender": "Female"
-      
-    },
-    {
         
-        "employee_id": "CLT-0003",
-        "company": "Cream Inc",
-        "name": "Ruby Bartlett",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
-        "position": "CEO",
-        "gender": "Female"
-
-      
-    },
-    {
+        "title": "Global Technologies"
         
-        "employee_id": "CLT-0004",
-        "company": "Wellware Company",
-        "name": "Misty Tison",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
-        "position": "CEO",
-        "gender": "Female"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0005",
-        "company": "Mustang Technologies",
-        "name": "Daniel Deacon",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
-        "position": "CEO",
-        "gender": "Male"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0006",
-        "company": "International Software",
-        "name": "Walter Weaver",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
-        "position": "CEO",
-        "gender": "Male"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0007",
-        "company": "Mercury Software Inc",
-        "name": "Amanda Warren",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
-        "position": "CEO",
-        "gender": "Male"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0008",
-        "company": "Carlson Tech",
-        "name": "Betty Carlson",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
-        "position": "CEO",
-        "gender": "Female"
 
       
     }
-    
    
 ]
