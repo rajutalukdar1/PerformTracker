@@ -59,18 +59,18 @@ const SignUp = () => {
         
         console.log(isUserExist(result.user.uid));
 
-        if(user?.role){
+        // if(user?.role){
           toast.success("Logged In Successfully.");
-          navigate('/dashboard/employees');
+          navigate('/dashboard');
           console.log("Logged In with Provider");
-        }else{
+        // }else{
           // setUserData({
           //   name: result.user.displayName,
           //   email: result.user.email,
           //   img: result.user.photoURL,
           //   uid: result.user.uid
           // });
-        }
+        // }
       })
       .catch(error => console.error(error))
   }

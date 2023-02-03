@@ -18,8 +18,7 @@ const SignIn = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-
-  const from = location.state?.from?.pathname || '/dashboard/employees';
+  const from = location.state?.from?.pathname || '/dashboard';
 
   // Login With Firebase and Redux
   const handleLogin = (data) => {
@@ -99,7 +98,6 @@ const SignIn = () => {
               <p className="text-center">-------------Or-------------</p>
               <div>
                 <Link>
-
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-10 h-10 ml-1">
