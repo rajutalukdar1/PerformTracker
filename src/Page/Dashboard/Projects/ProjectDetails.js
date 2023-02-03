@@ -11,7 +11,7 @@ const ProjectDetails = () => {
   const { data: project = {}, isLoading, refetch } = useQuery({
     queryKey: ['project'],
     queryFn: () =>
-      fetch(`http://localhost:5000/projects/${id}`).then(res => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/projects/${id}`).then(res => res.json()),
   });
 
   if (isLoading) {

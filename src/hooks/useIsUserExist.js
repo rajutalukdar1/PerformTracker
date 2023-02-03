@@ -5,7 +5,7 @@ const useIsUserExist = () => {
   const isUserExist = (id) => {
     console.log(id);
     // useEffect(() => {
-    fetch(`http://localhost:5000/users?uid=${id}`)
+    fetch(`https://perform-tracker-server.vercel.app/users?uid=${id}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
