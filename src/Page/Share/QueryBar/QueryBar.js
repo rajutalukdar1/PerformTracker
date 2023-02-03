@@ -4,7 +4,7 @@ import { FaBars, FaPlus, FaTh } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const QueryBar = ({ barData }) => {
-  const { pageName } = barData;
+  const { pageName, btnValue, btnOnClick, labelValue, hidden } = barData;
 
   return (
     <div className="grid grid-cols-2 justify-end mb-5">
@@ -25,18 +25,23 @@ const QueryBar = ({ barData }) => {
         </div>
       </div>
       <div className="flex justify-end items-center py-4 gap-4">
-        <h2 className="cursor-pointer rounded-md p-4 bg-base-100 shadow-xl">
+        <h2 className={`cursor-pointer rounded-md p-4 bg-base-100 shadow-xl ${hidden}`}>
           <FaTh></FaTh>
         </h2>
-        <h2 className="cursor-pointer rounded-md p-4 bg-base-100 shadow-xl">
+        <h2 className={`cursor-pointer rounded-md p-4 bg-base-100 shadow-xl ${hidden}`}>
           <FaBars className="text-black"></FaBars>
         </h2>
         <label
-          htmlFor="booking-modal"
+          onClick={btnOnClick}
+          htmlFor={labelValue}
           className="px-12 btn rounded-full border-transparent bg-orange-500 cursor-pointer text-white"
         >
           <FaPlus className="mr-4 text-white"></FaPlus>
-          <span>Add {pageName.slice(0, -1)}</span>
+          <span>{
+            btnValue ?
+              btnValue :
+              "Add " + pageName.slice(0, -1)
+          }</span>
         </label>
       </div>
     </div>

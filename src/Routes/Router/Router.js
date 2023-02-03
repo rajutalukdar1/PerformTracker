@@ -13,11 +13,10 @@ import EmployeesProfile from "../../Page/Dashboard/Profile/EmployeesProfile";
 import PersonalInfo from "../../Page/Dashboard/Profile/PersonalInfo";
 import Projects from "../../Page/Dashboard/Profile/Projects";
 import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
+import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
-import MainTasks from "../../Page/MainTasks/MainTasks";
-
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 import MainTask from "../../TaskLayoute/MainTask/MainTask";
@@ -25,6 +24,7 @@ import TaskLayoute from "../../TaskLayoute/TaskLayoute";
 
 
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -120,22 +120,21 @@ const router = createBrowserRouter([
         // element: <ClientProfile></ClientProfile>,
         path: "/dashboard/projects",
         element: <AllProjects></AllProjects>
+      },
+      {
+        path: "/dashboard/projects/:id",
+        element: <ProjectDetails></ProjectDetails>
       }
-     
     ]
   },
   {
     path: '/dashboard/task',
     element: <TaskLayoute></TaskLayoute>,
     children: [
-     
       {
         path: "/dashboard/task",
         element: <MainTask></MainTask>
       },
-      
-     
-      
     ]
   }
 ]);
