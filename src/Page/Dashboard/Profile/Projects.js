@@ -7,7 +7,7 @@ import Project from '../Projects/Project';
 const Projects = () => {
     const { user, loading } = useSelector(state => state.userReducer);
 
-    const { data: projects = [], isLoading, refetch } = useQuery({
+    const { data: projects = [], refetch } = useQuery({
         queryKey: ['projects', user?.uid],
         queryFn: () =>
             fetch(`http://localhost:5000/employee/projects/${user?.uid}`).then(res => res.json()),
@@ -18,7 +18,7 @@ const Projects = () => {
     }
 
     return (
-        <div className='mt-6 grid lg:grid-cols-3 md:grid-cols-2 gap-6'>
+        <div className='mt-6 grid lg:grid-cols-4 md:grid-cols-2 gap-6'>
             {
                 projects.length > 0
                 &&

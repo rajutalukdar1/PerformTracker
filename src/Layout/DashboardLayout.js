@@ -79,7 +79,7 @@ const DashboardLayout = () => {
                             subMenus={[
                                 {
                                     to: "/dashboard/profile/employees",
-                                    title: "Employees Profile"
+                                    title: "Employee Profile"
                                 },
                                 {
                                     to: "/dashboard/profile/client",

@@ -100,7 +100,7 @@ const EmployeesProfile = () => {
                         </div>
                     </div>
                     {/* <hr className='bg-red' /> */}
-                    <div className="flex-none w-full bg-[#16191C] text-white text-sm font-semibold 
+                    <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold 
                     rounded-b-md">
                         <ul className="menu menu-horizontal px-1">
                             <li>
@@ -117,7 +117,7 @@ const EmployeesProfile = () => {
                         </ul>
                     </div>
                     <Outlet>
-                        
+
                     </Outlet>
                 </div>
             </div>
