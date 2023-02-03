@@ -55,9 +55,9 @@ const SignUp = () => {
   const handleProviderSignIn = (provider) => {
     dispatch(providerLogin(provider))
       .then(result => {
-        const user = isUserExist(result.user.uid);
+        // const user = isUserExist(result.user.uid);
         
-        console.log(isUserExist(result.user.uid));
+        // console.log(isUserExist(result.user.uid));
 
         // if(user?.role){
           toast.success("Logged In Successfully.");

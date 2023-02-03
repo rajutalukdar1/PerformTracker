@@ -9,7 +9,7 @@ const SelectRole = ({ userData }) => {
     e.preventDefault();
     // const role = e.target.role.value;
 
-    if (role === 'Employee' || role === 'Client') {
+    // if (role === 'Employee' || role === 'Client') {
       fetch(`http://localhost:5000/users`, {
         method: 'POST',
         headers: {
@@ -24,7 +24,7 @@ const SelectRole = ({ userData }) => {
           console.log("Logged In")
         })
         .catch(err => console.error(err));
-    }
+    // }
   }
 
   return (
