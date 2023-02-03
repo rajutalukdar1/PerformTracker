@@ -25,8 +25,8 @@ const EmployeesProfile = () => {
                      border-[#BBC4CC] border-b-2">
                         <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
                             <div className='flex text-white gap-4 pb-5 md:pb-0 
-                            border-b-2 md:border-b-0 md:border-r-2
-                            border-[#BBC4CC] border-dashed'>
+                                border-b-2 md:border-b-0 md:border-r-2
+                                border-[#BBC4CC] border-dashed'>
                                 <div>
                                     <div className="avatar">
                                         <div className="w-24 rounded-full">
@@ -48,11 +48,6 @@ const EmployeesProfile = () => {
                                     >
                                         Send Message
                                     </a>
-                                    {/* <div className='flex gap-2 text-primary text-2xl mt-2'>
-                                        <a href=" "><FaFacebook /></a>
-                                        <a href=" "><FaLinkedin /></a>
-                                        <a href=" "><FaGithub /></a>
-                                    </div> */}
                                 </div>
                             </div>
                             <div className='grid text-[#BBC4CC] grid-cols-[8rem_1fr]'>
@@ -99,8 +94,7 @@ const EmployeesProfile = () => {
                             </div>
                         </div>
                     </div>
-                    {/* <hr className='bg-red' /> */}
-                    <div className="flex-none w-full bg-[#16191C] text-white text-sm font-semibold 
+                    <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold 
                     rounded-b-md">
                         <ul className="menu menu-horizontal px-1">
                             <li>
@@ -117,7 +111,7 @@ const EmployeesProfile = () => {
                         </ul>
                     </div>
                     <Outlet>
-                        
+
                     </Outlet>
                 </div>
             </div>

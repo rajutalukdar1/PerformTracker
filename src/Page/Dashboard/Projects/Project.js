@@ -38,7 +38,8 @@ const Project = ({ project, setProjectData }) => {
           <p className='mb-2 font-semibold'>Project Leader:</p>
           <div className="flex">
             {
-              assignedleaders.map(leader => <Link className="avatar" key={leader.uid} to={`/dashboard/employees/${leader.uid}`} title={leader.name}>
+              assignedleaders.map(leader => <Link className="avatar" key={leader.uid}
+                to={`/dashboard/employees/${leader.uid}`} title={leader.name}>
                 <div className="w-10 h-10 rounded-full">
                   <img src={leader.img} alt=" " />
                 </div>
@@ -69,8 +70,9 @@ const Project = ({ project, setProjectData }) => {
             </div>
           </div>
           <div>
-            <div className='flex justify-end font-bold text-white'>{progressed}%</div>
-            <progress className="progress progress-success bg-white w-full" value={progressed} max="100">   </progress>
+            <div className='flex justify-end font-bold text-success'>{progressed}%</div>
+            <progress className="progress progress-success bg-white w-full"
+              value={progressed} max="100">   </progress>
           </div>
         </div>
         <div className="dropdown dropdown-bottom dropdown-left absolute top-2 right-3">

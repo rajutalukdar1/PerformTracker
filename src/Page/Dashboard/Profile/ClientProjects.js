@@ -1,17 +1,18 @@
-import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
-import Loading from '../../Others/Loading/Loading';
+import Loading from '../../Share/Loading/Loading';
 import Project from '../Projects/Project';
 
-const Projects = () => {
+const ClientProjects = () => {
     const { user, loading } = useSelector(state => state.userReducer);
 
     const { data: projects = [], refetch } = useQuery({
         queryKey: ['projects', user?.uid],
         queryFn: () =>
-            fetch(`http://localhost:5000/employee/projects/${user?.uid}`).then(res => res.json()),
+            fetch(`http://localhost:5000/client/projects/${user?.uid}`).then(res => res.json()),
     });
+
     console.log(projects)
 
     if (loading) {
@@ -33,4 +34,4 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+export default ClientProjects;
