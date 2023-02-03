@@ -5,11 +5,13 @@ import { toast } from 'react-hot-toast';
 import { FaRegSun, FaUserPlus} from "react-icons/fa";
 import AddTaskDetails from '../AddTaskDetails/AddTaskDetails';
 import { HiArrowSmRight, IconName } from "react-icons/hi";
+import ConfirmationModal from '../../Page/Share/ConfirmationModal/ConfirmationModal';
 
 
 const AddTask = () => {
   const [tasks, setTasks] = useState([]);
   const [hidden, setHidden] = useState("hidden");
+  
 
 
   const { data: user = [], refetch } = useQuery({
@@ -22,6 +24,9 @@ const AddTask = () => {
     event.preventDefault();
     const form = event.target;
         const title = form.title.value;
+        if(!title){
+          return
+        }
 
         const task={
           title
@@ -37,7 +42,7 @@ const AddTask = () => {
         .then(res => res.json())
         .then(data =>{
             if(data.acknowledged){
-                
+                form.reset() 
                 toast.success(' Confirmed')
                 refetch();
             }
@@ -75,7 +80,12 @@ const AddTask = () => {
           </div>
           <div className="grid mx-4 mt-4  grid-cols-1">
         {user?.map((task) => (
-          <AddTaskDetails key={task._id} task={task}></AddTaskDetails>
+          <AddTaskDetails 
+          key={task._id} 
+          refetch={refetch} 
+          task={task}> 
+
+          </AddTaskDetails>
         ))}
       </div>
       <div className='mx-8'>
@@ -93,11 +103,15 @@ const AddTask = () => {
             </div>
           </form>
       </div>
-      {/* {tasks && <AddTaskModal
+      {tasks && <ConfirmationModal
         refetch={refetch}
-        setTasks={setTasks}
+        // setDeletingTask={setDeletingTask}
         tasks={tasks}
-      ></AddTaskModal>} */}
+        
+        
+      ></ConfirmationModal>}
+
+      
 
       
           {/* <AddTaskModal>

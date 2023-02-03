@@ -9,6 +9,8 @@ import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
 import BankAndStatutory from "../../Page/Dashboard/Profile/BankAndStatutory";
+import ClientProfile from "../../Page/Dashboard/Profile/ClientProfile";
+import ClientTask from "../../Page/Dashboard/Profile/ClientTask";
 import EmployeesProfile from "../../Page/Dashboard/Profile/EmployeesProfile";
 import PersonalInfo from "../../Page/Dashboard/Profile/PersonalInfo";
 import Projects from "../../Page/Dashboard/Profile/Projects";
@@ -112,6 +114,20 @@ const router = createBrowserRouter([
           {
             path: "/dashboard/profile/employees/bank",
             element: <BankAndStatutory></BankAndStatutory>
+          }
+        ]
+      },
+      {
+        path: "/dashboard/profile/client",
+        element: <ClientProfile></ClientProfile>,
+        children: [
+          {
+            path: "/dashboard/profile/client",
+            element: <Projects></Projects>
+          },
+          {
+            path: "/dashboard/profile/client/task",
+            element: <ClientTask></ClientTask>
           }
         ]
       },
