@@ -9,13 +9,14 @@ import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
 import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
+import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
-
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/projects",
         element: <AllProjects></AllProjects>
+      },
+      {
+        path: "/dashboard/projects/:id",
+        element: <ProjectDetails></ProjectDetails>
       }
     ]
   }

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/Home-Images/image.png";
-import { GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
+import SelectRole from "./SelectRole";
+import useIsUserExist from "../../hooks/useIsUserExist";
 
 
 const SignUp = () => {
@@ -15,12 +17,12 @@ const SignUp = () => {
     handleSubmit,
   } = useForm();
   const [signUpError, setSignUpError] = useState("");
-  const googleProvider = new GoogleAuthProvider();
+  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
   const dispatch = useDispatch();
+  const [isUserExist] = useIsUserExist()
 
-  const from = location.state?.from?.pathname || '/dashboard/employees';
+  const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
 
   // Signup With Firebase and Redux
   const handleSignUp = (data) => {
@@ -34,7 +36,12 @@ const SignUp = () => {
         dispatch(updateUser(userInfo))
           .then(() => {
             console.log("Signed Up");
-            navigate('/dashboard/employees')
+            setUserData({
+              name: data.name,
+              email: data.email,
+              img: "https://i.ibb.co/Qj8XhH5/user.png",
+              uid: result.user.uid
+            });
           })
           .catch((err) => console.log(err));
       })
@@ -44,13 +51,26 @@ const SignUp = () => {
       });
   };
 
-  // Google Provider Login With Firebase and Redux
-  const handleGoogleSign = () => {
-    dispatch(providerLogin(googleProvider))
+  // Google and Facebook Provider Login With Firebase and Redux
+  const handleProviderSignIn = (provider) => {
+    dispatch(providerLogin(provider))
       .then(result => {
-        toast.success("Logged In Successfully.");
-        navigate(from, { replace: true });
-        console.log("Provider Logged In");
+        const user = isUserExist(result.user.uid);
+        
+        console.log(isUserExist(result.user.uid));
+
+        if(user?.role){
+          toast.success("Logged In Successfully.");
+          navigate('/dashboard/employees');
+          console.log("Logged In with Provider");
+        }else{
+          // setUserData({
+          //   name: result.user.displayName,
+          //   email: result.user.email,
+          //   img: result.user.photoURL,
+          //   uid: result.user.uid
+          // });
+        }
       })
       .catch(error => console.error(error))
   }
@@ -142,7 +162,7 @@ const SignUp = () => {
                         ></img>
                       </div>
                       <div
-                        onClick={handleGoogleSign}
+                        onClick={() => handleProviderSignIn(googleProvider)}
                         className=" font-semibold ">
                         Continue with Google
                       </div>
@@ -157,7 +177,7 @@ const SignUp = () => {
                       <div className="w-8 h-8 ml-1">
                         <img src={facebook} alt=""></img>
                       </div>
-                      <div className=" font-semibold ">
+                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
                         Continue with FaceBook
                       </div>
                       <div className="mr-6"></div>
@@ -178,6 +198,10 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      {
+        userData &&
+        <SelectRole userData={userData} />
+      }
     </div>
   );
 };

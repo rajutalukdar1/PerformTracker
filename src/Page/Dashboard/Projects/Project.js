@@ -1,18 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { BsThreeDotsVertical } from 'react-icons/bs';
+import { GrEdit } from 'react-icons/gr';
+import { RiDeleteBinLine } from 'react-icons/ri';
 
-const Project = ({ project }) => {
-  const { name, details, deadline, allTasks, assignedleaders, team, progressed } = project;
+const Project = ({ project, setProjectData }) => {
+  const { _id, name, details, deadline, allTasks, assignedleaders, team, progressed } = project;
   const tasksCompleted = allTasks.filter(task => task.status === 'completed').length
 
+  const handleProjectDelete = (id) => {
+
+  }
 
   return (
     <div className="card bg-slate-200 rounded-sm">
-      <div className="card-body block py-6 px-4">
-        <h2 className="card-title leading-4">{name}</h2>
+      <div className="card-body block py-6 px-4 relative">
+        <h2 className="card-title leading-4">
+          <Link to={`/dashboard/projects/${_id}`}>{name}</Link>
+        </h2>
         <p className='mb-2'>
           <small>{allTasks.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
-          </p>
+        </p>
         <div className='mb-6 text-gray-500'>
           <p>
             {
@@ -63,6 +71,23 @@ const Project = ({ project }) => {
             <div className='flex justify-end font-bold text-gray-600'>{progressed}%</div>
             <progress className="progress progress-success w-full" value={progressed} max="100"></progress>
           </div>
+        </div>
+        <div className="dropdown dropdown-bottom dropdown-left absolute top-2 right-3">
+          <div tabIndex={0}>
+            <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl cursor-pointer"><BsThreeDotsVertical /> </h2>
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 border-2 bg-white rounded-box w-40"
+            style={{"top": "30px", "right": "5px"}}
+          >
+            <li className='bg-transparent'>
+              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <GrEdit className=" mr-3" />Edit</a> </label>
+            </li>
+            <li>
+              <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine />Delete</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
