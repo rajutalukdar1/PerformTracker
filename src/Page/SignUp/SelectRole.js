@@ -2,29 +2,32 @@ import React from 'react'
 import { FaCheckCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
 
-const SelectRole = ({ userData }) => {
+const SelectRole = ({ uid, setUid }) => {
   const navigate = useNavigate();
 
   const handleRole = e => {
     e.preventDefault();
-    // const role = e.target.role.value;
+    const role = e.target.role.value;
+    console.log(role);
 
-    // if (role === 'Employee' || role === 'Client') {
-      fetch(`http://localhost:5000/users`, {
-        method: 'POST',
+    if (uid && (role === 'Employee' || role === 'Client')) {
+      fetch(`http://localhost:5000/users?uid=${uid}`, {
+        method: 'PATCH',
         headers: {
           'content-type': 'application/json'
         },
-        // body: JSON.stringify({ ...userData, role })
-        body: JSON.stringify(userData)
+        body: JSON.stringify({ role })
       })
         .then(res => res.json())
         .then(data => {
-          navigate('/dashboard');
-          console.log("Logged In")
+          if(data.modifiedCount > 0){
+            navigate('/dashboard');
+            console.log(data);
+            setUid(null);
+          }
         })
         .catch(err => console.error(err));
-    // }
+    }
   }
 
   return (

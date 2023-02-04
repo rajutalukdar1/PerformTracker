@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useIsUserExist = () => {
-  let user;
+  const [user, setUser] = useState(null);
   const isUserExist = (id) => {
-    console.log(id);
-    // useEffect(() => {
-      fetch(`http://localhost:5000/users?uid=${id}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        // setUser(data)
-        return data;
-        user = data;
-      })
-      .catch(err => console.error(err))
-    // }, [id]);
+    if(id){
+        fetch(`http://localhost:5000/users?uid=${id}`)
+        .then(res => res.json())
+        .then(data => {
+          setUser(data);
+        })
+        .catch(err => console.error(err));
+    }
+    return user;
   }
   return [isUserExist];
 }
