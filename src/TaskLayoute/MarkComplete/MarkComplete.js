@@ -63,9 +63,7 @@ const MarkComplete = () => {
                     <HiOutlineBars3BottomLeft className='text-4xl rounded-full p-2 shadow-xl border-2 border-gray-600 cursor-pointer '></HiOutlineBars3BottomLeft>
                     <textarea className=" px-2 py-1 w-full border-2 border-gray-600 rounded-md bg-gray-900 text-white" placeholder="Description..."></textarea>
                 </div>
-
             </div>
-
         </div>
     );
 };
