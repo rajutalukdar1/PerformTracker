@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/Home-Images/image.png";
-import { AuthContext } from "../../context/AuthContext";
-import { GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
+import { useDispatch } from "react-redux";
+import SelectRole from "./SelectRole";
+import useIsUserExist from "../../hooks/useIsUserExist";
 
 
 const SignUp = () => {
@@ -13,52 +16,84 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const { createUser, updateUser } = useContext(AuthContext);
-  const [signUpError, setSignUoError] = useState("");
-  const googleProvider = new GoogleAuthProvider();
-  const { providerLogin } = useContext(AuthContext);
+  const [signUpError, setSignUpError] = useState("");
+  const [uid, setUid] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
+  const dispatch = useDispatch();
+  const [isUserExist] = useIsUserExist()
 
-  const from = location.state?.from?.pathname || '/dashboard/employees';
+  const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
 
+  // Signup With Firebase and Redux
   const handleSignUp = (data) => {
-    setSignUoError();
-    createUser(data.email, data.password)
+    setSignUpError();
+    dispatch(createUser(data.email, data.password))
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        toast("User Created Successfully.");
+        toast.success("User Created Successfully.");
         const userInfo = {
           displayName: data.name,
         };
-        updateUser(userInfo)
+        dispatch(updateUser(userInfo))
           .then(() => {
-            navigate('/dashboard/employees')
+            saveUser({
+              name: data.name,
+              img: "https://i.ibb.co/Qj8XhH5/user.png",
+              uid: result.user.uid,
+              role: data.role,
+            });
+            console.log("Signed Up");
           })
           .catch((err) => console.log(err));
       })
       .catch((error) => {
         console.log(error);
-        setSignUoError(error.message);
+        setSignUpError(error.message);
       });
   };
-  const handleGoogleSign = () => {
 
-    providerLogin(googleProvider)
+  // Google and Facebook Provider Login With Firebase and Redux
+  const handleProviderSignIn = (provider) => {
+    dispatch(providerLogin(provider))
       .then(result => {
-        const user = result.user;
-        navigate(from, { replace: true });
+        const user = isUserExist(result.user.uid);
 
-        const currentUser = {
-          email: user.email
+        if (user?.uid) {
+          if (user?.role) {
+            toast.success("Logged In Successfully.");
+            navigate('/dashboard');
+          } else {
+            setUid(result.user.uid);
+          }
+        } else {
+          user || saveUser({
+            name: result.user.displayName,
+            email: result.user.email,
+            img: result.user.photoURL,
+            uid: result.user.uid
+          });
         }
-
-        console.log(currentUser);
-
       })
       .catch(error => console.error(error))
   }
+
+  const saveUser = (user) => {
+    fetch('http://localhost:5000/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if(!user.role){
+          return setUid(user.uid);
+        }
+        navigate('/dashboard');
+      })
+      .catch(err => console.error(err));
+  }
+
   return (
     <div>
       <div className="hero min-h-screen text-black">
@@ -146,7 +181,7 @@ const SignUp = () => {
                         ></img>
                       </div>
                       <div
-                        onClick={handleGoogleSign}
+                        onClick={() => handleProviderSignIn(googleProvider)}
                         className=" font-semibold ">
                         Continue with Google
                       </div>
@@ -161,7 +196,7 @@ const SignUp = () => {
                       <div className="w-8 h-8 ml-1">
                         <img src={facebook} alt=""></img>
                       </div>
-                      <div className=" font-semibold ">
+                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
                         Continue with FaceBook
                       </div>
                       <div className="mr-6"></div>
@@ -182,6 +217,13 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      {
+        uid &&
+        <SelectRole
+          uid={uid}
+          setUid={setUid}
+        />
+      }
     </div>
   );
 };

@@ -12,23 +12,32 @@ const Reports = () => {
             });
     }, [])
     return (
-        <div>
-            <div className="overflow-x-auto w-full">
+        <div className=''>
+            <div className="overflow-x-auto  w-full ">
                 <table className="table w-full">
                     <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Salary</th>
-                            <th>Phone</th>
-                            <th>Location</th>
+                        <tr className='text-white'>
+                            <th style={{"position": "static"}}>Employee Name</th>
+                            <th>Employee Type</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Joining Date</th>
+                            <th>DOB</th>
                             <th>Marital Status</th>
+                            <th>Gender</th>
+                            <th>Salary</th>
+                            <th>Address</th>
                             <th>Nationality</th>
+                            <th>Contract Number</th>
+                            <th>Emergency Contact</th>
+                            <th>Experience</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     {
                         reports?.map(report => <EmployeesReports
-                            key={report.id}
+                            key={report._id}
                             report={report}
                         ></EmployeesReports>)
                     }
