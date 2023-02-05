@@ -16,7 +16,8 @@ const Clients = () => {
   });
   
   return (
-    <div className="bg-slate-100 px-8">
+    <div>
+      <div className="mx-4">
       <QueryBar
         barData={{
           pageName: "Clients",
@@ -25,23 +26,24 @@ const Clients = () => {
           hidden: ""
         }}
       />
-      <div className="grid gap-6 mx-4  my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      </div>
+      <div className="grid gap-6 mx-4 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full lg:max-w-xs"
           />
         </div>
         <div>
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full lg:max-w-xs"
           />
         </div>
         <div>
-          <select className="select select-bordered w-full max-w-xs">
+          <select className="select select-bordered w-full lg:max-w-xs">
             <option value="" hidden>
               Who shot first?
             </option>
@@ -50,10 +52,10 @@ const Clients = () => {
           </select>
         </div>
         <div>
-          <button className="btn btn-success w-full max-w-xs">SEARCH</button>
+          <button className="btn btn-success w-full lg:max-w-xs text-white">SEARCH</button>
         </div>
       </div>
-      <div className="grid gap-6 mx-4  my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 mx-4  my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {user?.map((client) => (
           <Client key={client._id} client={client}></Client>
         ))}
