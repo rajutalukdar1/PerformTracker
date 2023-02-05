@@ -4,61 +4,57 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { FaUserPlus } from 'react-icons/fa';
 import ConfirmationModal from '../../Page/Share/ConfirmationModal/ConfirmationModal';
 
-const AddTaskDetails = ({task, refetch}) => {
+const AddTaskDetails = ({ task, refetch }) => {
   const [disabled, setDisabled] = useState(true);
   const [deletingTask, setDeletingTask] = useState(null);
   const closeModal = () => {
     setDeletingTask(null);
-}
+  }
 
   const handleDeleteTask = task => {
-    
+
     fetch(`http://localhost:5000/task/${task._id}`, {
-        method: 'DELETE', 
-        // headers: {
-        //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-        // }
+      method: 'DELETE',
+      // headers: {
+      //     authorization: `bearer ${localStorage.getItem('accessToken')}`
+      // }
     })
-    .then(res => res.json())
-    .then(data => {
-        if(data.deletedCount > 0){
-            refetch();
-            toast.success(`Doctor ${task.title} deleted successfully`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success(`Doctor ${task.title} deleted successfully`)
         }
-    })
-}
+      })
+  }
 
-
-    return (
-        <div className='grid grid-cols-6 overflow-x-auto  shadow-lg bg-slate-100 hover:bg-slate-400 border border-gray-500  py-2  mx-4'>
-
-
-          <div className='col-span-1 mx-auto'>
-            <input type="checkbox" className="checkbox " />
-          </div>
-          <div className='w-full col-span-4'>
-            <input type="text" defaultValue={task.title} placeholder="Type here" className="p-1 w-full max-w-xs " disabled={task.title && disabled} />
-          </div>
-          <div className='col-span-1'>
-          <button className='whitespace-nowrap flex justify-end gap-2   '><FaUserPlus className='text-xl text-slate-100  hover:text-slate-900'></FaUserPlus>
+  return (
+    <div className='grid grid-cols-6 overflow-x-auto  shadow-lg bg-gray-900 hover:bg-slate-800 border border-gray-700  py-2  mx-4'>
+      <div className='col-span-1 mx-auto'>
+        <input type="checkbox" className="checkbox checkbox-success" />
+      </div>
+      <div className='w-full col-span-4'>
+        <input type="text" defaultValue={task.title} placeholder="Type here" className="p-1 bg-transparent w-full max-w-xs " disabled={task.title && disabled} />
+      </div>
+      <div className='col-span-1'>
+        <button className='whitespace-nowrap flex justify-end gap-2   '><FaUserPlus className='text-xl text-slate-100  hover:text-slate-900'></FaUserPlus>
           <label
-                             onClick={() => setDeletingTask(task)} htmlFor="confirmation-modal" className=""><AiOutlineDelete className='text-xl text-slate-100 hover:text-slate-900 cursor-pointer'></AiOutlineDelete>
-                             </label>
-          </button>
-          
-          </div>
-          {
-                deletingTask && <ConfirmationModal
-                title={`Are you sure you want to delete?`}
-                message={`if you delete ${deletingTask.title}. It cannot be undone`}
-                successAction={handleDeleteTask}
-                modalData = {deletingTask}
-                successButtonName="Delete"
-                closeModal={closeModal}
-                ></ConfirmationModal>
-            }
-          </div>
-    );
+            onClick={() => setDeletingTask(task)} htmlFor="confirmation-modal" className=""><AiOutlineDelete className='text-xl text-slate-100 hover:text-slate-900 cursor-pointer'></AiOutlineDelete>
+          </label>
+        </button>
+      </div>
+      {
+        deletingTask && <ConfirmationModal
+          title={`Are you sure you want to delete?`}
+          message={`if you delete ${deletingTask.title}. It cannot be undone`}
+          successAction={handleDeleteTask}
+          modalData={deletingTask}
+          successButtonName="Delete"
+          closeModal={closeModal}
+        ></ConfirmationModal>
+      }
+    </div>
+  );
 };
 
 export default AddTaskDetails;

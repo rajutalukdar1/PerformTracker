@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { GrEdit } from 'react-icons/gr';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { GrFormAdd } from 'react-icons/gr';
 import AddEmployeeFromModal from "./AddEmployeeFromModal";
 import EditEmployeeDetails from "./EditEmployeeDetails";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
+import { FaPencilAlt } from "react-icons/fa";
 
 const AllEmployees = () => {
   const [id, setId] = useState(null);
@@ -58,26 +58,19 @@ const AllEmployees = () => {
       {
         id && <EditEmployeeDetails id={id} />
       }
-      <div
-        style={{ backgroundColor: "#F7F7F7" }}
-        className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {allEmployees.map((singleEmployee) => (
-
-          <div key={singleEmployee._id} className="shadow-md  rounded-sm   bg-white pb-8">
+          <div key={singleEmployee._id} className="shadow-md bg-gray-900 rounded-sm pb-8">
             <div className="dropdown dropdown-bottom dropdown-right">
-              {/* <label  className="btn bg-white border-0 ">
-                <span className="text-center"></span>
-                </label> */}
               <div tabIndex={0}>
-                <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl"><BsThreeDotsVertical /> </h2>
+                <h2 className="text-center mt-3 ml-4 font-semibold text-gray-400 text-xl cursor-pointer"><BsThreeDotsVertical /> </h2>
               </div>
               <ul
                 tabIndex={0}
-                className="dropdown-content menu p-2 border-2 bg-white rounded-box w-40"
+                className="dropdown-content menu p-2 bg-slate-800 text-white rounded-box w-40"
               >
                 <li>
-                  <label onClick={() => setId(singleEmployee._id)} htmlFor="my-modal-2"><a className="flex  items-center text-bold"> <GrEdit className=" mr-3" />edit</a> </label>
+                  <label onClick={() => setId(singleEmployee._id)} htmlFor="my-modal-2"><span className="flex  items-center text-bold"> <FaPencilAlt className="mr-3" />edit</span> </label>
                 </li>
                 <li>
                   <Link className="text-bold" onClick={() => handleReviewDelete(singleEmployee._id)} > <RiDeleteBinLine />delete</Link>
@@ -87,13 +80,13 @@ const AllEmployees = () => {
             <Link to={`/dashboard/employees/${singleEmployee._id}`}>
               <div className="flex  justify-center ">
                 <img
-                  className="w-20 h-20 rounded-full object-cover"
+                  className="w-20 h-20 rounded-full object-cover bg-slate-100"
                   src={singleEmployee.img}
                   alt=""
                 />
               </div>
               <div className="text-center pt-4">
-                <h4 className="font-bold text-xl text-gray-900">
+                <h4 className="font-bold text-xl text-gray-300">
                   {singleEmployee.name}
                 </h4>
                 <p className="font-semibold text-gray-600">
