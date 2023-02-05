@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom';
 const AdminProgress = () => {
     const { user } = useSelector(state => state.userReducer);
     return (
-
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-12 '>
-                <div className='border p-3 bg-slate-100'>
+            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 p-12 '>
+                <div className='border p-3 bg-slate-900 text-gray-200'>
                     <h2 className='text-xl font-bold'>Statistics</h2>
                     <div className='border p-2 mt-1'>
                         <div className='flex justify-between'>
@@ -47,68 +46,67 @@ const AdminProgress = () => {
                         <progress className="progress progress-success w-full h-1" value="50" max="100"></progress>
                     </div>
                 </div>
-                <div>
-                    <div className='border p-6 bg-slate-100'>
-                        <h2 className='text-xl font-bold'>Task Statistics</h2>
-                        <div className='grid grid-cols-2 gap-3'>
-                            <div className='border text-center p-3 w-full font-semibold'>
-                                <h2>Total Tasks</h2>
-                                <h3>350</h3>
-                            </div>
-                            <div className='border text-center p-3 w-full font-semibold'>
-                                <h2>Overdue Tasks</h2>
-                                <h3>19</h3>
-                            </div>
+                {/* <div> */}
+                <div className='border p-6 bg-slate-900 text-gray-200'>
+                    <h2 className='text-xl font-bold'>Task Statistics</h2>
+                    <div className='grid grid-cols-2 gap-3'>
+                        <div className='border text-center p-3 w-full font-semibold'>
+                            <h2>Total Tasks</h2>
+                            <h3>350</h3>
                         </div>
-                        <div class="relative pt-1 mt-4">
-                            <div class="overflow-hidden h-4 mb-4 text-xs flex rounded bg-emerald-200">
-                                <div className="w-[10%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">10%</div>
-                                <div className="w-[30%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-black">30%</div>
-                                <div className="w-[25%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-cyan-400">25%</div>
-                                <div className="w-[35%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500">35%</div>
-                            </div>
-                        </div>
-                        <div>
-                            <div className='flex justify-between'>
-                                <div className='flex items-center'>
-                                    <span className='text-red-500 text-2xl mr-3 mt-2'>&#9678;</span>
-                                    <h2>Completed Tasks</h2>
-                                </div>
-                                <h5>166</h5>
-                            </div>
-                            <div className='flex justify-between'>
-                                <div className='flex items-center'>
-                                    <span className='text-black text-2xl mr-3 mt-2'>&#9678;</span>
-                                    <h2>Inprogress Tasks</h2>
-                                </div>
-                                <h5>166</h5>
-                            </div>
-                            <div className='flex justify-between'>
-                                <div className='flex items-center'>
-                                    <span className='text-blue-600 text-2xl mr-3 mt-2'>&#9678;</span>
-                                    <h2>Pending Tasks</h2>
-                                </div>
-                                <h5>166</h5>
-                            </div>
-                            <div className='flex justify-between'>
-                                <div className='flex items-center'>
-                                    <span className='text-green-400 text-2xl mr-3 mt-2'>&#9678;</span>
-                                    <h2>Review Tasks</h2>
-                                </div>
-                                <h5>166</h5>
-                            </div>
-                            <div className='flex justify-between'>
-                                <div className='flex items-center'>
-                                    <span className='text-sky-400 text-2xl mr-3 mt-2'>&#9678;</span>
-                                    <h2>coming Tasks</h2>
-                                </div>
-                                <h5>166</h5>
-                            </div>
+                        <div className='border text-center p-3 w-full font-semibold'>
+                            <h2>Overdue Tasks</h2>
+                            <h3>19</h3>
                         </div>
                     </div>
-
+                    <div class="relative pt-1 mt-4">
+                        <div class="overflow-hidden h-4 mb-4 text-xs flex rounded bg-emerald-200">
+                            <div className="w-[10%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">10%</div>
+                            <div className="w-[30%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-black">30%</div>
+                            <div className="w-[25%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-cyan-400">25%</div>
+                            <div className="w-[35%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500">35%</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className='flex justify-between'>
+                            <div className='flex items-center'>
+                                <span className='text-red-500 text-2xl mr-3 mt-2'>&#9678;</span>
+                                <h2>Completed Tasks</h2>
+                            </div>
+                            <h5>166</h5>
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='flex items-center'>
+                                <span className='text-black text-2xl mr-3 mt-2'>&#9678;</span>
+                                <h2>Inprogress Tasks</h2>
+                            </div>
+                            <h5>166</h5>
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='flex items-center'>
+                                <span className='text-blue-600 text-2xl mr-3 mt-2'>&#9678;</span>
+                                <h2>Pending Tasks</h2>
+                            </div>
+                            <h5>166</h5>
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='flex items-center'>
+                                <span className='text-green-400 text-2xl mr-3 mt-2'>&#9678;</span>
+                                <h2>Review Tasks</h2>
+                            </div>
+                            <h5>166</h5>
+                        </div>
+                        <div className='flex justify-between'>
+                            <div className='flex items-center'>
+                                <span className='text-sky-400 text-2xl mr-3 mt-2'>&#9678;</span>
+                                <h2>coming Tasks</h2>
+                            </div>
+                            <h5>166</h5>
+                        </div>
+                    </div>
                 </div>
-                <div className='border p-6 bg-slate-100'>
+                {/* </div> */}
+                <div className='border p-6 bg-slate-900 text-gray-200'>
                     <h2 className='text-xl font-bold'>Today Absent <span className='text-red-500'>5</span></h2>
                     <div className='border p-2'>
                         <div className='flex items-center'>
@@ -173,7 +171,7 @@ const AdminProgress = () => {
                             </span>
 
                             <span
-                                class="ml-4 flex-shrink-0 rounded-full border border-indigo-600 bg-white p-2 group-active:border-indigo-500"
+                                class="ml-4 flex-shrink-0 rounded-full border border-indigo-600 hover:bg-slate-800 p-2 group-active:border-indigo-500"
                             >
                                 <svg
                                     class="h-5 w-5"

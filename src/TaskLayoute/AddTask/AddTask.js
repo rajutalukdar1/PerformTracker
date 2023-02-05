@@ -68,7 +68,7 @@ const AddTask = () => {
           </ul>
         </div>
       </div>
-      <div className="grid mx-4 mt-4  grid-cols-1">
+      <div className="grid mx-4 mt-4 grid-cols-1">
         {user?.map((task) => (
           <AddTaskDetails
             key={task._id}
