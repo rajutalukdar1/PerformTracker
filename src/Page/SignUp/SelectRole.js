@@ -11,7 +11,7 @@ const SelectRole = ({ uid, setUid }) => {
     console.log(role);
 
     if (uid && (role === 'Employee' || role === 'Client')) {
-      fetch(`http://localhost:5000/users?uid=${uid}`, {
+      fetch(`https://perform-tracker-server.vercel.app/users?uid=${uid}`, {
         method: 'PATCH',
         headers: {
           'content-type': 'application/json'

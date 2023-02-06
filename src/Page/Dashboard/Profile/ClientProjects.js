@@ -10,7 +10,7 @@ const ClientProjects = () => {
     const { data: projects = [], refetch } = useQuery({
         queryKey: ['projects', user?.uid],
         queryFn: () =>
-            fetch(`http://localhost:5000/client/projects/${user?.uid}`).then(res => res.json()),
+            fetch(`https://perform-tracker-server.vercel.app/client/projects/${user?.uid}`).then(res => res.json()),
     });
 
     console.log(projects)
