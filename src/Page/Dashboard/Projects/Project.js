@@ -82,7 +82,7 @@ const Project = ({ project, setProjectData }) => {
           <ul
             tabIndex={0}
             className="dropdown-content menu p-2 border-2 bg-white rounded-box w-40"
-            style={{"top": "30px", "right": "5px"}}
+            style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>
               <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <GrEdit className=" mr-3" />Edit</a> </label>

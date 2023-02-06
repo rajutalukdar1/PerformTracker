@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/Home-Images/image.png";
-import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
-import SelectRole from "./SelectRole";
-import useIsUserExist from "../../hooks/useIsUserExist";
 
 
 const SignUp = () => {
@@ -17,12 +15,12 @@ const SignUp = () => {
     handleSubmit,
   } = useForm();
   const [signUpError, setSignUpError] = useState("");
-  const [userData, setUserData] = useState(null);
+  const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
-  const [isUserExist] = useIsUserExist()
 
-  const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
+  const from = location.state?.from?.pathname || '/dashboard/employees';
 
   // Signup With Firebase and Redux
   const handleSignUp = (data) => {
@@ -36,12 +34,7 @@ const SignUp = () => {
         dispatch(updateUser(userInfo))
           .then(() => {
             console.log("Signed Up");
-            setUserData({
-              name: data.name,
-              email: data.email,
-              img: "https://i.ibb.co/Qj8XhH5/user.png",
-              uid: result.user.uid
-            });
+            navigate('/dashboard/employees')
           })
           .catch((err) => console.log(err));
       })
@@ -51,26 +44,13 @@ const SignUp = () => {
       });
   };
 
-  // Google and Facebook Provider Login With Firebase and Redux
-  const handleProviderSignIn = (provider) => {
-    dispatch(providerLogin(provider))
+  // Google Provider Login With Firebase and Redux
+  const handleGoogleSign = () => {
+    dispatch(providerLogin(googleProvider))
       .then(result => {
-        // const user = isUserExist(result.user.uid);
-        
-        // console.log(isUserExist(result.user.uid));
-
-        // if(user?.role){
-          toast.success("Logged In Successfully.");
-          navigate('/dashboard');
-          console.log("Logged In with Provider");
-        // }else{
-          // setUserData({
-          //   name: result.user.displayName,
-          //   email: result.user.email,
-          //   img: result.user.photoURL,
-          //   uid: result.user.uid
-          // });
-        // }
+        toast.success("Logged In Successfully.");
+        navigate(from, { replace: true });
+        console.log("Provider Logged In");
       })
       .catch(error => console.error(error))
   }
@@ -162,7 +142,7 @@ const SignUp = () => {
                         ></img>
                       </div>
                       <div
-                        onClick={() => handleProviderSignIn(googleProvider)}
+                        onClick={handleGoogleSign}
                         className=" font-semibold ">
                         Continue with Google
                       </div>
@@ -174,10 +154,10 @@ const SignUp = () => {
                   {/* onClick={handleSignInWithFacebook} */}
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-8 h-8 ml-1">
+                      <div className="w-12 h-12">
                         <img src={facebook} alt=""></img>
                       </div>
-                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
+                      <div className=" font-semibold ">
                         Continue with FaceBook
                       </div>
                       <div className="mr-6"></div>
@@ -198,10 +178,6 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-      {
-        userData &&
-        <SelectRole userData={userData} />
-      }
     </div>
   );
 };
