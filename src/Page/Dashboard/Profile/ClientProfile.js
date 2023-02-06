@@ -11,7 +11,7 @@ const ClientProfile = () => {
     const { data: client = [], refetch } = useQuery({
         queryKey: ['client'],
         queryFn: () =>
-            fetch(`http://localhost:5000/client?email=${user?.email}`).then(res => res.json()),
+            fetch(`https://perform-tracker-server.vercel.app/client?email=${user?.email}`).then(res => res.json()),
     });
 
     console.log(client)

@@ -13,7 +13,7 @@ const AddTaskDetails = ({ task, refetch }) => {
 
   const handleDeleteTask = task => {
 
-    fetch(`http://localhost:5000/task/${task._id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/task/${task._id}`, {
       method: 'DELETE',
       // headers: {
       //     authorization: `bearer ${localStorage.getItem('accessToken')}`
