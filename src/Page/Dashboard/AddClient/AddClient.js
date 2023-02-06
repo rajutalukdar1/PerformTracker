@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import Loading from '../../Share/Loading/Loading';
 import { useForm } from 'react-hook-form';
 
 const AddClient = ({ refetch, setClients }) => {
@@ -38,7 +36,6 @@ const AddClient = ({ refetch, setClients }) => {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
-
                         },
                         body: JSON.stringify(client)
                     })
@@ -63,10 +60,10 @@ const AddClient = ({ refetch, setClients }) => {
     return (
         <>
             <div className=''>
-                <input type="checkbox" id="booking-modal" className="modal-toggle " />
+                <input type="checkbox" id="addClientModal" className="modal-toggle " />
                 <div className="modal pt-24">
                     <div className="modal-box relative ">
-                        <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2  top-2">✕</label>
+                        <label htmlFor="addClientModal" className="btn btn-sm btn-circle absolute right-2  top-2">✕</label>
                         <form
                             onSubmit={handleSubmit(handleAddClient)}
                         >
@@ -74,28 +71,25 @@ const AddClient = ({ refetch, setClients }) => {
                                 <div>
                                     <input type="text"
                                         // disabled value={date}
-                                        className="input input-bordered my-2 w-full " {...register("company", { required: "Your Name is required" })} />
+                                        placeholder="Company Name"
+                                        className="input input-bordered my-2 w-full " {...register("company", { required: "Company Name is required" })} />
                                     {errors.company && <p className='text-red-600' role="alert">{errors.company?.message}</p>}
                                 </div>
                                 <div>
                                     <input name='name' type="text"
                                         // defaultValue={user?.displayName}
-                                        placeholder="Your Name" className="input input-bordered my-2 w-full " {...register("name", { required: "Your Name is required" })} />
+                                        placeholder="Client Name" className="input input-bordered my-2 w-full " {...register("name", { required: "Client Name is required" })} />
                                     {errors.name && <p className='text-red-600' role="alert">{errors.name?.message}</p>}
                                 </div>
                                 <div>
                                     <input name='email' type="email"
                                         // defaultValue={user?.email}
-                                        placeholder="Email Address" className="input input-bordered my-2 w-full " {...register("company", { required: "Your Name is required" })} />
+                                        placeholder="Email Address" className="input input-bordered my-2 w-full " {...register("company", { required: "Email address is required" })} />
                                     {errors.email && <p className='text-red-600' role="alert">{errors.email?.message}</p>}
                                 </div>
                                 <div>
-                                    <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered my-2 w-full " {...register("phone", { required: "Your Name is required" })} />
+                                    <input name='phone' type="text" placeholder="Phone Number" className="input input-bordered my-2 w-full " {...register("phone", { required: "Phone Number is required" })} />
                                     {errors.phone && <p className='text-red-600' role="alert">{errors.phone?.message}</p>}
-                                </div>
-                                <div>
-                                    <input name='phoneemployee_id' type="text" placeholder="Your Id" className="input input-bordered my-2 w-full " {...register("employee_id", { required: "Your Name is required" })} />
-                                    {errors.employee_id && <p className='text-red-600' role="alert">{errors.employee_id?.message}</p>}
                                 </div>
                                 <div>
                                     <input name='position' type="text" placeholder="Your position" className="input input-bordered my-2 w-full " {...register("position", { required: "Your Name is required" })} />
@@ -110,12 +104,12 @@ const AddClient = ({ refetch, setClients }) => {
                                     {errors.birthday && <p className='text-red-600' role="alert">{errors.birthday?.message}</p>}
                                 </div>
                                 {/* <div className="form-control w-full "> */}
+                            </div>
                                 <div>
                                     <label className="label"><span className="label-text">Photo</span></label>
                                     <input type="file" {...register("image", { required: "Your Photo is required" })} className="file-input file-input-bordered w-full " />
                                     {errors.img && <p className='text-red-600' role="alert">{errors.img?.message}</p>}
                                 </div>
-                            </div>
                             {/* </div> */}
                             <br />
                             <input className='btn btn-accent w-full my-4' type="submit" value="Submit" />

@@ -1,7 +1,6 @@
 import React from 'react';
 import AddTask from '../AddTask/AddTask';
 import MarkComplete from '../MarkComplete/MarkComplete';
-import TaskSidebar from '../TaskSidebar/TaskSidebar';
 
 
 const MainTask = () => {

@@ -6,11 +6,11 @@ import "./MarkComplet.css";
 const MarkComplete = () => {
     return (
         <div className='h-screen'>
-            <div className='stop w-full shadow-lg bg-white pt-4 py-2  flex justify-between border-b-2 fixed border-gray-400 '>
-          <button className=" shadow-xl bg-slate-100 px-2 py-1 ml-2 border border-gray-500 rounded-md flex justify-center items-center gap-2"><FaCheck></FaCheck> Mark Complete </button>
+            <div className='stop w-full shadow-lg bg-gray-900 pt-4 py-2  flex justify-between border-b-2 fixed border-gray-700 '>
+          <button className=" shadow-xl bg-gray-900 px-2 py-1 ml-2 border border-gray-700 rounded-md flex justify-center items-center gap-2"><FaCheck></FaCheck> Mark Complete </button>
           <div className="dropdown dropdown-end ">
           <label tabIndex={0}><FaEllipsisV className='px-2 py-1 mr-2 border rounded-lg text-4xl cursor-pointer text-slate-400'></FaEllipsisV></label>
-          <ul tabIndex={0} className="menu menu-compact dropdown-content  p-2 shadow bg-base-100 rounded-box w-52  fixed">
+          <ul tabIndex={0} className="menu menu-compact dropdown-content  p-2 shadow bg-gray-900 rounded-box w-52  fixed">
             <li><a>Delete</a></li>
             <li><a>Edit</a></li>
           </ul>
@@ -18,7 +18,7 @@ const MarkComplete = () => {
           
           </div>
           <div className='pl-2 py-2'>
-            <h2 className='text-lg font-bold text-black '>Hospital Administration Phase 1</h2>
+            <h2 className='text-lg font-bold text-slate-200 '>Hospital Administration Phase 1</h2>
             <div className='grid grid-cols-2 gap-4 mt-4 px-6  border-b-2 border-gray-400 pb-8'>
                 <div className='grid grid-cols-3 gap-4 hover:border-2 border-gray-300 rounded-md p-2 justify-center items-center cursor-pointer hover:bg-slate-400'>
                 <div className="avatar">
@@ -47,7 +47,7 @@ const MarkComplete = () => {
                 </div>
                 </div>
                     <div className='flex justify-center items-center'>
-                    <div className=' whitespace-nowrap'>
+                    <div className=' whitespace-nowrap hover:text-white'>
                         <h2>Assigned To</h2>
                         <h2>John Doe</h2>
                     </div>
@@ -99,7 +99,7 @@ const MarkComplete = () => {
 
           <div className="avatar-group flex items-center justify-start pl-2 ">
           <h2 className='mr-3'>Flowers</h2>
-            <div className="avatar cursor-pointer">
+            <div className="avatar">
                 <div className="w-8">
                 <img src="https://i.ibb.co/gPDDW7S/IMG-20220603-205920.jpg" alt="" />
                 </div>
@@ -114,7 +114,7 @@ const MarkComplete = () => {
                 <img src="https://i.ibb.co/gPDDW7S/IMG-20220603-205920.jpg" alt="" />
                 </div>
             </div>
-            <div className="avatar placeholder cursor-pointer">
+            <div className="avatar cursor-pointer placeholder cursor-pointer">
                 <div className="w-8 bg-slate-400  text-white">
                 <span className='font-bold text-4xl -mt-2'>+</span>
                 </div>

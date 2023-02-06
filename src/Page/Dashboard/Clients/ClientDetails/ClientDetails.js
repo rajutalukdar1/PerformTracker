@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 // import img1 from '../../../Assets/success_img/Vicky.jpg'
 
 const ClientDetails = () => {
-    const { _id, img, company, name, email, phone, birthday, address, position, gender } = useLoaderData();
+    const { img, company, name, email, phone, birthday, address, position, gender } = useLoaderData();
     return (
         <div className='mb-8 lg:max-w-screen-lg mx-5 lg:mx-auto'>
 

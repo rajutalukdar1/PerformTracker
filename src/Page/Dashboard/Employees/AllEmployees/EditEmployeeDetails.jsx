@@ -54,7 +54,6 @@ const EditEmployeeDetails = ({ id }) => {
             method: 'PATCH',
             headers: {
               'content-type': 'application/json'
-
             },
             body: JSON.stringify(update)
 
@@ -63,35 +62,26 @@ const EditEmployeeDetails = ({ id }) => {
             .then(result => {
               console.log(result);
               toast.success('Employee is successfully Updated!')
-
-
             })
         }
-
       })
     e.target.reset()
   }
   return (
     <div>
-
-
       <input type="checkbox" id="my-modal-2" className="modal-toggle" />
-
       <div className="modal">
-
-        <div className="modal-box">
-
-          <form onSubmit={handleEditEmployee} action="" className="space-y-4">
-            <label htmlFor="my-modal-2" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-
-            <div className="mt-8">
+        <div className="modal-box p-0 mt-[88px]">
+          <form onSubmit={handleEditEmployee} action="" className="space-y-4 bg-slate-900 p-6">
+            <label htmlFor="my-modal-2" className="btn btn-sm btn-circle absolute bg-slate-700 right-2 top-2">✕</label>
+            <div className="pt-2">
               <label className="sr-only" htmlFor="name">
                 Name
               </label>
               <input
                 name="name"
                 defaultValue={name}
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg p-3 text-sm bg-slate-800"
                 placeholder="Name"
                 type="text"
                 id="name"
@@ -104,10 +94,9 @@ const EditEmployeeDetails = ({ id }) => {
               <input
                 name="designation"
                 defaultValue={designation}
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg p-3 text-sm bg-slate-800"
                 placeholder="designation"
                 type="text"
-
               />
             </div>
             <div>
@@ -117,13 +106,11 @@ const EditEmployeeDetails = ({ id }) => {
               <input
                 name="address"
                 defaultValue={address}
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg p-3 text-sm bg-slate-800"
                 placeholder="Address"
                 type="text"
-
               />
             </div>
-
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="sr-only" htmlFor="email">
@@ -132,13 +119,11 @@ const EditEmployeeDetails = ({ id }) => {
                 <input
                   name="salary"
                   defaultValue={salary}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg p-3 text-sm bg-slate-800"
                   placeholder="Salary"
                   type="text"
-
                 />
               </div>
-
               <div>
                 <label className="sr-only">
                   Nationality
@@ -146,14 +131,12 @@ const EditEmployeeDetails = ({ id }) => {
                 <input
                   defaultValue={nationality}
                   name="nationality"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg p-3 text-sm bg-slate-800"
                   placeholder="nationality"
                   type="text"
-
                 />
               </div>
             </div>
-
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="sr-only" htmlFor="email">
@@ -162,7 +145,7 @@ const EditEmployeeDetails = ({ id }) => {
                 <input
                   name="email"
                   defaultValue={email}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg p-3 text-sm bg-slate-800"
                   placeholder="Email address"
                   type="email"
                   id="email"
@@ -176,7 +159,7 @@ const EditEmployeeDetails = ({ id }) => {
                 <input
                   name="phone"
                   defaultValue={phone}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg p-3 text-sm bg-slate-800"
                   placeholder="Phone Number"
                   type="tel"
                   id="phone"
@@ -185,34 +168,30 @@ const EditEmployeeDetails = ({ id }) => {
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <select name="gender" className="select  rounded-lg border-gray-200 p-3 w-full max-w-xs">
-                  <option disabled selected>
+                <select name="gender" className="select rounded-lg p-3 w-full max-w-xs bg-slate-800">
+                  <option hidden value="">
                     Select Gender
                   </option>
                   <option>Male</option>
                   <option>Female</option>
                   <option>Others</option>
-
                 </select>
               </div>
-
               <div>
-                <select name="maritalStatus" className="select  rounded-lg border-gray-200 p-3 w-full max-w-xs">
-                  <option disabled selected>
+                <select name="maritalStatus" className="select bg-slate-800 rounded-lg p-3 w-full max-w-xs">
+                  <option hidden value="">
                     Select marital Status
                   </option>
                   <option>unmarried</option>
                   <option>married</option>
-
-
                 </select>
               </div>
             </div>
             <div>
-              <input name="employeeImg" type="file" defaultValue={img} placeholder="select your photo" className="file-input file-input-bordered  w-full" />
+              <input name="employeeImg" type="file" defaultValue={img} placeholder="select your photo" className="file-input bg-slate-800 w-full" />
             </div>
-            <div className="modal-action">
-              <button className="px-3 py-2 rounded-lg bg-orange-600  text-white font-semibold text-xl" type="submit">Submit</button>
+            <div className="modal-action justify-center">
+              <button className="px-3 py-2 rounded-lg bg-primary  text-white font-semibold text-xl" type="submit">Submit</button>
 
             </div>
           </form>

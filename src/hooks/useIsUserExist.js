@@ -1,12 +1,17 @@
+import { useState } from "react";
+
 const useIsUserExist = () => {
+  const [user, setUser] = useState(null);
   const isUserExist = (id) => {
-    console.log(id);
-    fetch(`http://localhost:5000/users/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        return data;
-      })
-      .catch(err => console.error(err));
+    if(id){
+        fetch(`https://perform-tracker-server.vercel.app/users?uid=${id}`)
+        .then(res => res.json())
+        .then(data => {
+          setUser(data);
+        })
+        .catch(err => console.error(err));
+    }
+    return user;
   }
   return [isUserExist];
 }

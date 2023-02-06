@@ -13,10 +13,10 @@ const Reports = () => {
     }, [])
     return (
         <div className=''>
-            <div className="overflow-x-auto w-full p-12 ">
+            <div className="overflow-x-auto  w-full ">
                 <table className="table w-full">
                     <thead>
-                        <tr>
+                        <tr className='text-white'>
                             <th style={{"position": "static"}}>Employee Name</th>
                             <th>Employee Type</th>
                             <th>Email</th>

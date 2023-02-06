@@ -14,11 +14,11 @@ const EmployeeProfile = () => {
 
   return (
     <div className='w-full max-w-[1440px] mx-auto mb-20'>
-      <div className="mx-5 md:mx-10">
+      <div className="mx-5 md:mx-10 text-gray-200">
         <h3 className='text-2xl font-semibold text-center'>Profile</h3>
-        <div className="card w-full bg-slate-200 rounded-lg">
+        <div className="card w-full bg-gray-900 rounded-lg">
           <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
-            <div className='flex gap-4 pb-5 md:pb-0 border-b-2 md:border-b-0 md:border-r-2 border-black border-dashed'>
+            <div className='flex gap-4 pb-5 md:pb-0 border-b-2 md:border-b-0 md:border-r-2 border-gray-400 border-dashed'>
               <div>
                 <div className="avatar">
                   <div className="w-24 rounded-full">
@@ -29,21 +29,21 @@ const EmployeeProfile = () => {
               <div>
                 <h3 className="text-2xl font-bold">{name}</h3>
                 <p>{designation}</p>
-                <div className='flex gap-2 text-primary text-2xl mt-2'>
-                  <a href=""><FaFacebook /></a>
-                  <a href=""><FaLinkedin /></a>
-                  <a href=""><FaGithub /></a>
+                <div className='flex gap-2 text-2xl mt-2'>
+                  <a href=" "><FaFacebook /></a>
+                  <a href=" "><FaLinkedin /></a>
+                  <a href=" "><FaGithub /></a>
                 </div>
               </div>
             </div>
             <div className='grid grid-cols-[8rem_1fr]'>
               <EmployeeInfo
                 lab='Phone:'
-                val={<a className='link text-blue-600' href={`tel:${phone}`}>{phone}</a>}
+                val={<a className='link' href={`tel:${phone}`}>{phone}</a>}
               />
               <EmployeeInfo
                 lab='Email:'
-                val={<a className='flex-1 link text-blue-600' href={`mailto:${email}`}>{email}</a>}
+                val={<a className='flex-1 link' href={`mailto:${email}`}>{email}</a>}
               />
               <EmployeeInfo
                 lab='Address:'
@@ -65,16 +65,6 @@ const EmployeeProfile = () => {
                 lab='Marital status:'
                 val={maritalStatus}
               />
-              {/* <span className='w-36 md:w-32 font-bold'>Address:</span>
-              <span>{address}</span>
-              <span className='w-36 md:w-32 font-bold'>Gender:</span>
-              <span>{gender}</span>
-              <span className='w-36 md:w-32 font-bold'>Nationality:</span>
-              <span>{nationality}</span>
-              <span className='w-36 md:w-32 font-bold'>Salary:</span>
-              <span>{salary}</span>
-              <span className='w-36 md:w-32 font-bold'>Marital status:</span>
-              <span>{maritalStatus}</span> */}
             </div>
           </div>
         </div>
