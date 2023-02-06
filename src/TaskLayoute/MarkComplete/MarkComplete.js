@@ -1,11 +1,12 @@
 import React from 'react';
-import { FaCheck, FaEllipsisV, FaRegSun, FaRegTimesCircle } from 'react-icons/fa';
+import { FaCheck, FaEllipsisV, FaRegSun, FaRegTimesCircle, FaRocketchat, FaTelegramPlane } from 'react-icons/fa';
 import { HiCalendar, HiOutlineBars3BottomLeft, IconName } from "react-icons/hi2";
+import "./MarkComplet.css";
 
 const MarkComplete = () => {
     return (
         <div className='h-screen'>
-            <div className=' w-full shadow-lg bg-white pt-4 py-2 sticky flex justify-between border-b-2 border-gray-400 '>
+            <div className='stop w-full shadow-lg bg-white pt-4 py-2  flex justify-between border-b-2 fixed border-gray-400 '>
           <button className=" shadow-xl bg-slate-100 px-2 py-1 ml-2 border border-gray-500 rounded-md flex justify-center items-center gap-2"><FaCheck></FaCheck> Mark Complete </button>
           <div className="dropdown dropdown-end ">
           <label tabIndex={0}><FaEllipsisV className='px-2 py-1 mr-2 border rounded-lg text-4xl cursor-pointer text-slate-400'></FaEllipsisV></label>
@@ -63,8 +64,63 @@ const MarkComplete = () => {
                     <HiOutlineBars3BottomLeft className='text-4xl rounded-full p-2 shadow-xl border-2 border-r-gray-400 cursor-pointer '></HiOutlineBars3BottomLeft>
                     <textarea className=" p-1 w-full border-2 border-r-gray-400 rounded-md" placeholder="Description"></textarea>
                 </div>
+                <div className='flex gap-4 justify-between items-center mt-8 pb-6 border-b-2 border-r-gray-400 '>
+                    <HiOutlineBars3BottomLeft className='text-4xl rounded-full p-2 shadow-xl border-2 border-r-gray-400 cursor-pointer '></HiOutlineBars3BottomLeft>
+                    <textarea className=" p-1 w-full border-2 border-r-gray-400 rounded-md" placeholder="Description"></textarea>
+                </div>
+                <div className='flex gap-4 justify-between items-center mt-8 pb-6 border-b-2 border-r-gray-400 '>
+                    <HiOutlineBars3BottomLeft className='text-4xl rounded-full p-2 shadow-xl border-2 border-r-gray-400 cursor-pointer '></HiOutlineBars3BottomLeft>
+                    <textarea className=" cursor-pointerp-1 w-full border-2 border-r-gray-400 rounded-md" placeholder="Description"></textarea>
+                </div>
+                <div className='flex gap-4 justify-between items-center mt-8 pb-6 border-b-2 border-r-gray-400 '>
+                    <HiOutlineBars3BottomLeft className='text-4xl rounded-full p-2 shadow-xl border-2 border-r-gray-400 cursor-pointer '></HiOutlineBars3BottomLeft>
+                    <textarea className=" p-1 w-full border-2 border-r-gray-400 rounded-md" placeholder="Description"></textarea>
+                </div>
+                <div className='flex gap-4 justify-between items-center mt-8 pb-6 border-b-2 border-r-gray-400 '>
+                    <HiOutlineBars3BottomLeft className='text-4xl rounded-full p-2 shadow-xl border-2 border-r-gray-400 cursor-pointer '></HiOutlineBars3BottomLeft>
+                    <textarea className=" p-1 w-full border-2 border-r-gray-400 rounded-md" placeholder="Description"></textarea>
+                </div>
+                <div className='flex gap-4 justify-between items-center mt-8 pb-6 border-b-2 border-r-gray-400 '>
+                    <HiOutlineBars3BottomLeft className='text-4xl rounded-full p-2 shadow-xl border-2 border-r-gray-400 cursor-pointer '></HiOutlineBars3BottomLeft>
+                    <textarea className=" p-1 w-full border-2 border-r-gray-400 rounded-md" placeholder="Description"></textarea>
+                </div>
                 
           </div>
+          <div className='stop_b mb-0  mt-8 pb-6 border-t-2 border-r-gray-400 py-9 bg-slate-100 '>
+            <div className='flex   justify-between items-center'>
+            <FaRocketchat className='text-4xl mx-2   shadow-xl  cursor-pointer '></FaRocketchat>
+                    <textarea type="text" className="   w-full border-l-2 border-t-2 border-b-2 border-r-gray-400 rounded-l-md" placeholder="Type message"></textarea>
+                    <div className='px-3 py-4 rounded-r-md    bg-orange-500 mr-3 2  cursor-pointer'><FaTelegramPlane className='text-xl mr-3 text-white '></FaTelegramPlane>
+            </div>
+          </div>
+          <div>
+            
+          </div>
+
+          <div className="avatar-group flex items-center justify-start pl-2 ">
+          <h2 className='mr-3'>Flowers</h2>
+            <div className="avatar cursor-pointer">
+                <div className="w-8">
+                <img src="https://i.ibb.co/gPDDW7S/IMG-20220603-205920.jpg" alt="" />
+                </div>
+            </div>
+            <div className="avatar cursor-pointer">
+                <div className="w-8">
+                <img src="https://i.ibb.co/gPDDW7S/IMG-20220603-205920.jpg" alt="" />
+                </div>
+            </div>
+            <div className="avatar cursor-pointer">
+                <div className="w-8">
+                <img src="https://i.ibb.co/gPDDW7S/IMG-20220603-205920.jpg" alt="" />
+                </div>
+            </div>
+            <div className="avatar placeholder cursor-pointer">
+                <div className="w-8 bg-slate-400  text-white">
+                <span className='font-bold text-4xl -mt-2'>+</span>
+                </div>
+            </div>
+            </div>
+                </div>
           
         </div>
     );

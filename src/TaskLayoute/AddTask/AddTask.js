@@ -6,6 +6,7 @@ import { FaRegSun, FaUserPlus} from "react-icons/fa";
 import AddTaskDetails from '../AddTaskDetails/AddTaskDetails';
 import { HiArrowSmRight, IconName } from "react-icons/hi";
 import ConfirmationModal from '../../Page/Share/ConfirmationModal/ConfirmationModal';
+import "./AddTask.css";
 
 
 const AddTask = () => {
@@ -43,7 +44,7 @@ const AddTask = () => {
         .then(data =>{
             if(data.acknowledged){
                 form.reset() 
-                toast.success(' Confirmed')
+                toast.success('Task Confirmed')
                 refetch();
             }
             else{
@@ -57,8 +58,8 @@ const AddTask = () => {
   console.log(user);
     return (
 
-      <div className='mb-8'>
-          <div className=' w-full shadow-lg bg-white pt-4 py-2  flex justify-between border-b-2 sticky  border-gray-400 '>
+      <div className='mb-8 h-screen'>
+          <div className=' w-full shadow-lg bg-white pt-4 py-2  flex justify-between border-b-2 stop border-gray-400 '>
           {/* <button className=" shadow-xl bg-slate-100 px-2 py-1 ml-2 border border-gray-500 rounded-md">Add Task </button> */}
           <label
           onClick={() => setHidden('')}
