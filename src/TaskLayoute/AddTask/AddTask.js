@@ -15,7 +15,7 @@ const AddTask = () => {
   const { data: user = [], refetch } = useQuery({
     queryKey: ["task"],
     queryFn: () =>
-      fetch(`http://localhost:5000/task`).then((res) => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/task`).then((res) => res.json()),
   });
 
   const handleSubmit = event => {
@@ -30,7 +30,7 @@ const AddTask = () => {
       title
     }
 
-    fetch('http://localhost:5000/task', {
+    fetch('https://perform-tracker-server.vercel.app/task', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

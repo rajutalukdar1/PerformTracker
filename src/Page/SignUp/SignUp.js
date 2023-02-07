@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
-import facebook from "../../Assets/Home-Images/image.png";
+import facebook from "../../Assets/home/image.png";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
@@ -77,7 +77,7 @@ const SignUp = () => {
   }
 
   const saveUser = (user) => {
-    fetch('http://localhost:5000/users', {
+    fetch('https://perform-tracker-server.vercel.app/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

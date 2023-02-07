@@ -1,7 +1,7 @@
 .project-details-table tr:nth-child(odd) th, .project-details-table tr:nth-child(odd) td{
-  background-color: #cdd2d2;
+  background-color: #0f1a2f;
 }
 
 .project-details-table tr:nth-child(even) th, .project-details-table tr:nth-child(even) td{
-  background-color: #cedcdf;
+  background-color: #162233;
 }

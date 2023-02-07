@@ -11,7 +11,7 @@ const ProjectDetails = () => {
   const { data: project = {}, isLoading, refetch } = useQuery({
     queryKey: ['project'],
     queryFn: () =>
-      fetch(`http://localhost:5000/projects/${id}`).then(res => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/projects/${id}`).then(res => res.json()),
   });
 
   if (isLoading) {
@@ -32,24 +32,22 @@ const ProjectDetails = () => {
         }}
       />
       <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-        <div className="card bg-slate-200 rounded-sm">
+        <div className="card bg-slate-800 rounded-sm">
           <div className="card-body block py-6 px-4">
-            <h2 className="card-title leading-4">
-              <Link to={`/dashboard/projects/${_id}`}>{name}</Link>
-            </h2>
+            <h2 className="card-title leading-4">{name}</h2>
             <p className='mb-2'>
               <small>{allTasks.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
             </p>
-            <div className='text-gray-500'>
+            <div className='text-gray-300'>
               <p>{details}</p>
             </div>
           </div>
         </div>
-        <div className="card bg-slate-200 rounded-sm">
+        <div className="card bg-slate-800 rounded-sm">
           <div className="card-body block py-6 px-4">
             <h2 className="card-title mb-4">Project Details</h2>
             <div className="overflow-x-auto">
-              <table className="table table-zebra w-full project-details-table text-gray-800 rounded-sm">
+              <table className="table w-full project-details-table text-gray-300 rounded-sm">
                 <tbody>
                   <tr>
                     <th className='rounded-sm'>Cost:</th>
@@ -75,7 +73,7 @@ const ProjectDetails = () => {
               </table>
             </div>
             <div>
-              <div className='flex justify-end font-bold text-gray-600 mt-5'>{progressed}%</div>
+              <div className='flex justify-end font-bold text-gray-400 mt-5'>{progressed}%</div>
               <progress className="progress progress-success w-full" value={progressed} max="100"></progress>
             </div>
           </div>
