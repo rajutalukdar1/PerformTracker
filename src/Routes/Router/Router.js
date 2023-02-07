@@ -19,6 +19,7 @@ import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Home from "../../Page/Home/Home/Home";
+import Payroll from "../../Page/Payroll/Payroll";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
 import MainTask from "../../TaskLayoute/MainTask/MainTask";
@@ -54,13 +55,13 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
-      // {
-      //   path: "/dashboard/clientdetails",
-      //   element: <Dashboard></Dashboard>
-      // },
       {
         path: "/dashboard/employees",
         element: <AllEmployees />
+      },
+      {
+        path: "/dashboard/payroll",
+        element: <Payroll></Payroll>
       },
       {
         path: "/dashboard/employees/:id",
@@ -132,8 +133,6 @@ const router = createBrowserRouter([
         ]
       },
       {
-        // path: "/dashboard/profile/client",
-        // element: <ClientProfile></ClientProfile>,
         path: "/dashboard/projects",
         element: <AllProjects></AllProjects>
       },

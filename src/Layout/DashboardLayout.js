@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { GoReport, GoRocket } from "react-icons/go";
 import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
 import { HiOutlineUserGroup } from "react-icons/hi";
+import { GiNotebook } from "react-icons/gi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 
@@ -89,6 +90,17 @@ const DashboardLayout = () => {
                                     to: "/dashboard/profile/client",
                                     title: "Client Profile"
                                 },
+                            ]}
+                        />
+                        <DashboardSideItems
+                            icon={<GiNotebook className='text-2xl mt-2' />}
+                            title='Payroll'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/payroll",
+                                    title: "Employees Salary"
+                                },
+
                             ]}
                         />
                     </ul>
