@@ -7,7 +7,7 @@ import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import SelectRole from "./SelectRole";
-import useIsUserExist from "../../Hooks/useIsUserExist";
+import useIsUserExist from "../../hooks/useIsUserExist";
 
 
 const SignUp = () => {
