@@ -14,7 +14,7 @@ const LoginAnimation = () => {
     };
 
     return (
-        <div className='lg:p-24'>
+        <div>
             <Lottie
                 className="lg:w-full bg-transparent"
                 options={defaultOptions}
