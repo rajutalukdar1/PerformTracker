@@ -6,6 +6,7 @@ import { HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 import AiUser from '../Page/Others/Lottiefiles/AiUser/AiUser';
+import { FaUserSecret } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     return (
@@ -90,6 +91,16 @@ const DashboardLayout = () => {
                                     to: "/dashboard/profile/client",
                                     title: "Client Profile"
                                 },
+                            ]}
+                        />
+                        <DashboardSideItems
+                            icon={<FaUserSecret className='text-2xl mt-2' />}
+                            title='Leads'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/leads",
+                                    title: "Projects Leads"
+                                }
                             ]}
                         />
                     </ul>

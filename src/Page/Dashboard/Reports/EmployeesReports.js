@@ -5,6 +5,7 @@ const EmployeesReports = ({ report }) => {
         department, designation, joiningDate,
         DOB, phone, salary, maritalStatus,
         gender, EmergencyContactDetails, nationality, Experience, Status } = report
+
     return (
         <tbody className=''>
             <tr className='text-black font-bold'>

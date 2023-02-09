@@ -17,7 +17,7 @@ const Reports = () => {
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th style={{"position": "static"}}>Employee Name</th>
+                            <th style={{ "position": "static" }}>Employee Name</th>
                             <th>Employee Type</th>
                             <th>Email</th>
                             <th>Department</th>

@@ -77,7 +77,8 @@ const Project = ({ project, setProjectData }) => {
         </div>
         <div className="dropdown dropdown-bottom dropdown-left absolute top-2 right-3">
           <div tabIndex={0}>
-            <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl cursor-pointer"><BsThreeDotsVertical /> </h2>
+            <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl cursor-pointer">
+              <BsThreeDotsVertical /> </h2>
           </div>
           <ul
             tabIndex={0}
@@ -85,10 +86,12 @@ const Project = ({ project, setProjectData }) => {
             style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>
-              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <GrEdit className=" mr-3" />Edit</a> </label>
+              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex
+               items-center text-bold"> <GrEdit className=" mr-3" />Edit</a> </label>
             </li>
             <li>
-              <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine />Delete</Link>
+              <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine
+              />Delete</Link>
             </li>
           </ul>
         </div>
