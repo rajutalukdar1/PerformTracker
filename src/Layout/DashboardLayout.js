@@ -5,6 +5,7 @@ import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
 import { HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
+import { FaBullhorn } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     return (
@@ -75,6 +76,18 @@ const DashboardLayout = () => {
                                     to: "/dashboard/task",
                                     title: "Task"
                                 },
+                            ]}
+                        />
+                       
+                        <DashboardSideItems
+                            icon={<FaBullhorn className='text-2xl mt-2' />}
+                            title='Promotion'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/promotion",
+                                    title: "Promotion"
+                                },
+                                
                             ]}
                         />
                         <DashboardSideItems
