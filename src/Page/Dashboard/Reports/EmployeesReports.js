@@ -8,7 +8,7 @@ const EmployeesReports = ({ report }) => {
 
     return (
         <tbody className=''>
-            <tr className='text-black font-bold'>
+            <tr className='text-gray-300 font-bold'>
                 <td>
                     <div className="flex items-center space-x-3">
                         <div className="avatar">

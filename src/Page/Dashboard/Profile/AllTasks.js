@@ -9,7 +9,6 @@ const AllTasks = ({ task }) => {
     return (
         <div className='grid grid-cols-12 overflow-x-auto shadow-lg bg-[#16191C] 
          border border-gray-500 py-2 mt-1'>
-
             <div className='flex col-span-1 mx-auto pt-1'>
                 <input type="checkbox" className="checkbox checkbox-success" />
             </div>

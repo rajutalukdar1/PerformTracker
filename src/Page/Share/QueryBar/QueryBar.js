@@ -9,11 +9,11 @@ const QueryBar = ({ barData }) => {
   return (
     <div className="grid grid-cols-2 justify-end mb-5">
       <div>
-        <h2 className="text-3xl font-bold">{pageName}</h2>
+        <h2 className="text-3xl font-bold text-gray-200">{pageName}</h2>
         <div className="text-sm breadcrumbs">
           <ul>
             <li>
-              <Link to='/dashboard' className='font-semibold'>
+              <Link to='/dashboard' className='font-semibold text-gray-300'>
                 <AiOutlineDashboard size='18' className='mr-2' />
                 Dashboard
               </Link>
@@ -25,11 +25,11 @@ const QueryBar = ({ barData }) => {
         </div>
       </div>
       <div className="flex justify-end items-center py-4 gap-4">
-        <h2 className={`cursor-pointer rounded-md p-4 bg-base-100 shadow-xl ${hidden}`}>
-          <FaTh></FaTh>
+        <h2 className={`cursor-pointer rounded-md p-4 bg-gray-600 shadow-xl ${hidden}`}>
+          <FaTh color='white'></FaTh>
         </h2>
-        <h2 className={`cursor-pointer rounded-md p-4 bg-base-100 shadow-xl ${hidden}`}>
-          <FaBars className="text-black"></FaBars>
+        <h2 className={`cursor-pointer rounded-md p-4 bg-gray-600 shadow-xl ${hidden}`}>
+          <FaBars color='white'></FaBars>
         </h2>
         <label
           onClick={btnOnClick}

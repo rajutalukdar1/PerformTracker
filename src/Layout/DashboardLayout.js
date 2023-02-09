@@ -10,7 +10,7 @@ import { FaUserSecret } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     return (
-        <div className=''>
+        <div data-theme='dark'>
             <DashboardNav />
             <div className="drawer drawer-mobile pt-16 md:pt-20">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle peer" />

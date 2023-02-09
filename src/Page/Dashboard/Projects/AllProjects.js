@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react'
+import useAdmin from '../../../hooks/useAdmin';
 import QueryBar from '../../Share/QueryBar/QueryBar';
 import AddProjects from './AddProjects/AddProjects';
 import EditProjects from './EditProject/EditProject';
@@ -8,14 +9,14 @@ import Project from './Project';
 const AllProjects = () => {
   const [projectData, setProjectData] = useState(null);
   const [shown, setShown] = useState(false);
+  const [isAdmin, load] = useAdmin("zubsdS0ZkSf84lE3o9finW2tTSH3");
 
   const { data: projects = [], refetch } = useQuery({
     queryKey: ['projects'],
     queryFn: () =>
-      fetch(`http://localhost:5000/projects`).then(res => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/projects`).then(res => res.json()),
   });
-
-  console.log(projects);
+  
   return (
     <div>
       <QueryBar

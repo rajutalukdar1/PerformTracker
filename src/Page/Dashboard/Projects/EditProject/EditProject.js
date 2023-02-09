@@ -18,7 +18,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
 
     const project = { name, progressed, cost, createdby, status, created, deadline, details}
 
-    fetch(`http://localhost:5000/projects/${_id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/projects/${_id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'

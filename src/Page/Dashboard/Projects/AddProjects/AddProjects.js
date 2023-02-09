@@ -36,7 +36,7 @@ const AddProjects = ({ setShown, refetch }) => {
 
     const project = { name, progressed, cost, createdby, allTasks, status, created, deadline, details, assignedleaders, team }
 
-    fetch(`http://localhost:5000/projects`, {
+    fetch(`https://perform-tracker-server.vercel.app/projects`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
