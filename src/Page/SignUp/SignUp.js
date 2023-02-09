@@ -7,7 +7,7 @@ import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import SelectRole from "./SelectRole";
-import useIsUserExist from "../../Hooks/useIsUserExist";
+import useIsUserExist from "../../hooks/useIsUserExist";
 
 
 const SignUp = () => {
@@ -22,7 +22,8 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const [isUserExist] = useIsUserExist()
 
-  const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   // Signup With Firebase and Redux
   const handleSignUp = (data) => {
@@ -86,7 +87,7 @@ const SignUp = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if(!user.role){
+        if (!user.role) {
           return setUid(user.uid);
         }
         navigate('/dashboard');
