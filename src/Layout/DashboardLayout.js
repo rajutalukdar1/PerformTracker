@@ -5,7 +5,11 @@ import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
 import { HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
+<<<<<<< HEAD
 import { FaUserSecret } from 'react-icons/fa';
+=======
+import AiUser from '../Page/Others/Lottiefiles/AiUser/AiUser';
+>>>>>>> 75b1dfa04f48fe3311e8bc66f420ba3921af0197
 
 const DashboardLayout = () => {
     return (
