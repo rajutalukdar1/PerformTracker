@@ -7,7 +7,6 @@ import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import SelectRole from "./SelectRole";
-import useIsUserExist from "../../hooks/useIsUserExist";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 
 
@@ -21,7 +20,6 @@ const SignUp = () => {
   const [uid, setUid] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [isUserExist] = useIsUserExist();
 
   const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
 
@@ -56,33 +54,36 @@ const SignUp = () => {
   const handleProviderSignIn = (provider) => {
     dispatch(providerLogin(provider))
       .then(result => {
-        isUserExist(result.user.uid, checkingUserExist);
+        fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
+          .then(res => res.json())
+          .then(data => {
+            checkingUserExist(data, result.user)
+          })
+          .catch(err => console.error(err));
       })
       .catch(error => console.error(error))
   }
 
-  const checkingUserExist = (user) => {
-
-    if (user?.uid) {  
-      console.log(user)  
-      // if (user?.role) {
-      //   toast.success("Logged In Successfully.");
-      //   // navigate('/dashboard');
-      // } else {
-      //   setUid(result.user.uid);
-      // }
+  const checkingUserExist = (existUser, loggedUser) => {
+    if (existUser?.uid) {
+      if (existUser?.role) {
+        toast.success("Logged In Successfully.");
+        navigate('/dashboard');
+      } else {
+        setUid(loggedUser.uid);
+      }
     } else {
-      console.log(user?.role)
-      // saveUser({
-      //   name: result.user.displayName,
-      //   email: result.user.email,
-      //   img: result.user.photoURL,
-      //   uid: result.user.uid
-      // });
+      saveUser({
+        name: loggedUser.displayName,
+        email: loggedUser.email,
+        img: loggedUser.photoURL,
+        uid: loggedUser.uid
+      });
     }
   }
 
   const saveUser = (user) => {
+    console.log(user?.role)
     fetch('https://perform-tracker-server.vercel.app/users', {
       method: 'POST',
       headers: {
@@ -92,11 +93,10 @@ const SignUp = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(user?.role)
         if (!user.role) {
           return setUid(user.uid);
         }
-        // navigate('/dashboard');
+        navigate('/dashboard');
       })
       .catch(err => console.error(err));
   }

@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react'
-import useAdmin from '../../../hooks/useAdmin';
+import React, { useState } from 'react';
 import QueryBar from '../../Share/QueryBar/QueryBar';
 import AddProjects from './AddProjects/AddProjects';
 import EditProjects from './EditProject/EditProject';
