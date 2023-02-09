@@ -4,12 +4,14 @@ import Leaders from './Leaders';
 const Leads = () => {
 
     const [leads, setLeads] = useState([]);
-    
+
     useEffect(() => {
         fetch('http://localhost:5000/projects')
             .then(res => res.json())
             .then(data => setLeads(data))
     }, []);
+
+    console.log(leads)
 
     return (
         <div>
@@ -28,9 +30,10 @@ const Leads = () => {
                         </tr>
                     </thead>
                     {
-                        leads?.map(lead => <Leaders
+                        leads?.map((lead, i) => <Leaders
                             key={lead._id}
                             lead={lead}
+                            i={i}
                         />)
                     }
                 </table>

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
 
-import "./SignIn.css";
+import "./SignUp.css";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";

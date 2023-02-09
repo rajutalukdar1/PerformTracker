@@ -16,13 +16,8 @@ const Reports = () => {
             <div className="overflow-x-auto  w-full ">
                 <table className="table w-full">
                     <thead>
-<<<<<<< HEAD
-                        <tr>
-                            <th style={{ "position": "static" }}>Employee Name</th>
-=======
                         <tr className='text-white'>
                             <th style={{"position": "static"}}>Employee Name</th>
->>>>>>> 743e7021ee712070c0e97086cfe68b9e6ceeff9f
                             <th>Employee Type</th>
                             <th>Email</th>
                             <th>Department</th>

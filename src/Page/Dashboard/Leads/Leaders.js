@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Leaders = ({ lead }) => {
+const Leaders = ({ lead, i }) => {
 
     const { _id, name, details, deadline, allTasks, assignedleaders, team, progressed } = lead;
 
@@ -9,7 +9,7 @@ const Leaders = ({ lead }) => {
             <tbody>
                 <tr>
                     <td>
-                        1
+                        {i + 1}
                     </td>
                     <td>
                         <div className="flex items-center space-x-3">
