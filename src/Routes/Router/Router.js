@@ -7,6 +7,10 @@ import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
 import Reports from "../../Page/Dashboard/Reports/Reports";
+import Trainer from "../../Page/Dashboard/Training/Trainer";
+import Training from "../../Page/Dashboard/Training/Training";
+import TrainingType from "../../Page/Dashboard/Training/TrainingType";
+
 import Home from "../../Page/Home/Home/Home";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
@@ -45,6 +49,7 @@ const router = createBrowserRouter([
         path: "/dashboard/employees",
         element: <AllEmployees />
       },
+      
       {
         path: "/dashboard/employees/:id",
         element: <EmployeeProfile />
@@ -62,7 +67,20 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/reports",
         element: <Reports></Reports>
-      }
+      },
+      {
+        path: "/dashboard/training",
+        element: <Training />
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <Trainer />
+      },
+      {
+        path: "/dashboard/trainingtype",
+        element: <TrainingType />
+      },
+      
     ]
   }
 ]);

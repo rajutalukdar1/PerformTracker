@@ -1,121 +1,32 @@
 [
     {
         
-        "employee_id": "CLT-0001",
-        "company": "Global Technologies",
-        "name": "Barry Cuda",
-        "email": "barrycuda@example.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/fQx0D9z/Christian.jpg",
-        "position": "CEO",
-        "gender": "Male"
-
+        "triningtype": "Node js",
+        "trainer": "Monirul",
+        "employee": "Sagor",
+        "totalemployee": "20",
+        "cost": "50",
+        "startdate": "10/02/2023",
+        "enddate": "30/02/2023",
+        "description": "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
+        "status": "active",
+        "img": "https://i.ibb.co/fQx0D9z/Christian.jpg"
+        
       
     },
     {
         
-        "employee_id": "CLT-0002",
-        "company": "Delta Infotech",
-        "name": "Tressa Wexler",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/YjcPzZP/Joseph.webp",
-        "position": "Manager",
-        "gender": "Female"
-      
-    },
-    {
+        "triningtype": "React js",
+        "trainer": "Rakibul",
+        "employee": "jabed",
+        "totalemployee": "15",
+        "cost": "40",
+        "startdate": "10/02/2023",
+        "enddate": "30/02/2023",
+        "description": "nclude popular icons in your React projects easily with react-icons,",
+        "status": "active",
+        "img": "data:image/jpeg;base64,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"
         
-        "employee_id": "CLT-0003",
-        "company": "Cream Inc",
-        "name": "Ruby Bartlett",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
-        "position": "CEO",
-        "gender": "Female"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0004",
-        "company": "Wellware Company",
-        "name": "Misty Tison",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
-        "position": "CEO",
-        "gender": "Female"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0005",
-        "company": "Mustang Technologies",
-        "name": "Daniel Deacon",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
-        "position": "CEO",
-        "gender": "Male"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0006",
-        "company": "International Software",
-        "name": "Walter Weaver",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/vvbJw2x/Vicky.jpg",
-        "position": "CEO",
-        "gender": "Male"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0007",
-        "company": "Mercury Software Inc",
-        "name": "Amanda Warren",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
-        "position": "CEO",
-        "gender": "Male"
-
-      
-    },
-    {
-        
-        "employee_id": "CLT-0008",
-        "company": "Carlson Tech",
-        "name": "Betty Carlson",
-        "email": "rofiqul01941056960@gmail.com",
-        "phone": "9876543210",
-        "birthday": "2nd August",
-        "address": "5754 Airport Rd, Coosada, AL, 36020",
-        "img": "https://i.ibb.co/9hSHkq3/Michael.webp",
-        "position": "CEO",
-        "gender": "Female"
-
       
     }
     

@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { GoReport } from "react-icons/go";
 import { AiOutlineUser } from 'react-icons/ai';
 import { HiOutlineUserGroup } from "react-icons/hi";
+import { MdModelTraining} from "react-icons/md";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 
@@ -45,6 +46,24 @@ const DashboardLayout = () => {
                                 {
                                     to: "/dashboard/reports",
                                     title: "Employee Reports"
+                                },
+                            ]}
+                        />
+                        <DashboardSideItems
+                            icon={<MdModelTraining className='text-2xl' />}
+                            title='Training'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/training",
+                                    title: "Training List"
+                                },
+                                {
+                                    to: "/dashboard/trainers",
+                                    title: "Trainer"
+                                },
+                                {
+                                    to: "/dashboard/trainingtype",
+                                    title: "Training Type"
                                 },
                             ]}
                         />
