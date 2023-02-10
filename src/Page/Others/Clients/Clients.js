@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import useTitle from '../../../Hooks/useTitle';
 import Client from '../Client/Client';
 import Loading from '../Loading/Loading';
 

@@ -7,8 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../features/auths/AuthSlice';
 import { toast } from 'react-hot-toast';
 import AiUser from '../../Others/Lottiefiles/AiUser/AiUser';
+import useTitle from '../../../Hooks/useTitle';
 
 const DashboardNav = () => {
+  useTitle('Dashboard');
+
   const { user } = useSelector(state => state.userReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();

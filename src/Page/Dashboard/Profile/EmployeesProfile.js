@@ -4,8 +4,12 @@ import EmployeeProfileInfo from './EmployeeProfileInfo';
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import AiUser from '../../Others/Lottiefiles/AiUser/AiUser';
+import useTitle from '../../../Hooks/useTitle';
 
 const EmployeesProfile = () => {
+
+    useTitle('Employee Profile');
+
     const { user } = useSelector(state => state.userReducer);
 
     const { data: Employees = [], refetch } = useQuery({

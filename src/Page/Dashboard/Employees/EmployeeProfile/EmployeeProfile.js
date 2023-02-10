@@ -3,8 +3,11 @@ import { useQuery } from '@tanstack/react-query'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import EmployeeInfo from './EmployeeInfo';
+import useTitle from '../../../../Hooks/useTitle';
 
 const EmployeeProfile = () => {
+
+
   const { id } = useParams();
   const { data: { name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary } = {}, refetch } = useQuery({
     queryKey: ['employee', id],

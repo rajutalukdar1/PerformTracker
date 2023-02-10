@@ -4,8 +4,12 @@ import EmployeeProfileInfo from './EmployeeProfileInfo';
 import { Link, Outlet } from 'react-router-dom';
 import Loading from '../../Share/Loading/Loading';
 import { useSelector } from 'react-redux';
+import useTitle from '../../../Hooks/useTitle';
 
 const ClientProfile = () => {
+
+    useTitle('Client Profile');
+
     const { user, loading } = useSelector(state => state.userReducer);
 
     const { data: client = [], refetch } = useQuery({
