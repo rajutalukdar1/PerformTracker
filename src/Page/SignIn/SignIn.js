@@ -10,8 +10,12 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 import AiUser from "../Others/Lottiefiles/AiUser/AiUser";
+import useTitle from "../../Hooks/useTitle";
 
 const SignIn = () => {
+
+  useTitle('Login');
+
   const { register, formState: { errors }, handleSubmit, } = useForm();
   const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
