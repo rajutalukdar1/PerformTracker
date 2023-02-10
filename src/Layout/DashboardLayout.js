@@ -2,14 +2,10 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { GoReport, GoRocket } from "react-icons/go";
 import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
-import { HiOutlineUserGroup } from "react-icons/hi";
+import { HiOutlinePencilAlt, HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
-<<<<<<< HEAD
-import { FaUserSecret } from 'react-icons/fa';
-=======
-import AiUser from '../Page/Others/Lottiefiles/AiUser/AiUser';
->>>>>>> 75b1dfa04f48fe3311e8bc66f420ba3921af0197
+import { FaAmazonPay, FaTrello, FaUserSecret } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     return (
@@ -97,13 +93,13 @@ const DashboardLayout = () => {
                             ]}
                         />
                         <DashboardSideItems
-                            icon={<FaUserSecret className='text-2xl mt-2' />}
-                            title='Leads'
+                            icon={<FaTrello className='text-2xl mt-2' />}
+                            title='Leave Manage'
                             subMenus={[
                                 {
-                                    to: "/dashboard/leads",
-                                    title: "Projects Leads"
-                                }
+                                    to: "/dashboard/profile/employees",
+                                    title: "Leave Request"
+                                },
                             ]}
                         />
                         <DashboardSideItems
@@ -117,13 +113,27 @@ const DashboardLayout = () => {
                             ]}
                         />
                         <DashboardSideItems
-                            icon={<FaUserSecret className='text-2xl mt-2' />}
-                            title='Leads'
+                            icon={<HiOutlinePencilAlt className='text-2xl mt-2' />}
+                            title='Attendance'
                             subMenus={[
                                 {
-                                    to: "/dashboard/leads",
-                                    title: "Projects Leads"
-                                }
+                                    to: "/dashboard/profile/client",
+                                    title: "Today's Attendance"
+                                },
+                                {
+                                    to: "/dashboard/profile/client",
+                                    title: "Employees Attendance"
+                                },
+                            ]}
+                        />
+                        <DashboardSideItems
+                            icon={<FaAmazonPay className='text-2xl mt-2' />}
+                            title='PayRoll'
+                            subMenus={[
+                                {
+                                    to: "/dashboard/profile/client",
+                                    title: "Employees Salary"
+                                },
                             ]}
                         />
                     </ul>
