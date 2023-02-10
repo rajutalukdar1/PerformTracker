@@ -17,6 +17,7 @@ import PersonalInfo from "../../Page/Dashboard/Profile/PersonalInfo";
 import Projects from "../../Page/Dashboard/Profile/Projects";
 import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
 import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails";
+import Promotion from "../../Page/Dashboard/Promotion/Promotion";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
 import Trainer from "../../Page/Dashboard/Training/Trainer";
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       , {
         path: "/dashboard/reports",
         element: <Reports></Reports>
+      },
+       {
+        path: "/dashboard/promotion",
+        element: <Promotion></Promotion>
       },
       {
         path: "/dashboard/admin",
