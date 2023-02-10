@@ -18,17 +18,17 @@ const ClientTask = () => {
             <div className="flex-none w-full bg-[#444b52] text-white lg:text-sm font-semibold 
                     rounded-b-md mt-2">
                 <ul className="menu flex justify-around menu-horizontal w-full px-1">
-                    <li>
+                    <li tabIndex={0}>
                         <Link to='/dashboard/profile/client/task'>
                             All Tasks
                         </Link>
                     </li>
-                    <li tabIndex={0}>
+                    <li tabIndex={1}>
                         <Link to='/dashboard/profile/client/task'>
                             Pending Tasks
                         </Link>
                     </li>
-                    <li tabIndex={0}>
+                    <li tabIndex={2}>
                         <Link to='/dashboard/profile/client/task'>
                             Completed Tasks
                         </Link>
