@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { GrEdit } from 'react-icons/gr';
+import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
 
 const Project = ({ project, setProjectData }) => {
@@ -85,7 +85,7 @@ const Project = ({ project, setProjectData }) => {
             style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>
-              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <GrEdit className=" mr-3" />Edit</a> </label>
+              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
             </li>
             <li>
               <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine />Delete</Link>
