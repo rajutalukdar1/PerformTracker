@@ -19,6 +19,10 @@ import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
 import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
+import Trainer from "../../Page/Dashboard/Training/Trainer";
+import Training from "../../Page/Dashboard/Training/Training";
+import TrainingType from "../../Page/Dashboard/Training/TrainingType";
+
 import Home from "../../Page/Home/Home/Home";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
@@ -63,6 +67,7 @@ const router = createBrowserRouter([
         path: "/dashboard/employees",
         element: <AllEmployees />
       },
+
       {
         path: "/dashboard/employees/:id",
         element: <EmployeeProfile />
@@ -103,6 +108,18 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/salary",
         element: <EmployeeSalary />
+      },
+      {
+        path: "/dashboard/training",
+        element: <Training />
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <Trainer />
+      },
+      {
+        path: "/dashboard/trainingtype",
+        element: <TrainingType />
       },
       {
         path: "/dashboard/profile/employees",
