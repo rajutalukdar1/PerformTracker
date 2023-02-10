@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { FaCalendarAlt, FaRegCalendarAlt } from "react-icons/fa";
 
 
 const AddPromotion = ({refetch, setPromotion}) => {
@@ -66,13 +67,12 @@ const AddPromotion = ({refetch, setPromotion}) => {
             <form 
             onSubmit={handleSubmit(handleAddPromiton)}
             >
-              <div className="grid grid-cols-1 gap-2 ">
+              <div className="grid grid-cols-1">
                 <div>
-                <label htmlFor="">Promotion For *</label>
                   <input
                     type="text"
                     // disabled value={date}
-                    placeholder=""
+                    placeholder="Promotion For *"
                     className="input input-bordered my-2 w-full "
                     {...register("department", {
                       required: "department is required",
@@ -85,12 +85,11 @@ const AddPromotion = ({refetch, setPromotion}) => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="">Promotion From *</label>
                   <input
                     name="name"
                     type="text"
                     // defaultValue={user?.displayName}
-                    placeholder="Client Name"
+                    placeholder="Promotion From *"
                     className="input input-bordered my-2 w-full "
                     {...register("name", {
                       required: "Client Name is required",
@@ -102,29 +101,12 @@ const AddPromotion = ({refetch, setPromotion}) => {
                     </p>
                   )}
                 </div>
-                {/* <div>
-                  <input
-                    name="email"
-                    type="email"
-                    // defaultValue={user?.email}
-                    placeholder="Email Address"
-                    className="input input-bordered my-2 w-full "
-                    {...register("company", {
-                      required: "Email address is required",
-                    })}
-                  />
-                  {errors.email && (
-                    <p className="text-red-600" role="alert">
-                      {errors.email?.message}
-                    </p>
-                  )}
-                </div> */}
+                
                 <div>
-                <label htmlFor="">Promotion From *</label>
                   <input
                     name="designation"
                     type="text"
-                    placeholder=""
+                    placeholder="Promotion From *"
                     className="input input-bordered my-2 w-full "
                     {...register("designation", {
                       required: "Phone Number is required",
@@ -137,44 +119,30 @@ const AddPromotion = ({refetch, setPromotion}) => {
                   )}
                 </div>
                 <div>
-                <label htmlFor="">Promotion To *</label>
-                  <input
-                    name="designation_to"
-                    type="text"
-                    placeholder=""
-                    className="input input-bordered my-2 w-full "
-                    {...register("designation_to", {
-                      required: "Your Name is required",
-                    })}
-                  />
+                <select name="designation_to" className="select select-bordered w-full "
+                {...register("designation_to", {
+                  required: "Your Name is required",
+                })}
+                >
+                  <option disabled selected>Promotion To</option>
+                  <option>Web Developer</option>
+                  <option>Web Designer</option>
+                  <option>SEO Analyst</option>
+                </select>
                   {errors.designation_to && (
                     <p className="text-red-600" role="alert">
                       {errors.designation_to?.message}
                     </p>
                   )}
                 </div>
-                {/* <div>
-                  <input
-                    name="gender"
-                    type="text"
-                    placeholder="Your Gender"
-                    className="input input-bordered my-2 w-full "
-                    {...register("gender", {
-                      required: "Your Name is required",
-                    })}
-                  />
-                  {errors.gender && (
-                    <p className="text-red-600" role="alert">
-                      {errors.gender?.message}
-                    </p>
-                  )}
-                </div> */}
+                
                 <div>
-                <label htmlFor="">Promotion Date *</label>
                   <input
+                  
                     name="date"
-                    type="text"
+                    type="date"
                     placeholder="date"
+                    
                     className="input input-bordered my-2 w-full "
                     {...register("date", {
                       required: "Your date is required",
