@@ -37,11 +37,7 @@ const DashboardLayout = () => {
                                         {
                                             to: "/dashboard/admin",
                                             title: "Admin"
-                                        },
-                                        {
-                                            to: "/dashboard/dashboardEmployees",
-                                            title: "Employees"
-                                        },
+                                        }
                                     ]}
                                 />
                                 <DashboardSideItems
@@ -104,13 +100,19 @@ const DashboardLayout = () => {
                                 />
                             </> : currentUser.role === "Client" ? <>
                                 <DashboardSideItems
+                                    icon={<AiOutlineDashboard className='text-2xl mt-2' />}
+                                    title='Dashboard'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/dashboardClients",
+                                            title: "Clients"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
                                     icon={<AiOutlineUser className='text-2xl mt-2' />}
                                     title='Profile'
                                     subMenus={[
-                                        {
-                                            to: "/dashboard/profile/employees",
-                                            title: "Employee Profile"
-                                        },
                                         {
                                             to: "/dashboard/profile/client",
                                             title: "Client Profile"
@@ -119,16 +121,22 @@ const DashboardLayout = () => {
                                 />
                             </> : <>
                                 <DashboardSideItems
+                                    icon={<AiOutlineDashboard className='text-2xl mt-2' />}
+                                    title='Dashboard'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/dashboardEmployees",
+                                            title: "Employees"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
                                     icon={<AiOutlineUser className='text-2xl mt-2' />}
                                     title='Profile'
                                     subMenus={[
                                         {
                                             to: "/dashboard/profile/employees",
                                             title: "Employee Profile"
-                                        },
-                                        {
-                                            to: "/dashboard/profile/client",
-                                            title: "Client Profile"
                                         },
                                     ]}
                                 />

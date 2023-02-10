@@ -6,7 +6,7 @@ import facebook from "../../Assets/home/image.png";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
-import SelectRole from "./SelectRole";
+import SelectRole from "../Share/SelectRole/SelectRole";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 
 

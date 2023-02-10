@@ -30,7 +30,13 @@ const SignIn = () => {
         toast.success("Logged In Successfully.");
         console.log("Logged In");
         setLoginUserEmail(data.email);
-        navigate(from, { replace: true })
+        fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
+          .then(res => res.json())
+          .then(data => {
+            checkingUserExist(data, result.user)
+          })
+          .catch(err => console.error(err));
+        // navigate(from, { replace: true })
       })
       .catch(e => {
         console.log(e.message);
@@ -43,10 +49,26 @@ const SignIn = () => {
     dispatch(providerLogin(googleProvider))
       .then(result => {
         toast.success("Google Logged In Successfully.");
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
+        fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
+          .then(res => res.json())
+          .then(data => {
+            checkingUserExist(data, result.user)
+          })
+          .catch(err => console.error(err));
         console.log("Provider Logged In");
       })
       .catch(error => console.error(error))
+  }
+  
+  const checkingUserExist = (existUser, loggedUser) => {
+      if (existUser?.role === "Admin") {
+        navigate('/dashboard/admin');
+      } else if (existUser?.role === "Client") {
+        navigate('/dashboard/client');
+      }else{
+        navigate('/dashboard/employee');
+      }
   }
 
   return (
