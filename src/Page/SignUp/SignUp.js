@@ -9,6 +9,11 @@ import { useDispatch } from "react-redux";
 import SelectRole from "../Share/SelectRole/SelectRole";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 
+import "./SignUp.css";
+import { GoogleAuthProvider } from 'firebase/auth';
+import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   const {
@@ -24,10 +29,10 @@ const SignUp = () => {
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
-  // Signup With Firebase and Redux
-  const handleSignUp = (data) => {
-    setSignUpError();
-    dispatch(createUser(data.email, data.password))
+  // Login With Firebase and Redux
+  const handleLogin = (data) => {
+    setLoginError();
+    dispatch(userLogin(data.email, data.password, () => { }))
       .then((result) => {
         toast.success("User Created Successfully.");
         const userInfo = {
@@ -45,10 +50,6 @@ const SignUp = () => {
           })
           .catch((err) => console.log(err));
       })
-      .catch((error) => {
-        console.log(error);
-        setSignUpError(error.message);
-      });
   };
 
   // Google and Facebook Provider Login With Firebase and Redux
@@ -110,25 +111,7 @@ const SignUp = () => {
             <LoginAnimation />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black">
-            <form className="card-body" onSubmit={handleSubmit(handleSignUp)}>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black">Name</span>
-                </label>
-                <input
-                  type="text"
-                  {...register("name", {
-                    required: "Your Name is required",
-                  })}
-                  placeholder="Name"
-                  className="input input-bordered "
-                />
-                {errors.name && (
-                  <p role="alert" className="text-red-500">
-                    {errors.name?.message}
-                  </p>
-                )}
-              </div>
+            <form className="card-body" onSubmit={handleSubmit(handleLogin)}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black">Email</span>
@@ -147,27 +130,17 @@ const SignUp = () => {
                   </p>
                 )}
               </div>
+
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black">Password</span>
-                </label>
-                <input
-                  type="password"
-                  {...register("password", {
-                    required: "Password Address is required",
-                    minLength: {
-                      value: 6,
-                      message: "password must be 6 cheaters",
-                    },
-                  })}
+                <label className="label"><span className="label-text text-black">Password</span></label>
+                <input type="password" {...register("password", {
+                  required: "Password is Required",
+                  minLength: { value: 6, message: 'Password must be 6 character' }
+                })}
                   placeholder="Password"
-                  className="input input-bordered "
-                />
-                {errors.password && (
-                  <p role="alert" className="text-red-500">
-                    {errors.password?.message}
-                  </p>
-                )}
+                  className="input input-bordered" />
+                {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}
+                <label className="label"><span className="label-text">Forget Password?</span></label>
               </div>
               <div>
                 <div className='flex gap-4 justify-between mt-2'>
@@ -208,11 +181,10 @@ const SignUp = () => {
                   Forgot password?
                 </Link>
               </label>
-              <input className="btn btn-warning" value="SignUp" type="submit" />
+              <input className="btn btn-warning" value="Login" type="submit" />
               <p className="text-center">-------------Or-------------</p>
               <div>
                 <Link>
-                  {/* onClick={handleSignInWithGoogle} */}
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-10 h-10 ml-1">
@@ -231,7 +203,6 @@ const SignUp = () => {
                   </div>
                 </Link>
                 <Link>
-                  {/* onClick={handleSignInWithFacebook} */}
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-8 h-8 ml-1">
@@ -245,7 +216,6 @@ const SignUp = () => {
                   </div>
                 </Link>
               </div>
-
               <small>
                 <p className="flex justify-center mt-2">
                   <span>Already have an account? </span>

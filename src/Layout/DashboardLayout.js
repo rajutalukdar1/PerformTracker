@@ -9,6 +9,8 @@ import { HiOutlinePencilAlt, HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 import { FaAmazonPay, FaTrello, FaUserSecret } from 'react-icons/fa';
+import AiUser from '../Page/Others/Lottiefiles/AiUser/AiUser';
+import { FaUserSecret } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     const { user } = useSelector(state => state.userReducer);
@@ -154,6 +156,16 @@ const DashboardLayout = () => {
                                             to: "/dashboard/profile/client",
                                             title: "Employees Salary"
                                         },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<FaUserSecret className='text-2xl mt-2' />}
+                                    title='Leads'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/leads",
+                                            title: "Projects Leads"
+                                        }
                                     ]}
                                 />
                             </> : currentUser.role === "Client" ? <>
