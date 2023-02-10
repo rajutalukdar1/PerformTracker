@@ -19,7 +19,7 @@ const SelectRole = ({ uid, setUid }) => {
       })
         .then(res => res.json())
         .then(data => {
-          if(data.modifiedCount > 0){
+          if (data.modifiedCount > 0) {
             navigate('/dashboard');
             setUid(null);
           }

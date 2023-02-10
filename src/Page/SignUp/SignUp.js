@@ -21,7 +21,8 @@ const SignUp = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   // Signup With Firebase and Redux
   const handleSignUp = (data) => {
