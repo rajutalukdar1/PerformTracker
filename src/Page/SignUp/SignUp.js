@@ -1,12 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-<<<<<<< HEAD
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import facebook from "../../Assets/Home-Images/image.png";
-import { AuthContext } from "../../context/AuthContext";
-import { GoogleAuthProvider } from 'firebase/auth';
-=======
 import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -14,7 +8,6 @@ import { createUser, providerLogin, updateUser } from "../../features/auths/Auth
 import { useDispatch } from "react-redux";
 import SelectRole from "./SelectRole";
 import useIsUserExist from "../../hooks/useIsUserExist";
->>>>>>> d08a191e965adda61ffb816d45af2a8f95478e6e
 
 
 const SignUp = () => {
@@ -23,25 +16,17 @@ const SignUp = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-<<<<<<< HEAD
-  const { createUser, updateUser } = useContext(AuthContext);
-  const [signUpError, setSignUoError] = useState("");
-  const googleProvider = new GoogleAuthProvider();
-  const { providerLogin } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const location = useLocation();
-=======
   const [signUpError, setSignUpError] = useState("");
   const [uid, setUid] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isUserExist] = useIsUserExist()
->>>>>>> d08a191e965adda61ffb816d45af2a8f95478e6e
 
-  const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const handleSignUp = (data) => {
-    setSignUoError();
+    setSignUpError();
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
@@ -52,9 +37,6 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-<<<<<<< HEAD
-            navigate('/dashboard/employees')
-=======
             saveUser({
               name: data.name,
               img: "https://i.ibb.co/Qj8XhH5/user.png",
@@ -62,33 +44,14 @@ const SignUp = () => {
               role: data.role,
             });
             console.log("Signed Up");
->>>>>>> d08a191e965adda61ffb816d45af2a8f95478e6e
           })
           .catch((err) => console.log(err));
       })
       .catch((error) => {
         console.log(error);
-        setSignUoError(error.message);
+        setSignUpError(error.message);
       });
   };
-<<<<<<< HEAD
-  const handleGoogleSign = () => {
-
-    providerLogin(googleProvider)
-      .then(result => {
-        const user = result.user;
-        navigate(from, { replace: true });
-
-        const currentUser = {
-          email: user.email
-        }
-
-        console.log(currentUser);
-
-      })
-      .catch(error => console.error(error))
-  }
-=======
 
   // Google and Facebook Provider Login With Firebase and Redux
   const handleProviderSignIn = (provider) => {
@@ -125,7 +88,7 @@ const SignUp = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if(!user.role){
+        if (!user.role) {
           return setUid(user.uid);
         }
         navigate('/dashboard');
@@ -133,7 +96,6 @@ const SignUp = () => {
       .catch(err => console.error(err));
   }
 
->>>>>>> d08a191e965adda61ffb816d45af2a8f95478e6e
   return (
     <div>
       <div className="hero min-h-screen text-black">

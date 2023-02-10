@@ -28,18 +28,6 @@ const AddTaskDetails = ({ task, refetch }) => {
       })
   }
 
-<<<<<<< HEAD
-
-  return (
-    <div className='grid grid-cols-6 overflow-x-auto  shadow-lg bg-slate-100 hover:bg-slate-400 border border-gray-500  py-2  mx-4'>
-
-
-      <div className='col-span-1 mx-auto'>
-        <input type="checkbox" className="checkbox " />
-      </div>
-      <div className='w-full col-span-4'>
-        <input type="text" defaultValue={task.title} placeholder="Type here" className="p-1 w-full max-w-xs " disabled={task.title && disabled} />
-=======
   return (
     <div className='grid grid-cols-6 overflow-x-auto  shadow-lg bg-gray-900 hover:bg-slate-800 border border-gray-700  py-2  mx-4'>
       <div className='col-span-1 mx-auto'>
@@ -47,7 +35,6 @@ const AddTaskDetails = ({ task, refetch }) => {
       </div>
       <div className='w-full col-span-4'>
         <input type="text" defaultValue={task.title} placeholder="Type here" className="p-1 bg-transparent w-full max-w-xs " disabled={task.title && disabled} />
->>>>>>> d08a191e965adda61ffb816d45af2a8f95478e6e
       </div>
       <div className='col-span-1'>
         <button className='whitespace-nowrap flex justify-end gap-2   '><FaUserPlus className='text-xl text-slate-100  hover:text-slate-900'></FaUserPlus>
@@ -55,10 +42,6 @@ const AddTaskDetails = ({ task, refetch }) => {
             onClick={() => setDeletingTask(task)} htmlFor="confirmation-modal" className=""><AiOutlineDelete className='text-xl text-slate-100 hover:text-slate-900 cursor-pointer'></AiOutlineDelete>
           </label>
         </button>
-<<<<<<< HEAD
-
-=======
->>>>>>> d08a191e965adda61ffb816d45af2a8f95478e6e
       </div>
       {
         deletingTask && <ConfirmationModal
