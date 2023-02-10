@@ -30,8 +30,8 @@ const Rechart = () => {
     ]
     return (
         <div>
-            <h2 className='font-bold text-4xl mt-10'>Employees Details</h2>
-            <div className='lg:flex mt-10'>
+            <h2 className='font-bold text-4xl mt-10 text-gray-100'>Employees Details</h2>
+            <div className='lg:flex flex-wrap mt-10 gap-5'>
                 <BarChart width={400} height={400} data={data}>
                     <Bar dataKey="total" fill="#8884d8" />
                     <XAxis dataKey="name" />

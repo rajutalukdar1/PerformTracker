@@ -2,13 +2,15 @@ import React from 'react'
 import { FaCheckCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
 
-const SelectRole = ({ userData }) => {
+const SelectRole = ({ uid, setUid }) => {
   const navigate = useNavigate();
 
   const handleRole = e => {
     e.preventDefault();
-    // const role = e.target.role.value;
+    const role = e.target.role.value;
+    console.log(role);
 
+<<<<<<< HEAD
     // if (role === 'Employee' || role === 'Client') {
     fetch(`https://perform-tracker-server.vercel.app/users`, {
       method: 'POST',
@@ -25,6 +27,26 @@ const SelectRole = ({ userData }) => {
       })
       .catch(err => console.error(err));
     // }
+=======
+    if (uid && (role === 'Employee' || role === 'Client')) {
+      fetch(`https://perform-tracker-server.vercel.app/users?uid=${uid}`, {
+        method: 'PATCH',
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({ role })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if(data.modifiedCount > 0){
+            navigate('/dashboard');
+            console.log(data);
+            setUid(null);
+          }
+        })
+        .catch(err => console.error(err));
+    }
+>>>>>>> d08a191e965adda61ffb816d45af2a8f95478e6e
   }
 
   return (

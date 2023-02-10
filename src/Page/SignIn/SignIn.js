@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import facebook from "../../Assets/Home-Images/image.png";
+import facebook from "../../Assets/home/image.png";
 
 import "./SignIn.css";
 import { GoogleAuthProvider } from 'firebase/auth';
