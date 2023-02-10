@@ -9,7 +9,6 @@ import { HiOutlinePencilAlt, HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 import { FaAmazonPay, FaTrello, FaUserSecret } from 'react-icons/fa';
-import AiUser from '../Page/Others/Lottiefiles/AiUser/AiUser';
 import { FaUserSecret } from 'react-icons/fa';
 
 const DashboardLayout = () => {
@@ -166,6 +165,24 @@ const DashboardLayout = () => {
                                             to: "/dashboard/leads",
                                             title: "Projects Leads"
                                         }
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<MdModelTraining className='text-2xl' />}
+                                    title='Training'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/training",
+                                            title: "Training List"
+                                        },
+                                        {
+                                            to: "/dashboard/trainers",
+                                            title: "Trainer"
+                                        },
+                                        {
+                                            to: "/dashboard/trainingtype",
+                                            title: "Training Type"
+                                        },
                                     ]}
                                 />
                             </> : currentUser.role === "Client" ? <>
