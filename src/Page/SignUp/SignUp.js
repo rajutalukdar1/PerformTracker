@@ -6,9 +6,14 @@ import facebook from "../../Assets/home/image.png";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
-import SelectRole from "./SelectRole";
-import useIsUserExist from "../../Hooks/useIsUserExist";
+import SelectRole from "../Share/SelectRole/SelectRole";
+import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 
+import "./SignUp.css";
+import { GoogleAuthProvider } from 'firebase/auth';
+import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
+import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   const {
@@ -20,14 +25,14 @@ const SignUp = () => {
   const [uid, setUid] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [isUserExist] = useIsUserExist()
 
-  const googleProvider = new GoogleAuthProvider(); const facebookProvider = new FacebookAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
-  // Signup With Firebase and Redux
-  const handleSignUp = (data) => {
-    setSignUpError();
-    dispatch(createUser(data.email, data.password))
+  // Login With Firebase and Redux
+  const handleLogin = (data) => {
+    setLoginError();
+    dispatch(userLogin(data.email, data.password, () => { }))
       .then((result) => {
         toast.success("User Created Successfully.");
         const userInfo = {
@@ -45,38 +50,42 @@ const SignUp = () => {
           })
           .catch((err) => console.log(err));
       })
-      .catch((error) => {
-        console.log(error);
-        setSignUpError(error.message);
-      });
   };
 
   // Google and Facebook Provider Login With Firebase and Redux
   const handleProviderSignIn = (provider) => {
     dispatch(providerLogin(provider))
       .then(result => {
-        const user = isUserExist(result.user.uid);
-
-        if (user?.uid) {
-          if (user?.role) {
-            toast.success("Logged In Successfully.");
-            navigate('/dashboard');
-          } else {
-            setUid(result.user.uid);
-          }
-        } else {
-          user || saveUser({
-            name: result.user.displayName,
-            email: result.user.email,
-            img: result.user.photoURL,
-            uid: result.user.uid
-          });
-        }
+        fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
+          .then(res => res.json())
+          .then(data => {
+            checkingUserExist(data, result.user)
+          })
+          .catch(err => console.error(err));
       })
       .catch(error => console.error(error))
   }
 
+  const checkingUserExist = (existUser, loggedUser) => {
+    if (existUser?.uid) {
+      if (existUser?.role) {
+        toast.success("Logged In Successfully.");
+        navigate('/dashboard');
+      } else {
+        setUid(loggedUser.uid);
+      }
+    } else {
+      saveUser({
+        name: loggedUser.displayName,
+        email: loggedUser.email,
+        img: loggedUser.photoURL,
+        uid: loggedUser.uid
+      });
+    }
+  }
+
   const saveUser = (user) => {
+    console.log(user?.role)
     fetch('https://perform-tracker-server.vercel.app/users', {
       method: 'POST',
       headers: {
@@ -86,7 +95,7 @@ const SignUp = () => {
     })
       .then(res => res.json())
       .then(data => {
-        if(!user.role){
+        if (!user.role) {
           return setUid(user.uid);
         }
         navigate('/dashboard');
@@ -96,31 +105,13 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen text-black">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Please Signup Now!!</h1>
+      <div className="hero text-black mb-10">
+        <div className="hero-content flex-col lg:flex-row lg:gap-36">
+          <div className="hidden lg:block">
+            <LoginAnimation />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black">
-            <form className="card-body" onSubmit={handleSubmit(handleSignUp)}>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black">Name</span>
-                </label>
-                <input
-                  type="text"
-                  {...register("name", {
-                    required: "Your Name is required",
-                  })}
-                  placeholder="Name"
-                  className="input input-bordered "
-                />
-                {errors.name && (
-                  <p role="alert" className="text-red-500">
-                    {errors.name?.message}
-                  </p>
-                )}
-              </div>
+            <form className="card-body" onSubmit={handleSubmit(handleLogin)}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black">Email</span>
@@ -139,25 +130,48 @@ const SignUp = () => {
                   </p>
                 )}
               </div>
+
               <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-black">Password</span>
-                </label>
-                <input
-                  type="password"
-                  {...register("password", {
-                    required: "Password Address is required",
-                    minLength: {
-                      value: 6,
-                      message: "password must be 6 cheaters",
-                    },
-                  })}
+                <label className="label"><span className="label-text text-black">Password</span></label>
+                <input type="password" {...register("password", {
+                  required: "Password is Required",
+                  minLength: { value: 6, message: 'Password must be 6 character' }
+                })}
                   placeholder="Password"
-                  className="input input-bordered "
-                />
-                {errors.password && (
+                  className="input input-bordered" />
+                {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}
+                <label className="label"><span className="label-text">Forget Password?</span></label>
+              </div>
+              <div>
+                <div className='flex gap-4 justify-between mt-2'>
+                  <p>I am here as an</p>
+                  <div className='flex items-center gap-2'>
+                    <input
+                      id='employee'
+                      {...register("role", {
+                        required: "Role is required",
+                      })}
+                      type="radio"
+                      className="radio radio-primary" value="Employee"
+                    />
+                    <label htmlFor="employee">Employee</label>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                    <input
+                      id='client'
+                      {...register("role", {
+                        required: "Role is required",
+                      })}
+                      type="radio"
+                      className="radio radio-primary"
+                      value="Client"
+                    />
+                    <label htmlFor="client">Client</label>
+                  </div>
+                </div>
+                {errors.role && (
                   <p role="alert" className="text-red-500">
-                    {errors.password?.message}
+                    {errors.role?.message}
                   </p>
                 )}
               </div>
@@ -167,11 +181,10 @@ const SignUp = () => {
                   Forgot password?
                 </Link>
               </label>
-              <input className="btn btn-warning" value="SignUp" type="submit" />
+              <input className="btn btn-warning" value="Login" type="submit" />
               <p className="text-center">-------------Or-------------</p>
               <div>
                 <Link>
-                  {/* onClick={handleSignInWithGoogle} */}
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-10 h-10 ml-1">
@@ -190,24 +203,22 @@ const SignUp = () => {
                   </div>
                 </Link>
                 <Link>
-                  {/* onClick={handleSignInWithFacebook} */}
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-8 h-8 ml-1">
                         <img src={facebook} alt=""></img>
                       </div>
                       <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
-                        Continue with FaceBook
+                        Continue with Facebook
                       </div>
                       <div className="mr-6"></div>
                     </div>
                   </div>
                 </Link>
               </div>
-
               <small>
                 <p className="flex justify-center mt-2">
-                  Already have a accounts?
+                  <span>Already have an account? </span>
                   <Link className="text-purple-600 font-bold" to="/login">
                     Login now
                   </Link>

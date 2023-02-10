@@ -83,11 +83,11 @@ const Admin = () => {
                 <AdminProgress></AdminProgress>
             </div>
             <div className='flex'>
-                <div className='w-1/2'>
+                <div className='w-1/2 border border-black shadow-2xl mr-3'>
                     <h2 className='text-3xl font-bold text-gray-100 mb-4'>Clients Data</h2>
                     <Reports></Reports>
                 </div>
-                <div className='w-1/2'>
+                <div className='w-1/2 border border-black shadow-2xl'>
                     <h2 className='text-3xl font-bold text-gray-100 mb-4'>Employees Data</h2>
                     <Reports></Reports>
                 </div>

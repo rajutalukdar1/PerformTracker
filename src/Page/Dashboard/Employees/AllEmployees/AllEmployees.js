@@ -48,7 +48,8 @@ const AllEmployees = () => {
           {/* The button to open modal */}
           <label
             htmlFor="my-modal"
-            className="px-3 py-2 flex items-center bg-gray-900 rounded-full text-white font-semibold text-xl"
+            className="px-3 py-2 flex items-center bg-gray-900 rounded-full text-white font-semibold 
+            text-xl"
           >
             <GrFormAdd className=" bg-white rounded-full text-white mr-3" /> Add Employee
           </label>
@@ -63,7 +64,8 @@ const AllEmployees = () => {
           <div key={singleEmployee._id} className="shadow-md bg-gray-900 rounded-sm pb-8">
             <div className="dropdown dropdown-bottom dropdown-right">
               <div tabIndex={0}>
-                <h2 className="text-center mt-3 ml-4 font-semibold text-gray-400 text-xl cursor-pointer"><BsThreeDotsVertical /> </h2>
+                <h2 className="text-center mt-3 ml-4 font-semibold text-gray-400 text-xl cursor-pointer">
+                  <BsThreeDotsVertical /> </h2>
               </div>
               <ul
                 tabIndex={0}
