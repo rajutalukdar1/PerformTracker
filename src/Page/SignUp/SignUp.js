@@ -4,16 +4,12 @@ import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
+import { createUser, providerLogin, updateUser, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import SelectRole from "../Share/SelectRole/SelectRole";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 
 import "./SignUp.css";
-import { GoogleAuthProvider } from 'firebase/auth';
-import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
-import { useDispatch } from "react-redux";
-import { toast } from "react-hot-toast";
 
 const SignUp = () => {
   const {
@@ -31,7 +27,7 @@ const SignUp = () => {
 
   // Login With Firebase and Redux
   const handleLogin = (data) => {
-    setLoginError();
+    // setLoginError();
     dispatch(userLogin(data.email, data.password, () => { }))
       .then((result) => {
         toast.success("User Created Successfully.");
