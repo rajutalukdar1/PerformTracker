@@ -6,6 +6,7 @@ import { FaCog } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../features/auths/AuthSlice';
 import { toast } from 'react-hot-toast';
+import AiUser from '../../Others/Lottiefiles/AiUser/AiUser';
 
 const DashboardNav = () => {
   const { user } = useSelector(state => state.userReducer);

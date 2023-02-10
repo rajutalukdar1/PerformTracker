@@ -75,7 +75,7 @@ const Project = ({ project, setProjectData }) => {
               value={progressed} max="100">   </progress>
           </div>
         </div>
-        <div className="dropdown dropdown-bottom dropdown-left absolute top-2 right-3 text-gray-800">
+        <div className="dropdown dropdown-bottom dropdown-left absolute top-2 right-3">
           <div tabIndex={0}>
             <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl cursor-pointer"><BsThreeDotsVertical /> </h2>
           </div>

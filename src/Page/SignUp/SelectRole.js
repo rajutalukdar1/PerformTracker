@@ -7,8 +7,7 @@ const SelectRole = ({ uid, setUid }) => {
 
   const handleRole = e => {
     e.preventDefault();
-    const role = e.target.role.value;
-    console.log(role);
+    const role = e.target.selectedRole.value;
 
     if (uid && (role === 'Employee' || role === 'Client')) {
       fetch(`https://perform-tracker-server.vercel.app/users?uid=${uid}`, {
@@ -22,7 +21,6 @@ const SelectRole = ({ uid, setUid }) => {
         .then(data => {
           if (data.modifiedCount > 0) {
             navigate('/dashboard');
-            console.log(data);
             setUid(null);
           }
         })
@@ -42,12 +40,12 @@ const SelectRole = ({ uid, setUid }) => {
             <p className='text-xl leading-4'>I am an</p>
             <div>
               <div className='flex items-center gap-2 mb-2'>
-                <input id='employee' type="radio" name="role" className="radio radio-primary" value="Employee" defaultChecked />
-                <label htmlFor="employee">Employee</label>
+                <input id='employeeRole' type="radio" name="selectedRole" className="radio radio-primary" value="Employee" defaultChecked />
+                <label htmlFor="employeeRole">Employee</label>
               </div>
               <div className='flex items-center gap-2'>
-                <input id='client' type="radio" name="role" className="radio radio-primary" value="Client" />
-                <label htmlFor="client">Client</label>
+                <input id='clientRole' type="radio" name="selectedRole" className="radio radio-primary" value="Client" />
+                <label htmlFor="clientRole">Client</label>
               </div>
             </div>
           </div>

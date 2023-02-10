@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-hot-toast";
 
-const EditProjects = ({ project, setProjectData, refetch }) => {
+const EditProjects = ({project, setProjectData, refetch}) => {
   const { _id, name, progressed, cost, createdby, status, created, deadline, details } = project;
 
   const handleEditProject = (e) => {
@@ -16,7 +16,7 @@ const EditProjects = ({ project, setProjectData, refetch }) => {
     const deadline = e.target.deadline.value
     const details = e.target.details.value
 
-    const project = { name, progressed, cost, createdby, status, created, deadline, details }
+    const project = { name, progressed, cost, createdby, status, created, deadline, details}
 
     fetch(`https://perform-tracker-server.vercel.app/projects/${_id}`, {
       method: 'PATCH',

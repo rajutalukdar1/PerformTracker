@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react'
-import useAdmin from '../../../hooks/useAdmin';
+import React, { useState } from 'react';
 import QueryBar from '../../Share/QueryBar/QueryBar';
 import AddProjects from './AddProjects/AddProjects';
 import EditProjects from './EditProject/EditProject';
@@ -9,7 +8,6 @@ import Project from './Project';
 const AllProjects = () => {
   const [projectData, setProjectData] = useState(null);
   const [shown, setShown] = useState(false);
-  const [isAdmin, load] = useAdmin("zubsdS0ZkSf84lE3o9finW2tTSH3");
 
   const { data: projects = [], refetch } = useQuery({
     queryKey: ['projects'],

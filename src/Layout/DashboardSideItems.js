@@ -27,7 +27,8 @@ const DashboardSideItems = ({ icon, title, subMenus }) => {
           <ul className="menu text-gray-300">
             {
               subMenus?.map((subMenu, i) => <li key={i}>
-                <Link className='ml-6 py-1 bg-transparent hover:text-white hover:underline' to={subMenu.to}>{subMenu.title}</Link>
+                <Link className='ml-6 py-1 bg-transparent hover:text-white hover:underline'
+                  to={subMenu.to}>{subMenu.title}</Link>
               </li>)
             }
           </ul>

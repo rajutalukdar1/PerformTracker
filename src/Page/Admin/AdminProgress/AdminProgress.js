@@ -62,7 +62,7 @@ const AdminProgress = () => {
                     <div class="relative pt-1 mt-4">
                         <div class="overflow-hidden h-4 mb-4 text-xs flex rounded bg-emerald-200">
                             <div className="w-[10%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">10%</div>
-                            <div className="w-[30%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-black">30%</div>
+                            <div className="w-[30%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-400">30%</div>
                             <div className="w-[25%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-cyan-400">25%</div>
                             <div className="w-[35%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500">35%</div>
                         </div>
@@ -77,7 +77,7 @@ const AdminProgress = () => {
                         </div>
                         <div className='flex justify-between'>
                             <div className='flex items-center'>
-                                <span className='text-black text-2xl mr-3 mt-2'>&#9678;</span>
+                                <span className='text-white text-2xl mr-3 mt-2'>&#9678;</span>
                                 <h2>Inprogress Tasks</h2>
                             </div>
                             <h5>166</h5>

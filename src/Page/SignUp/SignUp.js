@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import SelectRole from "./SelectRole";
-import useIsUserExist from "../../hooks/useIsUserExist";
+import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 
 
 const SignUp = () => {
@@ -20,22 +20,20 @@ const SignUp = () => {
   const [uid, setUid] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [isUserExist] = useIsUserExist()
 
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
+  // Signup With Firebase and Redux
   const handleSignUp = (data) => {
     setSignUpError();
-    createUser(data.email, data.password)
+    dispatch(createUser(data.email, data.password))
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-        toast("User Created Successfully.");
+        toast.success("User Created Successfully.");
         const userInfo = {
           displayName: data.name,
         };
-        updateUser(userInfo)
+        dispatch(updateUser(userInfo))
           .then(() => {
             saveUser({
               name: data.name,
@@ -57,28 +55,36 @@ const SignUp = () => {
   const handleProviderSignIn = (provider) => {
     dispatch(providerLogin(provider))
       .then(result => {
-        const user = isUserExist(result.user.uid);
-
-        if (user?.uid) {
-          if (user?.role) {
-            toast.success("Logged In Successfully.");
-            navigate('/dashboard');
-          } else {
-            setUid(result.user.uid);
-          }
-        } else {
-          user || saveUser({
-            name: result.user.displayName,
-            email: result.user.email,
-            img: result.user.photoURL,
-            uid: result.user.uid
-          });
-        }
+        fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
+          .then(res => res.json())
+          .then(data => {
+            checkingUserExist(data, result.user)
+          })
+          .catch(err => console.error(err));
       })
       .catch(error => console.error(error))
   }
 
+  const checkingUserExist = (existUser, loggedUser) => {
+    if (existUser?.uid) {
+      if (existUser?.role) {
+        toast.success("Logged In Successfully.");
+        navigate('/dashboard');
+      } else {
+        setUid(loggedUser.uid);
+      }
+    } else {
+      saveUser({
+        name: loggedUser.displayName,
+        email: loggedUser.email,
+        img: loggedUser.photoURL,
+        uid: loggedUser.uid
+      });
+    }
+  }
+
   const saveUser = (user) => {
+    console.log(user?.role)
     fetch('https://perform-tracker-server.vercel.app/users', {
       method: 'POST',
       headers: {
@@ -98,10 +104,10 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen text-black">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Please Signup Now!!</h1>
+      <div className="hero text-black mb-10">
+        <div className="hero-content flex-col lg:flex-row lg:gap-36">
+          <div className="hidden lg:block">
+            <LoginAnimation />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black">
             <form className="card-body" onSubmit={handleSubmit(handleSignUp)}>
@@ -163,6 +169,39 @@ const SignUp = () => {
                   </p>
                 )}
               </div>
+              <div>
+                <div className='flex gap-4 justify-between mt-2'>
+                  <p>I am here as an</p>
+                  <div className='flex items-center gap-2'>
+                    <input
+                      id='employee'
+                      {...register("role", {
+                        required: "Role is required",
+                      })}
+                      type="radio"
+                      className="radio radio-primary" value="Employee"
+                    />
+                    <label htmlFor="employee">Employee</label>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                    <input
+                      id='client'
+                      {...register("role", {
+                        required: "Role is required",
+                      })}
+                      type="radio"
+                      className="radio radio-primary"
+                      value="Client"
+                    />
+                    <label htmlFor="client">Client</label>
+                  </div>
+                </div>
+                {errors.role && (
+                  <p role="alert" className="text-red-500">
+                    {errors.role?.message}
+                  </p>
+                )}
+              </div>
               {signUpError && <p className='text-red-600'>{signUpError}</p>}
               <label className="label">
                 <Link to="" className="label-text-alt link text-black">
@@ -199,7 +238,7 @@ const SignUp = () => {
                         <img src={facebook} alt=""></img>
                       </div>
                       <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
-                        Continue with FaceBook
+                        Continue with Facebook
                       </div>
                       <div className="mr-6"></div>
                     </div>
@@ -209,7 +248,7 @@ const SignUp = () => {
 
               <small>
                 <p className="flex justify-center mt-2">
-                  Already have a accounts?
+                  <span>Already have an account? </span>
                   <Link className="text-purple-600 font-bold" to="/login">
                     Login now
                   </Link>
