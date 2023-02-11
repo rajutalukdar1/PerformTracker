@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
-
-import "./SignIn.css";
 import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
@@ -75,11 +73,12 @@ const SignIn = () => {
   return (
     <div>
       <div className="hero text-black">
-        <div className="hero-content flex-col lg:flex-row p-0 lg:gap-36 mt-5 md:mt-10 mb-5 md:mb-16">
+        <div className="hero-content flex-col lg:flex-row p-0 lg:gap-36 mt-5 md:mt-10 mb-10 md:mb-16">
           <div className="text-center lg:text-left hidden lg:block">
             <LoginAnimation />
           </div>
-          <div className="card flex-shrink-0 w-full lg:max-w-sm shadow-2xl bg-base-100 text-black">
+          <div className="card flex-shrink-0 w-full lg:max-w-sm shadow-2xl bg-base-100 text-black overflow-hidden">
+            <div className="card-title justify-center bg-info py-4 text-white">Login Here</div>
             <form className="card-body" onSubmit={handleSubmit(handleLogin)}>
               <div className="form-control">
                 <label className="label">
@@ -122,10 +121,10 @@ const SignIn = () => {
                   Forgot password?
                 </Link>
               </label>
-              <input className="btn btn-warning" value="Login" type="submit" />
+              <input className="btn btn-info hover:bg-sky-500 text-white" value="Login" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
-                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white rounded-badge cursor-pointer">
                   <div className="w-6 sm:w-10 sm:h-10 ml-1">
                     <img src="https://i.ibb.co/7yz77Hj/google.png" alt="" />
                   </div>
@@ -137,7 +136,7 @@ const SignIn = () => {
                   </div>
                   <div className="mr-6"></div>
                 </div>
-                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white rounded-badge cursor-pointer mt-2">
                   <div className="w-8 sm:w-12 sm:h-12">
                     <img src={facebook} alt="" />
                   </div>
