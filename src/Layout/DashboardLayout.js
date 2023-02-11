@@ -9,7 +9,6 @@ import { HiOutlinePencilAlt, HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 import { FaAmazonPay, FaTrello, FaUserSecret } from 'react-icons/fa';
-import { FaUserSecret } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     const { user } = useSelector(state => state.userReducer);
