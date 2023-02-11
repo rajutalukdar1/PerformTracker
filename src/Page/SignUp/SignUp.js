@@ -133,11 +133,11 @@ const SignUp = () => {
                   placeholder="Name"
                   className="input input-bordered "
                 />
-                {errors.name && (
+                {errors.name &&
                   <p role="alert" className="text-red-500">
                     {errors.name?.message}
                   </p>
-                )}
+                }
               </div>
               <div className="form-control">
                 <label className="label">
@@ -151,13 +151,12 @@ const SignUp = () => {
                   placeholder="Email"
                   className="input input-bordered "
                 />
-                {errors.email && (
+                {errors.email &&
                   <p role="alert" className="text-red-500">
                     {errors.email?.message}
                   </p>
-                )}
+                }
               </div>
-
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black">Password</span>
@@ -174,11 +173,10 @@ const SignUp = () => {
                   placeholder="Password"
                   className="input input-bordered "
                 />
-                {errors.password && (
+                {errors.password &&
                   <p role="alert" className="text-red-500">
                     {errors.password?.message}
-                  </p>
-                )}
+                  </p>}
               </div>
               <div>
                 <div className='flex justify-between gap-4 my-2'>
@@ -207,47 +205,36 @@ const SignUp = () => {
                     <label htmlFor="client">Client</label>
                   </div>
                 </div>
-                {errors.role && (
+                {errors.role &&
                   <p role="alert" className="text-red-500">
                     {errors.role?.message}
                   </p>
-                )}
+                }
               </div>
               {signUpError && <p className='text-red-600'>{signUpError}</p>}
               <input className="btn btn-warning" value="SignUp" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
-                <Link>
-                  <div className="flex justify-content-center align-items-center">
-                    <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-10 h-10 ml-1">
-                        <img
-                          src="https://i.ibb.co/7yz77Hj/google.png"
-                          alt=""
-                        ></img>
-                      </div>
-                      <div
-                        onClick={() => handleProviderSignIn(googleProvider)}
-                        className=" font-semibold ">
-                        Continue with Google
-                      </div>
-                      <div className="mr-6"></div>
-                    </div>
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
+                  <div className="w-10 h-10 ml-1">
+                    <img src="https://i.ibb.co/7yz77Hj/google.png" alt="" />
                   </div>
-                </Link>
-                <Link>
-                  <div className="flex justify-content-center align-items-center mt-3 ">
-                    <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-12 h-12">
-                        <img src={facebook} alt=""></img>
-                      </div>
-                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
-                        Continue with Facebook
-                      </div>
-                      <div className="mr-6"></div>
-                    </div>
+                  <div
+                    onClick={() => handleProviderSignIn(googleProvider)}
+                    className="font-semibold">
+                    Continue with Google
                   </div>
-                </Link>
+                  <div className="mr-6"></div>
+                </div>
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
+                  <div className="w-12 h-12">
+                    <img src={facebook} alt="" />
+                  </div>
+                  <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
+                    Continue with Facebook
+                  </div>
+                  <div className="mr-6"></div>
+                </div>
               </div>
               <small>
                 <p className="flex justify-center mt-2">

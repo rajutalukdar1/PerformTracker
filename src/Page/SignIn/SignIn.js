@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
 
 import "./SignIn.css";
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
@@ -14,10 +14,12 @@ const SignIn = () => {
   const { register, formState: { errors }, handleSubmit, } = useForm();
   const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
-  const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
+
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   const from = location.state?.from?.pathname || '/dashboard';
 
@@ -43,11 +45,11 @@ const SignIn = () => {
       })
   };
 
-  // Google Provider Login With Firebase and Redux
-  const handleGoogleSign = () => {
-    dispatch(providerLogin(googleProvider))
+  // Google and Facebook Provider Login With Firebase and Redux
+  const handleProviderSignIn = (provider) => {
+    dispatch(providerLogin(provider))
       .then(result => {
-        toast.success("Google Logged In Successfully.");
+        toast.success("Logged In Successfully.");
         // navigate(from, { replace: true });
         fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
           .then(res => res.json())
@@ -91,11 +93,11 @@ const SignIn = () => {
                   placeholder="Email"
                   className="input input-bordered w-full"
                 />
-                {errors.email && (
+                {errors.email &&
                   <p role="alert" className="text-red-500">
                     {errors.email?.message}
                   </p>
-                )}
+                }
               </div>
               <div className="form-control">
                 <label className="label"><span className="label-text text-black">Password</span>
@@ -110,7 +112,8 @@ const SignIn = () => {
                   className="input input-bordered w-full"
                 />
                 {errors.password &&
-                  <p className='text-red-600' role="alert">{errors.password?.message}</p>}
+                  <p className='text-red-600' role="alert">{errors.password?.message}</p>
+                }
               </div>
               {loginError && <p className='text-red-500'>{loginError}</p>
               }
@@ -122,20 +125,26 @@ const SignIn = () => {
               <input className="btn btn-warning" value="Login" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
-                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge">
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
                   <div className="w-6 sm:w-10 sm:h-10 ml-1">
                     <img src="https://i.ibb.co/7yz77Hj/google.png" alt="" />
                   </div>
-                  <div onClick={handleGoogleSign} className="font-semibold text-xs sm:text-base">
+                  <div
+                    onClick={() => handleProviderSignIn(googleProvider)}
+                    className="font-semibold text-xs sm:text-base"
+                  >
                     Continue with Google
                   </div>
                   <div className="mr-6"></div>
                 </div>
-                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge mt-2">
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
                   <div className="w-8 sm:w-12 sm:h-12">
                     <img src={facebook} alt="" />
                   </div>
-                  <div className="font-semibold text-xs sm:text-base">
+                  <div
+                    onClick={() => handleProviderSignIn(facebookProvider)}
+                    className="font-semibold text-xs sm:text-base"
+                  >
                     Continue with FaceBook
                   </div>
                   <div className="mr-6"></div>
