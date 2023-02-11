@@ -107,7 +107,7 @@ const SignUp = () => {
       navigate('/dashboard/admin');
     } else if (role === "Client") {
       navigate('/dashboard/client');
-    }else{
+    } else {
       navigate('/dashboard');
     }
   }
@@ -159,7 +159,7 @@ const SignUp = () => {
               </div>
 
               <div className="form-control">
-              <label className="label">
+                <label className="label">
                   <span className="label-text text-black">Password</span>
                 </label>
                 <input
@@ -181,7 +181,7 @@ const SignUp = () => {
                 )}
               </div>
               <div>
-                <div className='flex gap-4 justify-between mt-2'>
+                <div className='flex justify-between gap-4 my-2'>
                   <p>I am here as an</p>
                   <div className='flex items-center gap-2'>
                     <input
@@ -215,10 +215,10 @@ const SignUp = () => {
               </div>
               {signUpError && <p className='text-red-600'>{signUpError}</p>}
               <input className="btn btn-warning" value="SignUp" type="submit" />
-              <p className="text-center">-------------Or-------------</p>
+              <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
                 <Link>
-                  <div className="flex justify-content-center align-items-center mt-3 ">
+                  <div className="flex justify-content-center align-items-center">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
                       <div className="w-10 h-10 ml-1">
                         <img
@@ -238,7 +238,7 @@ const SignUp = () => {
                 <Link>
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-8 h-8 ml-1">
+                      <div className="w-12 h-12">
                         <img src={facebook} alt=""></img>
                       </div>
                       <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">

@@ -89,7 +89,7 @@ const SignIn = () => {
                     required: "Email Address is required",
                   })}
                   placeholder="Email"
-                  className="input input-bordered "
+                  className="input input-bordered w-full"
                 />
                 {errors.email && (
                   <p role="alert" className="text-red-500">
@@ -100,65 +100,51 @@ const SignIn = () => {
               <div className="form-control">
                 <label className="label"><span className="label-text text-black">Password</span>
                 </label>
-                <input type="password" {...register("password", {
-                  required: "Password is Required",
-                  minLength: { value: 6, message: 'Password must be 6 character' }
-                })}
+                <input
+                  type="password"
+                  {...register("password", {
+                    required: "Password is Required",
+                    minLength: { value: 6, message: 'Password must be 6 character' }
+                  })}
                   placeholder="Password"
-                  className="input input-bordered" />
+                  className="input input-bordered w-full"
+                />
                 {errors.password &&
                   <p className='text-red-600' role="alert">{errors.password?.message}</p>}
               </div>
               {loginError && <p className='text-red-500'>{loginError}</p>
               }
               <label className="label">
-                <Link to="" className="label-text-alt link text-black">
+                <Link to="/reset" className="label-text-alt link text-black">
                   Forgot password?
                 </Link>
               </label>
               <input className="btn btn-warning" value="Login" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
-                <Link>
-                  <div className="flex justify-content-center align-items-center ">
-                    <div className="flex justify-between items-center login-container 
-                    hover:bg-warning">
-                      <div className="w-10 h-10 ml-1">
-                        <img
-                          src="https://i.ibb.co/7yz77Hj/google.png"
-                          alt=""
-                        ></img>
-                      </div>
-                      <div
-                        onClick={handleGoogleSign}
-                        className="font-semibold ">
-                        Continue with Google
-                      </div>
-                      <div className="mr-6"></div>
-                    </div>
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge">
+                  <div className="w-6 sm:w-10 sm:h-10 ml-1">
+                    <img src="https://i.ibb.co/7yz77Hj/google.png" alt="" />
                   </div>
-                </Link>
-                <Link>
-                  <div className="flex justify-content-center align-items-center mt-3 ">
-                    <div className="flex justify-between items-center login-container 
-                    hover:bg-warning">
-                      <div className="w-12 h-12">
-                        <img src={facebook} alt=""></img>
-                      </div>
-                      <div className=" font-semibold ">
-                        Continue with FaceBook
-                      </div>
-                      <div className="mr-6"></div>
-                    </div>
+                  <div onClick={handleGoogleSign} className="font-semibold text-xs sm:text-base">
+                    Continue with Google
                   </div>
-                </Link>
+                  <div className="mr-6"></div>
+                </div>
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-warning rounded-badge mt-2">
+                  <div className="w-8 sm:w-12 sm:h-12">
+                    <img src={facebook} alt="" />
+                  </div>
+                  <div className="font-semibold text-xs sm:text-base">
+                    Continue with FaceBook
+                  </div>
+                  <div className="mr-6"></div>
+                </div>
               </div>
               <p className="text-center">
                 <small>
                   <span>Don't have an accounts? </span>
-                  <Link className="text-purple-600 font-bold" to="/signup">
-                    Register now
-                  </Link>
+                  <Link className="text-purple-600 font-bold" to="/signup">Register now</Link>
                 </small>
               </p>
             </form>
