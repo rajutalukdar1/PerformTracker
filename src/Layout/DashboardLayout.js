@@ -40,6 +40,10 @@ const DashboardLayout = () => {
                                         {
                                             to: "/dashboard/admin",
                                             title: "Admin"
+                                        },
+                                        {
+                                            to: "/dashboard/employee",
+                                            title: "Employees"
                                         }
                                     ]}
                                 />
@@ -156,7 +160,7 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
-                                <DashboardSideItems
+                                {/* <DashboardSideItems
                                     icon={<FaUserSecret className='text-2xl mt-2' />}
                                     title='Leads'
                                     subMenus={[
@@ -165,7 +169,7 @@ const DashboardLayout = () => {
                                             title: "Projects Leads"
                                         }
                                     ]}
-                                />
+                                /> */}
                                 <DashboardSideItems
                                     icon={<MdModelTraining className='text-2xl' />}
                                     title='Training'

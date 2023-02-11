@@ -198,19 +198,18 @@ const SignUp = () => {
                     </div>
                   </div>
                 </Link>
-                <Link>
-                  <div className="flex justify-content-center align-items-center mt-3 ">
-                    <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-8 h-8 ml-1">
-                        <img src={facebook} alt=""></img>
-                      </div>
-                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
-                        Continue with Facebook
-                      </div>
-                      <div className="mr-6"></div>
+
+                <div className="flex justify-content-center align-items-center mt-3 ">
+                  <div className="flex justify-between items-center login-container hover:bg-warning">
+                    <div className="w-8 h-8 ml-1">
+                      <img src={facebook} alt=""></img>
                     </div>
+                    <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
+                      Continue with Facebook
+                    </div>
+                    <div className="mr-6"></div>
                   </div>
-                </Link>
+                </div>
               </div>
               <small>
                 <p className="flex justify-center mt-2">
