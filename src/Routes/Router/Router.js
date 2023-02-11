@@ -61,10 +61,18 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
-      // {
-      //   path: "/dashboard/clientdetails",
-      //   element: <Dashboard></Dashboard>
-      // },
+      {
+        path: "/dashboard",
+        element: <Employees></Employees>
+      },
+      {
+        path: "/dashboard/admin",
+        element: <Admin></Admin>
+      },
+      {
+        path: "/dashboard/client",
+        element: <Employees></Employees>
+      },
       {
         path: "/dashboard/employees",
         element: <AllEmployees />
@@ -82,7 +90,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/dashboard/clients",
+        path: "/dashboard/all-clients",
         element: <Clients></Clients>,
         loader: () => fetch('https://perform-tracker-server.vercel.app/clients')
       },
@@ -102,14 +110,6 @@ const router = createBrowserRouter([
        {
         path: "/dashboard/promotion",
         element: <Promotion></Promotion>
-      },
-      {
-        path: "/dashboard/admin",
-        element: <Admin></Admin>
-      },
-      {
-        path: "/dashboard/dashboardEmployees",
-        element: <Employees></Employees>
       },
       {
         path: "/dashboard/salary",
