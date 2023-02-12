@@ -6,6 +6,7 @@ import { FaCog } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../features/auths/AuthSlice';
 import { toast } from 'react-hot-toast';
+import ThemeChanger from '../ThemeChanger/ThemeChanger';
 
 const DashboardNav = ({currentUser}) => {
   const { user } = useSelector(state => state.userReducer);
@@ -37,6 +38,9 @@ const DashboardNav = ({currentUser}) => {
         </Link>
       </div>
       <div className="flex-none">
+        <div className='mr-5'>
+          <ThemeChanger />
+        </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="flex items-center gap-3 cursor-pointer">
             <div className="w-6 sm:w-10 rounded-full overflow-hidden">

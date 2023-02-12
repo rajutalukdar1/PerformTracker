@@ -12,15 +12,16 @@ import { FaAmazonPay, FaTrello, FaUserSecret } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     const { user } = useSelector(state => state.userReducer);
+    const { theme } = useSelector(state => state.themeReducer);
 
-    const { data: currentUser = {}, refetch } = useQuery({
+    const { data: currentUser = {} } = useQuery({
         queryKey: ['currentUser', user?.uid],
         queryFn: () =>
             fetch(`https://perform-tracker-server.vercel.app/users?uid=${user?.uid}`).then(res => res.json()),
     });
 
     return (
-        <div data-theme='dark'>
+        <div data-theme={theme}>
             <DashboardNav currentUser={currentUser} />
             <div className="drawer drawer-mobile pt-16 md:pt-20">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle peer" />
