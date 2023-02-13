@@ -1,62 +1,110 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
+import { useDispatch } from "react-redux";
+import SelectRole from "../Share/SelectRole/SelectRole";
+import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 
 import "./SignUp.css";
-import { GoogleAuthProvider } from 'firebase/auth';
-import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
-import { useDispatch } from "react-redux";
-import { toast } from "react-hot-toast";
-import useTitle from "../../Hooks/useTitle";
+import { userLogin } from "../../features/auths/AuthSlice";
 
-const SignIn = () => {
-
-  useTitle('Login');
-
-  const { register, formState: { errors }, handleSubmit, } = useForm();
-  const [loginError, setLoginError] = useState("");
-  const [loginUserEmail, setLoginUserEmail] = useState("");
-  const googleProvider = new GoogleAuthProvider();
+const SignUp = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const [signUpError, setSignUpError] = useState("");
+  const [uid, setUid] = useState(null);
   const navigate = useNavigate();
-  const location = useLocation();
   const dispatch = useDispatch();
 
-  const from = location.state?.from?.pathname || '/dashboard';
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
   // Login With Firebase and Redux
   const handleLogin = (data) => {
-    setLoginError();
     dispatch(userLogin(data.email, data.password, () => { }))
       .then((result) => {
-        toast.success("Logged In Successfully.");
-        console.log("Logged In");
-        setLoginUserEmail(data.email);
-        navigate(from, { replace: true })
-      })
-      .catch(e => {
-        console.log(e.message);
-        setLoginError(e.message);
+        toast.success("User Created Successfully.");
+        const userInfo = {
+          displayName: data.name,
+        };
+        dispatch(updateUser(userInfo))
+          .then(() => {
+            saveUser({
+              name: data.name,
+              img: "https://i.ibb.co/Qj8XhH5/user.png",
+              uid: result.user.uid,
+              role: data.role,
+            });
+            console.log("Signed Up");
+          })
+          .catch((err) => console.log(err));
       })
   };
 
-  // Google Provider Login With Firebase and Redux
-  const handleGoogleSign = () => {
-    dispatch(providerLogin(googleProvider))
+  // Google and Facebook Provider Login With Firebase and Redux
+  const handleProviderSignIn = (provider) => {
+    dispatch(providerLogin(provider))
       .then(result => {
-        toast.success("Google Logged In Successfully.");
-        navigate(from, { replace: true });
-        console.log("Provider Logged In");
+        fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
+          .then(res => res.json())
+          .then(data => {
+            checkingUserExist(data, result.user)
+          })
+          .catch(err => console.error(err));
       })
       .catch(error => console.error(error))
   }
 
+  const checkingUserExist = (existUser, loggedUser) => {
+    if (existUser?.uid) {
+      if (existUser?.role) {
+        toast.success("Logged In Successfully.");
+        navigate('/dashboard');
+      } else {
+        setUid(loggedUser.uid);
+      }
+    } else {
+      saveUser({
+        name: loggedUser.displayName,
+        email: loggedUser.email,
+        img: loggedUser.photoURL,
+        uid: loggedUser.uid
+      });
+    }
+  }
+
+  const saveUser = (user) => {
+    console.log(user?.role)
+    fetch('https://perform-tracker-server.vercel.app/users', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (!user.role) {
+          return setUid(user.uid);
+        }
+        navigate('/dashboard');
+      })
+      .catch(err => console.error(err));
+  }
+
   return (
     <div>
-      <div className="hero min-h-screen text-black">
-        <div className="hero-content flex-col">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Please Login now!!</h1>
+      <div className="hero text-black mb-10">
+        <div className="hero-content flex-col lg:flex-row lg:gap-36">
+          <div className="hidden lg:block">
+            <LoginAnimation />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black">
             <form className="card-body" onSubmit={handleSubmit(handleLogin)}>
@@ -90,9 +138,40 @@ const SignIn = () => {
                 {errors.password && <p className='text-red-600' role="alert">{errors.password?.message}</p>}
                 <label className="label"><span className="label-text">Forget Password?</span></label>
               </div>
-
-              {loginError && <p className='text-red-500'>{loginError}</p>
-              }
+              <div>
+                <div className='flex gap-4 justify-between mt-2'>
+                  <p>I am here as an</p>
+                  <div className='flex items-center gap-2'>
+                    <input
+                      id='employee'
+                      {...register("role", {
+                        required: "Role is required",
+                      })}
+                      type="radio"
+                      className="radio radio-primary" value="Employee"
+                    />
+                    <label htmlFor="employee">Employee</label>
+                  </div>
+                  <div className='flex items-center gap-2'>
+                    <input
+                      id='client'
+                      {...register("role", {
+                        required: "Role is required",
+                      })}
+                      type="radio"
+                      className="radio radio-primary"
+                      value="Client"
+                    />
+                    <label htmlFor="client">Client</label>
+                  </div>
+                </div>
+                {errors.role && (
+                  <p role="alert" className="text-red-500">
+                    {errors.role?.message}
+                  </p>
+                )}
+              </div>
+              {signUpError && <p className='text-red-600'>{signUpError}</p>}
               <label className="label">
                 <Link to="" className="label-text-alt link text-black">
                   Forgot password?
@@ -111,7 +190,7 @@ const SignIn = () => {
                         ></img>
                       </div>
                       <div
-                        onClick={handleGoogleSign}
+                        onClick={() => handleProviderSignIn(googleProvider)}
                         className=" font-semibold ">
                         Continue with Google
                       </div>
@@ -122,11 +201,11 @@ const SignIn = () => {
                 <Link>
                   <div className="flex justify-content-center align-items-center mt-3 ">
                     <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-10 h-8 ml-1">
+                      <div className="w-8 h-8 ml-1">
                         <img src={facebook} alt=""></img>
                       </div>
-                      <div className=" font-semibold ">
-                        Continue with FaceBook
+                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
+                        Continue with Facebook
                       </div>
                       <div className="mr-6"></div>
                     </div>
@@ -134,10 +213,10 @@ const SignIn = () => {
                 </Link>
               </div>
               <small>
-                <p>
-                  Don't have an accounts?
-                  <Link className="text-purple-600 font-bold" to="/signup">
-                    Register now
+                <p className="flex justify-center mt-2">
+                  <span>Already have an account? </span>
+                  <Link className="text-purple-600 font-bold" to="/login">
+                    Login now
                   </Link>
                 </p>
               </small>
@@ -145,8 +224,15 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+      {
+        uid &&
+        <SelectRole
+          uid={uid}
+          setUid={setUid}
+        />
+      }
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;

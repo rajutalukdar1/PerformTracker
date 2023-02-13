@@ -17,7 +17,7 @@ const NavBar = () => {
       .then(() => {
         toast("You are Logged Out");
         console.log("Logged Out");
-        navigate("/login");
+        // navigate("/login");
       })
       .catch((err) => console.log(err));
   };

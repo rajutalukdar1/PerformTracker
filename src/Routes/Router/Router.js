@@ -8,6 +8,7 @@ import ClientDetails from "../../Page/Dashboard/Clients/ClientDetails/ClientDeta
 import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
+import EmployeeSalary from "../../Page/Dashboard/Payroll/EmployeeSalary/EmployeeSalary";
 import Leads from "../../Page/Dashboard/Leads/Leads";
 import BankAndStatutory from "../../Page/Dashboard/Profile/BankAndStatutory";
 import ClientProfile from "../../Page/Dashboard/Profile/ClientProfile";
@@ -17,8 +18,13 @@ import PersonalInfo from "../../Page/Dashboard/Profile/PersonalInfo";
 import Projects from "../../Page/Dashboard/Profile/Projects";
 import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
 import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails";
+import Promotion from "../../Page/Dashboard/Promotion/Promotion";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
+import Trainer from "../../Page/Dashboard/Training/Trainer";
+import Training from "../../Page/Dashboard/Training/Training";
+import TrainingType from "../../Page/Dashboard/Training/TrainingType";
+
 import Home from "../../Page/Home/Home/Home";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
@@ -63,6 +69,7 @@ const router = createBrowserRouter([
         path: "/dashboard/employees",
         element: <AllEmployees />
       },
+
       {
         path: "/dashboard/employees/:id",
         element: <EmployeeProfile />
@@ -92,6 +99,10 @@ const router = createBrowserRouter([
         path: "/dashboard/reports",
         element: <Reports></Reports>
       },
+       {
+        path: "/dashboard/promotion",
+        element: <Promotion></Promotion>
+      },
       {
         path: "/dashboard/admin",
         element: <Admin></Admin>
@@ -99,6 +110,22 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
+      },
+      {
+        path: "/dashboard/salary",
+        element: <EmployeeSalary />
+      },
+      {
+        path: "/dashboard/training",
+        element: <Training />
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <Trainer />
+      },
+      {
+        path: "/dashboard/trainingtype",
+        element: <TrainingType />
       },
       {
         path: "/dashboard/profile/employees",
