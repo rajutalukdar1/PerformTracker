@@ -38,13 +38,9 @@ const DashboardLayout = () => {
                                     title='Dashboard'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/admin",
+                                            to: "/dashboard/dashboardAdmin",
                                             title: "Admin"
                                         },
-                                        {
-                                            to: "/dashboard/employee",
-                                            title: "Employees"
-                                        }
                                     ]}
                                 />
                                 <DashboardSideItems
@@ -62,7 +58,7 @@ const DashboardLayout = () => {
                                     title='Clients'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/clients",
+                                            to: "/dashboard/client",
                                             title: "All Clients"
                                         },
                                     ]}
@@ -188,6 +184,9 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
+
+                                {/* ---------------------------------------------- ----*/}
+
                             </> : currentUser.role === "Client" ? <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
@@ -209,6 +208,9 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
+
+                                {/* ------------------------------------------------------- */}
+
                             </> : <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}

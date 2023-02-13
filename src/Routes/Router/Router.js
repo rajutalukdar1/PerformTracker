@@ -33,6 +33,7 @@ import TaskLayoute from "../../TaskLayoute/TaskLayoute";
 
 
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import DashboardClients from "../../Page/DashboardClients/DashboardClients";
 
 const router = createBrowserRouter([
   {
@@ -62,16 +63,20 @@ const router = createBrowserRouter([
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
       },
       {
-        path: "/dashboard/admin",
+        path: "/dashboard/dashboardAdmin",
         element: <Admin></Admin>
       },
       {
+        path: "/dashboard/dashboardClients",
+        element: <DashboardClients></DashboardClients>
+      },
+      {
         path: "/dashboard/client",
-        element: <Employees></Employees>
+        element: <Clients></Clients>
       },
       {
         path: "/dashboard/employees",
@@ -107,7 +112,7 @@ const router = createBrowserRouter([
         path: "/dashboard/reports",
         element: <Reports></Reports>
       },
-       {
+      {
         path: "/dashboard/promotion",
         element: <Promotion></Promotion>
       },
