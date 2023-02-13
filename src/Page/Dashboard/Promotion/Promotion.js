@@ -5,14 +5,20 @@ import { toast } from 'react-hot-toast';
 import { FaEllipsisV } from 'react-icons/fa';
 import ConfirmationModal from '../../Share/ConfirmationModal/ConfirmationModal';
 import AddPromotion from './AddPromotion/AddPromotion';
-import PromotionDetails from './PromotionDetails/PromotionDetails';
+import EditPromotion from './EditPromotion/EditPromotion';
+
+
+
+
 import PromotionQuery from './PromotionQuery/PromotionQuery';
 
 const Promotion = () => {
   const [promotions, setPromotions] = useState([]);
+  const [promotion, setPromotion] = useState({});
   // const [disabled, setDisabled] = useState(true);
   // const [checkbox, setCheckbox] = useState(task.completed);
   const [deletingPromotion, setDeletingPromotion] = useState(null);
+  const [editingPromotion, setEditingPromotion] = useState(null);
 
  
 
@@ -25,7 +31,7 @@ const Promotion = () => {
   const closeModal = () => {
     setDeletingPromotion(null);
   };
-  const handleDeleteTask = (promotion) => {
+  const handleDeletePromotion = (promotion) => {
     fetch(`http://localhost:5000/promotion/${promotion._id}`, {
       method: "DELETE",
       // headers: {
@@ -100,7 +106,8 @@ const Promotion = () => {
                 </thead>
                 <tbody>
                     {
-                        user?.map((promotion, i )=>  <tr key={promotion._id}
+                        user?.map((promotion, i )=>  <tr key={promotion._id} 
+                        
                         >
                             <th>{i+1}</th>
                             <td><div className="avatar">
@@ -128,8 +135,8 @@ const Promotion = () => {
                               className="cursor-pointer ml-2 my-2"
                             >Delete</label>
                                <label
-                              onClick={() => setDeletingPromotion(promotion)}
-                              htmlFor="confirmation-modal"
+                              onClick={() => setEditingPromotion(promotion)}
+                              htmlFor="editPromotionModal"
                               className="cursor-pointer ml-2"
                             >Edit</label>
                             </ul>
@@ -160,12 +167,18 @@ const Promotion = () => {
         <ConfirmationModal
           title={`Are you sure you want to delete?`}
           message={`if you delete ${deletingPromotion.name}. It cannot be undone`}
-          successAction={handleDeleteTask}
+          successAction={handleDeletePromotion}
           modalData={deletingPromotion}
           successButtonName="Delete"
           closeModal={closeModal}
         ></ConfirmationModal>
       )}
+
+      {editingPromotion && <EditPromotion
+        refetch={refetch}
+        setPromotion={setPromotions}
+        promotion={editingPromotion}
+      ></EditPromotion>}
     </div>
     );
 };
