@@ -8,6 +8,8 @@ import ClientDetails from "../../Page/Dashboard/Clients/ClientDetails/ClientDeta
 import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
 import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
+import EmployeeSalary from "../../Page/Dashboard/Payroll/EmployeeSalary/EmployeeSalary";
+import Leads from "../../Page/Dashboard/Leads/Leads";
 import BankAndStatutory from "../../Page/Dashboard/Profile/BankAndStatutory";
 import ClientProfile from "../../Page/Dashboard/Profile/ClientProfile";
 import ClientTask from "../../Page/Dashboard/Profile/ClientTask";
@@ -19,6 +21,10 @@ import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails";
 import Promotion from "../../Page/Dashboard/Promotion/Promotion";
 import Reports from "../../Page/Dashboard/Reports/Reports";
 import Employees from "../../Page/Employees/Employees";
+import Trainer from "../../Page/Dashboard/Training/Trainer";
+import Training from "../../Page/Dashboard/Training/Training";
+import TrainingType from "../../Page/Dashboard/Training/TrainingType";
+
 import Home from "../../Page/Home/Home/Home";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
@@ -55,14 +61,23 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
-      // {
-      //   path: "/dashboard/clientdetails",
-      //   element: <Dashboard></Dashboard>
-      // },
+      {
+        path: "/dashboard",
+        element: <Employees></Employees>
+      },
+      {
+        path: "/dashboard/admin",
+        element: <Admin></Admin>
+      },
+      {
+        path: "/dashboard/client",
+        element: <Employees></Employees>
+      },
       {
         path: "/dashboard/employees",
         element: <AllEmployees />
       },
+
       {
         path: "/dashboard/employees/:id",
         element: <EmployeeProfile />
@@ -75,7 +90,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/dashboard/clients",
+        path: "/dashboard/all-clients",
         element: <Clients></Clients>,
         loader: () => fetch('https://perform-tracker-server.vercel.app/clients')
       },
@@ -97,12 +112,20 @@ const router = createBrowserRouter([
         element: <Promotion></Promotion>
       },
       {
-        path: "/dashboard/admin",
-        element: <Admin></Admin>
+        path: "/dashboard/salary",
+        element: <EmployeeSalary />
       },
       {
-        path: "/dashboard/dashboardEmployees",
-        element: <Employees></Employees>
+        path: "/dashboard/training",
+        element: <Training />
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <Trainer />
+      },
+      {
+        path: "/dashboard/trainingtype",
+        element: <TrainingType />
       },
       {
         path: "/dashboard/profile/employees",
@@ -135,6 +158,10 @@ const router = createBrowserRouter([
             element: <ClientTask></ClientTask>
           }
         ]
+      },
+      {
+        path: "/dashboard/leads",
+        element: <Leads></Leads>
       },
       {
         // path: "/dashboard/profile/client",

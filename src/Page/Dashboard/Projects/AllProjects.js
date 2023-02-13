@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import QueryBar from '../../Share/QueryBar/QueryBar';
 import AddProjects from './AddProjects/AddProjects';
 import EditProjects from './EditProject/EditProject';
@@ -15,7 +15,6 @@ const AllProjects = () => {
       fetch(`https://perform-tracker-server.vercel.app/projects`).then(res => res.json()),
   });
 
-  console.log(projects);
   return (
     <div>
       <QueryBar
@@ -49,7 +48,7 @@ const AllProjects = () => {
           refetch={refetch}
         />
       }
-      
+
     </div>
   )
 }

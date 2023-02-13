@@ -7,7 +7,7 @@ import Loading from "../../Page/Others/Loading/Loading";
 const AdminRoute = ({ children }) => {
     const { user, loading } = useSelector(state => state.userReducer);
     // const { user, loading } = useContext(AuthContext);
-    const [isAdmin, isAdminLoading] = useAdmin(user?.email)
+    const [isAdmin, isAdminLoading] = useAdmin(user?.uid)
     const location = useLocation();
     if (loading || isAdminLoading) {
         return (
