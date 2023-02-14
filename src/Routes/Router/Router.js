@@ -24,16 +24,14 @@ import Employees from "../../Page/Employees/Employees";
 import Trainer from "../../Page/Dashboard/Training/Trainer";
 import Training from "../../Page/Dashboard/Training/Training";
 import TrainingType from "../../Page/Dashboard/Training/TrainingType";
-
 import Home from "../../Page/Home/Home/Home";
 import SignIn from "../../Page/SignIn/SignIn";
 import SignUp from "../../Page/SignUp/SignUp";
-import MainTask from "../../TaskLayoute/MainTask/MainTask";
-import TaskLayoute from "../../TaskLayoute/TaskLayoute";
-
-
+import TaskLayout from "../../Layout/TaskLayout";
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import DashboardClients from "../../Page/DashboardClients/DashboardClients";
+import MainTask from "../../Page/Dashboard/Tasks/MainTask/MainTask";
+import AllTasks from "../../Page/Dashboard/Tasks/AllTasks/AllTasks";
 
 const router = createBrowserRouter([
   {
@@ -75,7 +73,7 @@ const router = createBrowserRouter([
         element: <DashboardClients></DashboardClients>
       },
       {
-        path: "/dashboard/employees",
+        path: "/dashboard/all-employees",
         element: <AllEmployees />
       },
 
@@ -165,8 +163,6 @@ const router = createBrowserRouter([
         element: <Leads></Leads>
       },
       {
-        // path: "/dashboard/profile/client",
-        // element: <ClientProfile></ClientProfile>,
         path: "/dashboard/projects",
         element: <AllProjects></AllProjects>
       },
@@ -177,11 +173,15 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: '/dashboard/task',
-    element: <TaskLayoute></TaskLayoute>,
+    path: '/dashboard/tasks',
+    element: <TaskLayout></TaskLayout>,
     children: [
       {
-        path: "/dashboard/task",
+        path: "/dashboard/tasks",
+        element: <AllTasks></AllTasks>
+      },
+      {
+        path: "/dashboard/tasks/project/:id",
         element: <MainTask></MainTask>
       },
     ]

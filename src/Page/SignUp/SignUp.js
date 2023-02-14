@@ -43,10 +43,10 @@ const SignUp = () => {
             });
             console.log("Signed Up");
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.error(err));
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setSignUpError(error.message);
       });
   };

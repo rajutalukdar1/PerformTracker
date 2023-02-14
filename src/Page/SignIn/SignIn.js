@@ -38,7 +38,7 @@ const SignIn = () => {
         // navigate(from, { replace: true })
       })
       .catch(e => {
-        console.log(e.message);
+        console.error(e.message);
         setLoginError(e.message);
       })
   };

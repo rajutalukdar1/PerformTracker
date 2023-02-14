@@ -2,7 +2,6 @@ import React from 'react';
 
 const MyTeam = ({ report }) => {
     const { img, name, Status } = report
-    console.log(report);
     return (
         <tbody className=''>
             <tr className='text-gray-300 font-bold '>

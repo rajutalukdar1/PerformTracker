@@ -45,7 +45,6 @@ const AddProjects = ({ setShown, refetch }) => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         toast.success('Project is successfully added!')
         refetch()
         e.target.reset()
