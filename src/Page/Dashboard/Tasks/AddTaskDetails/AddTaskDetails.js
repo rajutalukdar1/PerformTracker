@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FaUserPlus } from "react-icons/fa";
-import ConfirmationModal from "../../Page/Share/ConfirmationModal/ConfirmationModal";
+import ConfirmationModal from "../../../Share/ConfirmationModal/ConfirmationModal";
 
 const AddTaskDetails = ({ task, refetch }) => {
   const [disabled, setDisabled] = useState(true);
@@ -30,7 +30,6 @@ const AddTaskDetails = ({ task, refetch }) => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         toast.success("Task is successfully Updated!");
       });
   };
@@ -49,7 +48,6 @@ const AddTaskDetails = ({ task, refetch }) => {
         }
       });
   };
-  console.log(checkbox);
 
   return (
     <div className="grid grid-cols-6 overflow-x-auto  shadow-lg bg-gray-900 hover:bg-slate-800 border border-gray-700  py-2  mx-4">

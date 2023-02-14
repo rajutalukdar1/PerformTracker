@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
-import AddTask from '../../../TaskLayoute/AddTask/AddTask';
+import AddTask from '../../Dashboard/Tasks/AddTask/AddTask';
 import MyTeam from './MyTeam';
 
 const EmployeeTeam = () => {

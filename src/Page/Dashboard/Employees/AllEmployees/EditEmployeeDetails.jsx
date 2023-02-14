@@ -60,7 +60,6 @@ const EditEmployeeDetails = ({ id }) => {
           })
             .then(res => res.json())
             .then(result => {
-              console.log(result);
               toast.success('Employee is successfully Updated!')
             })
         }
