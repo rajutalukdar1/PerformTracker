@@ -51,12 +51,12 @@ const SignIn = () => {
         fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
           .then(res => res.json())
           .then(data => {
-            if(data.uid){
+            if (data.uid) {
               toast.success("Logged In Successfully.");
               navigateTo(data)
-            }else{
+            } else {
               toast.error("You don't have an account. Please create a new account")
-              dispatch(logOut()).then(()=> {}).catch(err => console.error(err))
+              dispatch(logOut()).then(() => { }).catch(err => console.error(err))
             }
           })
           .catch(err => console.error(err));

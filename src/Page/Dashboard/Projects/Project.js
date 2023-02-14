@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 
 const Project = ({ project, setProjectData, refetch }) => {

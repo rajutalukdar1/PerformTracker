@@ -39,9 +39,9 @@ const DashboardLayout = () => {
                                     title='Dashboard'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/admin",
+                                            to: "/dashboard/dashboardAdmin",
                                             title: "Admin"
-                                        }
+                                        },
                                     ]}
                                 />
                                 <DashboardSideItems
@@ -152,12 +152,12 @@ const DashboardLayout = () => {
                                     title='PayRoll'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/profile/client",
+                                            to: "/dashboard/salary",
                                             title: "Employees Salary"
                                         },
                                     ]}
                                 />
-                                <DashboardSideItems
+                                {/* <DashboardSideItems
                                     icon={<FaUserSecret className='text-2xl mt-2' />}
                                     title='Leads'
                                     subMenus={[
@@ -166,7 +166,7 @@ const DashboardLayout = () => {
                                             title: "Projects Leads"
                                         }
                                     ]}
-                                />
+                                /> */}
                                 <DashboardSideItems
                                     icon={<MdModelTraining className='text-2xl' />}
                                     title='Training'
@@ -185,6 +185,9 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
+
+                                {/* ---------------------------------------------- ----*/}
+
                             </> : currentUser.role === "Client" ? <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
@@ -206,6 +209,9 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
+
+                                {/* ------------------------------------------------------- */}
+
                             </> : <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
