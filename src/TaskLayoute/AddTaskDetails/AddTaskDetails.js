@@ -45,7 +45,7 @@ const AddTaskDetails = ({ task, refetch }) => {
       .then((data) => {
         if (data.deletedCount > 0) {
           refetch();
-          toast.success(`Doctor ${task.title} deleted successfully`);
+          toast.success(`Task ${task.title} deleted successfully`);
         }
       });
   };

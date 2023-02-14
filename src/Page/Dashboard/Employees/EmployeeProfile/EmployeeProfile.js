@@ -69,6 +69,7 @@ const EmployeeProfile = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }
