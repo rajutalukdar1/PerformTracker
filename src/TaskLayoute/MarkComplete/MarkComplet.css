@@ -1,0 +1,10 @@
+.stop {
+    position: sticky;
+    top: 0px;
+    z-index: 999;
+}
+.stop_b {
+    position: sticky;
+    bottom: -50px;
+    z-index: 999;
+}

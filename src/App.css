@@ -1,0 +1,16 @@
+.section-cap span:before {
+  content: '';
+  width: 16px;
+  height: 8px;
+  background: #0d6dd4;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: block;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+.section-cap.text-align span:before {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
