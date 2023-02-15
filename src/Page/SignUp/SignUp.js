@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
+import { createUser, providerLogin, updateUser, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import SelectRole from "../Share/SelectRole/SelectRole";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
@@ -107,7 +107,7 @@ const SignUp = () => {
       navigate('/dashboard/admin');
     } else if (role === "Client") {
       navigate('/dashboard/client');
-    }else{
+    } else {
       navigate('/dashboard');
     }
   }
@@ -159,7 +159,7 @@ const SignUp = () => {
               </div>
 
               <div className="form-control">
-              <label className="label">
+                <label className="label">
                   <span className="label-text text-black">Password</span>
                 </label>
                 <input
@@ -235,19 +235,18 @@ const SignUp = () => {
                     </div>
                   </div>
                 </Link>
-                <Link>
-                  <div className="flex justify-content-center align-items-center mt-3 ">
-                    <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-8 h-8 ml-1">
-                        <img src={facebook} alt=""></img>
-                      </div>
-                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
-                        Continue with Facebook
-                      </div>
-                      <div className="mr-6"></div>
+
+                <div className="flex justify-content-center align-items-center mt-3 ">
+                  <div className="flex justify-between items-center login-container hover:bg-warning">
+                    <div className="w-8 h-8 ml-1">
+                      <img src={facebook} alt=""></img>
                     </div>
+                    <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
+                      Continue with Facebook
+                    </div>
+                    <div className="mr-6"></div>
                   </div>
-                </Link>
+                </div>
               </div>
               <small>
                 <p className="flex justify-center mt-2">

@@ -33,6 +33,7 @@ import TaskLayoute from "../../TaskLayoute/TaskLayoute";
 
 
 import PrivetRoute from "../PrivetRoute/PrivetRoute";
+import DashboardClients from "../../Page/DashboardClients/DashboardClients";
 
 const router = createBrowserRouter([
   {
@@ -62,16 +63,20 @@ const router = createBrowserRouter([
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
       },
       {
-        path: "/dashboard/admin",
+        path: "/dashboard/dashboardAdmin",
         element: <Admin></Admin>
       },
       {
+        path: "/dashboard/dashboardClients",
+        element: <DashboardClients></DashboardClients>
+      },
+      {
         path: "/dashboard/client",
-        element: <Employees></Employees>
+        element: <Clients></Clients>
       },
       {
         path: "/dashboard/employees",
@@ -90,7 +95,7 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/dashboard/clients",
+        path: "/dashboard/all-clients",
         element: <Clients></Clients>,
         loader: () => fetch('https://perform-tracker-server.vercel.app/clients')
       },
@@ -107,25 +112,9 @@ const router = createBrowserRouter([
         path: "/dashboard/reports",
         element: <Reports></Reports>
       },
-       {
+      {
         path: "/dashboard/promotion",
         element: <Promotion></Promotion>
-      },
-      {
-        path: "/dashboard/salary",
-        element: <EmployeeSalary />
-      },
-      {
-        path: "/dashboard/training",
-        element: <Training />
-      },
-      {
-        path: "/dashboard/trainers",
-        element: <Trainer />
-      },
-      {
-        path: "/dashboard/trainingtype",
-        element: <TrainingType />
       },
       {
         path: "/dashboard/salary",

@@ -3,24 +3,25 @@ import { useQuery } from '@tanstack/react-query';
 import EmployeeProfileInfo from './EmployeeProfileInfo';
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import useTitle from '../../../Hooks/useTitle';
 import PersonalInfo from './PersonalInfo';
+// import AiUser from '../../Others/Lottiefiles/AiUser/AiUser';
 
 const EmployeesProfile = () => {
 
-    useTitle('Employee Profile');
+    // useTitle('Employee Profile');
 
     const { user } = useSelector(state => state.userReducer);
 
     const { data: Employees = [], refetch } = useQuery({
         queryKey: ['employees', user?.email],
         queryFn: () =>
-            fetch(`https://perform-tracker-server.vercel.app/employee?email=${user?.email}`).then(res => res.json()),
+            fetch(`http://localhost:5000/employee?email=${user?.email}`).then(res => res.json()),
     });
 
-    const { img, name, email, profile, designation, joiningDate,
-        maritalStatus, gender, EmployeeID,
+    const { img, name, email, designation, joiningDate, maritalStatus, gender, EmployeeID,
         salary, address, nationality, phone } = Employees;
+
+    console.log(Employees);
 
     return (
         <div>
@@ -29,7 +30,7 @@ const EmployeesProfile = () => {
                     <div className="card w-full bg-[#16191C] rounded-b-none rounded-t-md
                      border-[#BBC4CC] border-b-2">
                         <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
-                            <div className='flex text-white gap-4 pb-5 md:pb-0 
+                            <div className='flex text-white gap-4 pb-5 md:pb-0
                                 border-b-2 md:border-b-0 md:border-r-2
                                 border-[#BBC4CC] border-dashed'>
                                 <div>
@@ -45,7 +46,7 @@ const EmployeesProfile = () => {
                                     <p className='font-bold'>Employee ID: {EmployeeID}</p>
                                     <p className='text-xs'>Date of Join: {joiningDate}</p>
                                     <a
-                                        className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 
+                                        className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2
                                         text-sm font-medium text-white transition hover:scale-110
                                         hover:shadow-xl focus:outline-none
                                         focus:ring active:bg-[#FD7265]"
@@ -89,7 +90,7 @@ const EmployeesProfile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold 
+                    <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
                     rounded-b-md">
                         <ul className="menu menu-horizontal px-1">
                             <li>
@@ -106,7 +107,7 @@ const EmployeesProfile = () => {
                         </ul>
                     </div>
                     <Outlet>
-                        <PersonalInfo employees_details={profile} />
+                        
                     </Outlet>
                 </div>
             </div>

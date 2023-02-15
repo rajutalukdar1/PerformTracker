@@ -9,11 +9,10 @@ import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
-import useTitle from "../../Hooks/useTitle";
 
 const SignIn = () => {
 
-  useTitle('Login');
+  // useTitle('Login');
 
   const { register, formState: { errors }, handleSubmit, } = useForm();
   const [loginError, setLoginError] = useState("");
@@ -64,19 +63,9 @@ const SignIn = () => {
       .catch(error => console.error(error))
   }
 
-  const checkingUserExist = (existUser, loggedUser) => {
-    if (existUser?.role === "Admin") {
-      navigate('/dashboard/admin');
-    } else if (existUser?.role === "Client") {
-      navigate('/dashboard/client');
-    } else {
-      navigate('/dashboard/employee');
-    }
-  }
-
   const navigateTo = (existUser) => {
     if (existUser?.role === "Admin") {
-      navigate('/dashboard/admin');
+      navigate('/dashboard/dashboardAdmin');
     } else if (existUser?.role === "Client") {
       navigate('/dashboard/client');
     } else {
@@ -122,7 +111,7 @@ const SignIn = () => {
                   className="input input-bordered" />
                 {errors.password &&
                   <p className='text-red-600' role="alert">{errors.password?.message}</p>}
-              </div >
+              </div>
               {loginError && <p className='text-red-500'>{loginError}</p>
               }
               <label className="label">
@@ -175,11 +164,11 @@ const SignIn = () => {
                   </Link>
                 </small>
               </p>
-            </form >
-          </div >
-        </div >
-      </div >
-    </div >
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
