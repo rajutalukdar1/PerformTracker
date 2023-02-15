@@ -56,7 +56,7 @@ const Project = ({ project, setProjectData }) => {
                       <img src={t.img} alt=" " />
                     </div>
                   </Link>)}
-                  <div className="w-10 h-10 rounded-full bg-red-400 flex items-center 
+                  <div className="w-10 h-10 rounded-full bg-red-400 flex items-center
                   justify-center text-white font-semibold cursor-pointer">
                     <small>+{team.slice(3, team.length - 1).length}5</small>
                   </div>

@@ -62,7 +62,7 @@ const SignIn = () => {
 
   const navigateTo = (existUser) => {
     if (existUser?.role === "Admin") {
-      navigate('/dashboard/admin');
+      navigate('/dashboard/dashboardAdmin');
     } else if (existUser?.role === "Client") {
       navigate('/dashboard/client');
     } else {
