@@ -14,9 +14,6 @@ const ClientProfile = () => {
             fetch(`https://perform-tracker-server.vercel.app/client?email=${user?.email}`).then(res => res.json()),
     });
 
-    console.log(client)
-    console.log(user.uid)
-
     const { employee_id, company, name, email, birthday, phone, address, img, position, gender } = client;
 
     if (loading) {

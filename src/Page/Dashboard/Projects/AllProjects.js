@@ -31,6 +31,7 @@ const AllProjects = () => {
             key={project._id}
             project={project}
             setProjectData={setProjectData}
+            refetch={refetch}
           />)
         }
       </div>
