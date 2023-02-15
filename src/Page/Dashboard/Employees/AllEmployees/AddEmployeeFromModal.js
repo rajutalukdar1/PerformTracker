@@ -4,9 +4,6 @@ const imgbbKey = process.env.REACT_APP_imgbb_key;
 
 const AddEmployeeFromModal = () => {
 
-
-
-
   const handleAddEmployeeForm = (e) => {
     e.preventDefault()
     const name = e.target.name.value
@@ -18,7 +15,6 @@ const AddEmployeeFromModal = () => {
     const nationality = e.target.nationality.value
     const gender = e.target.gender.value
     const maritalStatus = e.target.maritalStatus.value
-    console.log(name, email, designation, address, phone, salary, nationality, gender, maritalStatus, "data")
 
     const image = e.target.employeeImg.files[0]
     const formData = new FormData()
@@ -58,7 +54,6 @@ const AddEmployeeFromModal = () => {
           })
             .then(res => res.json())
             .then(result => {
-              console.log(result);
               toast.success('Employee is successfully added!')
 
 

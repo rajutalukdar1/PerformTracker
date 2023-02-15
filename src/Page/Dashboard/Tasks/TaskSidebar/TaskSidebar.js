@@ -1,7 +1,7 @@
 import React from "react";
 import { FaHome } from "react-icons/fa";
 import { Link, Outlet } from "react-router-dom";
-import DashboardNav from "../../Page/Share/DashboardNav/DashboardNav";
+import DashboardNav from "../../../Share/DashboardNav/DashboardNav";
 
 const TaskSidebar = () => {
   return (

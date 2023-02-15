@@ -19,7 +19,6 @@ const AddClient = ({ refetch, setClients }) => {
             .then((res) => res.json())
             .then((imgData) => {
                 if (imgData.success) {
-                    console.log(imgData.data.url);
                     const client = {
                         name: data.name,
                         email: data.email,
@@ -41,7 +40,6 @@ const AddClient = ({ refetch, setClients }) => {
                     })
                         .then(res => res.json())
                         .then(result => {
-                            console.log(result);
                             toast.success(`${data.name} is added successfully`);
                             refetch();
                             setClients(null);

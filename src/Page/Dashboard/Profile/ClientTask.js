@@ -11,7 +11,6 @@ const ClientTask = () => {
             .then(res => res.json())
             .then(data => setTasks(data))
     }, []);
-    console.log(tasks);
 
     return (
         <div>

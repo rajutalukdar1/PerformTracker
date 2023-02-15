@@ -6,6 +6,7 @@ import { FaCog } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../../../features/auths/AuthSlice';
 import { toast } from 'react-hot-toast';
+import ThemeChanger from '../ThemeChanger/ThemeChanger';
 
 const DashboardNav = ({currentUser}) => {
   const { user } = useSelector(state => state.userReducer);
@@ -20,7 +21,7 @@ const DashboardNav = ({currentUser}) => {
         console.log("Logged Out");
         navigate("/login");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   return (
@@ -37,9 +38,12 @@ const DashboardNav = ({currentUser}) => {
         </Link>
       </div>
       <div className="flex-none">
+        <div className='mr-5'>
+          <ThemeChanger />
+        </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="flex items-center gap-3 cursor-pointer">
-            <div className="w-6 sm:w-10 rounded-full overflow-hidden">
+            <div className="w-6 h-6 sm:w-10 sm:h-10 bg-white rounded-full overflow-hidden">
               <img src={user?.photoURL || 'https://i.ibb.co/Qj8XhH5/user.png'} alt='' />
             </div>
             <span className='text-white hidden sm:block'>{user?.displayName}</span>

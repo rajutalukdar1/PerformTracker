@@ -1,15 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { toast } from 'react-hot-toast';
 
-const Project = ({ project, setProjectData }) => {
-  const { _id, name, details, deadline, allTasks, assignedleaders, team, progressed } = project;
-  const tasksCompleted = allTasks.filter(task => task.status === 'completed').length
+const Project = ({ project, setProjectData, refetch }) => {
+  const { _id, name, details, deadline, assignedleaders, team, progressed } = project;
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/project-tasks/${_id}`)
+    .then(res => res.json())
+    .then(data => {
+      setTasks(data)
+    })
+  }, [_id])
+
+  const tasksCompleted = tasks?.filter(task => task.status === 'completed').length
 
   const handleProjectDelete = (id) => {
-
+    fetch(`http://localhost:5000/projects/${id}`, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(result => {
+        refetch();
+        toast.success('Project is deleted successfully!')
+      })
   }
 
   return (
@@ -19,7 +37,7 @@ const Project = ({ project, setProjectData }) => {
           <Link to={`/dashboard/projects/${_id}`}>{name}</Link>
         </h2>
         <p className='mb-2'>
-          <small>{allTasks.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
+          <small>{tasks?.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
         </p>
         <div className='mb-6 text-gray-300 light:text-gray-500'>
           <p>
@@ -82,7 +100,7 @@ const Project = ({ project, setProjectData }) => {
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 border-2 bg-white rounded-box w-40"
+            className="dropdown-content menu p-2 bg-gray-900 rounded-box w-40"
             style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>

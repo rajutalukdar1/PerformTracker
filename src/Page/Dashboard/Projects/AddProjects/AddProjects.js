@@ -6,10 +6,10 @@ const AddProjects = ({ setShown, refetch }) => {
   const handleAddProject = (e) => {
     e.preventDefault()
     const name = e.target.name.value
-    const progressed = Number(e.target.progressed.value)
+    const progressed = Number(e.target.progressed.value) || 0
     const cost = e.target.cost.value
     const createdby = e.target.createdby.value
-    const status = e.target.status.value
+    const status = e.target.status.value || "pending"
     const created = e.target.created.value
     const deadline = e.target.deadline.value
     const details = e.target.details.value
@@ -45,7 +45,6 @@ const AddProjects = ({ setShown, refetch }) => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         toast.success('Project is successfully added!')
         refetch()
         e.target.reset()
@@ -60,10 +59,10 @@ const AddProjects = ({ setShown, refetch }) => {
         <div className="modal-box">
           <form onSubmit={handleAddProject} action="" className="space-y-4">
             <label onClick={() => setShown(false)} htmlFor="addProjectModal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <div className="mt-8">
+            <div>
               <input
                 name="name"
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2"
                 placeholder="Name"
                 type="text"
                 id="name"
@@ -72,7 +71,7 @@ const AddProjects = ({ setShown, refetch }) => {
             <div>
               <input
                 name="progressed"
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Progressed"
                 type="text"
               />
@@ -80,7 +79,7 @@ const AddProjects = ({ setShown, refetch }) => {
             <div>
               <input
                 name="cost"
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Cost"
                 type="text"
               />
@@ -89,7 +88,7 @@ const AddProjects = ({ setShown, refetch }) => {
               <div>
                 <input
                   name="createdby"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Created By"
                   type="text"
                 />
@@ -97,7 +96,7 @@ const AddProjects = ({ setShown, refetch }) => {
               <div>
                 <input
                   name="status"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Status"
                   type="text"
                 />
@@ -107,7 +106,7 @@ const AddProjects = ({ setShown, refetch }) => {
               <div>
                 <input
                   name="created"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Created On (Ex: 3rd Feb, 2023)"
                   type="text"
                 />
@@ -115,7 +114,7 @@ const AddProjects = ({ setShown, refetch }) => {
               <div>
                 <input
                   name="deadline"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Deadline (Ex: 8th Feb, 2023)"
                   type="text"
                 />
@@ -124,7 +123,7 @@ const AddProjects = ({ setShown, refetch }) => {
             <div>
               <textarea
                 name="details"
-                className="textarea w-full rounded-lg border-transparent bg-white p-3 text-sm bgwh"
+                className="textarea w-full rounded-lg border-transparent p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Details"
               ></textarea>
             </div>
