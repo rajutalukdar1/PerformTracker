@@ -61,10 +61,18 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
-      // {
-      //   path: "/dashboard/clientdetails",
-      //   element: <Dashboard></Dashboard>
-      // },
+      {
+        path: "/dashboard",
+        element: <Employees></Employees>
+      },
+      {
+        path: "/dashboard/admin",
+        element: <Admin></Admin>
+      },
+      {
+        path: "/dashboard/client",
+        element: <Employees></Employees>
+      },
       {
         path: "/dashboard/employees",
         element: <AllEmployees />
@@ -104,12 +112,20 @@ const router = createBrowserRouter([
         element: <Promotion></Promotion>
       },
       {
-        path: "/dashboard/admin",
-        element: <Admin></Admin>
+        path: "/dashboard/salary",
+        element: <EmployeeSalary />
       },
       {
-        path: "/dashboard/dashboardEmployees",
-        element: <Employees></Employees>
+        path: "/dashboard/training",
+        element: <Training />
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <Trainer />
+      },
+      {
+        path: "/dashboard/trainingtype",
+        element: <TrainingType />
       },
       {
         path: "/dashboard/salary",

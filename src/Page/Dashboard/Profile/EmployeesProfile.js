@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import EmployeeProfileInfo from './EmployeeProfileInfo';
 import { Link, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import AiUser from '../../Others/Lottiefiles/AiUser/AiUser';
 import useTitle from '../../../Hooks/useTitle';
+import PersonalInfo from './PersonalInfo';
 
 const EmployeesProfile = () => {
 
@@ -18,9 +18,9 @@ const EmployeesProfile = () => {
             fetch(`https://perform-tracker-server.vercel.app/employee?email=${user?.email}`).then(res => res.json()),
     });
 
-    const { img, name, employeeType, email, department, designation, joiningDate, DOB,
+    const { img, name, email, profile, designation, joiningDate,
         maritalStatus, gender, EmployeeID,
-        salary, address, nationality, phone, EmergencyContactDetails, Experience, Status } = Employees;
+        salary, address, nationality, phone } = Employees;
 
     return (
         <div>
@@ -86,16 +86,6 @@ const EmployeesProfile = () => {
                                     lab='Marital status:'
                                     val={maritalStatus}
                                 />
-                                {/* <span className='w-36 md:w-32 font-bold'>Address:</span>
-                                <span>{address}</span>
-                                <span className='w-36 md:w-32 font-bold'>Gender:</span>
-                                <span>{gender}</span>
-                                <span className='w-36 md:w-32 font-bold'>Nationality:</span>
-                                <span>{nationality}</span>
-                                <span className='w-36 md:w-32 font-bold'>Salary:</span>
-                                <span>{salary}</span>
-                                <span className='w-36 md:w-32 font-bold'>Marital status:</span>
-                                <span>{maritalStatus}</span> */}
                             </div>
                         </div>
                     </div>
@@ -116,7 +106,7 @@ const EmployeesProfile = () => {
                         </ul>
                     </div>
                     <Outlet>
-
+                        <PersonalInfo employees_details={profile} />
                     </Outlet>
                 </div>
             </div>

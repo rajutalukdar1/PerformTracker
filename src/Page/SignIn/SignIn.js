@@ -9,7 +9,6 @@ import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
-import AiUser from "../Others/Lottiefiles/AiUser/AiUser";
 import useTitle from "../../Hooks/useTitle";
 
 const SignIn = () => {
@@ -37,7 +36,7 @@ const SignIn = () => {
         fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
           .then(res => res.json())
           .then(data => {
-            checkingUserExist(data, result.user)
+            navigateTo(data)
           })
           .catch(err => console.error(err));
         // navigate(from, { replace: true })
@@ -57,22 +56,32 @@ const SignIn = () => {
         fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
           .then(res => res.json())
           .then(data => {
-            checkingUserExist(data, result.user)
+            navigateTo(data)
           })
           .catch(err => console.error(err));
         console.log("Provider Logged In");
       })
       .catch(error => console.error(error))
   }
-  
+
   const checkingUserExist = (existUser, loggedUser) => {
-      if (existUser?.role === "Admin") {
-        navigate('/dashboard/admin');
-      } else if (existUser?.role === "Client") {
-        navigate('/dashboard/client');
-      }else{
-        navigate('/dashboard/employee');
-      }
+    if (existUser?.role === "Admin") {
+      navigate('/dashboard/admin');
+    } else if (existUser?.role === "Client") {
+      navigate('/dashboard/client');
+    } else {
+      navigate('/dashboard/employee');
+    }
+  }
+
+  const navigateTo = (existUser) => {
+    if (existUser?.role === "Admin") {
+      navigate('/dashboard/admin');
+    } else if (existUser?.role === "Client") {
+      navigate('/dashboard/client');
+    } else {
+      navigate('/dashboard');
+    }
   }
 
   return (
@@ -111,11 +120,9 @@ const SignIn = () => {
                 })}
                   placeholder="Password"
                   className="input input-bordered" />
-                {errors.password && <p className='text-red-600' role="alert">
-                  {errors.password?.message}</p>}
-                {/* <label className="label"><span className="label-text">Forget Password?</span>
-                </label> */}
-              </div>
+                {errors.password &&
+                  <p className='text-red-600' role="alert">{errors.password?.message}</p>}
+              </div >
               {loginError && <p className='text-red-500'>{loginError}</p>
               }
               <label className="label">
@@ -168,11 +175,11 @@ const SignIn = () => {
                   </Link>
                 </small>
               </p>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+            </form >
+          </div >
+        </div >
+      </div >
+    </div >
   );
 };
 
