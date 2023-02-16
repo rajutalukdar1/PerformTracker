@@ -82,6 +82,7 @@ const SignIn = () => {
             <LoginAnimation />
           </div>
           <div className="card flex-shrink-0 w-full lg:max-w-sm shadow-2xl bg-base-100 text-black">
+            <div className="card-title rounded-t-2xl justify-center bg-info py-4 text-white">LogIn</div>
             <form className="card-body" onSubmit={handleSubmit(handleLogin)}>
               <div className="form-control">
                 <label className="label">

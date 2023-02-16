@@ -8,6 +8,7 @@ import { createUser, providerLogin, updateUser } from "../../features/auths/Auth
 import { useDispatch } from "react-redux";
 import SelectRole from "../Share/SelectRole/SelectRole";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
+import '../../Page/SignIn/SignIn.css'
 
 const SignUp = () => {
   const {
@@ -217,7 +218,7 @@ const SignUp = () => {
                 }
               </div >
               {signUpError && <p className='text-red-600'>{signUpError}</p>}
-              <input className="btn btn-info hover:bg-sky-500 text-white" value="SignUp" type="submit" />
+              <input className="btn btn-hover color-9 text-white" value="SignUp" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
                 <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
