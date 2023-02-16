@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query'
 import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import EmployeeInfo from './EmployeeInfo';
+import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
+
 
 const EmployeeProfile = () => {
+  const [promotion, setPromotion] = useState({});
   const { id } = useParams();
   const { data: { name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary } = {}, refetch } = useQuery({
     queryKey: ['employee', id],
@@ -66,10 +69,25 @@ const EmployeeProfile = () => {
                 val={maritalStatus}
               />
             </div>
-          </div>
+      <label className="btn btn-outline"
+      htmlFor='addPromotionModal'
+      onClick={() => setPromotion({
+        employeeId : id,
+        name,
+        img,
+        designation
+      })}
+      >Add Promotion
+      </label>
+      </div>
         </div>
       </div>
-      
+      {promotion && <AddPromotion
+        refetch={refetch}
+        id={id}
+        promote={promotion}
+        setPromotion={setPromotion}
+      ></AddPromotion>}
     </div>
   );
 }

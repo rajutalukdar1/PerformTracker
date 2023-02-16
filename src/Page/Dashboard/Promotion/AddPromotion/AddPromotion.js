@@ -1,59 +1,50 @@
+import moment from "moment";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { FaCalendarAlt, FaRegCalendarAlt } from "react-icons/fa";
 
+const AddPromotion = ({ refetch, setPromotion, promote }) => {
+  console.log(promote);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-const AddPromotion = ({refetch, setPromotion}) => {
-  const { register, handleSubmit, formState: { errors } } =useForm();
-    const imageHostKey = process.env.REACT_APP_imgbb_key;
+  const handleAddPromotion = (data) => {
+    const promotion = {
+      name: data.name,
+      department: data.department,
+      designation: data.designation,
+      designation_to: data.designation_to,
+      publishDate: moment().format('Do MMMM, YYYY'),
+      img: promote.img,
+    };
 
-    const handleAddPromiton = data => {
-        const image = data.image[0];
-        const formData = new FormData();
-        formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        })
-            .then((res) => res.json())
-            .then((imgData) => {
-                if (imgData.success) {
-                    const client = {
-                        name: data.name,
-                        // email: data.email,
-                        department: data.department,
-                        designation: data.designation,
-                        designation_to: data.designation_to,
-                        date: data.date,
-                        img: imgData.data.url
-                    }
+    // save promotion information to the database
+    fetch("http://localhost:5000/promotion", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(promotion),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        toast.success(`${data.name} is added successfully`);
+        refetch();
+        setPromotion(null);
+      });
+  };
 
-                    // save clients information to the database
-                    fetch('http://localhost:5000/promotion', {
-                        method: 'POST',
-                        headers: {
-                            'content-type': 'application/json',
-                        },
-                        body: JSON.stringify(client)
-                    })
-                        .then(res => res.json())
-                        .then(result => {
-                            toast.success(`${data.name} is added successfully`);
-                            refetch();
-                            setPromotion(null);
-                        })
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            })
-    }
   return (
     <>
       <div className="">
-        <input type="checkbox" id="addPromotionModal" className="modal-toggle " />
+        <input
+          type="checkbox"
+          id="addPromotionModal"
+          className="modal-toggle "
+        />
         <div className="modal pt-24">
           <div className="modal-box relative ">
             <label
@@ -62,35 +53,17 @@ const AddPromotion = ({refetch, setPromotion}) => {
             >
               ✕
             </label>
-            <form 
-            onSubmit={handleSubmit(handleAddPromiton)}
-            >
+            <form onSubmit={handleSubmit(handleAddPromotion)}>
               <div className="grid grid-cols-1">
                 <div>
                   <input
                     type="text"
                     // disabled value={date}
                     placeholder="Promotion For *"
-                    className="input input-bordered my-2 w-full "
-                    {...register("department", {
-                      required: "department is required",
-                    })}
-                  />
-                  {errors.department && (
-                    <p className="text-red-600" role="alert">
-                      {errors.department?.message}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <input
-                    name="name"
-                    type="text"
-                    // defaultValue={user?.displayName}
-                    placeholder="Promotion From *"
+                    defaultValue={promote.name}
                     className="input input-bordered my-2 w-full "
                     {...register("name", {
-                      required: "Client Name is required",
+                      required: "employee name is required",
                     })}
                   />
                   {errors.name && (
@@ -99,12 +72,12 @@ const AddPromotion = ({refetch, setPromotion}) => {
                     </p>
                   )}
                 </div>
-                
                 <div>
                   <input
                     name="designation"
                     type="text"
                     placeholder="Promotion From *"
+                    defaultValue={promote.designation}
                     className="input input-bordered my-2 w-full "
                     {...register("designation", {
                       required: "Phone Number is required",
@@ -117,59 +90,27 @@ const AddPromotion = ({refetch, setPromotion}) => {
                   )}
                 </div>
                 <div>
-                <select name="designation_to" className="select select-bordered w-full "
-                {...register("designation_to", {
-                  required: "Your Name is required",
-                })}
-                >
-                  <option disabled selected>Promotion To</option>
-                  <option>Web Developer</option>
-                  <option>Web Designer</option>
-                  <option>SEO Analyst</option>
-                </select>
+                  <select
+                    name="designation_to"
+                    className="select select-bordered w-full "
+                    {...register("designation_to", {
+                      required: "Your Name is required",
+                    })}
+                  >
+                    <option disabled selected>
+                      Promotion To
+                    </option>
+                    <option>Web Developer</option>
+                    <option>Web Designer</option>
+                    <option>SEO Analyst</option>
+                  </select>
                   {errors.designation_to && (
                     <p className="text-red-600" role="alert">
                       {errors.designation_to?.message}
                     </p>
                   )}
                 </div>
-                
-                <div>
-                  <input
-                  
-                    name="date"
-                    type="date"
-                    placeholder="date"
-                    
-                    className="input input-bordered my-2 w-full "
-                    {...register("date", {
-                      required: "Your date is required",
-                    })}
-                  />
-                  {errors.date && (
-                    <p className="text-red-600" role="alert">
-                      {errors.date?.message}
-                    </p>
-                  )}
-                </div>
-                {/* <div className="form-control w-full "> */}
               </div>
-              <div>
-                <label className="label">
-                  <span className="label-text">Photo</span>
-                </label>
-                <input
-                  type="file"
-                  {...register("image", { required: "Your Photo is required" })}
-                  className="file-input file-input-bordered w-full "
-                />
-                {errors.img && (
-                  <p className="text-red-600" role="alert">
-                    {errors.img?.message}
-                  </p>
-                )}
-              </div>
-              {/* </div> */}
               <br />
               <input
                 className="btn btn-accent w-full my-4"
