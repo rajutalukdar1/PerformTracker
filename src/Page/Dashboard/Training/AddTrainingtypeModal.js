@@ -22,7 +22,6 @@ const AddTrainingtypeModal = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         toast.success("Trainer is successfully added!");
       });
      

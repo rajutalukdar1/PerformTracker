@@ -13,8 +13,6 @@ const Leads = () => {
             .then(data => setLeads(data))
     }, []);
 
-    console.log(leads)
-
     return (
         <div className='font-semibold'>
             {/* <div className="mx-4">

@@ -9,10 +9,11 @@ import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
+import useTitle from "../../Hooks/useTitle";
 
 const SignIn = () => {
 
-  // useTitle('Login');
+  useTitle('Login');
 
   const { register, formState: { errors }, handleSubmit, } = useForm();
   const [loginError, setLoginError] = useState("");
@@ -119,12 +120,12 @@ const SignIn = () => {
                   Forgot password?
                 </Link>
               </label>
-              <input className="btn btn-warning" value="Login" type="submit" />
+              <input className="btn btn-secondary btn-hover color-9" value="Login" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
                 <Link>
                   <div className="flex justify-content-center align-items-center ">
-                    <div className="flex justify-between items-center login-container 
+                    <div className="glow-on-hover flex justify-between items-center login-container 
                     hover:bg-warning">
                       <div className="w-10 h-10 ml-1">
                         <img
@@ -143,7 +144,7 @@ const SignIn = () => {
                 </Link>
                 <Link>
                   <div className="flex justify-content-center align-items-center mt-3 ">
-                    <div className="flex justify-between items-center login-container 
+                    <div className="fa-on-hover flex justify-between items-center login-container 
                     hover:bg-warning">
                       <div className="w-12 h-12">
                         <img src={facebook} alt=""></img>
