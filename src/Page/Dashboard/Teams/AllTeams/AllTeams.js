@@ -1,26 +1,32 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react'
+import React, { useState } from 'react'
 import QueryBar from '../../../Share/QueryBar/QueryBar'
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
+import AddTeamModal from '../AddTeamModal/AddTeamModal';
 
 const AllTeams = () => {
+  const [shown, setShown] = useState(true);
+
   const { data: teams = [], refetch } = useQuery({
     queryKey: ['teams'],
     queryFn: () =>
-      fetch(`https://perform-tracker-server.vercel.app/teams`).then(res => res.json()),
+      fetch(`http://localhost:5000/teams`).then(res => res.json()),
   });
+
+  const handleTeamDelete = id => {
+
+  }
 
   return (
     <div>
       <QueryBar
         barData={{
-          pageName: "Employee Salary",
-          labelValue: "addSalaryModal",
-          btnValue: "Add Salary",
-          btnOnClick: () => { },
-          // btnOnClick: () => !shown && setShown(true),
+          pageName: "All Teams",
+          labelValue: "addTeamModal",
+          btnValue: "Add Team",
+          btnOnClick: () => !shown && setShown(true),
           hidden: "hidden"
         }}
       />
@@ -81,10 +87,10 @@ const AllTeams = () => {
                       className="dropdown-content menu p-2 bg-gray-800 rounded-box w-40 absolute right-0"
                     >
                       <li className='bg-transparent'>
-                        <label onClick={() => { }} htmlFor="editSalaryModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
+                        <label onClick={() => { }} htmlFor="editTeamModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
                       </li>
                       <li>
-                        <span className="text-bold" onClick={() => handleSalaryDelete(team._id)} > <RiDeleteBinLine />Delete</span>
+                        <span className="text-bold" onClick={() => handleTeamDelete(team._id)} > <RiDeleteBinLine />Delete</span>
                       </li>
                     </ul>
                   </div>
@@ -94,6 +100,12 @@ const AllTeams = () => {
           </tbody>
         </table>
       </div>
+      {
+        shown && <AddTeamModal
+          refetch={refetch}
+          setShown={setShown}
+        />
+      }
     </div>
   )
 }
