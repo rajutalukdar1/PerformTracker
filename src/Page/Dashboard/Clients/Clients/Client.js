@@ -3,7 +3,6 @@ import { toast } from 'react-hot-toast';
 import { FaEllipsisV } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ConfirmationModal from '../../../Share/ConfirmationModal/ConfirmationModal';
-import EditPromotion from '../../Promotion/EditPromotion/EditPromotion';
 import EditClientModal from '../EditClientModal/EditClientModal';
 // import img1 from '../../../Assets/success_img/Vicky.jpg'
 
@@ -96,6 +95,7 @@ const Client = ({ client, refetch}) => {
         <EditClientModal
           refetch={refetch}
           client={editingClient}
+          setEditingClient={setEditingClient}
         ></EditClientModal>
       )}
         </div>

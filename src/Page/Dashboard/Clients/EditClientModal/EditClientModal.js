@@ -1,62 +1,68 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
+import moment from "moment";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
-const EditClientModal = ({client, refetch, setClient}) => {
-    const { _id, img, company, name, position } = client;
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
-      const imageHostKey = process.env.REACT_APP_imgbb_key;
-    
-      const handleEditPromotion = (data) => {
-        const image = data.image[0];
-        const formData = new FormData();
-        formData.append("image", image);
-        const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
-        fetch(url, {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((imgData) => {
-            if (imgData.success) {
-              console.log(imgData.data.url);
-              const promotion = {
-                name: data.name,
-                // email: data.email,
-                department: data.department,
-                designation: data.designation,
-                designation_to: data.designation_to,
-                date: data.date,
-                img: imgData.data.url,
-              };
-    
-              // save clients information to the database
-              fetch(`http://localhost:5000/clients/${client?._id}`, {
-                method: "PATCH",
-                headers: {
-                  "content-type": "application/json",
-                },
-                body: JSON.stringify(promotion),
-              })
-                .then((res) => res.json())
-                .then((result) => {
-                  console.log(result);
-                  toast.success(`${data.name} is update successfully`);
-                  refetch();
-                  setClient(null);
-                });
-            }
+const EditClientModal = ({ client, refetch, setEditingClient }) => {
+  const { _id,  company, name, email, phone, birthday, address, position, gender } = client;
+  console.log(_id, "this is id");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const imageHostKey = process.env.REACT_APP_imgbb_key;
+
+  const handleEditClient = (data) => {
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imgData) => {
+        if (imgData.success) {
+          console.log(imgData.data.url);
+          const client = {
+            name: data.name,
+            email: data.email,
+            company: data.company,
+            phone: data.phone,
+            clientId: data.clientId,
+            position: data.position,
+            gender: data.gender,
+            address: data.address,
+            birthday: moment(new Date(data.birthday)).format("Do MMMM, YYYY"),
+            img: imgData.data.url,
+          };
+          console.log(client, "this is client data");
+
+          // save clients information to the database
+          fetch(`http://localhost:5000/clients/${_id}`, {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(client),
           })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      };
-    return (
-        <>
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+              toast.success(`${data.name} is update successfully`);
+              refetch();
+              setEditingClient(null);
+            });
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+  return (
+    <>
       <div className="">
         <input
           type="checkbox"
@@ -71,18 +77,50 @@ const EditClientModal = ({client, refetch, setClient}) => {
             >
               ✕
             </label>
-            <form onSubmit={handleSubmit(handleEditPromotion)}>
-              <div className="grid grid-cols-1">
-              <div>
+            <form onSubmit={handleSubmit(handleEditClient)}>
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-2">
+                <div>
                   <input
-                    name="name"
+                    type="text"
+                    // disabled value={date}
+                    placeholder="clientId"
+                    className="input input-bordered my-2 w-full "
+                    {...register("clientId", {
+                      required: "Client Id is required",
+                    })}
+                  />
+                  {errors.clientId && (
+                    <p className="text-red-600" role="alert">
+                      {errors.clientId?.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <input
+                    name="company"
                     defaultValue={company}
                     type="text"
-                    // defaultValue={user?.displayName}
                     placeholder="Promotion From *"
                     className="input input-bordered my-2 w-full "
+                    {...register("company", {
+                      required: "Company is required",
+                    })}
+                  />
+                  {errors.company && (
+                    <p className="text-red-600" role="alert">
+                      {errors.company?.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <input
+                  name="name"
+                    defaultValue={name}
+                    type="text"
+                    placeholder="Promotion For *"
+                    className="input input-bordered my-2 w-full "
                     {...register("name", {
-                      required: "Client Name is required",
+                      required: "name is required",
                     })}
                   />
                   {errors.name && (
@@ -93,59 +131,112 @@ const EditClientModal = ({client, refetch, setClient}) => {
                 </div>
                 <div>
                   <input
-                  defaultValue={name}
-                    type="text"
-                    // disabled value={date}
-                    placeholder="Promotion For *"
+                    name="email"
+                    type="email"
+                    defaultValue={email}
+                    placeholder="Email Address"
                     className="input input-bordered my-2 w-full "
-                    {...register("department", {
-                      required: "department is required",
+                    {...register("email", {
+                      required: "Email address is required",
                     })}
                   />
-                  {errors.department && (
+                  {errors.email && (
                     <p className="text-red-600" role="alert">
-                      {errors.department?.message}
+                      {errors.email?.message}
                     </p>
                   )}
                 </div>
-                
-
                 <div>
                   <input
-                  defaultValue={position}
-                    name="designation"
-                    type="text"
-                    placeholder="Promotion From *"
+                    name="phone"
+                    type="number"
+                    defaultValue={phone}
+                    placeholder="Phone Number"
                     className="input input-bordered my-2 w-full "
-                    {...register("designation", {
+                    {...register("phone", {
                       required: "Phone Number is required",
                     })}
                   />
-                  {errors.designation && (
+                  {errors.phone && (
                     <p className="text-red-600" role="alert">
-                      {errors.designation?.message}
+                      {errors.phone?.message}
                     </p>
                   )}
                 </div>
                 <div>
                   <select
-                    name="designation_to"
-                    // defaultValue={}
-                    className="select select-bordered w-full "
-                    {...register("designation_to", {
+                    name="position"
+                    defaultValue={position}
+                    className="select select-bordered my-2 w-full "
+                    {...register("position", {
+                      required: "Your position is required",
+                    })}
+                  >
+                    <option disabled selected>
+                    position
+                    </option>
+                    <option>Web Developer</option>
+                    <option>Web Designer</option>
+                    <option>SEO Analyst</option>
+                  </select>
+                  {errors.position && (
+                    <p className="text-red-600" role="alert">
+                      {errors.position?.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <select
+                    name="gender"
+                    className="select select-bordered my-2 w-full "
+                    {...register("gender", {
                       required: "Your Name is required",
                     })}
                   >
                     <option disabled selected>
                       Gender
                     </option>
-                    <option>Mail</option>
+                    <option>Male</option>
                     <option>Female</option>
                     <option>Other</option>
                   </select>
-                  {errors.designation_to && (
+                  {errors.gender && (
                     <p className="text-red-600" role="alert">
-                      {errors.designation_to?.message}
+                      {errors.gender?.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <input
+                    name="birthday"
+                    type="date"
+                    defaultValue={birthday}
+                    placeholder="Your Birthday"
+                    className="input input-bordered my-2 w-full "
+                    {...register("birthday", {
+                      required: "Your Name is required",
+                    })}
+                  />
+                  {errors.birthday && (
+                    <p className="text-red-600" role="alert">
+                      {errors.birthday?.message}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <input
+                    name="address"
+                    type="text"
+                    defaultValue={address}
+                    placeholder="Your address"
+                    className="input input-bordered my-2 w-full "
+                    {...register("address", {
+                      required: "Your address is required",
+                    })}
+                  />
+                  {errors.address && (
+                    <p className="text-red-600" role="alert">
+                      {errors.address?.message}
                     </p>
                   )}
                 </div>
@@ -165,7 +256,6 @@ const EditClientModal = ({client, refetch, setClient}) => {
                   </p>
                 )}
               </div>
-              {/* </div> */}
               <br />
               <input
                 className="btn btn-accent w-full my-4"
@@ -177,7 +267,7 @@ const EditClientModal = ({client, refetch, setClient}) => {
         </div>
       </div>
     </>
-    );
+  );
 };
 
 export default EditClientModal;

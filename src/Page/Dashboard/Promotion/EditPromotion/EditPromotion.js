@@ -2,9 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
-const EditPromotion = ({ refetch, setPromotion, promotion }) => {
-   const {name, designation, designation_to, date} = promotion;
-   
+const EditPromotion = ({ refetch, setEditingPromotion, promotion }) => {
+  const { _id, name, designation, designation_to, date } = promotion;
+
   const {
     register,
     handleSubmit,
@@ -12,30 +12,30 @@ const EditPromotion = ({ refetch, setPromotion, promotion }) => {
   } = useForm();
 
   const handleEditPromotion = (data) => {
-          const promotion = {
-            name: data.name,
-            department: data.department,
-            designation: data.designation,
-            designation_to: data.designation_to,
-            date: data.date,
-          };
+    const promotion = {
+      name: data.name,
+      department: data.department,
+      designation: data.designation,
+      designation_to: data.designation_to,
+      date: data.date,
+    };
 
-          // save clients information to the database
-          fetch(`http://localhost:5000/promotion/${promotion?._id}`, {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(promotion),
-          })
-            .then((res) => res.json())
-            .then((result) => {
-              console.log(result);
-              toast.success(`${data.name} is update successfully`);
-              refetch();
-              setPromotion(null);
-            });
-        }
+    // save clients information to the database
+    fetch(`http://localhost:5000/promotion/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(promotion),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        toast.success(`${data.name} is update successfully`);
+        setEditingPromotion(null);
+        refetch();
+      });
+  };
   return (
     <>
       <div className="">
@@ -47,6 +47,7 @@ const EditPromotion = ({ refetch, setPromotion, promotion }) => {
         <div className="modal pt-24">
           <div className="modal-box relative ">
             <label
+              // onClick={() => setPromotion(null)}
               htmlFor="editPromotionModal"
               className="btn btn-sm btn-circle absolute right-2  top-2"
             >
@@ -54,7 +55,7 @@ const EditPromotion = ({ refetch, setPromotion, promotion }) => {
             </label>
             <form onSubmit={handleSubmit(handleEditPromotion)}>
               <div className="grid grid-cols-1">
-              <div>
+                <div>
                   <input
                     name="name"
                     defaultValue={name}
@@ -73,7 +74,7 @@ const EditPromotion = ({ refetch, setPromotion, promotion }) => {
                 </div>
                 <div>
                   <input
-                  defaultValue={designation}
+                    defaultValue={designation}
                     name="designation"
                     type="text"
                     className="input input-bordered my-2 w-full "
@@ -127,24 +128,8 @@ const EditPromotion = ({ refetch, setPromotion, promotion }) => {
                     </p>
                   )}
                 </div>
-                {/* <div className="form-control w-full "> */}
               </div>
-              {/* <div>
-                <label className="label">
-                  <span className="label-text">Photo</span>
-                </label>
-                <input
-                  type="file"
-                  {...register("image", { required: "Your Photo is required" })}
-                  className="file-input file-input-bordered w-full "
-                />
-                {errors.img && (
-                  <p className="text-red-600" role="alert">
-                    {errors.img?.message}
-                  </p>
-                )}
-              </div> */}
-              {/* </div> */}
+
               <br />
               <input
                 className="btn btn-accent w-full my-4"

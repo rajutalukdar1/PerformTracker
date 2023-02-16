@@ -83,6 +83,7 @@ const PromotionDetails = ({ promotion, i, refetch }) => {
         <EditPromotion
           refetch={refetch}
           promotion={editingPromotion}
+          setEditingPromotion={setEditingPromotion}
         ></EditPromotion>
       )}
     </tr>
