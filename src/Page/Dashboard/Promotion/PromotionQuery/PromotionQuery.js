@@ -7,7 +7,7 @@ const PromotionQuery = ({promotionData}) => {
     const { pageName, btnValue, btnOnClick, labelValue, hidden } = promotionData;
     return (
         <div className="grid grid-cols-2 justify-end mb-5">
-      <div>
+      {/* <div>
         <h2 className="text-3xl font-bold text-gray-200">
             {pageName}
             </h2>
@@ -24,7 +24,7 @@ const PromotionQuery = ({promotionData}) => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
       <div className="flex justify-end items-center py-4 gap-4">
         <h2 
         className={`cursor-pointer rounded-md p-4 bg-gray-600 shadow-xl
