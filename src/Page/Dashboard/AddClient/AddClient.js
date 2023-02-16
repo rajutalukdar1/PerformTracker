@@ -120,7 +120,6 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     name="email"
                     type="email"
-                    // defaultValue={user?.email}
                     placeholder="Email Address"
                     className="input input-bordered my-2 w-full "
                     {...register("email", {
