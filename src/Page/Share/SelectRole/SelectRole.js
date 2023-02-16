@@ -2,7 +2,7 @@ import React from 'react'
 import { FaCheckCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
 
-const SelectRole = ({ uid, setUid }) => {
+const SelectRole = ({ uid, setUid, navigateTo }) => {
   const navigate = useNavigate();
 
   const handleRole = e => {
@@ -19,8 +19,8 @@ const SelectRole = ({ uid, setUid }) => {
       })
         .then(res => res.json())
         .then(data => {
-          if(data.modifiedCount > 0){
-            navigate('/dashboard');
+          if (data.modifiedCount > 0) {
+            navigateTo(role)
             setUid(null);
           }
         })

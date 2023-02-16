@@ -6,9 +6,8 @@ import facebook from "../../Assets/home/image.png";
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
-import SelectRole from "./SelectRole";
+import SelectRole from "../Share/SelectRole/SelectRole";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
-
 
 const SignUp = () => {
   const {
@@ -37,16 +36,17 @@ const SignUp = () => {
           .then(() => {
             saveUser({
               name: data.name,
+              email: data.email,
               img: "https://i.ibb.co/Qj8XhH5/user.png",
               uid: result.user.uid,
               role: data.role,
             });
             console.log("Signed Up");
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.error(err));
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setSignUpError(error.message);
       });
   };
@@ -69,7 +69,7 @@ const SignUp = () => {
     if (existUser?.uid) {
       if (existUser?.role) {
         toast.success("Logged In Successfully.");
-        navigate('/dashboard');
+        navigateTo(existUser.role);
       } else {
         setUid(loggedUser.uid);
       }
@@ -84,7 +84,6 @@ const SignUp = () => {
   }
 
   const saveUser = (user) => {
-    console.log(user?.role)
     fetch('https://perform-tracker-server.vercel.app/users', {
       method: 'POST',
       headers: {
@@ -97,9 +96,19 @@ const SignUp = () => {
         if (!user.role) {
           return setUid(user.uid);
         }
-        navigate('/dashboard');
+        navigateTo(user.role);
       })
       .catch(err => console.error(err));
+  }
+
+  const navigateTo = role => {
+    if (role === "Admin") {
+      navigate('/dashboard/admin');
+    } else if (role === "Client") {
+      navigate('/dashboard/client');
+    } else {
+      navigate('/dashboard');
+    }
   }
 
   return (
@@ -109,7 +118,8 @@ const SignUp = () => {
           <div className="hidden lg:block">
             <LoginAnimation />
           </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black">
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black overflow-hidden">
+            <div className="card-title justify-center bg-info py-4 text-white">Create an account</div>
             <form className="card-body" onSubmit={handleSubmit(handleSignUp)}>
               <div className="form-control">
                 <label className="label">
@@ -123,12 +133,13 @@ const SignUp = () => {
                   placeholder="Name"
                   className="input input-bordered "
                 />
-                {errors.name && (
+                {
+                  errors.name &&
                   <p role="alert" className="text-red-500">
                     {errors.name?.message}
                   </p>
-                )}
-              </div>
+                }
+              </div >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black">Email</span>
@@ -141,12 +152,13 @@ const SignUp = () => {
                   placeholder="Email"
                   className="input input-bordered "
                 />
-                {errors.email && (
+                {
+                  errors.email &&
                   <p role="alert" className="text-red-500">
                     {errors.email?.message}
                   </p>
-                )}
-              </div>
+                }
+              </div >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black">Password</span>
@@ -163,14 +175,15 @@ const SignUp = () => {
                   placeholder="Password"
                   className="input input-bordered "
                 />
-                {errors.password && (
+                {
+                  errors.password &&
                   <p role="alert" className="text-red-500">
                     {errors.password?.message}
                   </p>
-                )}
-              </div>
+                }
+              </div >
               <div>
-                <div className='flex gap-4 justify-between mt-2'>
+                <div className='flex justify-between gap-4 my-2'>
                   <p>I am here as an</p>
                   <div className='flex items-center gap-2'>
                     <input
@@ -196,76 +209,57 @@ const SignUp = () => {
                     <label htmlFor="client">Client</label>
                   </div>
                 </div>
-                {errors.role && (
+                {
+                  errors.role &&
                   <p role="alert" className="text-red-500">
                     {errors.role?.message}
                   </p>
-                )}
-              </div>
+                }
+              </div >
               {signUpError && <p className='text-red-600'>{signUpError}</p>}
-              <label className="label">
-                <Link to="" className="label-text-alt link text-black">
-                  Forgot password?
-                </Link>
-              </label>
-              <input className="btn btn-warning" value="SignUp" type="submit" />
-              <p className="text-center">-------------Or-------------</p>
+              <input className="btn btn-info hover:bg-sky-500 text-white" value="SignUp" type="submit" />
+              <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
-                <Link>
-                  {/* onClick={handleSignInWithGoogle} */}
-                  <div className="flex justify-content-center align-items-center mt-3 ">
-                    <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-10 h-10 ml-1">
-                        <img
-                          src="https://i.ibb.co/7yz77Hj/google.png"
-                          alt=""
-                        ></img>
-                      </div>
-                      <div
-                        onClick={() => handleProviderSignIn(googleProvider)}
-                        className=" font-semibold ">
-                        Continue with Google
-                      </div>
-                      <div className="mr-6"></div>
-                    </div>
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
+                  <div className="w-6 sm:w-10 sm:h-10 ml-1">
+                    <img src="https://i.ibb.co/7yz77Hj/google.png" alt="" />
                   </div>
-                </Link>
-                <Link>
-                  {/* onClick={handleSignInWithFacebook} */}
-                  <div className="flex justify-content-center align-items-center mt-3 ">
-                    <div className="flex justify-between items-center login-container hover:bg-warning">
-                      <div className="w-8 h-8 ml-1">
-                        <img src={facebook} alt=""></img>
-                      </div>
-                      <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
-                        Continue with Facebook
-                      </div>
-                      <div className="mr-6"></div>
-                    </div>
+                  <div
+                    onClick={() => handleProviderSignIn(googleProvider)}
+                    className="font-semibold">
+                    Continue with Google
                   </div>
-                </Link>
+                  <div className="mr-6"></div>
+                </div>
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
+                  <div className="w-8 sm:w-12 sm:h-12">
+                    <img src={facebook} alt="" />
+                  </div>
+                  <div onClick={() => handleProviderSignIn(facebookProvider)} className=" font-semibold ">
+                    Continue with Facebook
+                  </div>
+                  <div className="mr-6"></div>
+                </div>
               </div>
-
               <small>
                 <p className="flex justify-center mt-2">
                   <span>Already have an account? </span>
-                  <Link className="text-purple-600 font-bold" to="/login">
-                    Login now
-                  </Link>
-                </p>
-              </small>
-            </form>
-          </div>
-        </div>
-      </div>
+                  <Link className="text-purple-600 font-bold" to="/login">Login now</Link>
+                </p >
+              </small >
+            </form >
+          </div >
+        </div >
+      </div >
       {
         uid &&
         <SelectRole
           uid={uid}
           setUid={setUid}
+          navigateTo={navigateTo}
         />
       }
-    </div>
+    </div >
   );
 };
 

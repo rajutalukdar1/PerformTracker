@@ -59,10 +59,10 @@ const AdminProgress = () => {
                             <h3>19</h3>
                         </div>
                     </div>
-                    <div class="relative pt-1 mt-4">
-                        <div class="overflow-hidden h-4 mb-4 text-xs flex rounded bg-emerald-200">
+                    <div className="relative pt-1 mt-4">
+                        <div className="overflow-hidden h-4 mb-4 text-xs flex rounded bg-emerald-200">
                             <div className="w-[10%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500">10%</div>
-                            <div className="w-[30%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-black">30%</div>
+                            <div className="w-[30%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-400">30%</div>
                             <div className="w-[25%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-cyan-400">25%</div>
                             <div className="w-[35%] shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-emerald-500">35%</div>
                         </div>
@@ -77,7 +77,7 @@ const AdminProgress = () => {
                         </div>
                         <div className='flex justify-between'>
                             <div className='flex items-center'>
-                                <span className='text-black text-2xl mr-3 mt-2'>&#9678;</span>
+                                <span className='text-white text-2xl mr-3 mt-2'>&#9678;</span>
                                 <h2>Inprogress Tasks</h2>
                             </div>
                             <h5>166</h5>
@@ -126,7 +126,7 @@ const AdminProgress = () => {
                             </div>
                             <div>
                                 <Link
-                                    class="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
+                                    className="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
                                     href="/download"
                                 >
                                     Active
@@ -153,7 +153,7 @@ const AdminProgress = () => {
                             </div>
                             <div>
                                 <Link
-                                    class="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
+                                    className="inline-block rounded border border-current px-8 py-3 text-sm font-medium text-indigo-600 transition hover:rotate-2 hover:scale-110 focus:outline-none focus:ring active:text-indigo-500"
                                     href="/download"
                                 >
                                     Pending
@@ -163,27 +163,27 @@ const AdminProgress = () => {
                     </div>
                     <div className='mt-3'>
                         <a
-                            class="group flex items-center justify-between rounded-lg border border-current px-5 py-3 text-indigo-600 transition-colors hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-500"
+                            className="group flex items-center justify-between rounded-lg border border-current px-5 py-3 text-indigo-600 transition-colors hover:bg-indigo-600 focus:outline-none focus:ring active:bg-indigo-500"
                             href="/download"
                         >
-                            <span class="font-medium transition-colors group-hover:text-white">
+                            <span className="font-medium transition-colors group-hover:text-white">
                                 Lode out more
                             </span>
 
                             <span
-                                class="ml-4 flex-shrink-0 rounded-full border border-indigo-600 hover:bg-slate-800 p-2 group-active:border-indigo-500"
+                                className="ml-4 flex-shrink-0 rounded-full border border-indigo-600 hover:bg-slate-800 p-2 group-active:border-indigo-500"
                             >
                                 <svg
-                                    class="h-5 w-5"
+                                    className="h-5 w-5"
                                     xmlns="http://www.w3.org/2000/svg"
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
                                 >
                                     <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
                                         d="M17 8l4 4m0 0l-4 4m4-4H3"
                                     />
                                 </svg>

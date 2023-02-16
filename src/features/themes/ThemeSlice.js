@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { localTheme, setLocalTheme } from "./localTheme";
 
 const initialTheme = {
-  theme: 'dark',
+  theme: localTheme,
 }
 
 export const themeSlice = createSlice({
@@ -9,7 +10,8 @@ export const themeSlice = createSlice({
   initialState: initialTheme,
   reducers: {
     SET_THEME: (state, {payload}) => {
-      state.theme = payload
+      state.theme = payload;
+      setLocalTheme(payload);
     }
   }
 })

@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +10,14 @@ import "./Nav.css";
 const NavBar = () => {
   const { user } = useSelector(state => state.userReducer);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
+  const { data: currentUser = {} } = useQuery({
+      queryKey: ['currentUser', user?.uid],
+      queryFn: () =>
+          fetch(`https://perform-tracker-server.vercel.app/users?uid=${user?.uid}`).then(res => res.json()),
+  });
+
+  const goDashboard = currentUser.role === "Employee" ? "/" : currentUser?.role?.toLowerCase();
 
   // Logout With Firebase and Redux
   const handleLogout = () => {
@@ -17,9 +25,8 @@ const NavBar = () => {
       .then(() => {
         toast("You are Logged Out");
         console.log("Logged Out");
-        // navigate("/login");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
   const menuItems = (
     <>
@@ -33,7 +40,7 @@ const NavBar = () => {
         {user?.uid ? (
           <>
             <li className="font-semibold">
-              <Link to="/dashboard/employees">Dashboard</Link>
+              <Link to={`/dashboard/${goDashboard}`}>Dashboard</Link>
             </li>
             <li className="font-semibold">
               <button onClick={handleLogout}>Log Out</button>

@@ -14,9 +14,6 @@ const ClientProfile = () => {
             fetch(`https://perform-tracker-server.vercel.app/client?email=${user?.email}`).then(res => res.json()),
     });
 
-    console.log(client)
-    console.log(user.uid)
-
     const { employee_id, company, name, email, birthday, phone, address, img, position, gender } = client;
 
     if (loading) {
@@ -84,7 +81,7 @@ const ClientProfile = () => {
                     </div>
 
                     <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold 
-                    rounded-b-md">
+                    rounded-b-sm">
                         <ul className="menu menu-horizontal px-1">
                             <li>
                                 <Link to='/dashboard/profile/client'>
@@ -93,7 +90,7 @@ const ClientProfile = () => {
                             </li>
                             <li tabIndex={0}>
                                 <Link to='/dashboard/profile/client/task'>
-                                    Task
+                                    Tasks
                                 </Link>
                             </li>
                         </ul>

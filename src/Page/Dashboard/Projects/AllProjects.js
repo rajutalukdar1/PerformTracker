@@ -14,7 +14,7 @@ const AllProjects = () => {
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/projects`).then(res => res.json()),
   });
-  
+
   return (
     <div>
       <QueryBar
@@ -31,6 +31,7 @@ const AllProjects = () => {
             key={project._id}
             project={project}
             setProjectData={setProjectData}
+            refetch={refetch}
           />)
         }
       </div>
@@ -48,7 +49,7 @@ const AllProjects = () => {
           refetch={refetch}
         />
       }
-      
+
     </div>
   )
 }

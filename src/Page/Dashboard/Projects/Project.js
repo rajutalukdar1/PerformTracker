@@ -1,15 +1,33 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { GrEdit } from 'react-icons/gr';
+import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { toast } from 'react-hot-toast';
 
-const Project = ({ project, setProjectData }) => {
-  const { _id, name, details, deadline, allTasks, assignedleaders, team, progressed } = project;
-  const tasksCompleted = allTasks.filter(task => task.status === 'completed').length
+const Project = ({ project, setProjectData, refetch }) => {
+  const { _id, name, details, deadline, assignedleaders, team, progressed } = project;
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/project-tasks/${_id}`)
+    .then(res => res.json())
+    .then(data => {
+      setTasks(data)
+    })
+  }, [_id])
+
+  const tasksCompleted = tasks?.filter(task => task.status === 'completed').length
 
   const handleProjectDelete = (id) => {
-
+    fetch(`http://localhost:5000/projects/${id}`, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(result => {
+        refetch();
+        toast.success('Project is deleted successfully!')
+      })
   }
 
   return (
@@ -19,7 +37,7 @@ const Project = ({ project, setProjectData }) => {
           <Link to={`/dashboard/projects/${_id}`}>{name}</Link>
         </h2>
         <p className='mb-2'>
-          <small>{allTasks.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
+          <small>{tasks?.length - tasksCompleted} open tasks, {tasksCompleted} completed tasks</small>
         </p>
         <div className='mb-6 text-gray-300 light:text-gray-500'>
           <p>
@@ -77,18 +95,20 @@ const Project = ({ project, setProjectData }) => {
         </div>
         <div className="dropdown dropdown-bottom dropdown-left absolute top-2 right-3">
           <div tabIndex={0}>
-            <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl cursor-pointer"><BsThreeDotsVertical /> </h2>
+            <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl cursor-pointer">
+              <BsThreeDotsVertical /> </h2>
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content menu p-2 border-2 bg-white rounded-box w-40"
+            className="dropdown-content menu p-2 bg-gray-900 rounded-box w-40"
             style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>
-              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <GrEdit className=" mr-3" />Edit</a> </label>
+              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
             </li>
             <li>
-              <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine />Delete</Link>
+              <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine
+              />Delete</Link>
             </li>
           </ul>
         </div>
