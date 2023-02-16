@@ -2,13 +2,15 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { GoReport, GoRocket } from "react-icons/go";
 import { AiOutlineDashboard, AiOutlineUser } from 'react-icons/ai';
-import { MdModelTraining } from "react-icons/md";
+import { MdModelTraining, MdSupportAgent } from "react-icons/md";
 import { useSelector } from 'react-redux'; import { useQuery } from '@tanstack/react-query';
 import { FaBullhorn } from 'react-icons/fa';
 import { HiOutlinePencilAlt, HiOutlineUserGroup } from "react-icons/hi";
 import DashboardSideItems from './DashboardSideItems';
 import DashboardNav from '../Page/Share/DashboardNav/DashboardNav';
 import { FaAmazonPay, FaTrello, FaUserSecret } from 'react-icons/fa';
+import { TbFileInvoice } from "react-icons/tb";
+import { BsChatDots } from 'react-icons/bs';
 
 const DashboardLayout = () => {
     const { user } = useSelector(state => state.userReducer);
@@ -194,7 +196,7 @@ const DashboardLayout = () => {
                                     title='Dashboard'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/dashboardClients",
+                                            to: "/dashboard/client",
                                             title: "Clients"
                                         },
                                     ]}
@@ -206,6 +208,46 @@ const DashboardLayout = () => {
                                         {
                                             to: "/dashboard/profile/client",
                                             title: "Client Profile"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<GoRocket className='text-2xl mt-2' />}
+                                    title='Projects'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/projects",
+                                            title: "My Projects"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<MdSupportAgent className='text-2xl mt-2' />}
+                                    title='Supports'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/projects",
+                                            title: "Tickets"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<TbFileInvoice className='text-2xl mt-2' />}
+                                    title='Billing'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/projects",
+                                            title: "Billing"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<BsChatDots className='text-2xl mt-2' />}
+                                    title='Chat'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/projects",
+                                            title: "Chat"
                                         },
                                     ]}
                                 />
