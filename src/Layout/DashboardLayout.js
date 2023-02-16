@@ -54,6 +54,10 @@ const DashboardLayout = () => {
                                             to: "/dashboard/all-employees",
                                             title: "All Employees"
                                         },
+                                        {
+                                            to: "/dashboard/all-teams",
+                                            title: "All Teams"
+                                        },
                                     ]}
                                 />
                                 <DashboardSideItems
