@@ -221,7 +221,7 @@ const SignUp = () => {
               <input className="btn btn-hover color-9 text-white" value="SignUp" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
-                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
+                <div className="flex glow-on-hover justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
                   <div className="w-6 sm:w-10 sm:h-10 ml-1">
                     <img src="https://i.ibb.co/7yz77Hj/google.png" alt="" />
                   </div>
@@ -232,7 +232,7 @@ const SignUp = () => {
                   </div>
                   <div className="mr-6"></div>
                 </div>
-                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
+                <div className="flex fa-on-hover justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
                   <div className="w-8 sm:w-12 sm:h-12">
                     <img src={facebook} alt="" />
                   </div>
