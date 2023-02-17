@@ -4,8 +4,12 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../../Hooks/useTitle';
 
 const Project = ({ project, setProjectData, refetch }) => {
+
+  useTitle('Projects');
+
   const { _id, name, details, deadline, assignedleaders, team, progressed } = project;
   const [tasks, setTasks] = useState([]);
 
@@ -29,6 +33,8 @@ const Project = ({ project, setProjectData, refetch }) => {
         toast.success('Project is deleted successfully!')
       })
   }
+
+
 
   return (
     <div className="card light:bg-slate-200 bg-[#16191C] text-white rounded-sm">

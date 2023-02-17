@@ -3,11 +3,15 @@ import { FaUserAlt } from 'react-icons/fa';
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { MdOutlineDashboard } from "react-icons/md";
 import { SlDiamond } from "react-icons/sl";
+import useTitle from '../../Hooks/useTitle';
 import Reports from '../Dashboard/Reports/Reports';
 import Rechart from '../Rechart/Rechart';
 import AdminProgress from './AdminProgress/AdminProgress';
 
 const Admin = () => {
+
+    useTitle('Admin');
+
     return (
         <div>
             <div>

@@ -193,7 +193,6 @@ const DashboardLayout = () => {
                                 />
 
                                 {/* ---------------------------------------------- ----*/}
-
                             </> : currentUser.role === "Client" ? <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
@@ -257,7 +256,6 @@ const DashboardLayout = () => {
                                 />
 
                                 {/* ------------------------------------------------------- */}
-
                             </> : <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}

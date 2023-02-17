@@ -8,14 +8,13 @@ const Promotion = () => {
     queryFn: () =>
       fetch(`http://localhost:5000/promotion`).then((res) => res.json()),
   });
-    return (
-        <div>
+  return (
+    <div>
       <div>
-            <div className="overflow-x-auto w-full">
-             <table className="table w-full">
-                
-                <thead>
-                <tr>
+        <div className="overflow-x-auto w-full">
+          <table className="table w-full">
+            <thead>
+              <tr>
                 <th></th>
                 <th>Avatar</th>
                 <th>Promoted Employee</th>
@@ -23,25 +22,24 @@ const Promotion = () => {
                 <th>Promotion designation To</th>
                 <th>Promotion date</th>
                 <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                    {
-                        user?.map((promotion, i )=>  
-                        <PromotionDetails
-                        i={i}
-                        promotion={promotion}
-                        refetch={refetch}
-                        ></PromotionDetails>
-                        )
-                    }
-                </tbody>
-             </table>
-            </div>
-           
+              </tr>
+            </thead>
+            <tbody>
+              {
+                user?.map((promotion, i) =>
+                  <PromotionDetails
+                    i={i}
+                    promotion={promotion}
+                    refetch={refetch}
+                  ></PromotionDetails>
+                )
+              }
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-    );
+  );
 };
 
 export default Promotion;
