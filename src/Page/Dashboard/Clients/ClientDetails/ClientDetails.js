@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 // import img1 from '../../../Assets/success_img/Vicky.jpg'
 
 const ClientDetails = () => {
-    const { img, company, name, email, phone, birthday, address, position, gender } = useLoaderData();
+    const { img, company, name, email, phone, birthday, address, position, gender, clientId } = useLoaderData();
     return (
         <div className='mb-8 lg:max-w-screen-lg mx-5 lg:mx-auto'>
 
@@ -19,7 +19,7 @@ const ClientDetails = () => {
                         <p className='text-white text-2xl font-semibold'>{company}</p>
                         <p className='text-white font-semibold'>{name}</p>
                         <p><span className='text-white'>{position}</span></p>
-                        <p className='text-white font-semibold'>Employee ID: CLT-0001</p>
+                        <p className='text-white font-semibold'>Client ID: {clientId}</p>
 
                         <a
                             className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium

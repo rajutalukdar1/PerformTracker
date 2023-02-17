@@ -51,7 +51,6 @@ const AddTrainerModal = () => {
             })
             .then(res => res.json())
             .then(result =>{
-                console.log(result);
                 toast.success('Trainer is successfully added!')
                 
                

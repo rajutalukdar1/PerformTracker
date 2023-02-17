@@ -27,7 +27,6 @@ const EditProjects = ({project, setProjectData, refetch}) => {
     })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         toast.success('Project is successfully updated!')
         setProjectData(null);
         refetch();
@@ -45,7 +44,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
               <input
                 name="name"
                 defaultValue={name}
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Name"
                 type="text"
                 id="name"
@@ -55,7 +54,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
               <input
                 name="progressed"
                 defaultValue={progressed}
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Progressed"
                 type="text"
               />
@@ -64,7 +63,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
               <input
                 name="cost"
                 defaultValue={cost}
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Cost"
                 type="text"
               />
@@ -74,7 +73,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
                 <input
                   name="createdby"
                   defaultValue={createdby}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Created By"
                   type="text"
                 />
@@ -83,7 +82,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
                 <input
                   name="status"
                   defaultValue={status}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Status"
                   type="text"
                 />
@@ -94,7 +93,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
                 <input
                   name="created"
                   defaultValue={created}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Created On (Ex: 3rd Feb, 2023)"
                   type="text"
                 />
@@ -103,7 +102,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
                 <input
                   name="deadline"
                   defaultValue={deadline}
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Deadline (Ex: 8th Feb, 2023)"
                   type="text"
                 />
@@ -113,7 +112,7 @@ const EditProjects = ({project, setProjectData, refetch}) => {
               <textarea
                 name="details"
                 defaultValue={details}
-                className="textarea w-full rounded-lg border-transparent bg-white p-3 text-sm bgwh"
+                className="textarea w-full rounded-lg border-transparent bg-white p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Details"
               ></textarea>
             </div>

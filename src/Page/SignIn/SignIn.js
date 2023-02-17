@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import facebook from "../../Assets/home/image.png";
 import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
-import { providerLogin, userLogin } from "../../features/auths/AuthSlice";
+import { logOut, providerLogin, userLogin } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
@@ -38,7 +38,7 @@ const SignIn = () => {
         // navigate(from, { replace: true })
       })
       .catch(e => {
-        console.log(e.message);
+        console.error(e.message);
         setLoginError(e.message);
       })
   };
@@ -47,12 +47,17 @@ const SignIn = () => {
   const handleProviderSignIn = (provider) => {
     dispatch(providerLogin(provider))
       .then(result => {
-        toast.success("Logged In Successfully.");
         // navigate(from, { replace: true });
         fetch(`https://perform-tracker-server.vercel.app/users?uid=${result.user.uid}`)
           .then(res => res.json())
           .then(data => {
-            navigateTo(data)
+            if (data.uid) {
+              toast.success("Logged In Successfully.");
+              navigateTo(data)
+            } else {
+              toast.error("You don't have an account. Please create a new account")
+              dispatch(logOut()).then(() => { }).catch(err => console.error(err))
+            }
           })
           .catch(err => console.error(err));
         console.log("Provider Logged In");

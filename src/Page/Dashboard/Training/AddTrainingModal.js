@@ -56,7 +56,6 @@ const AddTrainingModal = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         toast.success("trainig list  is successfully added!");
       });
      

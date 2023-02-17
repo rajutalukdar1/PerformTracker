@@ -13,8 +13,6 @@ const ClientProjects = () => {
             fetch(`https://perform-tracker-server.vercel.app/client/projects/${user?.uid}`).then(res => res.json()),
     });
 
-    console.log(projects)
-
     if (loading) {
         return <Loading />
     }

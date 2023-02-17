@@ -43,10 +43,10 @@ const SignUp = () => {
             });
             console.log("Signed Up");
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.error(err));
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setSignUpError(error.message);
       });
   };
@@ -119,7 +119,7 @@ const SignUp = () => {
             <LoginAnimation />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black overflow-hidden">
-          <div className="card-title justify-center bg-info py-4 text-white">Create an account</div>
+            <div className="card-title justify-center bg-info py-4 text-white">Create an account</div>
             <form className="card-body" onSubmit={handleSubmit(handleSignUp)}>
               <div className="form-control">
                 <label className="label">
@@ -133,12 +133,13 @@ const SignUp = () => {
                   placeholder="Name"
                   className="input input-bordered "
                 />
-                {errors.name &&
+                {
+                  errors.name &&
                   <p role="alert" className="text-red-500">
                     {errors.name?.message}
                   </p>
                 }
-              </div>
+              </div >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black">Email</span>
@@ -151,12 +152,13 @@ const SignUp = () => {
                   placeholder="Email"
                   className="input input-bordered "
                 />
-                {errors.email &&
+                {
+                  errors.email &&
                   <p role="alert" className="text-red-500">
                     {errors.email?.message}
                   </p>
                 }
-              </div>
+              </div >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-black">Password</span>
@@ -173,11 +175,13 @@ const SignUp = () => {
                   placeholder="Password"
                   className="input input-bordered "
                 />
-                {errors.password &&
+                {
+                  errors.password &&
                   <p role="alert" className="text-red-500">
                     {errors.password?.message}
-                  </p>}
-              </div>
+                  </p>
+                }
+              </div >
               <div>
                 <div className='flex justify-between gap-4 my-2'>
                   <p>I am here as an</p>
@@ -205,12 +209,13 @@ const SignUp = () => {
                     <label htmlFor="client">Client</label>
                   </div>
                 </div>
-                {errors.role &&
+                {
+                  errors.role &&
                   <p role="alert" className="text-red-500">
                     {errors.role?.message}
                   </p>
                 }
-              </div>
+              </div >
               {signUpError && <p className='text-red-600'>{signUpError}</p>}
               <input className="btn btn-info hover:bg-sky-500 text-white" value="SignUp" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
@@ -240,12 +245,12 @@ const SignUp = () => {
                 <p className="flex justify-center mt-2">
                   <span>Already have an account? </span>
                   <Link className="text-purple-600 font-bold" to="/login">Login now</Link>
-                </p>
-              </small>
-            </form>
-          </div>
-        </div>
-      </div>
+                </p >
+              </small >
+            </form >
+          </div >
+        </div >
+      </div >
       {
         uid &&
         <SelectRole
@@ -254,7 +259,7 @@ const SignUp = () => {
           navigateTo={navigateTo}
         />
       }
-    </div>
+    </div >
   );
 };
 

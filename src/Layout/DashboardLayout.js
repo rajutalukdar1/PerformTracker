@@ -28,10 +28,10 @@ const DashboardLayout = () => {
                 <div className="drawer-content px-4 py-10 lg:ml-[222px] h-auto">
                     <Outlet></Outlet>
                 </div>
-                <div className="drawer-side fixed h-full w-0 lg:w-[220px] peer-checked:w-full 
-                lg:peer-checked:w-[220px] overflow-y-auto">
+                <div className="drawer-side fixed h-full w-0 lg:w-[230px] peer-checked:w-full 
+                lg:peer-checked:w-[230px] overflow-y-auto">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu bg-black text-base-content font-semibold py-5 w-full sm:w-[220px]">
+                    <ul className="menu bg-black text-base-content font-semibold py-5 w-full sm:w-[220px] mb-20">
                         {
                             currentUser.role === "Admin" ? <>
                                 <DashboardSideItems
@@ -41,7 +41,7 @@ const DashboardLayout = () => {
                                         {
                                             to: "/dashboard/admin",
                                             title: "Admin"
-                                        }
+                                        },
                                     ]}
                                 />
                                 <DashboardSideItems
@@ -49,7 +49,7 @@ const DashboardLayout = () => {
                                     title='Employees'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/employees",
+                                            to: "/dashboard/all-employees",
                                             title: "All Employees"
                                         },
                                     ]}
@@ -59,7 +59,7 @@ const DashboardLayout = () => {
                                     title='Clients'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/clients",
+                                            to: "/dashboard/all-clients",
                                             title: "All Clients"
                                         },
                                     ]}
@@ -83,7 +83,7 @@ const DashboardLayout = () => {
                                             title: "Projects"
                                         },
                                         {
-                                            to: "/dashboard/task",
+                                            to: "/dashboard/tasks",
                                             title: "Task"
                                         },
                                     ]}
@@ -93,7 +93,7 @@ const DashboardLayout = () => {
                                     title='Profile'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/profile/employees",
+                                            to: "/dashboard/profile/employee",
                                             title: "Employee Profile"
                                         },
                                         {
@@ -152,12 +152,12 @@ const DashboardLayout = () => {
                                     title='PayRoll'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/profile/client",
+                                            to: "/dashboard/employees/salary",
                                             title: "Employees Salary"
                                         },
                                     ]}
                                 />
-                                <DashboardSideItems
+                                {/* <DashboardSideItems
                                     icon={<FaUserSecret className='text-2xl mt-2' />}
                                     title='Leads'
                                     subMenus={[
@@ -166,7 +166,7 @@ const DashboardLayout = () => {
                                             title: "Projects Leads"
                                         }
                                     ]}
-                                />
+                                /> */}
                                 <DashboardSideItems
                                     icon={<MdModelTraining className='text-2xl' />}
                                     title='Training'
@@ -185,6 +185,9 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
+
+                                {/* ---------------------------------------------- ----*/}
+
                             </> : currentUser.role === "Client" ? <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
@@ -206,6 +209,9 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
+
+                                {/* ------------------------------------------------------- */}
+
                             </> : <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
