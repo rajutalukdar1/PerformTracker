@@ -8,7 +8,7 @@ import HrBusiness from '../HrBusiness/HrBusiness';
 import Counter from '../Counter/Counter';
 import Loading from '../../Others/Loading/Loading';
 import { useSelector } from 'react-redux';
-import useTitle from '../../../Hooks/useTitle';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
 

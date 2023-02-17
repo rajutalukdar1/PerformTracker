@@ -4,7 +4,7 @@ import bg from '../../Assets/blog/blog-bg.jpg';
 import AddBlogModal from './AddBlogModal';
 import { useQuery } from '@tanstack/react-query';
 import BlogDetailsModal from './BlogDetailsModal';
-import useTitle from '../../Hooks/useTitle';
+import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
     useTitle('Blog');

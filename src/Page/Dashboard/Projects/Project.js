@@ -4,7 +4,7 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { toast } from 'react-hot-toast';
-import useTitle from '../../../Hooks/useTitle';
+import useTitle from '../../../hooks/useTitle';
 
 const Project = ({ project, setProjectData, refetch }) => {
 

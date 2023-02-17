@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
-// import img1 from '../../../Assets/success_img/Vicky.jpg'
 
 const ClientDetails = () => {
     const { img, company, name, email, phone, birthday, address, position, gender, clientId } = useLoaderData();
@@ -26,13 +25,13 @@ const ClientDetails = () => {
                                     <h3 className="text-2xl font-bold">{company}</h3>
                                     <p className='font-bold'>{name}</p>
                                     <p className='text-sm font-semibold mb-2'>{position}</p>
-                                    <p className='text-sm font-semibold'>Employee ID : {employee_id}</p>
+                                    <p className='text-sm font-semibold'>Client ID : {clientId}</p>
                                     <a
                                         className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2
                                         text-sm font-medium text-white transition hover:scale-110
                                         hover:shadow-xl focus:outline-none
                                         focus:ring active:bg-[#FD7265]"
-                                        href=' '
+                                        href=''
                                     >
                                         Send Message
                                     </a>

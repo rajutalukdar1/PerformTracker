@@ -7,7 +7,7 @@ import { logOut, providerLogin, userLogin } from "../../features/auths/AuthSlice
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
-import useTitle from "../../Hooks/useTitle";
+import useTitle from "../../hooks/useTitle";
 
 const SignIn = () => {
 

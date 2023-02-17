@@ -4,7 +4,7 @@ import EmployeeProfileInfo from './EmployeeProfileInfo';
 import { Link, Outlet } from 'react-router-dom';
 import Loading from '../../Share/Loading/Loading';
 import { useSelector } from 'react-redux';
-import useTitle from '../../../Hooks/useTitle';
+import useTitle from '../../../hooks/useTitle';
 
 const ClientProfile = () => {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import useTitle from '../../../../Hooks/useTitle';
+import useTitle from '../../../../hooks/useTitle';
 import AddTask from '../AddTask/AddTask';
 import MarkComplete from '../MarkComplete/MarkComplete';
 
