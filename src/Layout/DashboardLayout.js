@@ -279,6 +279,16 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
+                                <DashboardSideItems
+                                    icon={<AiOutlineUser className='text-2xl mt-2' />}
+                                    title='My Team'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/myTeam",
+                                            title: "My Team"
+                                        },
+                                    ]}
+                                />
                             </>
                         }
                     </ul>
