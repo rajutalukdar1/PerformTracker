@@ -5,7 +5,7 @@ const AllTasks = () => {
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ['tasks'],
     queryFn: () =>
-      fetch(`http://localhost:5000/tasks`).then(res => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/tasks`).then(res => res.json()),
   });
 
   return (

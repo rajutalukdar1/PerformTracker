@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
 
+
 const EmployeeProfile = () => {
+  const [promotion, setPromotion] = useState({});
   const { id } = useParams();
   const { data: { name, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
     queryKey: ['employee', id],
@@ -68,28 +71,25 @@ const EmployeeProfile = () => {
                 />
               </div>
             </div>
+            <label className="btn btn-outline"
+              htmlFor='addPromotionModal'
+              onClick={() => setPromotion({
+                employeeId: id,
+                name,
+                img,
+                // designation
+              })}
+            >Add Promotion
+            </label>
           </div>
-
-          <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
-            rounded-b-sm">
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <Link to='/dashboard/profile/client'>
-                  Projects
-                </Link>
-              </li>
-              <li tabIndex={0}>
-                <Link to='/dashboard/profile/client/task'>
-                  Tasks
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <Outlet>
-
-          </Outlet>
         </div>
       </div>
+      {promotion && <AddPromotion
+        refetch={refetch}
+        id={id}
+        promote={promotion}
+        setPromotion={setPromotion}
+      ></AddPromotion>}
     </div>
   );
 }

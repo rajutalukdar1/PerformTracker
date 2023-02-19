@@ -12,7 +12,7 @@ const AllTeams = () => {
   const { data: teams = [], refetch } = useQuery({
     queryKey: ['teams'],
     queryFn: () =>
-      fetch(`http://localhost:5000/teams`).then(res => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/teams`).then(res => res.json()),
   });
 
   const handleTeamDelete = id => {

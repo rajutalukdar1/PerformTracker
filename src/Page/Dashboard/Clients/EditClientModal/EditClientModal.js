@@ -1,9 +1,11 @@
-import React from "react";
-import toast from "react-hot-toast";
-import { useForm } from "react-hook-form";
 import moment from "moment";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 
-const AddClient = ({ refetch, setClients }) => {
+const EditClientModal = ({ client, refetch, setEditingClient }) => {
+  const { _id, company, name, email, phone, birthday, address, position, gender } = client;
+  console.log(_id, "this is id");
   const {
     register,
     handleSubmit,
@@ -11,7 +13,7 @@ const AddClient = ({ refetch, setClients }) => {
   } = useForm();
   const imageHostKey = process.env.REACT_APP_imgbb_key;
 
-  const handleAddClient = (data) => {
+  const handleEditClient = (data) => {
     const image = data.image[0];
     const formData = new FormData();
     formData.append("image", image);
@@ -23,6 +25,7 @@ const AddClient = ({ refetch, setClients }) => {
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
+          console.log(imgData.data.url);
           const client = {
             name: data.name,
             email: data.email,
@@ -35,10 +38,11 @@ const AddClient = ({ refetch, setClients }) => {
             birthday: moment(new Date(data.birthday)).format("Do MMMM, YYYY"),
             img: imgData.data.url,
           };
+          console.log(client, "this is client data");
 
           // save clients information to the database
-          fetch("https://perform-tracker-server.vercel.app/clients", {
-            method: "POST",
+          fetch(`https://perform-tracker-server.vercel.app/clients/${_id}`, {
+            method: "PATCH",
             headers: {
               "content-type": "application/json",
             },
@@ -46,9 +50,10 @@ const AddClient = ({ refetch, setClients }) => {
           })
             .then((res) => res.json())
             .then((result) => {
-              toast.success(`${data.name} is added successfully`);
+              console.log(result);
+              toast.success(`${data.name} is update successfully`);
               refetch();
-              setClients(null);
+              setEditingClient(null);
             });
         }
       })
@@ -59,20 +64,25 @@ const AddClient = ({ refetch, setClients }) => {
   return (
     <>
       <div className="">
-        <input type="checkbox" id="addClientModal" className="modal-toggle " />
+        <input
+          type="checkbox"
+          id="editPromotionModal"
+          className="modal-toggle "
+        />
         <div className="modal pt-24">
           <div className="modal-box relative ">
             <label
-              htmlFor="addClientModal"
+              htmlFor="editPromotionModal"
               className="btn btn-sm btn-circle absolute right-2  top-2"
             >
               ✕
             </label>
-            <form onSubmit={handleSubmit(handleAddClient)}>
+            <form onSubmit={handleSubmit(handleEditClient)}>
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-2">
                 <div>
                   <input
                     type="text"
+                    // disabled value={date}
                     placeholder="clientId"
                     className="input input-bordered my-2 w-full "
                     {...register("clientId", {
@@ -87,11 +97,13 @@ const AddClient = ({ refetch, setClients }) => {
                 </div>
                 <div>
                   <input
+                    name="company"
+                    defaultValue={company}
                     type="text"
-                    placeholder="Company Name"
+                    placeholder="Promotion From *"
                     className="input input-bordered my-2 w-full "
                     {...register("company", {
-                      required: "Company Name is required",
+                      required: "Company is required",
                     })}
                   />
                   {errors.company && (
@@ -103,11 +115,12 @@ const AddClient = ({ refetch, setClients }) => {
                 <div>
                   <input
                     name="name"
+                    defaultValue={name}
                     type="text"
-                    placeholder="Client Name"
+                    placeholder="Promotion For *"
                     className="input input-bordered my-2 w-full "
                     {...register("name", {
-                      required: "Client Name is required",
+                      required: "name is required",
                     })}
                   />
                   {errors.name && (
@@ -120,7 +133,7 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     name="email"
                     type="email"
-                    // defaultValue={user?.email}
+                    defaultValue={email}
                     placeholder="Email Address"
                     className="input input-bordered my-2 w-full "
                     {...register("email", {
@@ -137,6 +150,7 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     name="phone"
                     type="number"
+                    defaultValue={phone}
                     placeholder="Phone Number"
                     className="input input-bordered my-2 w-full "
                     {...register("phone", {
@@ -152,6 +166,7 @@ const AddClient = ({ refetch, setClients }) => {
                 <div>
                   <select
                     name="position"
+                    defaultValue={position}
                     className="select select-bordered my-2 w-full "
                     {...register("position", {
                       required: "Your position is required",
@@ -173,7 +188,6 @@ const AddClient = ({ refetch, setClients }) => {
                 <div>
                   <select
                     name="gender"
-                    placeholder="gender"
                     className="select select-bordered my-2 w-full "
                     {...register("gender", {
                       required: "Your Name is required",
@@ -196,6 +210,7 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     name="birthday"
                     type="date"
+                    defaultValue={birthday}
                     placeholder="Your Birthday"
                     className="input input-bordered my-2 w-full "
                     {...register("birthday", {
@@ -212,6 +227,7 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     name="address"
                     type="text"
+                    defaultValue={address}
                     placeholder="Your address"
                     className="input input-bordered my-2 w-full "
                     {...register("address", {
@@ -254,4 +270,4 @@ const AddClient = ({ refetch, setClients }) => {
   );
 };
 
-export default AddClient;
+export default EditClientModal;

@@ -21,7 +21,7 @@ const AddTaskDetails = ({ task, refetch }) => {
       toast.success("Task is Completed");
     }
 
-    fetch(`http://localhost:5000/task/${task._id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/task/${task._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const AddTaskDetails = ({ task, refetch }) => {
       .then((data) => {
         if (data.deletedCount > 0) {
           refetch();
-          toast.success(`Doctor ${task.title} deleted successfully`);
+          toast.success(`Task ${task.title} deleted successfully`);
         }
       });
   };

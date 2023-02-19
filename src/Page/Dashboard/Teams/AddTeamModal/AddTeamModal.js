@@ -47,7 +47,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
     setHidden("");
     setEmployees([]);
     if (e.target.value) {
-      fetch(`http://localhost:5000/employee?name=${e.target.value}`)
+      fetch(`https://perform-tracker-server.vercel.app/employee?name=${e.target.value}`)
         .then(res => res.json())
         .then(result => {
           setLoadingFunc(false);
@@ -124,7 +124,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
                   className="flex-1 rounded-lg border-0 outline-none p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Members"
                   type="text"
-                  onKeyUp={(e) => searchEmployee(e,setMembersLoading, setMembersEmployees)}
+                  onKeyUp={(e) => searchEmployee(e, setMembersLoading, setMembersEmployees)}
                 />
               </div>
               <EmployeeList

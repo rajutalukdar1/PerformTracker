@@ -10,17 +10,17 @@ const Project = ({ project, setProjectData, refetch }) => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/project-tasks/${_id}`)
-    .then(res => res.json())
-    .then(data => {
-      setTasks(data)
-    })
+    fetch(`https://perform-tracker-server.vercel.app/project-tasks/${_id}`)
+      .then(res => res.json())
+      .then(data => {
+        setTasks(data)
+      })
   }, [_id])
 
   const tasksCompleted = tasks?.filter(task => task.status === 'completed').length
 
   const handleProjectDelete = (id) => {
-    fetch(`http://localhost:5000/projects/${id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/projects/${id}`, {
       method: "DELETE"
     })
       .then(res => res.json())
