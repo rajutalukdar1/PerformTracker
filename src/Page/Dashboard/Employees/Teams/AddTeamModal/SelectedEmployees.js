@@ -7,7 +7,9 @@ const SelectedEmployees = ({selectedEmployees}) => {
       {
         selectedEmployees.map(employee => <div className="badge badge-info gap-2">
           <span>{employee.name}</span>
-          <FaTimes />
+          <FaTimes
+            // onClick={}
+          />
         </div>)
       }
     </div>

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react'
-import QueryBar from '../../../Share/QueryBar/QueryBar'
+import QueryBar from '../../../../Share/QueryBar/QueryBar'
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
-import EmployeeList from "./EmployeeList";
+import AddEmployeesInput from "./AddEmployeesInput";
+// import EmployeeList from "./EmployeeList";
 import SelectedEmployees from "./SelectedEmployees";
 
 const AddTeamModal = ({ setShown, refetch }) => {
   const [leadersEmployees, setLeadersEmployees] = useState([]);
-  const [MembersEmployees, setMembersEmployees] = useState([]);
+  const [membersEmployees, setMembersEmployees] = useState([]);
   const [leaders, setLeaders] = useState([]);
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -42,29 +43,14 @@ const AddTeamModal = ({ setShown, refetch }) => {
       .catch(err => console.error(err))
   }
 
-  const searchEmployee = (e, setLoadingFunc, setEmployees) => {
-    setLoadingFunc(true);
-    setHidden("");
-    setEmployees([]);
-    if (e.target.value) {
-      fetch(`http://localhost:5000/employee?name=${e.target.value}`)
-        .then(res => res.json())
-        .then(result => {
-          setLoadingFunc(false);
-          setEmployees(result);
-        })
-        .catch(err => console.error(err))
-    } else {
-      setHidden("hidden");
-    }
-  }
-
-  const handleTeam = ({ uid, name }, setFunc) => {
-    setFunc(prevState => [
-      ...prevState,
-      { uid, name }
+  const handleTeam = (data, setFunc) => {
+    console.log("I am on");
+    setMembersEmployees([
+      ...membersEmployees,
+      data
     ]);
   }
+  console.log(membersEmployees);
 
   return (
     <div>
@@ -90,7 +76,12 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 type="text"
               />
             </div>
-            <div className="relative">
+            <AddEmployeesInput
+              handleTeam={handleTeam}
+              membersEmployees={membersEmployees}
+              setStateFunc={setMembersEmployees}
+            />
+            {/* <div className="relative">
               <div className="flex flex-wrap bg-gray-900  rounded-lg border-gray-200">
                 {
                   leaders.length > 0 && <SelectedEmployees
@@ -103,6 +94,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
                   placeholder="Leader"
                   type="text"
                   onKeyUp={(e) => searchEmployee(e, setLoading, setLeadersEmployees)}
+                  onBlur={() => setHidden("hidden")}
                 />
               </div>
               <EmployeeList
@@ -111,8 +103,8 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 employees={leadersEmployees} handleEmployee={handleTeam}
                 setStateFunc={setLeaders}
               />
-            </div>
-            <div className="relative">
+            </div> */}
+            {/* <div className="relative">
               <div className="flex flex-wrap bg-gray-900  rounded-lg border-gray-200">
                 {
                   members.length > 0 && <SelectedEmployees
@@ -125,6 +117,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
                   placeholder="Members"
                   type="text"
                   onKeyUp={(e) => searchEmployee(e,setMembersLoading, setMembersEmployees)}
+                  onBlur={() => setHidden("hidden")}
                 />
               </div>
               <EmployeeList
@@ -133,7 +126,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 employees={MembersEmployees} handleEmployee={handleTeam}
                 setStateFunc={setMembers}
               />
-            </div>
+            </div> */}
             <div className="modal-action justify-center">
               <button className="px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold" type="submit">Add Team</button>
             </div>

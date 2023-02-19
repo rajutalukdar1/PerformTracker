@@ -2,13 +2,13 @@ import React from 'react'
 
 const EmployeeList = ({hidden, loading, employees, handleEmployee, setStateFunc}) => {
   return (
-    <div className={`w-full absolute bottom-12 max-h-[120px] bg-[#000] rounded-lg overflow-y-auto ${hidden}`}>
+    <div className={`w-full absolute -top-[124px] h-[120px] bg-[#000] rounded-lg overflow-y-auto ${hidden}`}>
       <ul className="menu mx-2 my-1">
         {
-          !loading ? employees.map(employee => <li
+          !loading ? employees.length > 0 ? employees.map(employee => <li
             key={employee._id}
             className="flex-row items-center gap-2 my-1 py-1 px-2 bg-gray-900 hover:bg-slate-700 rounded-md"
-            onClick={() => handleEmployee({ uid: employee.uid, name: employee.name }, setStateFunc)}
+            onClick={() => handleEmployee({ uid: employee._id, name: employee.name }, setStateFunc)}
           >
             <div className="p-0">
               <div className="avatar">
@@ -18,7 +18,7 @@ const EmployeeList = ({hidden, loading, employees, handleEmployee, setStateFunc}
               </div>
             </div>
             <span className="p-0">{employee.name}</span>
-          </li>) : <p>Loading...</p>
+          </li>) : <p>Nothing Found</p> : <p>Loading...</p>
         }
       </ul>
     </div>
