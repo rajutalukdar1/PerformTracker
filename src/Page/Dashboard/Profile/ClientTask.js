@@ -7,7 +7,7 @@ const ClientTask = () => {
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/projects')
+        fetch('https://perform-tracker-server.vercel.app/projects')
             .then(res => res.json())
             .then(data => setTasks(data))
     }, []);

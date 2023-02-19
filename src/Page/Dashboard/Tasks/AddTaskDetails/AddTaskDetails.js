@@ -21,7 +21,7 @@ const AddTaskDetails = ({ task, refetch }) => {
       toast.success("Task is Completed");
     }
 
-    fetch(`http://localhost:5000/task/${task._id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/task/${task._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

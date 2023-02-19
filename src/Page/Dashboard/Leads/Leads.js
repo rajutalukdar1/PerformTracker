@@ -7,7 +7,7 @@ const Leads = () => {
     const [leads, setLeads] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/projects')
+        fetch('https://perform-tracker-server.vercel.app/projects')
             .then(res => res.json())
             .then(data => setLeads(data))
     }, []);
