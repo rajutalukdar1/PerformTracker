@@ -5,20 +5,47 @@ import AddEmployeesInput from "./AddEmployeesInput";
 const AddTeamModal = ({ setShown, refetch }) => {
   const [leaders, setLeaders] = useState([]);
   const [members, setMembers] = useState([]);
+  const [errors, setErrors] = useState([]);
+
+  const handleSetError = (data) => {
+    const errorFor = Object.keys(data)[0];
+
+    if ((typeof data[errorFor] !== "object" && !data[errorFor]) || ((errorFor === "leaders" && data[errorFor].length < 1) || (errorFor === "members" && data[errorFor].length < 2))) {
+      setErrors(prevErrors => {
+        if (!!prevErrors.find(err => err.for === errorFor)) {
+          return prevErrors;
+        }else{
+          return [
+            ...prevErrors,
+            {
+              for: errorFor,
+              value: data.errorMsg
+            }
+          ];
+        }
+      })
+    }else{
+      setErrors(prevErrors => prevErrors.filter(err => err.for !== errorFor))
+    }
+  }
 
   const handleAddTeam = (e) => {
     e.preventDefault()
     const name = e.target.name.value
-    const progressed = Number(e.target.progressed.value) || 0
-    const cost = e.target.cost.value
-    const createdby = e.target.createdby.value
-    const status = e.target.status.value || "pending"
-    const created = e.target.created.value
-    const deadline = e.target.deadline.value
-    const details = e.target.details.value
+    const teamId = e.target.teamId.value
 
-    const team = { name, progressed, cost, createdby, status, created, deadline, details }
+    handleSetError({name, errorMsg: "Team name is required"});
+    handleSetError({teamId, errorMsg: "Team ID is required"});
+    handleSetError({leaders, errorMsg: "Choose one or two leader(s)"});
+    handleSetError({members, errorMsg: "Team ID is required"});
 
+    if (errors.length > 0) {
+      return;
+    }
+    
+    const team = { name, teamId, leaders, members }
+    console.log(team);
+    return;
     fetch(`https://perform-tracker-server.vercel.app/teams`, {
       method: 'POST',
       headers: {
@@ -28,13 +55,15 @@ const AddTeamModal = ({ setShown, refetch }) => {
     })
       .then(res => res.json())
       .then(result => {
-        toast.success('Team is successfully added!')
-        refetch()
-        e.target.reset()
-        setShown(false);
+        // toast.success('Team is successfully added!')
+        // refetch()
+        // e.target.reset()
+        // setShown(false);
       })
       .catch(err => console.error(err))
   }
+
+  console.log(errors)
 
   const handleTeam = (data, setFunc) => {
     setFunc(prevState => [
@@ -58,6 +87,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 type="text"
                 id="name"
               />
+              {errors.map(err => err.for === "name" && <p className="text-error">{errors.value}</p>)}
             </div>
             <div>
               <input
@@ -72,6 +102,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
               employeeType="Leaders"
               handleTeam={handleTeam}
               users={leaders}
+              otherUsers={members}
               setStateFunc={setLeaders}
             />
             {/* Team Members */}
@@ -79,6 +110,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
               employeeType="Members"
               handleTeam={handleTeam}
               users={members}
+              otherUsers={leaders}
               setStateFunc={setMembers}
             />
             <div className="modal-action justify-center">
