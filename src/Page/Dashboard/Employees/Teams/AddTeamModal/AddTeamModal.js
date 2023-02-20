@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import AddEmployeesInput from "./AddEmployeesInput";
-// import EmployeeList from "./EmployeeList";
-import SelectedEmployees from "./SelectedEmployees";
 
 const AddTeamModal = ({ setShown, refetch }) => {
   const [leaders, setLeaders] = useState([]);

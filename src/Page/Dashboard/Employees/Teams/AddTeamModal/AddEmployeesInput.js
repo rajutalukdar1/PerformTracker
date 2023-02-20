@@ -45,6 +45,7 @@ const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users }) =>
         {
           users.length > 0 && <SelectedEmployees
             selectedEmployees={users}
+            setStateFunc={setStateFunc}
           />
         }
         <input
@@ -64,6 +65,7 @@ const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users }) =>
           setStateFunc={setStateFunc}
           handleEmployee={handleTeam}
           selectRef={selectRef}
+          inputRef={inputRef}
         />
       </div>
   )
