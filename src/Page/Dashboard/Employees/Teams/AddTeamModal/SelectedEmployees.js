@@ -5,7 +5,7 @@ const SelectedEmployees = ({selectedEmployees}) => {
   return (
     <div className="flex flex-wrap gap-1 px-1 py-2 items-center">
       {
-        selectedEmployees.map(employee => <div className="badge badge-info gap-2">
+        selectedEmployees.map((employee, i) => <div key={i} className="badge badge-info gap-2">
           <span>{employee.name}</span>
           <FaTimes
             // onClick={}

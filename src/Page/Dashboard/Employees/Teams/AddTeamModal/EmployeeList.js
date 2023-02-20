@@ -1,14 +1,18 @@
 import React from 'react'
 
-const EmployeeList = ({hidden, loading, employees, handleEmployee, setStateFunc}) => {
+const EmployeeList = ({hidden, loading, employees, setEmployees, handleEmployee, setStateFunc, selectRef}) => {
+  
   return (
-    <div className={`w-full absolute -top-[124px] h-[120px] bg-[#000] rounded-lg overflow-y-auto ${hidden}`}>
+    <div ref={selectRef} className={`w-full absolute -top-[124px] h-[120px] bg-[#000] rounded-lg overflow-y-auto ${hidden}`}>
       <ul className="menu mx-2 my-1">
         {
           !loading ? employees.length > 0 ? employees.map(employee => <li
             key={employee._id}
             className="flex-row items-center gap-2 my-1 py-1 px-2 bg-gray-900 hover:bg-slate-700 rounded-md"
-            onClick={() => handleEmployee({ uid: employee._id, name: employee.name }, setStateFunc)}
+            onClick={() => {
+              setEmployees(prevState => prevState.filter(prevEmployee => prevEmployee._id !== employee._id))
+              handleEmployee({ uid: employee._id, name: employee.name }, setStateFunc, )
+            }}
           >
             <div className="p-0">
               <div className="avatar">

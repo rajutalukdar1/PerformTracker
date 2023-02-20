@@ -10,7 +10,7 @@ import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
 const EmployeeProfile = () => {
   const [promotion, setPromotion] = useState({});
   const { id } = useParams();
-  const { data: { name, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
+  const { data: { name, designation, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
     queryKey: ['employee', id],
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`).then(res => res.json()),
@@ -22,9 +22,7 @@ const EmployeeProfile = () => {
           <div className="card w-full bg-[#16191C] rounded-b-none rounded-t-md
              border-[#BBC4CC] border-b-2">
             <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
-              <div className='flex text-white gap-4 pb-5 md:pb-0
-                        border-b-2 md:border-b-0 md:border-r-2
-                        border-[#BBC4CC] border-dashed'>
+              <div className='flex text-white gap-4 pb-5 md:pb-0 border-b-2 md:border-b-0 md:border-r-2 border-[#BBC4CC] border-dashed'>
                 <div>
                   <div className="avatar">
                     <div className="w-24 rounded-full">
@@ -37,13 +35,7 @@ const EmployeeProfile = () => {
                   <p className='font-bold'>{name}</p>
                   <p className='text-sm font-semibold mb-2'>{position}</p>
                   <p className='text-sm font-semibold'>Employee ID : {employee_id}</p>
-                  <a
-                    className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2
-                                text-sm font-medium text-white transition hover:scale-110
-                                hover:shadow-xl focus:outline-none
-                                focus:ring active:bg-[#FD7265]"
-                    href=' '
-                  >
+                  <a className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" href='' >
                     Send Message
                   </a>
                 </div>

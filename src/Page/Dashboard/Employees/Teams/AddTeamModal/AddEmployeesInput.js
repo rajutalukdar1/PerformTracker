@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import EmployeeList from './EmployeeList';
 import SelectedEmployees from './SelectedEmployees';
 
-const AddEmployeesInput = ({ handleTeam, setStateFunc, membersEmployees }) => {
+const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users }) => {
   const [hidden, setHidden] = useState("hidden");
   const [loading, setLoading] = useState(false);
   const [employees, setEmployees] = useState([]);
+  const inputRef = useRef(null)
+  const selectRef = useRef(null)
 
   const searchEmployee = (e) => {
     setLoading(true);
@@ -16,8 +18,7 @@ const AddEmployeesInput = ({ handleTeam, setStateFunc, membersEmployees }) => {
         .then(res => res.json())
         .then(result => {
           setLoading(false);
-          console.log("m", result.filter(employee => !membersEmployees.every(member => member.uid === employee._id)))
-          setEmployees(result);
+          setEmployees(result.filter(employee => users.every(member => member.uid !== employee._id)));
         })
         .catch(err => console.error(err))
     } else {
@@ -25,27 +26,44 @@ const AddEmployeesInput = ({ handleTeam, setStateFunc, membersEmployees }) => {
     }
   }
 
+  const handleListShow = e => {
+    if(e.relatedTarget){
+      setHidden("hidden");
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("click", (e) => {
+      if ((inputRef.current && !inputRef.current.contains(e.target)) && (selectRef.current && !selectRef.current.contains(e.target))) {
+        setHidden("hidden");
+      }
+    })
+  }, [])
+
   return (
       <div className="flex flex-wrap bg-gray-900  rounded-lg border-gray-200 relative">
         {
-          employees.length > 0 && <SelectedEmployees
-            selectedEmployees={membersEmployees}
+          users.length > 0 && <SelectedEmployees
+            selectedEmployees={users}
           />
         }
         <input
-          name="leader"
+          name={employeeType.toLowerCase()}
           className="flex-1 rounded-lg border-0 outline-none p-3 text-sm bg-gray-900 placeholder:text-gray-600"
-          placeholder="Leader"
+          placeholder={employeeType}
           type="text"
           onKeyUp={searchEmployee}
-        // onBlur={() => setHidden("hidden")}
+          onBlur={handleListShow}
+          ref={inputRef}
         />
         <EmployeeList
           hidden={hidden}
           loading={loading}
           employees={employees}
+          setEmployees={setEmployees}
           setStateFunc={setStateFunc}
           handleEmployee={handleTeam}
+          selectRef={selectRef}
         />
       </div>
   )
