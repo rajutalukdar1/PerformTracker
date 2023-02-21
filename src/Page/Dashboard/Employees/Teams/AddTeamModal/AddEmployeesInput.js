@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import EmployeeList from './EmployeeList';
 import SelectedEmployees from './SelectedEmployees';
 
-const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users, otherUsers }) => {
+const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users, otherUsers, handleSetError }) => {
   const [hidden, setHidden] = useState("hidden");
   const [disabled, setDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -33,6 +33,10 @@ const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users, othe
   }
 
   const handleListShow = e => {
+    const err = employeeType === "Leaders" ? {leaders: e.target.value, errorMsg: "Choose one or two leader(s)"} : {teamId: e.target.value, errorMsg: "Select at least two members"};
+
+    handleSetError(err);
+
     if (e.relatedTarget) {
       setHidden("hidden");
     }
@@ -55,7 +59,7 @@ const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users, othe
   }, [employeeType, users]);
 
   return (
-    <div className="flex flex-wrap bg-gray-900  rounded-lg border-gray-200 relative">
+    <div className="flex flex-wrap bg-gray-900 rounded-lg border-gray-200 relative">
       {
         users.length > 0 && <SelectedEmployees
           selectedEmployees={users}

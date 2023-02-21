@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import AddEmployeesInput from "./AddEmployeesInput";
+import ShowError from "./ShowError";
 
 const AddTeamModal = ({ setShown, refetch }) => {
   const [leaders, setLeaders] = useState([]);
@@ -34,19 +35,32 @@ const AddTeamModal = ({ setShown, refetch }) => {
     const name = e.target.name.value
     const teamId = e.target.teamId.value
 
-    handleSetError({name, errorMsg: "Team name is required"});
-    handleSetError({teamId, errorMsg: "Team ID is required"});
-    handleSetError({leaders, errorMsg: "Choose one or two leader(s)"});
-    handleSetError({members, errorMsg: "Team ID is required"});
+    if (errors.length > 0 || !name || !teamId || leaders.length < 1 || members.length < 2) {
+      
+    if (!name) {
+      handleSetError({name, errorMsg: "Team name is required"});
+    }
 
-    if (errors.length > 0) {
+    if (!teamId) {
+      handleSetError({teamId, errorMsg: "Team ID is required"});
+    }
+
+    if (leaders.length < 1) {
+      handleSetError({leaders, errorMsg: "Choose one or two leader(s)"});
+    }
+
+    if (members.length < 2) {
+      handleSetError({members, errorMsg: "Select at least two members"});
+    }
       return;
     }
+
     
     const team = { name, teamId, leaders, members }
     console.log(team);
     return;
-    fetch(`https://perform-tracker-server.vercel.app/teams`, {
+
+    fetch(`https://localhost:5000/teams`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -62,8 +76,6 @@ const AddTeamModal = ({ setShown, refetch }) => {
       })
       .catch(err => console.error(err))
   }
-
-  console.log(errors)
 
   const handleTeam = (data, setFunc) => {
     setFunc(prevState => [
@@ -86,8 +98,9 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 placeholder="Team Name"
                 type="text"
                 id="name"
+                onBlur={(e) => handleSetError({name: e.target.value, errorMsg: "Team name is required"})}
               />
-              {errors.map(err => err.for === "name" && <p className="text-error">{errors.value}</p>)}
+              <ShowError errors={errors} errFor="name" />
             </div>
             <div>
               <input
@@ -95,7 +108,9 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Team ID"
                 type="text"
+                onBlur={(e) => handleSetError({teamId: e.target.value, errorMsg: "Team ID is required"})}
               />
+              <ShowError errors={errors} errFor="teamId" />
             </div>
             {/* Team Leaders */}
             <AddEmployeesInput
@@ -104,7 +119,9 @@ const AddTeamModal = ({ setShown, refetch }) => {
               users={leaders}
               otherUsers={members}
               setStateFunc={setLeaders}
+              handleSetError={handleSetError}
             />
+            <ShowError errors={errors} errFor="leaders" />
             {/* Team Members */}
             <AddEmployeesInput
               employeeType="Members"
@@ -112,7 +129,9 @@ const AddTeamModal = ({ setShown, refetch }) => {
               users={members}
               otherUsers={leaders}
               setStateFunc={setMembers}
+              handleSetError={handleSetError}
             />
+            <ShowError errors={errors} errFor="members" />
             <div className="modal-action justify-center">
               <button className="px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold" type="submit">Add Team</button>
             </div>
