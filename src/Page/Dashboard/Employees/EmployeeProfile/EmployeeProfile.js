@@ -3,9 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
+import { useSelector } from 'react-redux';
 
 
 const EmployeeProfile = () => {
+  const { user } = useSelector(state => state.userReducer);
   const [promotion, setPromotion] = useState({});
   const { id } = useParams();
   const { data: { name, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
@@ -83,6 +85,7 @@ const EmployeeProfile = () => {
             </label>
           </div>
         </div>
+
       </div>
       {promotion && <AddPromotion
         refetch={refetch}

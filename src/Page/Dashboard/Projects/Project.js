@@ -29,7 +29,6 @@ const Project = ({ project, setProjectData, refetch }) => {
         toast.success('Project is deleted successfully!')
       })
   }
-
   return (
     <div className="card light:bg-slate-200 bg-[#16191C] text-white rounded-sm">
       <div className="card-body block py-6 px-4 relative">
