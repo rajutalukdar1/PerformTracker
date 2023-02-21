@@ -187,7 +187,7 @@ const router = createBrowserRouter([
     element: <TaskLayout></TaskLayout>,
     children: [
       {
-        path: "/dashboard/tasks",
+        path: "/dashboard/tasks/all-tasks",
         element: <AllTasks></AllTasks>
       },
       {

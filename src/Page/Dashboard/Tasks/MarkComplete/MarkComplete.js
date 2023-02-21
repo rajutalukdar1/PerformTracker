@@ -1,44 +1,18 @@
 import React from "react";
 import {
-  FaCheck,
-  FaEllipsisV,
-  FaRegSun,
   FaRegTimesCircle,
   FaRocketchat,
-  FaTelegramPlane,
+  FaTelegramPlane
 } from "react-icons/fa";
 import {
   HiCalendar,
-  HiOutlineBars3BottomLeft,
-  IconName,
+  HiOutlineBars3BottomLeft
 } from "react-icons/hi2";
 import "./MarkComplet.css";
 
 const MarkComplete = () => {
   return (
-    <div className="h-screen">
-      <div className="stop w-full shadow-lg bg-gray-900 pt-4 py-2  flex justify-between border-b-2 fixed border-gray-700 ">
-        <button className=" shadow-xl bg-gray-900 px-2 py-1 ml-2 border border-gray-700 rounded-md flex justify-center items-center gap-2">
-          <FaCheck></FaCheck> Mark Complete{" "}
-        </button>
-        <div className="dropdown dropdown-end ">
-          <label tabIndex={0}>
-            <FaEllipsisV className="px-2 py-1 mr-2 border rounded-lg text-4xl cursor-pointer text-slate-400"></FaEllipsisV>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content  p-2 shadow bg-gray-900 rounded-box w-52  fixed"
-          >
-            <li>
-              <a>Delete</a>
-            </li>
-            <li>
-              <a>Edit</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {/* main */}
+    <div className="w-full border-l-2 border-gray-700 pr-2">
       <div className="">
       <div className="pl-2 py-2">
         <h2 className="text-lg font-bold text-slate-200 ">

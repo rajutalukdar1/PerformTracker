@@ -89,8 +89,8 @@ const DashboardLayout = () => {
                                             title: "Projects"
                                         },
                                         {
-                                            to: "/dashboard/tasks",
-                                            title: "Task"
+                                            to: "/dashboard/tasks/all-tasks",
+                                            title: "Tasks"
                                         },
                                     ]}
                                 />
@@ -163,16 +163,6 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
-                                {/* <DashboardSideItems
-                                    icon={<FaUserSecret className='text-2xl mt-2' />}
-                                    title='Leads'
-                                    subMenus={[
-                                        {
-                                            to: "/dashboard/leads",
-                                            title: "Projects Leads"
-                                        }
-                                    ]}
-                                /> */}
                                 <DashboardSideItems
                                     icon={<MdModelTraining className='text-2xl' />}
                                     title='Training'
