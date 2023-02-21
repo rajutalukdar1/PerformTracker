@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { FaUserPlus } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
 
 const AllTasks = ({ task }) => {
 

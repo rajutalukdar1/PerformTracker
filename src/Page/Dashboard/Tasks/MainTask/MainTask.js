@@ -1,9 +1,13 @@
 import React from 'react';
+import useTitle from '../../../../hooks/useTitle';
 import AddTask from '../AddTask/AddTask';
 import MarkComplete from '../MarkComplete/MarkComplete';
 
 
 const MainTask = () => {
+
+    useTitle('All Task');
+
     return (
         <div className='stop grid lg:grid-cols-2  '>
             <div className='stop'>

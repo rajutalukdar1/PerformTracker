@@ -1,14 +1,28 @@
+import { useQuery } from '@tanstack/react-query';
+import { prettyFormat } from '@testing-library/react';
 import React from 'react';
 import { FaEdit } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 import EmployeeProfileInfo from './EmployeeProfileInfo';
 
 const PersonalInfo = () => {
+
+    const { user } = useSelector(state => state.userReducer);
+
+    const { data: Employees = [], refetch } = useQuery({
+        queryKey: ['employees', user?.email],
+        queryFn: () =>
+            fetch(`https://perform-tracker-server.vercel.app/employee?email=${user?.email}`).then(res => res.json()),
+    });
+
+    const { profile } = Employees;
+
     return (
         <div className='grid lg:grid-cols-2 md:grid-cols-1 gap-6 mt-6'>
             <div className='w-full max-h-128 bg-[#16191C] text-white p-5 rounded-md'>
                 <div className='flex justify-between'>
                     <div>
-                        <p className='text-xl font-semibold mb-4'>Personal information's</p>
+                        <p className='text-xl font-semibold mb-4'>Personal Information's</p>
                     </div>
                     <div>
                         <button>
@@ -20,35 +34,31 @@ const PersonalInfo = () => {
                 md:grid-cols-[16rem_1fr] grid-cols-[8rem_1fr]'>
                     <EmployeeProfileInfo
                         lab='Passport No.'
-                        val='9876543210'
-                    />
-                    <EmployeeProfileInfo
-                        lab='Passport No.'
-                        val='9876543210'
+                        val={profile?.personal_info?.passport_no}
                     />
                     <EmployeeProfileInfo
                         lab='Tel'
-                        val='9876543210'
+                        val={profile?.personal_info?.tel}
                     />
                     <EmployeeProfileInfo
                         lab='Nationality'
-                        val='Bangladeshi'
+                        val={profile?.personal_info?.nationality}
                     />
                     <EmployeeProfileInfo
                         lab='Religion'
-                        val='Islam'
+                        val={profile?.personal_info?.religion}
                     />
                     <EmployeeProfileInfo
                         lab='Marital status'
-                        val='Unmarried'
+                        val={profile?.personal_info?.marital_status}
                     />
                     <EmployeeProfileInfo
                         lab='Employment of spouse'
-                        val='No'
+                        val={profile?.personal_info?.employment_of_spouse}
                     />
                     <EmployeeProfileInfo
                         lab='No. of children'
-                        val='2'
+                        val={profile?.personal_info?.no_of_children}
                     />
                 </div>
             </div>
@@ -68,15 +78,15 @@ const PersonalInfo = () => {
                 md:grid-cols-[16rem_1fr] grid-cols-[8rem_1fr]'>
                     <EmployeeProfileInfo
                         lab='Primary'
-                        val='John Doe'
+                        val={profile?.emergency_contact?.primary}
                     />
                     <EmployeeProfileInfo
                         lab='Relationship'
-                        val='Father'
+                        val={profile?.emergency_contact?.relationship}
                     />
                     <EmployeeProfileInfo
                         lab='Phone'
-                        val='9876543210, 9876543210'
+                        val={profile?.emergency_contact?.phone}
                     />
                 </div>
                 <hr className='w-full mt-2 mb-2' />
@@ -84,15 +94,15 @@ const PersonalInfo = () => {
                 md:grid-cols-[16rem_1fr] grid-cols-[8rem_1fr]'>
                     <EmployeeProfileInfo
                         lab='Secondary'
-                        val='Karen Wills'
+                        val={profile?.emergency_contact?.secondary}
                     />
                     <EmployeeProfileInfo
                         lab='Relationship'
-                        val='Brother'
+                        val={profile?.emergency_contact?.relationship}
                     />
                     <EmployeeProfileInfo
                         lab='Phone'
-                        val='9876543210, 9876543210'
+                        val={profile?.emergency_contact?.phone}
                     />
                 </div>
             </div>
@@ -107,15 +117,15 @@ const PersonalInfo = () => {
                 md:grid-cols-[16rem_1fr] grid-cols-[8rem_1fr]'>
                     <EmployeeProfileInfo
                         lab='Bank name'
-                        val='John ICICI Bank'
+                        val={profile?.bank_information?.bank_name}
                     />
                     <EmployeeProfileInfo
                         lab='Bank account No.'
-                        val='159843014641'
+                        val={profile?.bank_information?.bank_account_no}
                     />
                     <EmployeeProfileInfo
                         lab='Phone'
-                        val='9876543210, 9876543210'
+                        val={profile?.emergency_contact?.phone}
                     />
                 </div>
 
@@ -150,17 +160,17 @@ const PersonalInfo = () => {
                 <div className='text-[#BBC4CC]'>
                     <div>
                         <p className='text-[#616156] font-bold'>
-                            International College of Arts and Science (UG)
+                            {profile?.education_information?.ug}
                         </p>
                         <p>Bsc Computer Science</p>
-                        <p className='text-xs'>2000 - 2003</p>
+                        <p className='text-xs'>{profile?.education_information?.ug_year}</p>
                     </div>
                     <div className='mt-4'>
                         <p className='text-[#616156] font-bold'>
-                            International College of Arts and Science (PG)
+                            {profile?.education_information?.pg}
                         </p>
                         <p>Msc Computer Science</p>
-                        <p className='text-xs'>2000 - 2003</p>
+                        <p className='text-xs'>{profile?.education_information?.pg_year}</p>
                     </div>
                 </div>
             </div>
@@ -179,21 +189,21 @@ const PersonalInfo = () => {
                 <div className='text-[#BBC4CC]'>
                     <div>
                         <p className='text-[#616156] font-bold'>
-                            Web Designer at Zen Corporation
+                            {profile?.experience?.experience_1}
                         </p>
-                        <p className='text-xs'>Jan 2013 - Present (5 years 2 months)</p>
+                        <p className='text-xs'>{profile?.experience?.experience_1_join}</p>
                     </div>
                     <div className='mt-4'>
                         <p className='text-[#616156] font-bold'>
-                            Web Designer at Ron-tech
+                            {profile?.experience?.experience_2}
                         </p>
-                        <p className='text-xs'>Jan 2013 - Present (5 years 2 months)</p>
+                        <p className='text-xs'>{profile?.experience?.experience_2_join}</p>
                     </div>
                     <div className='mt-4'>
                         <p className='text-[#616156] font-bold'>
-                            Web Designer at Dalt Technology
+                            {profile?.experience?.experience_3}
                         </p>
-                        <p className='text-xs'>Jan 2013 - Present (5 years 2 months)</p>
+                        <p className='text-xs'>{profile?.experience?.experience_3_join}</p>
                     </div>
                 </div>
             </div>

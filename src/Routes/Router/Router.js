@@ -32,6 +32,8 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import DashboardClients from "../../Page/DashboardClients/DashboardClients";
 import MainTask from "../../Page/Dashboard/Tasks/MainTask/MainTask";
 import AllTasks from "../../Page/Dashboard/Tasks/AllTasks/AllTasks";
+import AllTeams from "../../Page/Dashboard/Employees/Teams/AllTeams/AllTeams";
+import MyTeams from "../../Page/Dashboard/MyTeams/MyTeams";
 
 const router = createBrowserRouter([
   {
@@ -125,6 +127,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/trainingtype",
         element: <TrainingType />
+      },
+      {
+        path: "/dashboard/all-teams",
+        element: <AllTeams />
+      },
+      {
+        path: "/dashboard/myTeam",
+        element: <MyTeams />
       },
       {
         path: "/dashboard/profile/employees",
