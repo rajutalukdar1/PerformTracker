@@ -33,7 +33,7 @@ const AddEmployeesInput = ({ employeeType, handleTeam, setStateFunc, users, othe
   }
 
   const handleListShow = e => {
-    const err = employeeType === "Leaders" ? {leaders: e.target.value, errorMsg: "Choose one or two leader(s)"} : {teamId: e.target.value, errorMsg: "Select at least two members"};
+    const err = employeeType === "Leaders" ? {leaders: users, errorMsg: "Choose one or two leader(s)"} : {members: users, errorMsg: "Select at least two members"};
 
     handleSetError(err);
 

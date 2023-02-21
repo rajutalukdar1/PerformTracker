@@ -57,10 +57,8 @@ const AddTeamModal = ({ setShown, refetch }) => {
 
     
     const team = { name, teamId, leaders, members }
-    console.log(team);
-    return;
 
-    fetch(`https://localhost:5000/teams`, {
+    fetch(`http://localhost:5000/teams`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -69,10 +67,12 @@ const AddTeamModal = ({ setShown, refetch }) => {
     })
       .then(res => res.json())
       .then(result => {
-        // toast.success('Team is successfully added!')
-        // refetch()
-        // e.target.reset()
-        // setShown(false);
+        toast.success('Team is successfully added!')
+        refetch();
+        e.target.reset()
+        setShown(false);
+        setMembers([]);
+        setLeaders([]);
       })
       .catch(err => console.error(err))
   }

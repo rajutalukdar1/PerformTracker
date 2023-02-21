@@ -82,7 +82,7 @@ const Project = ({ project, setProjectData, refetch }) => {
                   </Link>)}
                   <div className="w-10 h-10 rounded-full bg-red-400 flex items-center
                   justify-center text-white font-semibold cursor-pointer">
-                    <small>+{team.slice(3, team.length - 1).length}5</small>
+                    <small>+{team.slice(3, team.length - 1).length}</small>
                   </div>
                 </> :
                   team.map(t => <Link to={`/dashboard/employees/${t.uid}`} className="avatar">
