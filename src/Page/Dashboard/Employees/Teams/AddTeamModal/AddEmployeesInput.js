@@ -16,7 +16,7 @@ const AddEmployeesInput = ({ handleTeam, setStateFunc, membersEmployees }) => {
         .then(res => res.json())
         .then(result => {
           setLoading(false);
-          console.log("m", result.filter(employee => !membersEmployees.every(member => member.uid === employee._id)))
+          console.log("m", result.filter(employee => membersEmployees.every(member => member.uid !== employee._id)))
           setEmployees(result);
         })
         .catch(err => console.error(err))
