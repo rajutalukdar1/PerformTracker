@@ -18,6 +18,7 @@ const SignUp = () => {
   } = useForm();
   const [signUpError, setSignUpError] = useState("");
   const [uid, setUid] = useState(null);
+  const [savedUserByRole, setSavedUserByRole] = useState(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -73,6 +74,7 @@ const SignUp = () => {
         navigateTo(existUser.role);
       } else {
         setUid(loggedUser.uid);
+        setSavedUserByRole(loggedUser);
       }
     } else {
       saveUser({
@@ -95,9 +97,10 @@ const SignUp = () => {
       .then(res => res.json())
       .then(data => {
         if (!user.role) {
-          return setUid(user.uid);
+          setUid(user.uid);
+          return setSavedUserByRole(user);
         }
-        navigateTo(user.role);
+        saveUsersAsRole(user);
       })
       .catch(err => console.error(err));
   }
@@ -110,6 +113,22 @@ const SignUp = () => {
     } else {
       navigate('/dashboard');
     }
+  }
+
+  const saveUsersAsRole = (user) => {
+    fetch(`https://perform-tracker-server.vercel.app/${user.role.toLowerCase()}s`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("role saved");
+        navigateTo(user.role);
+      })
+      .catch(err => console.error(err));
   }
 
   return (
@@ -264,7 +283,8 @@ const SignUp = () => {
         <SelectRole
           uid={uid}
           setUid={setUid}
-          navigateTo={navigateTo}
+          saveUsersAsRole={saveUsersAsRole}
+          savedUserByRole={savedUserByRole}
         />
       }
     </div >
