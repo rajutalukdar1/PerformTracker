@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import QueryBar from '../../Share/QueryBar/QueryBar';
+import useTitle from '../../../hooks/useTitle';
 import Leaders from './Leaders';
 
 const Leads = () => {
+    useTitle('Leads');
 
     const [leads, setLeads] = useState([]);
 

@@ -4,9 +4,14 @@ import EmployeeProfileInfo from './EmployeeProfileInfo';
 import { Link, Outlet } from 'react-router-dom';
 import Loading from '../../Share/Loading/Loading';
 import { useSelector } from 'react-redux';
+import useTitle from '../../../hooks/useTitle';
 import { FaEdit } from 'react-icons/fa';
+import EditProfile from './EditProfile';
 
 const ClientProfile = () => {
+
+    useTitle('Client Profile');
+
     const { user, loading } = useSelector(state => state.userReducer);
     console.log(user);
 
@@ -35,9 +40,7 @@ const ClientProfile = () => {
                                 border-b-2 md:border-b-0 md:border-r-2
                                 border-[#BBC4CC] border-dashed'>
                                 <div>
-                                    <button>
-                                        <FaEdit />
-                                    </button>
+                                    <label htmlFor="my-modal-3" className="btn"><FaEdit /></label>
                                 </div>
                                 <div>
                                     <div className="avatar">
@@ -111,6 +114,7 @@ const ClientProfile = () => {
                     </Outlet>
                 </div>
             </div>
+            <EditProfile></EditProfile>
         </div>
     );
 };
