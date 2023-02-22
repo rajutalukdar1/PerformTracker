@@ -6,7 +6,7 @@ const Promotion = () => {
   const { data: user = [], refetch } = useQuery({
     queryKey: ["promotion"],
     queryFn: () =>
-      fetch(`http://localhost:5000/promotion`).then((res) => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/promotion`).then((res) => res.json()),
   });
   return (
     <div>

@@ -22,7 +22,7 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
     };
 
     // save promotion information to the database
-    fetch("http://localhost:5000/promotion", {
+    fetch("https://perform-tracker-server.vercel.app/promotion", {
       method: "POST",
       headers: {
         "content-type": "application/json",

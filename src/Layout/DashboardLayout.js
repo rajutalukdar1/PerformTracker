@@ -99,7 +99,7 @@ const DashboardLayout = () => {
                                     title='Profile'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/profile/employee",
+                                            to: "/dashboard/profile/employees",
                                             title: "Employee Profile"
                                         },
                                         {
@@ -264,6 +264,40 @@ const DashboardLayout = () => {
                                         {
                                             to: "/dashboard/profile/employees",
                                             title: "Employee Profile"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<HiOutlinePencilAlt className='text-2xl mt-2' />}
+                                    title='Attendance'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/profile/client",
+                                            title: "Today's Attendance"
+                                        },
+                                        {
+                                            to: "/dashboard/profile/client",
+                                            title: "All Attendance"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<AiOutlineUser className='text-2xl mt-2' />}
+                                    title='My Leaves'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/myTeam",
+                                            title: "My Leaves"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<AiOutlineUser className='text-2xl mt-2' />}
+                                    title='My Team'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/myTeam",
+                                            title: "My Team"
                                         },
                                     ]}
                                 />

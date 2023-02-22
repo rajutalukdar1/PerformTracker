@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query'
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
-import EmployeeInfo from './EmployeeInfo';
 import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
+import { useSelector } from 'react-redux';
 
 
 const EmployeeProfile = () => {
+  const { user } = useSelector(state => state.userReducer);
   const [promotion, setPromotion] = useState({});
   const { id } = useParams();
   const { data: { name, designation, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
@@ -96,6 +96,7 @@ const EmployeeProfile = () => {
 
           </Outlet>
         </div>
+
       </div>
       {promotion && <AddPromotion
         refetch={refetch}
