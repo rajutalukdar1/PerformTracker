@@ -14,7 +14,7 @@ import BankAndStatutory from "../../Page/Dashboard/Profile/BankAndStatutory";
 import ClientProfile from "../../Page/Dashboard/Profile/ClientProfile";
 import ClientTask from "../../Page/Dashboard/Profile/ClientTask";
 import EmployeesProfile from "../../Page/Dashboard/Profile/EmployeesProfile";
-import PersonalInfo from "../../Page/Dashboard/Profile/PersonalInfo";
+import PersonalInfo from "../../Page/Dashboard/Profile/PersonalInfo/PersonalInfo";
 import Projects from "../../Page/Dashboard/Profile/Projects";
 import AllProjects from "../../Page/Dashboard/Projects/AllProjects";
 import ProjectDetails from "../../Page/Dashboard/Projects/ProjectDetails/ProjectDetails";
@@ -32,6 +32,8 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import DashboardClients from "../../Page/DashboardClients/DashboardClients";
 import MainTask from "../../Page/Dashboard/Tasks/MainTask/MainTask";
 import AllTasks from "../../Page/Dashboard/Tasks/AllTasks/AllTasks";
+import AllTeams from "../../Page/Dashboard/Teams/AllTeams/AllTeams";
+import MyTeams from "../../Page/Dashboard/MyTeams/MyTeams";
 
 const router = createBrowserRouter([
   {
@@ -61,7 +63,7 @@ const router = createBrowserRouter([
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
       },
       {
@@ -125,6 +127,14 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/trainingtype",
         element: <TrainingType />
+      },
+      {
+        path: "/dashboard/all-teams",
+        element: <AllTeams />
+      },
+      {
+        path: "/dashboard/myTeam",
+        element: <MyTeams />
       },
       {
         path: "/dashboard/profile/employees",

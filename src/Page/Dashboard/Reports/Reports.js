@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import useTitle from '../../../Hooks/useTitle';
+import useTitle from '../../../hooks/useTitle';
 import EmployeesReports from './EmployeesReports';
 
 const Reports = () => {

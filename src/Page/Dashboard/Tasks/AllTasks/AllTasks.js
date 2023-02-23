@@ -1,15 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import useTitle from '../../../../Hooks/useTitle';
 
 const AllTasks = () => {
-
-  useTitle('Task');
-
   const { data: tasks = [], refetch } = useQuery({
     queryKey: ['tasks'],
     queryFn: () =>
-      fetch(`http://localhost:5000/tasks`).then(res => res.json()),
+      fetch(`https://perform-tracker-server.vercel.app/tasks`).then(res => res.json()),
   });
 
   return (

@@ -12,9 +12,9 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   const { data: currentUser = {} } = useQuery({
-    queryKey: ['currentUser', user?.uid],
-    queryFn: () =>
-      fetch(`https://perform-tracker-server.vercel.app/users?uid=${user?.uid}`).then(res => res.json()),
+      queryKey: ['currentUser', user?.uid],
+      queryFn: () =>
+          fetch(`https://perform-tracker-server.vercel.app/users?uid=${user?.uid}`).then(res => res.json()),
   });
 
   const goDashboard = currentUser.role === "Employee" ? "/" : currentUser?.role?.toLowerCase();

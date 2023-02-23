@@ -7,8 +7,8 @@ import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { createUser, providerLogin, updateUser } from "../../features/auths/AuthSlice";
 import { useDispatch } from "react-redux";
 import SelectRole from "../Share/SelectRole/SelectRole";
-import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
-import '../../Page/SignIn/SignIn.css'
+import SignUpAnimation from "../Others/Lottiefiles/LoginAnimation/SignUpAnimation";
+import "../SignUp/SignUp.css"
 
 const SignUp = () => {
   const {
@@ -117,10 +117,10 @@ const SignUp = () => {
       <div className="hero text-black mb-10">
         <div className="hero-content flex-col lg:flex-row lg:gap-36">
           <div className="hidden lg:block">
-            <LoginAnimation />
+            <SignUpAnimation />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black overflow-hidden">
-            <div className="card-title justify-center bg-info py-4 text-white">Create an account</div>
+            <div className="card-title justify-center bg-[#7166E2] py-4 text-white">Create an account</div>
             <form className="card-body" onSubmit={handleSubmit(handleSignUp)}>
               <div className="form-control">
                 <label className="label">
@@ -218,10 +218,10 @@ const SignUp = () => {
                 }
               </div >
               {signUpError && <p className='text-red-600'>{signUpError}</p>}
-              <input className="btn btn-hover color-9 text-white" value="SignUp" type="submit" />
+              <input className="btn btn-hover color-8" value="SignUp" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
-                <div className="flex glow-on-hover justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all">
                   <div className="w-6 sm:w-10 sm:h-10 ml-1">
                     <img src="https://i.ibb.co/7yz77Hj/google.png" alt="" />
                   </div>
@@ -232,7 +232,7 @@ const SignUp = () => {
                   </div>
                   <div className="mr-6"></div>
                 </div>
-                <div className="flex fa-on-hover justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
+                <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white border-2 hover:bg-warning rounded-badge cursor-pointer transition-all mt-2">
                   <div className="w-8 sm:w-12 sm:h-12">
                     <img src={facebook} alt="" />
                   </div>

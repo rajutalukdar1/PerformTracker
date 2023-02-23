@@ -14,7 +14,7 @@ const AddTask = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/project-tasks/${id}`)
+    fetch(`https://perform-tracker-server.vercel.app/project-tasks/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProjectTasks(data)
@@ -22,7 +22,7 @@ const AddTask = () => {
   }, [id]);
 
   const refetch = () => {
-    fetch(`http://localhost:5000/project-tasks/${id}`)
+    fetch(`https://perform-tracker-server.vercel.app/project-tasks/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProjectTasks(data);

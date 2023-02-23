@@ -8,7 +8,7 @@ import EditEmployeeDetails from "./EditEmployeeDetails";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { FaPencilAlt } from "react-icons/fa";
-import useTitle from "../../../../Hooks/useTitle";
+import useTitle from "../../../../hooks/useTitle";
 
 const AllEmployees = () => {
 
@@ -24,8 +24,7 @@ const AllEmployees = () => {
   const handleReviewDelete = (id) => {
     const process = window.confirm("are you sure delete this Employee")
     if (process) {
-      fetch(`https://perform-tracker-server.vercel.app
-        /employees/${id}`, {
+      fetch(`https://perform-tracker-server.vercel.app/employees/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

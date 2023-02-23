@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import useTitle from '../../../Hooks/useTitle';
+import useTitle from '../../../hooks/useTitle';
 import Loading from '../../Others/Loading/Loading';
 import Project from '../Projects/Project';
 
