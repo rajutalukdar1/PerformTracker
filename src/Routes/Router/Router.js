@@ -87,7 +87,19 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/clientDetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`),
+        children: [
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <Projects></Projects>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/projects/${params._id}`)
+          },
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <ClientDetails></ClientDetails>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+          },
+        ]
       },
 
       {
