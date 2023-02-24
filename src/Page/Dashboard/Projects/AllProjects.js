@@ -6,6 +6,9 @@ import EditProjects from './EditProject/EditProject';
 import Project from './Project';
 
 const AllProjects = () => {
+
+  // useTitle('Projects');
+
   const [projectData, setProjectData] = useState(null);
   const [shown, setShown] = useState(false);
 

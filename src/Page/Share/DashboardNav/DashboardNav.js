@@ -8,7 +8,7 @@ import { logOut } from '../../../features/auths/AuthSlice';
 import { toast } from 'react-hot-toast';
 import ThemeChanger from '../ThemeChanger/ThemeChanger';
 
-const DashboardNav = ({currentUser}) => {
+const DashboardNav = ({ currentUser }) => {
   const { user } = useSelector(state => state.userReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const DashboardNav = ({currentUser}) => {
             </div>
             <span className='text-white hidden sm:block'>{user?.displayName}</span>
           </label>
-          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-900 text-slate-200 rounded-box w-60 ">
+          <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#000000] text-slate-200 rounded-box w-60 ">
             <li className='border-b-2 pb-2 mx-4 mt-3'>
               <div className="bg-transparent px-0 flex flex-col gap-0 items-center">
                 <div className="avatar">

@@ -8,8 +8,12 @@ import EditEmployeeDetails from "./EditEmployeeDetails";
 import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { FaPencilAlt } from "react-icons/fa";
+import useTitle from "../../../../hooks/useTitle";
 
 const AllEmployees = () => {
+
+  useTitle('Employees');
+
   const [id, setId] = useState(null);
   const { data: allEmployees = [], refetch } = useQuery({
     queryKey: ['employees'],

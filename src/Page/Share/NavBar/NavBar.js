@@ -56,7 +56,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="stop bg-base-100 border-b-2">
+    <div className="stop bg-[#FAF7F5] bg-opacity-90 bg-transparent border-b-2">
       <div className="navbar w-[95%] max-w-[1440px] mx-auto flex justify-between">
         <div className="navbar-start">
           <div className="navbar-start w-80">

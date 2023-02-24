@@ -132,7 +132,6 @@ const AddTrainingModal = () => {
                   className="w-full rounded-lg border-gray-200 p-3 text-sm"
                   placeholder="Trainig Cost"
                   type="number"
-
                 />
               </div>
             </div>

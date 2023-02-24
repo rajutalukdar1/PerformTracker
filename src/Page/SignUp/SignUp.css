@@ -1,0 +1,34 @@
+.btn-hover {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover-text:hover {
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+.btn-hover.color-8 {
+  background-image: linear-gradient(
+    to right,
+    #6857DA,
+    #EA1A66,
+    #263182,
+    /* #3f86ed */ #FE81DF
+  );
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
