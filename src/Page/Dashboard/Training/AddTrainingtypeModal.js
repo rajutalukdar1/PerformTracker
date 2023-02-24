@@ -13,7 +13,7 @@ const AddTrainingtypeModal = () => {
       description: description,
       status: status,
     };
-    fetch(`http://localhost:5000/trainingtype`, {
+    fetch(`https://perform-tracker-server.vercel.app/trainingtype`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -24,7 +24,6 @@ const AddTrainingtypeModal = () => {
       .then((result) => {
         toast.success("Trainer is successfully added!");
       });
-     
     e.target.reset();
   };
   return (
@@ -73,7 +72,6 @@ const AddTrainingtypeModal = () => {
                 <option>inactive</option>
               </select>
             </div>
-            
             <div className="modal-action">
               <button
                 className="px-3 py-2 rounded-lg bg-orange-600  text-white font-semibold text-xl"

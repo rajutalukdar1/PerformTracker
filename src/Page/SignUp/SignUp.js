@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import SelectRole from "../Share/SelectRole/SelectRole";
 import LoginAnimation from "../Others/Lottiefiles/LoginAnimation/LoginAnimation";
 import '../../Page/SignIn/SignIn.css'
+import SignUpAnimation from "../Others/Lottiefiles/LoginAnimation/SignUpAnimation";
 
 const SignUp = () => {
   const {
@@ -136,10 +137,10 @@ const SignUp = () => {
       <div className="hero text-black mb-10">
         <div className="hero-content flex-col lg:flex-row lg:gap-36">
           <div className="hidden lg:block">
-            <LoginAnimation />
+            <SignUpAnimation />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl text-black overflow-hidden">
-            <div className="card-title justify-center bg-info py-4 text-white">Create an account</div>
+            <div className="card-title justify-center bg-[#7166E2] py-4 text-white">Create an account</div>
             <form className="card-body" onSubmit={handleSubmit(handleSignUp)}>
               <div className="form-control">
                 <label className="label">

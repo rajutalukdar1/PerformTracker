@@ -31,7 +31,7 @@ const ClientDetails = () => {
                                         text-sm font-medium text-white transition hover:scale-110
                                         hover:shadow-xl focus:outline-none
                                         focus:ring active:bg-[#FD7265]"
-                                        href=''
+                                        href=' '
                                     >
                                         Send Message
                                     </a>
@@ -63,12 +63,7 @@ const ClientDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='whitespace-nowrap'>
-                        <p className='text-white text-2xl font-semibold'>{company}</p>
-                        <p className='text-white font-semibold'>{name}</p>
-                        <p><span className='text-white'>{position}</span></p>
-                        <p className='text-white font-semibold'>Client ID: {clientId}</p>
-                    </div>
+                    
                     <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
                     rounded-b-sm">
                         <ul className="menu menu-horizontal px-1">

@@ -9,7 +9,7 @@ const PromotionDetails = ({ promotion, i, refetch }) => {
   const [deletingPromotion, setDeletingPromotion] = useState(null);
   const [editingPromotion, setEditingPromotion] = useState(null);
 
-  const { name, department, designation, designation_to, date} =
+  const { name, department, designation, designation_to, date } =
     promotion;
 
   const closeModal = () => {
@@ -17,7 +17,7 @@ const PromotionDetails = ({ promotion, i, refetch }) => {
   };
 
   const handleDeletePromotion = (promotion) => {
-    fetch(`http://localhost:5000/promotion/${promotion._id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/promotion/${promotion._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -14,17 +14,17 @@ const Project = ({ project, setProjectData, refetch }) => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/project-tasks/${_id}`)
-    .then(res => res.json())
-    .then(data => {
-      setTasks(data)
-    })
+    fetch(`https://perform-tracker-server.vercel.app/project-tasks/${_id}`)
+      .then(res => res.json())
+      .then(data => {
+        setTasks(data)
+      })
   }, [_id])
 
   const tasksCompleted = tasks?.filter(task => task.status === 'completed').length
 
   const handleProjectDelete = (id) => {
-    fetch(`http://localhost:5000/projects/${id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/projects/${id}`, {
       method: "DELETE"
     })
       .then(res => res.json())
@@ -110,7 +110,7 @@ const Project = ({ project, setProjectData, refetch }) => {
             style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>
-              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
+              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold" href=' '> <FaPencilAlt className=" mr-3" />Edit</a> </label>
             </li>
             <li>
               <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine
