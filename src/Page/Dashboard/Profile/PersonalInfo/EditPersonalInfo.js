@@ -14,7 +14,7 @@ const EditPersonalInfo = ({ refetch, employees, setEditingInfo }) => {
 
   const handleEditEmployee = (data) => {
     const PersonalInfo = {
-      passport_name: data.passport_no,
+      passport_no: data.passport_no,
       tel: data.tel,
       nationality: data.nationality,
       religion: data.religion,

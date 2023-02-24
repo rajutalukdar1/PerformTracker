@@ -72,7 +72,7 @@ const EditEmployeeProfile = ({ refetch, employees, setEditingEmployee }) => {
                     name="name"
                     type="text"
                     className="input input-bordered my-2 w-full "
-                    {...register("tel", {
+                    {...register("name", {
                       required: "Name is required",
                     })}
                   />

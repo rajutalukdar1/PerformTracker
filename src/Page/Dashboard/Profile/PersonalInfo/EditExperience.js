@@ -2,9 +2,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
-const EditBankInformation = ({ refetch, employees, setEditingBankInformation }) => {
+const EditExperience = ({ refetch, employees, setEditingExperience }) => {
 
-    const { bank_name, bank_account_no, phone, secondary, secondary_relationship, secondary_phone, _id } = employees;
+    const { experience_1, experience_1_join, experience_2, experience_2_join,experience_3, experience_3_join, _id } = employees;
 
     const {
         register,
@@ -12,14 +12,14 @@ const EditBankInformation = ({ refetch, employees, setEditingBankInformation }) 
         formState: { errors },
     } = useForm();
 
-    const handleEditContact = (data) => {
-        const ContactInfo = {
-            bank_name: data.bank_name,
-            bank_account_no: data.bank_account_no,
-            phone: data.phone,
-            secondary: data.secondary,
-            secondary_relationship: data.secondary_relationship,
-            secondary_phone: data.secondary_phone
+    const handleEditExperience = (data) => {
+        const ExperienceInfo = {
+            experience_1: data.experience_1,
+            experience_1_join: data.experience_1_join,
+            experience_2: data.experience_2,
+            experience_2_join: data.experience_2_join,
+            experience_3: data.experience_3,
+            experience_3_join: data.experience_3_join,
         };
 
         // Save employee personal information to the database
@@ -28,13 +28,13 @@ const EditBankInformation = ({ refetch, employees, setEditingBankInformation }) 
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(ContactInfo),
+            body: JSON.stringify(ExperienceInfo),
         })
             .then((res) => res.json())
             .then((result) => {
                 console.log(result);
-                toast.success(`Bank Information is update successfully`);
-                setEditingBankInformation(null);
+                toast.success(`Experience is update successfully`);
+                setEditingExperience(null);
                 refetch();
             });
     };
@@ -45,126 +45,126 @@ const EditBankInformation = ({ refetch, employees, setEditingBankInformation }) 
 
                 <input
                     type="checkbox"
-                    id="editBankInfoModal"
+                    id="editExperienceModal"
                     className="modal-toggle "
                 />
                 <div className="modal pt-24">
                     <div className="modal-box relative max-w-screen-md">
                         <label
-                            htmlFor="editBankInfoModal"
+                            htmlFor="editExperienceModal"
                             className="btn btn-sm btn-circle absolute right-2 top-2"
                         >
                             ✕
                         </label>
-                        <form onSubmit={handleSubmit(handleEditContact)}>
-                            <p className='text-center text-2xl font-semibold mb-2'>Bank Information</p>
+                        <form onSubmit={handleSubmit(handleEditExperience)}>
+                            <p className='text-center text-2xl font-semibold mb-2'>Experience</p>
 
                             <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-4">
 
                                 <div>
-                                    <span className="label-text">Bank Name</span>
+                                    <span className="label-text">Experience 1</span>
                                     <input
-                                        name="bank_name"
-                                        defaultValue={bank_name}
+                                        name="experience_1"
+                                        defaultValue={experience_1}
                                         type="text"
                                         className="input input-bordered my-2 w-full"
-                                        {...register("bank_name", {
-                                            required: "Bank Name is required",
+                                        {...register("experience_1", {
+                                            required: "Experience is required",
                                         })}
                                     />
-                                    {errors.bank_name && (
+                                    {errors.experience_1 && (
                                         <p className="text-red-600" role="alert">
-                                            {errors.bank_name?.message}
+                                            {errors.experience_1?.message}
                                         </p>
                                     )}
                                 </div>
 
                                 <div>
-                                    <span className="label-text">Bank Account No</span>
+                                    <span className="label-text">Passing Years</span>
                                     <input
-                                        defaultValue={bank_account_no}
-                                        name="bank_account_no"
+                                        defaultValue={experience_1_join}
+                                        name="experience_1_join"
                                         type="text"
                                         className="input input-bordered my-2 w-full "
-                                        {...register("bank_account_no", {
-                                            required: "Bank account no is required",
+                                        {...register("experience_1_join", {
+                                            required: "Passing Years is required",
                                         })}
                                     />
-                                    {errors.bank_account_no && (
+                                    {errors.experience_1_join && (
                                         <p className="text-red-600" role="alert">
-                                            {errors.bank_account_no?.message}
+                                            {errors.experience_1_join?.message}
                                         </p>
                                     )}
                                 </div>
 
                                 <div>
-                                    <span className="label-text">Phone</span>
+                                    <span className="label-text">Experience 2</span>
                                     <input
-                                        defaultValue={phone}
-                                        name="phone"
+                                        defaultValue={experience_2}
+                                        name="experience_2"
                                         type="text"
                                         className="input input-bordered my-2 w-full "
-                                        {...register("phone", {
-                                            required: "Phone is required",
+                                        {...register("experience_2", {
+                                            required: "Experience is required",
                                         })}
                                     />
-                                    {errors.phone && (
+                                    {errors.experience_2 && (
                                         <p className="text-red-600" role="alert">
-                                            {errors.phone?.message}
+                                            {errors.experience_2?.message}
                                         </p>
                                     )}
                                 </div>
 
                                 <div>
-                                    <span className="label-text">Secondary</span>
+                                    <span className="label-text">Passing Years</span>
                                     <input
-                                        defaultValue={secondary}
-                                        name="secondary"
+                                        defaultValue={experience_2_join}
+                                        name="experience_2_join"
                                         type="text"
                                         className="input input-bordered my-2 w-full "
-                                        {...register("secondary", {
-                                            required: "Secondary is required",
+                                        {...register("experience_2_join", {
+                                            required: "Passing Years is required",
                                         })}
                                     />
-                                    {errors.secondary && (
+                                    {errors.experience_2_join && (
                                         <p className="text-red-600" role="alert">
-                                            {errors.secondary?.message}
+                                            {errors.experience_2_join?.message}
                                         </p>
                                     )}
                                 </div>
 
                                 <div>
-                                    <span className="label-text">Secondary Relationship</span>
+                                    <span className="label-text">Experience 3</span>
                                     <input
-                                        defaultValue={secondary_relationship}
-                                        name="secondary_relationship"
+                                        defaultValue={experience_3}
+                                        name="experience_3"
                                         type="text"
                                         className="input input-bordered my-2 w-full "
-                                        {...register("secondary_relationship", {
-                                            required: "Secondary Relationship Status is required",
+                                        {...register("experience_3", {
+                                            required: "Experience is required",
                                         })}
                                     />
-                                    {errors.secondary_relationship && (
+                                    {errors.experience_3 && (
                                         <p className="text-red-600" role="alert">
-                                            {errors.secondary_relationship?.message}
+                                            {errors.experience_3?.message}
                                         </p>
                                     )}
                                 </div>
 
                                 <div>
-                                    <span className="label-text">Secondary Phone</span>
+                                    <span className="label-text">Passing Years</span>
                                     <input
-                                        defaultValue={secondary_phone}
-                                        name="secondary_phone"
+                                        defaultValue={experience_3_join}
+                                        name="experience_3_join"
                                         type="text"
                                         className="input input-bordered my-2 w-full "
-                                        {...register("secondary_phone", {
-                                            required: "Secondary Phone is required",
+                                        {...register("experience_3_join", {
+                                            required: "Passing Years is required",
                                         })}
                                     />
-                                    {errors.secondary_phone && (
+                                    {errors.experience_3_join && (
                                         <p className="text-red-600" role="alert">
-                                            {errors.secondary_phone?.message}
+                                            {errors.experience_3_join?.message}
                                         </p>
                                     )}
                                 </div>
@@ -184,4 +184,4 @@ const EditBankInformation = ({ refetch, employees, setEditingBankInformation }) 
     );
 };
 
-export default EditBankInformation;
+export default EditExperience;

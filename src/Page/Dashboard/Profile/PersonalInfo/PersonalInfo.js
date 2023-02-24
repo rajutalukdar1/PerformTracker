@@ -5,12 +5,16 @@ import { useSelector } from "react-redux";
 import EmployeeProfileInfo from "../EmployeeProfileInfo";
 import EditBankInformation from "./EditBankInformation";
 import EditContact from "./EditContact";
+import EditEducationInfo from "./EditEducationInfo";
+import EditExperience from "./EditExperience";
 import EditPersonalInfo from "./EditPersonalInfo";
 
 const PersonalInfo = () => {
   const [editingInfo, setEditingInfo] = useState(null);
   const [editingContact, setEditingContact] = useState(null);
   const [editingBankInfo, setEditingBankInformation] = useState(null);
+  const [editingEduInfo, setEditingEduInfo] = useState(null);
+  const [editingExperience, setEditingExperience] = useState(null);
 
   const { user } = useSelector((state) => state.userReducer);
 
@@ -176,8 +180,8 @@ const PersonalInfo = () => {
           </div>
           <div className="">
             <label
-              // onClick={() => setEditingInfo(employees)}
-              htmlFor="editPersonalInfoModal"
+              onClick={() => setEditingEduInfo(employees)}
+              htmlFor="editEduInfoModal"
             >
               <FaEdit className="cursor-pointer"></FaEdit>
             </label>
@@ -209,8 +213,8 @@ const PersonalInfo = () => {
           </div>
           <div className="">
             <label
-              // onClick={() => setEditingInfo(employees)}
-              htmlFor="editPersonalInfoModal"
+              onClick={() => setEditingExperience(employees)}
+              htmlFor="editExperienceModal"
             >
               <FaEdit className="cursor-pointer"></FaEdit>
             </label>
@@ -259,6 +263,22 @@ const PersonalInfo = () => {
           employees={editingBankInfo}
           setEditingBankInformation={setEditingBankInformation}
         ></EditBankInformation>
+      )}
+
+      {editingEduInfo && (
+        <EditEducationInfo
+          refetch={refetch}
+          employees={editingEduInfo}
+          setEditingEduInfo={setEditingEduInfo}
+        ></EditEducationInfo>
+      )}
+
+      {editingExperience && (
+        <EditExperience
+          refetch={refetch}
+          employees={editingExperience}
+          setEditingExperience={setEditingExperience}
+        ></EditExperience>
       )}
     </div>
   );

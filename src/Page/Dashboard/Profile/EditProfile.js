@@ -14,8 +14,6 @@ const EditProfile = ({ refetch, client, setEditingClient }) => {
 
   const handleEditClient = (data) => {
 
-// console.log(data.pro)
-
     const clientInfo = {
       company: data.company,
       name: data.name,
@@ -93,7 +91,7 @@ const EditProfile = ({ refetch, client, setEditingClient }) => {
                     name="name"
                     type="text"
                     className="input input-bordered my-2 w-full "
-                    {...register("tel", {
+                    {...register("name", {
                       required: "Name is required",
                     })}
                   />
