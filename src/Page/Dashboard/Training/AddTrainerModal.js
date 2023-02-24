@@ -1,12 +1,8 @@
-
 import React from "react";
 import { toast } from "react-hot-toast";
 const imgbbKey = process.env.REACT_APP_imgbb_key;
 
 const AddTrainerModal = () => {
-
-
-
 
   const handleAddTrainerForm = (e) => {
     e.preventDefault()
@@ -16,14 +12,13 @@ const AddTrainerModal = () => {
     const status = e.target.status.value
     const role = e.target.role.value
     const description = e.target.description.value
-    const image = e.target.employeeImg.files[0]
+    const image =  e.target.employeeImg.files[0]
     const formData = new FormData()
-    formData.append('image', image)
-
+    formData.append('image',image )
+   
     const url = `https://api.imgbb.com/1/upload?key=dac9951f9d4ccd78dfaec90fb6367a69`
     fetch(url, {
-      method: 'POST',
-      body: formData
+        method: 'POST',
     })
       .then(res => res.json())
       .then(imgData => {
@@ -76,16 +71,11 @@ const AddTrainerModal = () => {
               <input
                 name="name"
                 className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder="Name"
                 type="text"
                 id="name"
               />
             </div>
-
-
-
-
-
+            
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="sr-only" htmlFor="email">
@@ -140,7 +130,6 @@ const AddTrainerModal = () => {
               </div>
             </div>
             <div className="mt-8">
-
               <textarea
                 name="description"
                 className="w-full rounded-lg border-gray-200 p-3 text-sm"

@@ -35,12 +35,16 @@ const EmployeeProfile = () => {
                   <p className='font-bold'>{name}</p>
                   <p className='text-sm font-semibold mb-2'>{position}</p>
                   <p className='text-sm font-semibold'>Employee ID : {employee_id}</p>
-                  <a className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" href='' >
+
+                  <a className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" href=' ' >
                     Send Message
                   </a>
                 </div>
               </div>
               <div className='grid text-[#BBC4CC] grid-cols-[8rem_1fr]'>
+                <div className="">
+
+                </div>
                 <EmployeeProfileInfo
                   lab='Phone:'
                   val={<a

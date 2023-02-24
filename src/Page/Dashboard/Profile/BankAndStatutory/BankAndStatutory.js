@@ -103,43 +103,6 @@ const BankAndStatutory = () => {
                             <input type="text" placeholder="11%" className="input input-bordered w-full 
                         " />
                         </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Employee PF rate</span>
-                            </label>
-                            <select className="select select-bordered">
-                                <option selected>Select PF contribution</option>
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select>
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Additional rate <span
-                                    className='text-[#F62C4E]'>*</span></span>
-                            </label>
-                            <select className="select select-bordered">
-                                <option selected>Select additional rate</option>
-                                <option>0%</option>
-                                <option>1%</option>
-                                <option>2%</option>
-                                <option>3%</option>
-                                <option>4%</option>
-                                <option>5%</option>
-                                <option>6%</option>
-                                <option>7%</option>
-                                <option>8%</option>
-                                <option>9%</option>
-                                <option>10%</option>
-                            </select>
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Total rate</span>
-                            </label>
-                            <input type="text" placeholder="11%" className="input input-bordered w-full 
-                        " />
-                        </div>
                     </div>
                 </div>
                 <div className='mt-8'>

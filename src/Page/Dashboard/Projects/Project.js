@@ -110,7 +110,7 @@ const Project = ({ project, setProjectData, refetch }) => {
             style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>
-              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
+              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold" href=' '> <FaPencilAlt className=" mr-3" />Edit</a> </label>
             </li>
             <li>
               <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine

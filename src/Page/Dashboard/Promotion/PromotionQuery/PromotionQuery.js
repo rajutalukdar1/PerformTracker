@@ -1,7 +1,5 @@
 import React from 'react';
-import { AiOutlineDashboard } from 'react-icons/ai';
 import { FaBars, FaPlus, FaTh } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 
 const PromotionQuery = ({ promotionData }) => {
   const { pageName, btnValue, btnOnClick, labelValue, hidden } = promotionData;

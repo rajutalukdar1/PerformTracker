@@ -29,15 +29,15 @@ const Client = ({ client, refetch }) => {
   };
   return (
     <div className=''>
-      <div className="card w-full  rounded text-neutral-content shadow-2xl">
-        <div className="card-body bg-gray-900 rounded-xl  text-center">
-          <div className="dropdown  dropdown-start ">
+      <div className="card w-full rounded text-neutral-content shadow-2xl">
+        <div className="card-body bg-gray-900 rounded-xl text-center">
+          <div className="dropdown dropdown-start ">
             <label tabIndex={0}>
-              <FaEllipsisV className="  mr-2  rounded-lg text-xl cursor-pointer text-slate-400"></FaEllipsisV>
+              <FaEllipsisV className="mr-2 rounded-lg text-xl cursor-pointer text-slate-400"></FaEllipsisV>
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content  p-2 shadow bg-gray-700 rounded-box w-44  fixed"
+              className="menu menu-compact dropdown-content  p-2 shadow bg-gray-700 rounded-box w-44 fixed"
             >
               <label
                 onClick={() => setDeletingClient(client)}
