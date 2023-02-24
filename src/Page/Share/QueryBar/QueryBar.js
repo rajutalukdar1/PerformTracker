@@ -48,4 +48,4 @@ const QueryBar = ({ barData }) => {
   )
 }
 
-export default QueryBar
+export default QueryBar;
