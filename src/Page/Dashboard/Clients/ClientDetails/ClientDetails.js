@@ -63,16 +63,7 @@ const ClientDetails = () => {
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div className='whitespace-nowrap'>
-                        <p className='text-white text-2xl font-semibold'>{company}</p>
-                        <p className='text-white font-semibold'>{name}</p>
-                        <p><span className='text-white'>{position}</span></p>
-                        <p className='text-white font-semibold'>Client ID: {clientId}</p>
-                    </div>
-=======
-                    
->>>>>>> 5e02e5a0e914fe72d1ecdfee98e01c7d46b4cf2e
+
                     <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
                     rounded-b-sm">
                         <ul className="menu menu-horizontal px-1">
