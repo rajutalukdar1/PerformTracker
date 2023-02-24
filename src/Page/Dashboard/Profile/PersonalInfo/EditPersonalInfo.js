@@ -2,9 +2,9 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
-const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
+const EditPersonalInfo = ({ refetch, employees, setEditingInfo }) => {
 
-  const { profile, name, _id, gender, phone } = employees;
+  const { passport_no, tel, nationality, religion, marital_status, employment_of_spouse, no_of_children, name, _id } = employees;
 
   const {
     register,
@@ -12,17 +12,15 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
     formState: { errors },
   } = useForm();
 
-  const handleEditInfo = (data) => {
-    const personalInfo = {
-      name: data.name,
-      phone: data.phone,
-      passport_no: data.profile?.personalInfo?.passport_no,
-      tel: data.profile?.personal_info?.tel,
-      nationality: data.profile?.personal_info?.nationality,
-      religion: data.profile?.personal_info?.religion,
-      marital_status: data.profile?.personal_info?.marital_status,
-      spouse: data.profile?.personal_info?.employment_of_spouse,
-      children: data.profile?.personal_info?.no_of_children 
+  const handleEditEmployee = (data) => {
+    const PersonalInfo = {
+      passport_name: data.passport_no,
+      tel: data.tel,
+      nationality: data.nationality,
+      religion: data.religion,
+      marital_status: data.marital_status,
+      employment_of_spouse: data.employment_of_spouse,
+      no_of_children: data.no_of_children
     };
 
     // Save employee personal information to the database
@@ -31,20 +29,20 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(personalInfo),
+      body: JSON.stringify(PersonalInfo),
     })
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        toast.success(`${profile?.personal_info?.name} is update successfully`);
+        toast.success(`Personal Information's is update successfully`);
         setEditingInfo(null);
         refetch();
       });
   };
 
-    return (
-        <>
-      <div className="bg-white">
+  return (
+    <>
+      <div>
         <input
           type="checkbox"
           id="editPersonalInfoModal"
@@ -53,39 +51,39 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
         <div className="modal pt-24">
           <div className="modal-box relative max-w-screen-md">
             <label
-              // onClick={() => setPromotion(null)}
               htmlFor="editPersonalInfoModal"
               className="btn btn-sm btn-circle absolute right-2 top-2"
             >
               ✕
             </label>
-            <form onSubmit={handleSubmit(handleEditInfo)}>
-            <p className='text-center text-2xl mb-2'>{name}</p>
+            <form onSubmit={handleSubmit(handleEditEmployee)}>
+              <p className='text-center text-2xl font-semibold mb-2'>Personal Information's</p>
 
               <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-4">
 
                 <div>
-                <span className="label-text">Passport No</span>
+                  <span className="label-text">Passport No</span>
                   <input
-                    name="name"
-                    defaultValue={name}
+                    name="passport_no"
+                    defaultValue={passport_no}
                     type="text"
                     className="input input-bordered my-2 w-full"
-                    {...register("name", {
+                    {...register("passport_no", {
                       required: "Passport No is required",
                     })}
+
                   />
-                  {errors.name && (
+                  {errors.passport_no && (
                     <p className="text-red-600" role="alert">
-                      {errors.name?.message}
+                      {errors.passport_no.message}
                     </p>
                   )}
                 </div>
 
                 <div>
-                <span className="label-text">Tel</span>
+                  <span className="label-text">Tel</span>
                   <input
-                    defaultValue={profile?.personal_info?.tel}
+                    defaultValue={tel}
                     name="tel"
                     type="text"
                     className="input input-bordered my-2 w-full "
@@ -101,9 +99,9 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
                 </div>
 
                 <div>
-                <span className="label-text">Nationality</span>
+                  <span className="label-text">Nationality</span>
                   <input
-                    defaultValue={profile?.personal_info?.nationality}
+                    defaultValue={nationality}
                     name="nationality"
                     type="text"
                     className="input input-bordered my-2 w-full "
@@ -119,9 +117,9 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
                 </div>
 
                 <div>
-                <span className="label-text">Religion</span>
+                  <span className="label-text">Religion</span>
                   <input
-                    defaultValue={profile?.personal_info?.religion}
+                    defaultValue={religion}
                     name="religion"
                     type="text"
                     className="input input-bordered my-2 w-full "
@@ -137,9 +135,9 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
                 </div>
 
                 <div>
-                <span className="label-text">Marital status</span>
+                  <span className="label-text">Marital status</span>
                   <input
-                    defaultValue={profile?.personal_info?.marital_status}
+                    defaultValue={marital_status}
                     name="marital_status"
                     type="text"
                     className="input input-bordered my-2 w-full "
@@ -155,37 +153,37 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
                 </div>
 
                 <div>
-                <span className="label-text">Employment of spouse</span>
+                  <span className="label-text">Employment of spouse</span>
                   <input
-                    defaultValue={profile?.personal_info?.employment_of_spouse}
-                    name="spouse"
+                    defaultValue={employment_of_spouse}
+                    name="employment_of_spouse"
                     type="text"
                     className="input input-bordered my-2 w-full "
-                    {...register("spouse", {
+                    {...register("employment_of_spouse", {
                       required: "Employment of spouse is required",
                     })}
                   />
-                  {errors.spouse && (
+                  {errors.employment_of_spouse && (
                     <p className="text-red-600" role="alert">
-                      {errors.spouse?.message}
+                      {errors.employment_of_spouse?.message}
                     </p>
                   )}
                 </div>
 
                 <div>
-                <span className="label-text">No. of children</span>
+                  <span className="label-text">No. of children</span>
                   <input
-                    defaultValue={profile?.personal_info?.no_of_children}
-                    name="children"
+                    defaultValue={no_of_children}
+                    name="no_of_children"
                     type="text"
                     className="input input-bordered my-2 w-full "
-                    {...register("children", {
+                    {...register("no_of_children", {
                       required: "Children is required",
                     })}
                   />
-                  {errors.children && (
+                  {errors.no_of_children && (
                     <p className="text-red-600" role="alert">
-                      {errors.children?.message}
+                      {errors.no_of_children?.message}
                     </p>
                   )}
                 </div>
@@ -202,7 +200,7 @@ const EditPersonalInfo = ({refetch, employees, setEditingInfo}) => {
         </div>
       </div>
     </>
-    );
+  );
 };
 
 export default EditPersonalInfo;

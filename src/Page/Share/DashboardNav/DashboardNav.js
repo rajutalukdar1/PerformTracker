@@ -8,7 +8,7 @@ import { logOut } from '../../../features/auths/AuthSlice';
 import { toast } from 'react-hot-toast';
 import ThemeChanger from '../ThemeChanger/ThemeChanger';
 
-const DashboardNav = ({currentUser}) => {
+const DashboardNav = ({ currentUser }) => {
   const { user } = useSelector(state => state.userReducer);
   const dispatch = useDispatch();
   const navigate = useNavigate();

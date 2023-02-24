@@ -4,8 +4,12 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 
 const Project = ({ project, setProjectData, refetch }) => {
+
+  useTitle('Projects');
+
   const { _id, name, details, deadline, assignedleaders, team, progressed } = project;
   const [tasks, setTasks] = useState([]);
 
@@ -78,7 +82,7 @@ const Project = ({ project, setProjectData, refetch }) => {
                   </Link>)}
                   <div className="w-10 h-10 rounded-full bg-red-400 flex items-center
                   justify-center text-white font-semibold cursor-pointer">
-                    <small>+{team.slice(3, team.length - 1).length}5</small>
+                    <small>+{team.slice(3, team.length - 1).length}</small>
                   </div>
                 </> :
                   team.map(t => <Link to={`/dashboard/employees/${t.uid}`} className="avatar">
@@ -106,7 +110,7 @@ const Project = ({ project, setProjectData, refetch }) => {
             style={{ "top": "30px", "right": "5px" }}
           >
             <li className='bg-transparent'>
-              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
+              <label onClick={() => setProjectData(project)} htmlFor="editProjectModal"><a className="flex items-center text-bold" href=' '> <FaPencilAlt className=" mr-3" />Edit</a> </label>
             </li>
             <li>
               <Link className="text-bold" onClick={() => handleProjectDelete(_id)} > <RiDeleteBinLine

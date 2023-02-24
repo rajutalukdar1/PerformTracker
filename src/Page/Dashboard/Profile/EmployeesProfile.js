@@ -1,17 +1,23 @@
-import React from "react";
-import { useQuery } from "@tanstack/react-query";
-import EmployeeProfileInfo from "./EmployeeProfileInfo";
-import { Link, Outlet } from "react-router-dom";
-import { useSelector } from "react-redux";
-import AiUser from "../../Others/Lottiefiles/AiUser/AiUser";
-import { FaEdit } from "react-icons/fa";
+import React, { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import EmployeeProfileInfo from './EmployeeProfileInfo';
+import { Link, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { FaEdit } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
+import EditEmployeeProfile from './EmployeeProfile/EditEmployeeProfile';
+import Loading from '../../Share/Loading/Loading';
+// import AiUser from '../../Others/Lottiefiles/AiUser/AiUser';
 
 const EmployeesProfile = () => {
-  // useTitle('Employee Profile');
 
-  const { user } = useSelector((state) => state.userReducer);
+  useTitle('Employee Profile');
 
-  const { data: Employees = [], refetch } = useQuery({
+  const [editingEmployee, setEditingEmployee] = useState(null);
+
+  const { user, loading } = useSelector((state) => state.userReducer);
+
+  const { data: employees = [], refetch } = useQuery({
     queryKey: ["employees", user?.email],
     queryFn: () =>
       fetch(`http://localhost:5000/employee?email=${user?.email}`).then((res) =>
@@ -27,14 +33,17 @@ const EmployeesProfile = () => {
     joiningDate,
     maritalStatus,
     gender,
-    EmployeeID,
-    salary,
+    employeeId,
+    DOB,
     address,
     nationality,
     phone,
-  } = Employees;
+  } = employees;
+  console.log(employees);
 
-  console.log(Employees);
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -49,13 +58,16 @@ const EmployeesProfile = () => {
 
               </div>
               <div className="mt-4 mr-4 text-white">
-                <FaEdit
-                  className="cursor-pointer"
-                //    htmlFor="editPersonalInfoModal"
-                ></FaEdit>
+                <label
+                  onClick={() => setEditingEmployee(employees)}
+                  htmlFor="editEmployeeModal"
+                >
+                  <FaEdit
+                    className="cursor-pointer"
+                  ></FaEdit>
+                </label>
               </div>
             </div>
-
             <div className="card-body grid grid-cols-1 md:grid-cols-2 gap-6 overflow-hidden">
               <div
                 className="flex text-white gap-4 pb-5 md:pb-0
@@ -72,7 +84,7 @@ const EmployeesProfile = () => {
                 <div className="text-[#BBC4CC]">
                   <h3 className="text-2xl font-bold">{name}</h3>
                   <p className="text-xs mb-2">{designation}</p>
-                  <p className="font-bold">Employee ID: {EmployeeID}</p>
+                  <p className="font-bold">Employee ID: {employeeId}</p>
                   <p className="text-xs">Date of Join: {joiningDate}</p>
                   <a
                     className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2
@@ -109,10 +121,8 @@ const EmployeesProfile = () => {
                 <EmployeeProfileInfo lab="Address:" val={address} />
                 <EmployeeProfileInfo lab="Gender:" val={gender} />
                 <EmployeeProfileInfo lab="Nationality:" val={nationality} />
-                <EmployeeProfileInfo lab="Salary:" val={salary} />
-                <EmployeeProfileInfo
-                  lab="Marital status:"
-                  val={maritalStatus}
+                <EmployeeProfileInfo lab="Birthday:" val={DOB} />
+                <EmployeeProfileInfo lab="Marital status:" val={maritalStatus}
                 />
               </div>
             </div>
@@ -136,9 +146,18 @@ const EmployeesProfile = () => {
               </li>
             </ul>
           </div>
-          <Outlet></Outlet>
+          <Outlet>
+
+          </Outlet>
         </div>
       </div>
+      {editingEmployee && (
+        <EditEmployeeProfile
+          refetch={refetch}
+          employees={editingEmployee}
+          setEditingEmployee={setEditingEmployee}
+        ></EditEmployeeProfile>
+      )}
     </div>
   );
 };
