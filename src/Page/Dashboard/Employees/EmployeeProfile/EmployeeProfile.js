@@ -3,11 +3,11 @@ import { useQuery } from '@tanstack/react-query'
 import { Link, Outlet, useParams } from 'react-router-dom';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
 import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 
 const EmployeeProfile = () => {
-  const { user } = useSelector(state => state.userReducer);
+  // const { user } = useSelector(state => state.userReducer);
   const [promotion, setPromotion] = useState({});
   const { id } = useParams();
   const { data: { name, designation, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
@@ -35,9 +35,9 @@ const EmployeeProfile = () => {
                   <p className='font-bold'>{name}</p>
                   <p className='text-sm font-semibold mb-2'>{position}</p>
                   <p className='text-sm font-semibold'>Employee ID : {employee_id}</p>
-                  <a className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" href='' >
+                  <Link className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" >
                     Send Message
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className='grid text-[#BBC4CC] grid-cols-[8rem_1fr]'>
