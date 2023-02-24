@@ -4,23 +4,27 @@ import { BsThreeDotsVertical } from 'react-icons/bs';
 import { FaPencilAlt } from "react-icons/fa";
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { toast } from 'react-hot-toast';
+import useTitle from '../../../hooks/useTitle';
 
 const Project = ({ project, setProjectData, refetch }) => {
+
+  useTitle('Projects');
+
   const { _id, name, details, deadline, assignedleaders, team, progressed } = project;
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/project-tasks/${_id}`)
-    .then(res => res.json())
-    .then(data => {
-      setTasks(data)
-    })
+    fetch(`https://perform-tracker-server.vercel.app/project-tasks/${_id}`)
+      .then(res => res.json())
+      .then(data => {
+        setTasks(data)
+      })
   }, [_id])
 
   const tasksCompleted = tasks?.filter(task => task.status === 'completed').length
 
   const handleProjectDelete = (id) => {
-    fetch(`http://localhost:5000/projects/${id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/projects/${id}`, {
       method: "DELETE"
     })
       .then(res => res.json())
@@ -29,6 +33,8 @@ const Project = ({ project, setProjectData, refetch }) => {
         toast.success('Project is deleted successfully!')
       })
   }
+
+
 
   return (
     <div className="card light:bg-slate-200 bg-[#16191C] text-white rounded-sm">
@@ -76,7 +82,7 @@ const Project = ({ project, setProjectData, refetch }) => {
                   </Link>)}
                   <div className="w-10 h-10 rounded-full bg-red-400 flex items-center
                   justify-center text-white font-semibold cursor-pointer">
-                    <small>+{team.slice(3, team.length - 1).length}5</small>
+                    <small>+{team.slice(3, team.length - 1).length}</small>
                   </div>
                 </> :
                   team.map(t => <Link to={`/dashboard/employees/${t.uid}`} className="avatar">

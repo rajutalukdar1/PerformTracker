@@ -6,45 +6,46 @@ import ConfirmationModal from "../../../Share/ConfirmationModal/ConfirmationModa
 
 const AddTaskDetails = ({ task, refetch }) => {
   const [disabled, setDisabled] = useState(true);
-  const [checkbox, setCheckbox] = useState(task.completed);
+  const [checkbox, setCheckbox] = useState(task.status === "completed");
   const [deletingTask, setDeletingTask] = useState(null);
 
   const closeModal = () => {
     setDeletingTask(null);
   };
   const handleUpdateTask = () => {
+    let status = "";
     if (checkbox) {
+      status = "pending";
       setCheckbox(false);
-      toast.error("Task is not Completed");
     } else {
+      status = "completed";
       setCheckbox(true);
-      toast.success("Task is Completed");
     }
 
-    fetch(`http://localhost:5000/task/${task._id}`, {
+    fetch(`http://localhost:5000/tasks/${task._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify({ completed: !checkbox }),
+      body: JSON.stringify({ status: status }),
     })
       .then((res) => res.json())
       .then((result) => {
-        toast.success("Task is successfully Updated!");
+        toast.success(`Task is marked as ${status}`);
+        return;
       });
   };
+
   const handleDeleteTask = (task) => {
-    fetch(`https://perform-tracker-server.vercel.app/task/${task._id}`, {
+    
+    fetch(`http://localhost:5000/tasks/${task._id}`, {
       method: "DELETE",
-      // headers: {
-      //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-      // }
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
           refetch();
-          toast.success(`Task ${task.title} deleted successfully`);
+          toast.success(`${task.title} deleted successfully`);
         }
       });
   };
@@ -56,7 +57,7 @@ const AddTaskDetails = ({ task, refetch }) => {
           onClick={handleUpdateTask}
           defaultChecked={checkbox}
           type="checkbox"
-          className="checkbox checkbox-success "
+          className="checkbox checkbox-success"
         />
       </div>
       <div className="w-full col-span-4">

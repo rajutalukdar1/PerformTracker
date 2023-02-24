@@ -89,8 +89,8 @@ const DashboardLayout = () => {
                                             title: "Projects"
                                         },
                                         {
-                                            to: "/dashboard/tasks",
-                                            title: "Task"
+                                            to: "/dashboard/tasks/all-tasks",
+                                            title: "Tasks"
                                         },
                                     ]}
                                 />
@@ -99,7 +99,7 @@ const DashboardLayout = () => {
                                     title='Profile'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/profile/employee",
+                                            to: "/dashboard/profile/employees",
                                             title: "Employee Profile"
                                         },
                                         {
@@ -163,16 +163,6 @@ const DashboardLayout = () => {
                                         },
                                     ]}
                                 />
-                                {/* <DashboardSideItems
-                                    icon={<FaUserSecret className='text-2xl mt-2' />}
-                                    title='Leads'
-                                    subMenus={[
-                                        {
-                                            to: "/dashboard/leads",
-                                            title: "Projects Leads"
-                                        }
-                                    ]}
-                                /> */}
                                 <DashboardSideItems
                                     icon={<MdModelTraining className='text-2xl' />}
                                     title='Training'
@@ -193,7 +183,6 @@ const DashboardLayout = () => {
                                 />
 
                                 {/* ---------------------------------------------- ----*/}
-
                             </> : currentUser.role === "Client" ? <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
@@ -257,7 +246,6 @@ const DashboardLayout = () => {
                                 />
 
                                 {/* ------------------------------------------------------- */}
-
                             </> : <>
                                 <DashboardSideItems
                                     icon={<AiOutlineDashboard className='text-2xl mt-2' />}
@@ -276,6 +264,30 @@ const DashboardLayout = () => {
                                         {
                                             to: "/dashboard/profile/employees",
                                             title: "Employee Profile"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<HiOutlinePencilAlt className='text-2xl mt-2' />}
+                                    title='Attendance'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/profile/client",
+                                            title: "Today's Attendance"
+                                        },
+                                        {
+                                            to: "/dashboard/profile/client",
+                                            title: "All Attendance"
+                                        },
+                                    ]}
+                                />
+                                <DashboardSideItems
+                                    icon={<AiOutlineUser className='text-2xl mt-2' />}
+                                    title='My Leaves'
+                                    subMenus={[
+                                        {
+                                            to: "/dashboard/myTeam",
+                                            title: "My Leaves"
                                         },
                                     ]}
                                 />

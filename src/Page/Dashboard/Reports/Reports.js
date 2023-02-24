@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../../hooks/useTitle';
 import EmployeesReports from './EmployeesReports';
 
 const Reports = () => {
+
+    useTitle('Reports');
+
     const [reports, setReports] = useState([]);
 
     useEffect(() => {
@@ -17,7 +21,7 @@ const Reports = () => {
                 <table className="table w-full">
                     <thead>
                         <tr className='text-white'>
-                            <th style={{"position": "static"}}>Employee Name</th>
+                            <th style={{ "position": "static" }}>Employee Name</th>
                             <th>Employee Type</th>
                             <th>Email</th>
                             <th>Department</th>

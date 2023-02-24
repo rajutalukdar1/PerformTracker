@@ -32,7 +32,7 @@ import PrivetRoute from "../PrivetRoute/PrivetRoute";
 import DashboardClients from "../../Page/DashboardClients/DashboardClients";
 import MainTask from "../../Page/Dashboard/Tasks/MainTask/MainTask";
 import AllTasks from "../../Page/Dashboard/Tasks/AllTasks/AllTasks";
-import AllTeams from "../../Page/Dashboard/Teams/AllTeams/AllTeams";
+import AllTeams from "../../Page/Dashboard/Employees/Teams/AllTeams/AllTeams";
 import MyTeams from "../../Page/Dashboard/MyTeams/MyTeams";
 
 const router = createBrowserRouter([
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
     element: <PrivetRoute><DashboardLayout></DashboardLayout></PrivetRoute>,
     children: [
       {
-        path: "/dashboard",
+        path: "/dashboard/dashboardEmployees",
         element: <Employees></Employees>
       },
       {
@@ -87,7 +87,19 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/clientDetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`),
+        children: [
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <Projects></Projects>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/projects/${params._id}`)
+          },
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <ClientDetails></ClientDetails>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+          },
+        ]
       },
 
       {
@@ -187,7 +199,7 @@ const router = createBrowserRouter([
     element: <TaskLayout></TaskLayout>,
     children: [
       {
-        path: "/dashboard/tasks",
+        path: "/dashboard/tasks/all-tasks",
         element: <AllTasks></AllTasks>
       },
       {

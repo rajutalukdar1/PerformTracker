@@ -6,12 +6,15 @@ import { useSelector } from 'react-redux';
 // import AiUser from '../../Others/Lottiefiles/AiUser/AiUser';
 
 const EmployeesProfile = () => {
+
+    // useTitle('Employee Profile');
+
     const { user } = useSelector(state => state.userReducer);
 
     const { data: Employees = [], refetch } = useQuery({
         queryKey: ['employees', user?.email],
         queryFn: () =>
-            fetch(`http://localhost:5000/employee?email=${user?.email}`).then(res => res.json()),
+            fetch(`https://perform-tracker-server.vercel.app/employee?email=${user?.email}`).then(res => res.json()),
     });
 
     const { img, name, email, designation, joiningDate, maritalStatus, gender, EmployeeID,
@@ -83,16 +86,6 @@ const EmployeesProfile = () => {
                                     lab='Marital status:'
                                     val={maritalStatus}
                                 />
-                                {/* <span className='w-36 md:w-32 font-bold'>Address:</span>
-                                <span>{address}</span>
-                                <span className='w-36 md:w-32 font-bold'>Gender:</span>
-                                <span>{gender}</span>
-                                <span className='w-36 md:w-32 font-bold'>Nationality:</span>
-                                <span>{nationality}</span>
-                                <span className='w-36 md:w-32 font-bold'>Salary:</span>
-                                <span>{salary}</span>
-                                <span className='w-36 md:w-32 font-bold'>Marital status:</span>
-                                <span>{maritalStatus}</span> */}
                             </div>
                         </div>
                     </div>
@@ -113,7 +106,7 @@ const EmployeesProfile = () => {
                         </ul>
                     </div>
                     <Outlet>
-
+                        
                     </Outlet>
                 </div>
             </div>

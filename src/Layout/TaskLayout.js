@@ -28,7 +28,7 @@ const TaskLayout = () => {
             />
             <div className="drawer drawer-mobile pt-16 md:pt-10">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle peer" />
-                <div className="drawer-content  py-10 lg:ml-[222px] h-auto">
+                <div className="drawer-content md:py-10 lg:ml-[222px] h-auto">
                     <Outlet></Outlet>
                 </div>
                 <div className="drawer-side fixed h-full w-0 lg:w-[220px] peer-checked:w-full lg:peer-checked:w-[220px] ">
@@ -39,7 +39,7 @@ const TaskLayout = () => {
                             <h2 className='flex items-center gap-2 hover:text-white text-slate-400 cursor-pointer my-1 '> <FaHome className='text-white text-xl'></FaHome> Back to Home</h2>
                         </Link>
                         <h2 className='hover:text-white text-slate-400 cursor-pointer my-1'>
-                            <Link to="/dashboard/tasks">All Tasks</Link>
+                            <Link to="/dashboard/tasks/all-tasks">All Tasks</Link>
                         </h2>
                         {
                             projects.map(project => <h2 key={project._id} className='hover:text-white text-slate-400 cursor-pointer my-1'>

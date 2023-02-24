@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 
 const EditClientModal = ({ client, refetch, setEditingClient }) => {
-  const { _id,  company, name, email, phone, birthday, address, position, gender } = client;
+  const { _id, company, name, email, phone, birthday, address, position, gender } = client;
   console.log(_id, "this is id");
   const {
     register,
@@ -41,7 +41,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
           console.log(client, "this is client data");
 
           // save clients information to the database
-          fetch(`http://localhost:5000/clients/${_id}`, {
+          fetch(`https://perform-tracker-server.vercel.app/clients/${_id}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
@@ -114,7 +114,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                 </div>
                 <div>
                   <input
-                  name="name"
+                    name="name"
                     defaultValue={name}
                     type="text"
                     placeholder="Promotion For *"
@@ -173,7 +173,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     })}
                   >
                     <option disabled selected>
-                    position
+                      position
                     </option>
                     <option>Web Developer</option>
                     <option>Web Designer</option>

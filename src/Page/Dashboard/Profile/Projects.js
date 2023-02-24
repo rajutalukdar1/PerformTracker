@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import useTitle from '../../../hooks/useTitle';
 import Loading from '../../Others/Loading/Loading';
 import Project from '../Projects/Project';
 
 const Projects = () => {
+
     const { user, loading } = useSelector(state => state.userReducer);
 
     const { data: projects = [], refetch } = useQuery({
@@ -12,6 +14,8 @@ const Projects = () => {
         queryFn: () =>
             fetch(`https://perform-tracker-server.vercel.app/employee/projects/${user?.uid}`).then(res => res.json()),
     });
+
+    console.log(projects);
 
     if (loading) {
         return <Loading />

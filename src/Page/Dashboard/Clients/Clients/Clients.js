@@ -1,12 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import { FaBars, FaPlus, FaTh } from "react-icons/fa";
+import useTitle from "../../../../hooks/useTitle";
 import QueryBar from "../../../Share/QueryBar/QueryBar";
 import AddClient from "../../AddClient/AddClient";
 
 import Client from "./Client";
 
 const Clients = () => {
+
+  useTitle('Clients');
+
   // const user = useLoaderData();
   const [clients, setClients] = useState([]);
   const { data: user = [], refetch } = useQuery({
