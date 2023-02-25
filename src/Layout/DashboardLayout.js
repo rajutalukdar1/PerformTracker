@@ -158,7 +158,7 @@ const DashboardLayout = () => {
                                     title='PayRoll'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/employees/salary",
+                                            to: "/dashboard/salary",
                                             title: "Employees Salary"
                                         },
                                     ]}

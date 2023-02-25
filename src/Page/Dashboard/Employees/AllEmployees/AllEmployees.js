@@ -30,6 +30,7 @@ const AllEmployees = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
+            refetch();
             toast("deleted successfully !! ");
 
             // const remainigAllEmployees =  .filter((review) => review._id !==  id);

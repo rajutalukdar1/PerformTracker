@@ -23,12 +23,12 @@ const Client = ({ client, refetch }) => {
       .then((data) => {
         if (data.deletedCount > 0) {
           refetch();
-          toast.success(`Promotion ${client.name} deleted successfully`);
+          toast.success(`Client ${client.name} deleted successfully`);
         }
       });
   };
   return (
-    <div className=''>
+    <>
       <div className="card w-full  rounded text-neutral-content shadow-2xl">
         <div className="card-body bg-gray-900 rounded-xl  text-center">
           <div className="dropdown  dropdown-start ">
@@ -63,9 +63,9 @@ const Client = ({ client, refetch }) => {
                 </Link>
               </div>
             </div>
-            <h2 className=" whitespace-nowrap text-center text-xl font-bold">{company}</h2>
-            <p className='text-[#BBC4CC]' >{name}</p>
-            <p><span className='text-[#BBC4CC]'>{position}</span></p>
+            <h2 className=" whitespace-nowrap text-center text-xl font-bold">{name}</h2>
+            <p className='text-[#BBC4CC]' >{company || "N/A"}</p>
+            <p><span className='text-[#BBC4CC]'>{position || "N/A"}</span></p>
             <div className='flex justify-evenly w-full'>
               <div>
                 <button className='text-[#BBC4CC]'>Message</button>
@@ -98,7 +98,7 @@ const Client = ({ client, refetch }) => {
           setEditingClient={setEditingClient}
         ></EditClientModal>
       )}
-    </div>
+    </>
   );
 };
 

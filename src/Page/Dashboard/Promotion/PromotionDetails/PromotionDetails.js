@@ -2,6 +2,7 @@ import moment from "moment";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { FaEllipsisV } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import ConfirmationModal from "../../../Share/ConfirmationModal/ConfirmationModal";
 import EditPromotion from "../EditPromotion/EditPromotion";
 
@@ -32,11 +33,11 @@ const PromotionDetails = ({ promotion, i, refetch }) => {
     <tr key={promotion._id}>
       <th>{i + 1}</th>
       <td>
-        <div className="avatar">
+        <Link to={`/dashboard/employees/${promotion._id}`} className="avatar">
           <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
             <img src={promotion.img} alt="" />
           </div>
-        </div>
+        </Link>
       </td>
       <td>{name}</td>
       <td>{designation}</td>
