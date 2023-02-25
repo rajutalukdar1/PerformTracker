@@ -137,7 +137,7 @@ const SignIn = () => {
                   Forgot password?
                 </Link>
               </label>
-              <input className="btn btn-info hover:bg-sky-500 text-white" value="Login" type="submit" />
+              <input className="btn btn-hover color-9" value="Login" type="submit" />
               <div className="divider text-gray-500 before:bg-gray-300 after:bg-gray-300">Or</div>
               <div>
                 <div className="flex justify-between items-center sm:w-80 h-10 sm:h-[51px] bg-white border-2 hover:bg-gradient-to-r from-violet-600 to-pink-600 hover:text-white rounded-badge cursor-pointer">

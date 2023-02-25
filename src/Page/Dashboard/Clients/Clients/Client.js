@@ -33,11 +33,11 @@ const Client = ({ client, refetch }) => {
         <div className="card-body bg-gray-900 rounded-xl  text-center">
           <div className="dropdown  dropdown-start ">
             <label tabIndex={0}>
-              <FaEllipsisV className="  mr-2  rounded-lg text-xl cursor-pointer text-slate-400"></FaEllipsisV>
+              <FaEllipsisV className="mr-2 rounded-lg text-xl cursor-pointer text-slate-400"></FaEllipsisV>
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content  p-2 shadow bg-gray-700 rounded-box w-44  fixed"
+              className="menu menu-compact dropdown-content p-2 shadow bg-gray-700 rounded-box w-44 fixed"
             >
               <label
                 onClick={() => setDeletingClient(client)}
@@ -49,7 +49,7 @@ const Client = ({ client, refetch }) => {
               <label
                 onClick={() => setEditingClient(client)}
                 htmlFor="editPromotionModal"
-                className="cursor-pointer ml-2  hover:bg-slate-900 py-1 rounded-md"
+                className="cursor-pointer ml-2 hover:bg-slate-900 py-1 rounded-md"
               >
                 Edit
               </label>
@@ -59,7 +59,7 @@ const Client = ({ client, refetch }) => {
             <div className="avatar">
               <div className="w-20 rounded-full">
                 <Link to={`/dashboard/clientDetails/${_id}`}>
-                  <img src={img} alt="" />
+                  <img src={img} alt="img" />
                 </Link>
               </div>
             </div>

@@ -19,16 +19,12 @@
 
   border-radius: 50px;
   moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
 .btn-hover:hover {
   background-position: 100% 0;
   moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
@@ -42,7 +38,8 @@
     #25aae1,
     #4481eb,
     #04befe,
-    /* #3f86ed */ #4a6cd1
+    /* #3f86ed */
+    #4a6cd1
   );
   box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
@@ -80,10 +77,12 @@
   left: -2px;
   background-size: 400%;
   z-index: -1;
-  filter: blur(5px);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
+  -webkit-animation: glowing 20s linear infinite;
+          animation: glowing 20s linear infinite;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   border-radius: 50px;
@@ -111,6 +110,18 @@
   left: 0;
   top: 0;
   border-radius: 50px;
+}
+
+@-webkit-keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 @keyframes glowing {
@@ -158,10 +169,12 @@
   left: -2px;
   background-size: 400%;
   z-index: -1;
-  filter: blur(5px);
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
+  -webkit-animation: glowing 20s linear infinite;
+          animation: glowing 20s linear infinite;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
   border-radius: 50px;

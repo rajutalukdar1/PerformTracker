@@ -48,6 +48,9 @@ const EmployeeProfile = () => {
                 </div>
               </div>
               <div className='grid text-[#BBC4CC] grid-cols-[8rem_1fr]'>
+              <div className="">
+            
+          </div>
                 <EmployeeProfileInfo
                   lab='Phone:'
                   val={<a

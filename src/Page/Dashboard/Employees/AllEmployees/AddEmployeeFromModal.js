@@ -170,16 +170,16 @@ const AddEmployeeFromModal = () => {
                   <option value="" hidden>
                     Select marital Status
                   </option>
-                  <option>unmarried</option>
-                  <option>married</option>
+                  <option>Unmarried</option>
+                  <option>Married</option>
                 </select>
               </div>
             </div>
             <div>
               <input name="employeeImg" type="file" placeholder="select your photo" className="file-input file-input-bordered  w-full" />
             </div>
-            <div className="modal-action">
-              <button className="px-3 py-2 rounded-lg bg-orange-600  text-white font-semibold text-xl" type="submit">Submit</button>
+            <div className="modal-action justify-center">
+              <button className="px-3 py-2 rounded-lg w-full bg-orange-600  text-white text-xl" type="submit">Submit</button>
             </div>
           </form>
         </div>
