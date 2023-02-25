@@ -66,7 +66,8 @@ const ClientDetails = () => {
                             </div>
                         </div>
                     </div>
-                        <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
+
+                    <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
                     rounded-b-sm">
                         <ul className="menu menu-horizontal px-1">
                             <li>

@@ -16,14 +16,14 @@ const ClientProfile = () => {
   const { user, loading } = useSelector((state) => state.userReducer);
   // console.log(user);
 
-  const { data: client = [], refetch } = useQuery({
+  const { data: client = {}, refetch } = useQuery({
     queryKey: ["client", user?.email],
     queryFn: () =>
       fetch(
-        `https://perform-tracker-server.vercel.app/client?email=${user?.email}`
+        `http://localhost:5000/clientData?email=${user?.email}`
       ).then((res) => res.json()),
   });
-
+  console.log(client);
   const {
     clientId,
     company,

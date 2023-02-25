@@ -3,14 +3,14 @@ import { useQuery } from '@tanstack/react-query'
 import { Link, Outlet, useParams } from 'react-router-dom';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
 import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 const EmployeeProfile = () => {
   // const { user } = useSelector(state => state.userReducer);
   const [promotion, setPromotion] = useState({});
   const { id } = useParams();
-  const { data: { name, designation, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
+  const { data: { name, designation, address, company, position, employeeId, DOB, email, gender, img, phone, } = {}, refetch } = useQuery({
     queryKey: ['employee', id],
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`).then(res => res.json()),
@@ -34,23 +34,14 @@ const EmployeeProfile = () => {
                   <h3 className="text-2xl font-bold">{company}</h3>
                   <p className='font-bold'>{name}</p>
                   <p className='text-sm font-semibold mb-2'>{position}</p>
-                  <p className='text-sm font-semibold'>Employee ID : {employee_id}</p>
-                  <label className=" cursor-pointer inline-block rounded bg-orange-500 mt-8 px-6 py-2 text-sm font-medium text-white transition hover:bg-slate-900 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#0f0302]" 
-                    htmlFor='addPromotionModal'
-                    onClick={() => setPromotion({
-                      employeeId: id,
-                      name,
-                      img,
-                      designation
-                    })}
-                  >Promote
-            </label>
+                  <p className='text-sm font-semibold'>Employee ID : {employeeId}</p>
+
+                  <a className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" href=' ' >
+                    Send Message
+                  </a>
                 </div>
               </div>
               <div className='grid text-[#BBC4CC] grid-cols-[8rem_1fr]'>
-              <div className="">
-            
-          </div>
                 <EmployeeProfileInfo
                   lab='Phone:'
                   val={<a
@@ -63,7 +54,7 @@ const EmployeeProfile = () => {
                 />
                 <EmployeeProfileInfo
                   lab='Birthday:'
-                  val={birthday}
+                  val={DOB}
                 />
                 <EmployeeProfileInfo
                   lab='Address:'

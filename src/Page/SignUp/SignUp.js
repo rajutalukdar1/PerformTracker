@@ -79,10 +79,10 @@ const SignUp = () => {
       }
     } else {
       saveUser({
-        name: loggedUser.displayName,
-        email: loggedUser.email,
-        img: loggedUser.photoURL,
-        uid: loggedUser.uid
+        name: loggedUser?.displayName,
+        email: loggedUser?.email,
+        img: loggedUser?.photoURL,
+        uid: loggedUser?.uid
       });
     }
   }
