@@ -36,9 +36,16 @@ const EmployeeProfile = () => {
                   <p className='text-sm font-semibold mb-2'>{position}</p>
                   <p className='text-sm font-semibold'>Employee ID : {employeeId}</p>
 
-                  <a className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" href=' ' >
-                    Send Message
-                  </a>
+                  <label className=" cursor-pointer inline-block rounded bg-orange-500 mt-8 px-6 py-2 text-sm font-medium text-white transition hover:bg-slate-900 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#0f0302]" 
+                    htmlFor='addPromotionModal'
+                    onClick={() => setPromotion({
+                      employeeId: id,
+                      name,
+                      img,
+                      designation
+                    })}
+                  >Promote
+            </label>
                 </div>
               </div>
               <div className='grid text-[#BBC4CC] grid-cols-[8rem_1fr]'>
