@@ -17,7 +17,7 @@ const EmployeesProfile = () => {
 
   const { user, loading } = useSelector((state) => state.userReducer);
 
-  const { data: employees = [], refetch } = useQuery({
+  const { data: employees = {}, refetch } = useQuery({
     queryKey: ["employees", user?.email],
     queryFn: () =>
       fetch(`http://localhost:5000/employee?email=${user?.email}`).then((res) =>

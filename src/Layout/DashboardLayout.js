@@ -106,6 +106,10 @@ const DashboardLayout = () => {
                                             to: "/dashboard/profile/client",
                                             title: "Client Profile"
                                         },
+                                        {
+                                            to: "/dashboard/profile/admin",
+                                            title: "My Profile"
+                                        },
                                     ]}
                                 />
                                 <DashboardSideItems
