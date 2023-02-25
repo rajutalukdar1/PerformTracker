@@ -15,16 +15,16 @@ const Leads = () => {
 
     return (
         <div className='font-semibold'>
-            {/* <div className="mx-4">
-                <QueryBar
+            <div className="mx-4">
+                {/* <QueryBar
                     barData={{
                         pageName: "Leads",
                         btnOnClick: () => setLeads([]),
                         labelValue: "addClientModal",
                         hidden: ""
                     }}
-                />
-            </div> */}
+                /> */}
+            </div>
             <p className='text-3xl font-bold'>Leads</p>
             <div className='flex'>
                 <div className='mt-4 mr-1'>

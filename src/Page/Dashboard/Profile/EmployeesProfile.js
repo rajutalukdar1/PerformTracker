@@ -37,7 +37,7 @@ const EmployeesProfile = () => {
     DOB,
     address,
     nationality,
-    phone,
+    phone
   } = employees;
   console.log(employees);
 
