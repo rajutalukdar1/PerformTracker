@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { toast } from 'react-hot-toast';
-import { FaEllipsisV } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import ConfirmationModal from '../../../Share/ConfirmationModal/ConfirmationModal';
-import EditClientModal from '../EditClientModal/EditClientModal';
+import React, { useState } from "react";
+import { toast } from "react-hot-toast";
+import { FaEllipsisV } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import ConfirmationModal from "../../../Share/ConfirmationModal/ConfirmationModal";
+import EditClientModal from "../EditClientModal/EditClientModal";
 // import img1 from '../../../Assets/success_img/Vicky.jpg'
 
 const Client = ({ client, refetch }) => {
@@ -28,7 +28,7 @@ const Client = ({ client, refetch }) => {
       });
   };
   return (
-    <>
+    <div>
       <div className="card w-full  rounded text-neutral-content shadow-2xl">
         <div className="card-body bg-gray-900 rounded-xl  text-center">
           <div className="dropdown  dropdown-start ">
@@ -55,7 +55,7 @@ const Client = ({ client, refetch }) => {
               </label>
             </ul>
           </div>
-          <div className=''>
+          <div className="">
             <div className="avatar">
               <div className="w-20 rounded-full">
                 <Link to={`/dashboard/clientDetails/${_id}`}>
@@ -63,17 +63,20 @@ const Client = ({ client, refetch }) => {
                 </Link>
               </div>
             </div>
-            <h2 className=" whitespace-nowrap text-center text-xl font-bold">{name}</h2>
-            <p className='text-[#BBC4CC]' >{company || "N/A"}</p>
-            <p><span className='text-[#BBC4CC]'>{position || "N/A"}</span></p>
-            <div className='flex justify-evenly w-full'>
+            <h2 className=" whitespace-nowrap text-center text-xl font-bold">
+              {name}
+            </h2>
+            <p className="text-[#BBC4CC]">{company || "N/A"}</p>
+            <p>
+              <span className="text-[#BBC4CC]">{position || "N/A"}</span>
+            </p>
+            <div className="flex justify-evenly w-full">
               <div>
-                <button className='text-[#BBC4CC]'>Message</button>
+                <button className="text-[#BBC4CC]">Message</button>
               </div>
               <div>
-
                 <Link to={`/dashboard/clientDetails/${_id}`}>
-                  <button className='text-[#BBC4CC]'>View Profile</button>
+                  <button className="text-[#BBC4CC]">View Profile</button>
                 </Link>
               </div>
             </div>
@@ -98,7 +101,7 @@ const Client = ({ client, refetch }) => {
           setEditingClient={setEditingClient}
         ></EditClientModal>
       )}
-    </>
+    </div>
   );
 };
 

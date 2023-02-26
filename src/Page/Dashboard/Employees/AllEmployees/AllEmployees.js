@@ -51,10 +51,10 @@ const AllEmployees = () => {
           {/* The button to open modal */}
           <label
             htmlFor="my-modal"
-            className="px-3 py-2 flex items-center bg-gray-900 rounded-full text-white font-semibold 
+            className="cursor-pointer px-3 py-2 flex items-center hover:bg-gray-900 bg-orange-500 rounded-full text-white font-semibold 
             text-xl"
           >
-            <GrFormAdd className=" bg-white rounded-full text-white mr-3" /> Add Employee
+            <GrFormAdd className=" bg-white rounded-full text-white mr-3 " /> Add Employee
           </label>
           <AddEmployeeFromModal />
         </div>

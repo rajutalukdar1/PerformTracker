@@ -51,7 +51,7 @@ const EditSalary = ({employee, refetch, setEditingSalary }) => {
             className="modal-toggle "
           />
           <div className="modal pt-24">
-            <div className="modal-box relative ">
+            <div className="modal-box pt-12 ">
               <label
                 // onClick={() => setPromotion(null)}
                 htmlFor="editSalaryModal"
@@ -67,7 +67,7 @@ const EditSalary = ({employee, refetch, setEditingSalary }) => {
                       defaultValue={name}
                       type="text"
                       // defaultValue={user?.displayName}
-                      className="input input-bordered my-2 w-full "
+                      className="input input-bordered my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                       {...register("name", {
                         required: "Client Name is required",
                       })}
@@ -83,7 +83,7 @@ const EditSalary = ({employee, refetch, setEditingSalary }) => {
                       defaultValue={employeeId}
                       name="employeeId"
                       type="text"
-                      className="input input-bordered my-2 w-full "
+                      className="input input-bordered my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                       {...register("employeeId", {
                         required: "Phone employeeId is required",
                       })}
@@ -99,7 +99,7 @@ const EditSalary = ({employee, refetch, setEditingSalary }) => {
                       defaultValue={email}
                       name="email"
                       type="text"
-                      className="input input-bordered my-2 w-full "
+                      className="input input-bordered my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                       {...register("email", {
                         required: "Phone email is required",
                       })}
@@ -114,7 +114,7 @@ const EditSalary = ({employee, refetch, setEditingSalary }) => {
                     <select
                       name="designation"
                       // defaultValue={designation}
-                      className="select select-bordered w-full "
+                      className="select select-bordered w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                       {...register("designation", {
                         required: "Your designation is required",
                       })}
@@ -139,7 +139,7 @@ const EditSalary = ({employee, refetch, setEditingSalary }) => {
                     //   defaultValue={date}
                       type="date"
                       placeholder="date"
-                      className="input input-bordered my-2 w-full "
+                      className="input input-bordered my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                       {...register("joiningDate", {
                         required: "Your joiningDate is required",
                       })}
@@ -153,11 +153,13 @@ const EditSalary = ({employee, refetch, setEditingSalary }) => {
                 </div>
   
                 <br />
+                <div className='modal-action justify-center'>
                 <input
-                  className="btn btn-accent w-full my-4"
+                  className="cursor-pointer hover:bg-slate-900 px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold"
                   type="submit"
                   value="Submit"
                 />
+                </div>
               </form>
             </div>
           </div>

@@ -46,14 +46,14 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
           className="modal-toggle "
         />
         <div className="modal pt-24">
-          <div className="modal-box relative ">
+          <div className="modal-box pt-10">
             <label
               htmlFor="addPromotionModal"
-              className="btn btn-sm btn-circle absolute right-2  top-2"
+              className="btn btn-sm btn-circle absolute right-2 top-0"
             >
               ✕
             </label>
-            <form onSubmit={handleSubmit(handleAddPromotion)}>
+            <form onSubmit={handleSubmit(handleAddPromotion)} >
               <div className="grid grid-cols-1">
                 <div>
                   <input
@@ -61,7 +61,7 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
                     // disabled value={date}
                     placeholder="Promotion For *"
                     defaultValue={promote.name}
-                    className="input input-bordered my-2 w-full "
+                    className="input input-bordered my-2 w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("name", {
                       required: "employee name is required",
                     })}
@@ -78,7 +78,7 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
                     type="text"
                     placeholder="Promotion From *"
                     defaultValue={promote.designation}
-                    className="input input-bordered my-2 w-full "
+                    className="input input-bordered my-2 w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("designation", {
                       required: "Phone Number is required",
                     })}
@@ -92,7 +92,7 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
                 <div>
                   <select
                     name="designation_to"
-                    className="select select-bordered w-full "
+                    className="select select-bordered w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("designation_to", {
                       required: "Your Name is required",
                     })}
@@ -112,11 +112,13 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
                 </div>
               </div>
               <br />
+              <div className="modal-action justify-center">
               <input
-                className="btn btn-accent w-full my-4"
+                className="cursor-pointer hover:bg-slate-900 px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold"
                 type="submit"
                 value="Submit"
               />
+              </div>
             </form>
           </div>
         </div>
