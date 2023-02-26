@@ -3,8 +3,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const AdminProgress = () => {
+const AdminProgress = ({adminData}) => {
+    const {tasksData, projectsData, totalClients, totalEmployees, promotedEmployees} = adminData;
     const { user } = useSelector(state => state.userReducer);
+    console.log({tasksData, projectsData, totalClients, totalEmployees, promotedEmployees});
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 p-12 '>
@@ -19,24 +21,24 @@ const AdminProgress = () => {
                     </div>
                     <div className='border p-2 mt-1'>
                         <div className='flex justify-between'>
-                            <h3>Pending Invoice</h3>
-                            <h3>15/92</h3>
+                            <h3>Pending Projects</h3>
+                            <h3>{projectsData?.pendingProjects}/{projectsData?.totalProjects}</h3>
                         </div>
-                        <progress className="progress progress-secondary w-full h-1" value="60" max="100"></progress>
+                        <progress className="progress progress-secondary w-full h-1" value={(projectsData?.pendingProjects / projectsData?.totalProjects) * 100} max="100"></progress>
                     </div>
                     <div className='border p-2 mt-1'>
                         <div className='flex justify-between'>
                             <h3>Completed Projects</h3>
-                            <h3>86/112</h3>
+                            <h3>{projectsData?.completedProjects}/{projectsData?.totalProjects}</h3>
                         </div>
-                        <progress className="progress progress-accent w-full h-1" value="80" max="100"></progress>
+                        <progress className="progress progress-accent w-full h-1" value={(projectsData?.completedProjects / projectsData?.totalProjects) * 100} max="100"></progress>
                     </div>
                     <div className='border p-2 mt-1'>
                         <div className='flex justify-between'>
-                            <h3>Open Tickets</h3>
-                            <h3>190/212</h3>
+                            <h3>Promoted Employees</h3>
+                            <h3>{promotedEmployees}/{totalEmployees}</h3>
                         </div>
-                        <progress className="progress progress-info w-full h-1" value="70" max="100"></progress>
+                        <progress className="progress progress-info w-full h-1" value={(promotedEmployees / totalEmployees) * 100} max="100"></progress>
                     </div>
                     <div className='border p-2 mt-1'>
                         <div className='flex justify-between'>
@@ -52,11 +54,11 @@ const AdminProgress = () => {
                     <div className='grid grid-cols-2 gap-3'>
                         <div className='border text-center p-3 w-full font-semibold'>
                             <h2>Total Tasks</h2>
-                            <h3>350</h3>
+                            <h3>{tasksData?.totalTasks}</h3>
                         </div>
                         <div className='border text-center p-3 w-full font-semibold'>
                             <h2>Overdue Tasks</h2>
-                            <h3>19</h3>
+                            <h3>{tasksData?.pendingTasks}</h3>
                         </div>
                     </div>
                     <div className="relative pt-1 mt-4">
@@ -69,39 +71,39 @@ const AdminProgress = () => {
                     </div>
                     <div>
                         <div className='flex justify-between'>
-                            <div className='flex items-center'>
-                                <span className='text-red-500 text-2xl mr-3 mt-2'>&#9678;</span>
+                            <div className='flex items-center my-[2px]'>
+                                <span className='text-green-400 text-2xl mr-3 mt-1'>&#9678;</span>
                                 <h2>Completed Tasks</h2>
                             </div>
-                            <h5>166</h5>
+                            <h5>{tasksData?.completedTasks}</h5>
                         </div>
                         <div className='flex justify-between'>
-                            <div className='flex items-center'>
-                                <span className='text-white text-2xl mr-3 mt-2'>&#9678;</span>
+                            <div className='flex items-center my-[2px]'>
+                                <span className='text-blue-600 text-2xl mr-3 mt-1'>&#9678;</span>
                                 <h2>Inprogress Tasks</h2>
                             </div>
-                            <h5>166</h5>
+                            <h5>{tasksData?.pendingTasks}</h5>
                         </div>
                         <div className='flex justify-between'>
-                            <div className='flex items-center'>
-                                <span className='text-blue-600 text-2xl mr-3 mt-2'>&#9678;</span>
+                            <div className='flex items-center my-[2px]'>
+                                <span className='text-red-500 text-2xl mr-3 mt-1'>&#9678;</span>
                                 <h2>Pending Tasks</h2>
                             </div>
-                            <h5>166</h5>
+                            <h5>{tasksData?.pendingTasks}</h5>
                         </div>
                         <div className='flex justify-between'>
-                            <div className='flex items-center'>
-                                <span className='text-green-400 text-2xl mr-3 mt-2'>&#9678;</span>
-                                <h2>Review Tasks</h2>
+                            <div className='flex items-center my-[2px]'>
+                                <span className='text-white text-2xl mr-3 mt-1'>&#9678;</span>
+                                <h2>Assigned Tasks</h2>
                             </div>
-                            <h5>166</h5>
+                            <h5>{tasksData?.assignedTasks}</h5>
                         </div>
                         <div className='flex justify-between'>
-                            <div className='flex items-center'>
-                                <span className='text-sky-400 text-2xl mr-3 mt-2'>&#9678;</span>
-                                <h2>coming Tasks</h2>
+                            <div className='flex items-center my-[2px]'>
+                                <span className='text-sky-400 text-2xl mr-3 mt-1'>&#9678;</span>
+                                <h2>Upcoming Tasks</h2>
                             </div>
-                            <h5>166</h5>
+                            <h5>{tasksData?.upcomingTasks}</h5>
                         </div>
                     </div>
                 </div>
