@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const AdminProgress = ({adminData}) => {
     const {tasksData, projectsData, totalClients, totalEmployees, promotedEmployees} = adminData;
     const { user } = useSelector(state => state.userReducer);
-    console.log({tasksData, projectsData, totalClients, totalEmployees, promotedEmployees});
+
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 p-12 '>

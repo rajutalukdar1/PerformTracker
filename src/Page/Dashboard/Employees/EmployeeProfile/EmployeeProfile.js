@@ -15,6 +15,7 @@ const EmployeeProfile = () => {
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`).then(res => res.json()),
   });
+
   return (
     <div>
       <div className='w-full max-w-[1440px] mx-auto mb-20'>
@@ -81,12 +82,12 @@ const EmployeeProfile = () => {
             rounded-b-sm">
             <ul className="menu menu-horizontal px-1">
               <li>
-                <Link to='/dashboard/profile/client'>
+                <Link to={`/dashboard/employees/${id}/projects`}>
                   Projects
                 </Link>
               </li>
               <li tabIndex={0}>
-                <Link to='/dashboard/profile/client/task'>
+                <Link to={`/dashboard/employees/${id}/tasks`}>
                   Tasks
                 </Link>
               </li>
