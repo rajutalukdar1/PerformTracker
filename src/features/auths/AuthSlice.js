@@ -6,7 +6,8 @@ const auth = getAuth(app)
 
 const initialUser = {
   loading: true,
-  user: null
+  user: null,
+  user_id: null,
 }
 
 export const userSlice = createSlice({
@@ -19,16 +20,22 @@ export const userSlice = createSlice({
     SET_USER: (state, {payload}) => {
       state.user = payload.user
     },
+    SET_USER_ID: (state, {payload}) => {
+      state.user_id = payload.user_id
+    },
   }
 });
 
-export const { SET_LOADING, SET_USER } = userSlice.actions;
+export const { SET_LOADING, SET_USER, SET_USER_ID } = userSlice.actions;
 
 export const setAuthListener = () => (dispatch, state) => {
   const unsubscribe = onAuthStateChanged(auth, currentUser => {
     dispatch(SET_USER({user: currentUser}))
     dispatch(SET_LOADING(false))
     currentUser && console.log('Logged in');
+    fetch(`http://localhost:5000/user?uid=${currentUser?.uid}`)
+    .then((res) => res.json())
+    .then(data => dispatch(SET_USER_ID({user_id: data._id})))
   })
   return () => unsubscribe();
 }

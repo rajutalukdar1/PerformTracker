@@ -82,7 +82,17 @@ const router = createBrowserRouter([
 
       {
         path: "/dashboard/employees/:id",
-        element: <EmployeeProfile />
+        element: <EmployeeProfile />,
+        children: [
+          {
+            path: '/dashboard/employees/:id/projects',
+            element: <Projects></Projects>
+          },
+          {
+            path: '/dashboard/employees/:id/projects',
+            // element: <Tasks></Tasks>
+          },
+        ]
       },
 
       {
@@ -94,7 +104,19 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/client/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`),
+        children: [
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <Projects></Projects>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/projects/${params._id}`)
+          },
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <ClientDetails></ClientDetails>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+          },
+        ]
       },
 
       {

@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import { Link, Outlet, useLoaderData, useParams } from 'react-router-dom';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
 
 const ClientDetails = () => {
     const { img, company, name, email, phone, birthday, address, position, gender, clientId } = useLoaderData();
+    const { _id } = useParams();
     return (
         <div>
             <div className='w-full max-w-[1440px] mx-auto mb-20'>
@@ -63,17 +64,16 @@ const ClientDetails = () => {
                             </div>
                         </div>
                     </div>
-
                     <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
                     rounded-b-sm">
                         <ul className="menu menu-horizontal px-1">
                             <li>
-                                <Link to='/dashboard/profile/client'>
+                                <Link to={`/dashboard/clientDetails/${_id}/projects`}>
                                     Projects
                                 </Link>
                             </li>
                             <li tabIndex={0}>
-                                <Link to='/dashboard/profile/client/task'>
+                                <Link to={`/dashboard/clientDetails/${_id}/task`}>
                                     Tasks
                                 </Link>
                             </li>
