@@ -34,6 +34,7 @@ import MainTask from "../../Page/Dashboard/Tasks/MainTask/MainTask";
 import AllTasks from "../../Page/Dashboard/Tasks/AllTasks/AllTasks";
 import AllTeams from "../../Page/Dashboard/Employees/Teams/AllTeams/AllTeams";
 import MyTeams from "../../Page/Dashboard/MyTeams/MyTeams";
+import EmployeesDetails from "../../Page/Dashboard/Employees/AllEmployees/EmployeesDetails";
 
 const router = createBrowserRouter([
   {
@@ -85,7 +86,13 @@ const router = createBrowserRouter([
       },
 
       {
-        path: '/dashboard/clientDetails/:_id',
+        path: '/dashboard/employee/:_id',
+        element: <EmployeesDetails></EmployeesDetails>,
+        loader: ({ params }) => fetch(`http://localhost:5000/employees/${params._id}`)
+      },
+
+      {
+        path: '/dashboard/client/:_id',
         element: <ClientDetails></ClientDetails>,
         loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
       },
@@ -100,7 +107,7 @@ const router = createBrowserRouter([
         element: <AddClient></AddClient>
       },
       {
-        path: "/dashboard/clientDetails",
+        path: "/dashboard/client",
         element: <ClientDetails></ClientDetails>,
         loader: () => fetch('https://perform-tracker-server.vercel.app/clients')
       }
