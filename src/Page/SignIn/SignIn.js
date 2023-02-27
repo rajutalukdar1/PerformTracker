@@ -75,7 +75,7 @@ const SignIn = () => {
     } else if (existUser?.role === "Client") {
       navigate('/dashboard/client');
     } else {
-      navigate('/dashboard');
+      navigate('/dashboard/dashboardEmployees');
     }
   }
 
@@ -88,7 +88,7 @@ const SignIn = () => {
           </div>
           <div className="card flex-shrink-0 w-full lg:max-w-sm shadow-2xl bg-base-100 text-black overflow-hidden">
             <div className="card-title justify-center bg-info py-4 text-white">Login Here</div>
-            
+
             {/* <div className="hero-content flex-col lg:flex-row p-0 lg:gap-36 mt-5 md:mt-10 mb-5 md:mb-16">
           <div className="text-center lg:text-left hidden lg:block">
             <LoginAnimation />

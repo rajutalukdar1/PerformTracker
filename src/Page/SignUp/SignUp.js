@@ -112,7 +112,7 @@ const SignUp = () => {
     } else if (role === "Client") {
       navigate('/dashboard/client');
     } else {
-      navigate('/dashboard');
+      navigate('/dashboard/dashboardEmployees');
     }
   }
 
