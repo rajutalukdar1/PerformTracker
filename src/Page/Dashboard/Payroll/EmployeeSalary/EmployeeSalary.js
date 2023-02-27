@@ -8,8 +8,10 @@ import ConfirmationModal from '../../../Share/ConfirmationModal/ConfirmationModa
 import { toast } from 'react-hot-toast';
 import EditSalary from '../EditSalary/EditSalary';
 import { Link } from 'react-router-dom';
+import AddSalary from '../AddSalary/AddSalary';
 
 const EmployeeSalary = () => {
+  const [Salary, setSalary] = useState(null);
   const [deletingSalary, setDeletingSalary] = useState(null);
   const [editingSalary, setEditingSalary] = useState(null);
 
@@ -35,23 +37,17 @@ console.log(employees, "this employee")
         }
       });
   };
-
-  // const handleSalaryDelete = (id) => {
-
-  // }
-
   return (
     <div>
       <QueryBar
-        barData={{
-          pageName: "Employee Salary",
-          labelValue: "addSalaryModal",
-          btnValue: "Add Salary",
-          btnOnClick: () => { },
-          // btnOnClick: () => !shown && setShown(true),
-          hidden: "hidden"
-        }}
-      />
+          barData={{
+            pageName: "Salary",
+            btnValue: "Add Salary",
+            btnOnClick: () => setSalary([]),
+            labelValue: "addSalaryModal",
+            hidden: "hidden"
+          }}
+        />
       <div className="overflow-x-auto pb-5">
         <table className="table table-zebra w-full">
           <thead>
@@ -138,6 +134,10 @@ console.log(employees, "this employee")
           setEditingSalary={setEditingSalary}
         ></EditSalary>
       )}
+      {Salary && <AddSalary
+        refetch={refetch}
+        setClients={setSalary}
+      ></AddSalary>}
     </div>
   )
 }
