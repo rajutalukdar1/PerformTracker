@@ -61,7 +61,7 @@ const AddClient = ({ refetch, setClients }) => {
       <div className="">
         <input type="checkbox" id="addClientModal" className="modal-toggle " />
         <div className="modal pt-24">
-          <div className="modal-box relative ">
+          <div className="modal-box pt-12">
             <label
               htmlFor="addClientModal"
               className="btn btn-sm btn-circle absolute right-2  top-2"
@@ -74,7 +74,7 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     type="text"
                     placeholder="clientId"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("clientId", {
                       required: "Client Id is required",
                     })}
@@ -89,7 +89,7 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     type="text"
                     placeholder="Company Name"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("company", {
                       required: "Company Name is required",
                     })}
@@ -105,7 +105,7 @@ const AddClient = ({ refetch, setClients }) => {
                     name="name"
                     type="text"
                     placeholder="Client Name"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("name", {
                       required: "Client Name is required",
                     })}
@@ -120,9 +120,8 @@ const AddClient = ({ refetch, setClients }) => {
                   <input
                     name="email"
                     type="email"
-                    // defaultValue={user?.email}
                     placeholder="Email Address"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("email", {
                       required: "Email address is required",
                     })}
@@ -138,7 +137,7 @@ const AddClient = ({ refetch, setClients }) => {
                     name="phone"
                     type="number"
                     placeholder="Phone Number"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("phone", {
                       required: "Phone Number is required",
                     })}
@@ -152,7 +151,7 @@ const AddClient = ({ refetch, setClients }) => {
                 <div>
                   <select
                     name="position"
-                    className="select select-bordered my-2 w-full "
+                    className="select select-bordered w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("position", {
                       required: "Your position is required",
                     })}
@@ -174,7 +173,7 @@ const AddClient = ({ refetch, setClients }) => {
                   <select
                     name="gender"
                     placeholder="gender"
-                    className="select select-bordered my-2 w-full "
+                    className="select select-bordered w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("gender", {
                       required: "Your Name is required",
                     })}
@@ -197,7 +196,7 @@ const AddClient = ({ refetch, setClients }) => {
                     name="birthday"
                     type="date"
                     placeholder="Your Birthday"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("birthday", {
                       required: "Your Name is required",
                     })}
@@ -213,7 +212,7 @@ const AddClient = ({ refetch, setClients }) => {
                     name="address"
                     type="text"
                     placeholder="Your address"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("address", {
                       required: "Your address is required",
                     })}
@@ -232,7 +231,7 @@ const AddClient = ({ refetch, setClients }) => {
                 <input
                   type="file"
                   {...register("image", { required: "Your Photo is required" })}
-                  className="file-input file-input-bordered w-full "
+                  className="file-input file-input-bordered w-full rounded-lg   text-sm bg-gray-900 placeholder:text-gray-600 "
                 />
                 {errors.img && (
                   <p className="text-red-600" role="alert">
@@ -241,11 +240,13 @@ const AddClient = ({ refetch, setClients }) => {
                 )}
               </div>
               <br />
+              <div className="modal-action justify-center">
               <input
-                className="btn btn-accent w-full my-4"
+                className="cursor-pointer hover:bg-slate-900 px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold"
                 type="submit"
-                value="Submit"
+                value="Add Client"
               />
+              </div>
             </form>
           </div>
         </div>

@@ -45,7 +45,7 @@ const EditPromotion = ({ refetch, setEditingPromotion, promotion }) => {
           className="modal-toggle "
         />
         <div className="modal pt-24">
-          <div className="modal-box relative ">
+          <div className="modal-box pt-12">
             <label
               // onClick={() => setPromotion(null)}
               htmlFor="editPromotionModal"
@@ -61,7 +61,7 @@ const EditPromotion = ({ refetch, setEditingPromotion, promotion }) => {
                     defaultValue={name}
                     type="text"
                     // defaultValue={user?.displayName}
-                    className="input input-bordered my-2 w-full "
+                    className="input input-bordered my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("name", {
                       required: "Client Name is required",
                     })}
@@ -77,7 +77,7 @@ const EditPromotion = ({ refetch, setEditingPromotion, promotion }) => {
                     defaultValue={designation}
                     name="designation"
                     type="text"
-                    className="input input-bordered my-2 w-full "
+                    className="input input-bordered my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("designation", {
                       required: "Phone Number is required",
                     })}
@@ -92,7 +92,7 @@ const EditPromotion = ({ refetch, setEditingPromotion, promotion }) => {
                   <select
                     name="designation_to"
                     defaultValue={designation_to}
-                    className="select select-bordered w-full "
+                    className="select select-bordered w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("designation_to", {
                       required: "Your Name is required",
                     })}
@@ -117,7 +117,7 @@ const EditPromotion = ({ refetch, setEditingPromotion, promotion }) => {
                     defaultValue={date}
                     type="date"
                     placeholder="date"
-                    className="input input-bordered my-2 w-full "
+                    className="input input-bordered my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("date", {
                       required: "Your date is required",
                     })}
@@ -131,11 +131,13 @@ const EditPromotion = ({ refetch, setEditingPromotion, promotion }) => {
               </div>
 
               <br />
-              <input
-                className="btn btn-accent w-full my-4"
-                type="submit"
-                value="Submit"
-              />
+              <div className="modal-action justify-center">
+                <input
+                  className="cursor-pointer hover:bg-slate-900 px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold"
+                  type="submit"
+                  value="Submit"
+                />
+              </div>
             </form>
           </div>
         </div>

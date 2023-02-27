@@ -7,7 +7,6 @@ import AddClient from "../../Page/Dashboard/AddClient/AddClient";
 import ClientDetails from "../../Page/Dashboard/Clients/ClientDetails/ClientDetails";
 import Clients from "../../Page/Dashboard/Clients/Clients/Clients";
 import AllEmployees from "../../Page/Dashboard/Employees/AllEmployees/AllEmployees";
-import EmployeeProfile from "../../Page/Dashboard/Profile/EmployeesProfile";
 import EmployeeSalary from "../../Page/Dashboard/Payroll/EmployeeSalary/EmployeeSalary";
 import Leads from "../../Page/Dashboard/Leads/Leads";
 import BankAndStatutory from "../../Page/Dashboard/Profile/BankAndStatutory/BankAndStatutory";
@@ -34,6 +33,7 @@ import MainTask from "../../Page/Dashboard/Tasks/MainTask/MainTask";
 import AllTasks from "../../Page/Dashboard/Tasks/AllTasks/AllTasks";
 import AllTeams from "../../Page/Dashboard/Employees/Teams/AllTeams/AllTeams";
 import MyTeams from "../../Page/Dashboard/MyTeams/MyTeams";
+import EmployeeProfile from "../../Page/Dashboard/Employees/EmployeeProfile/EmployeeProfile";
 
 const router = createBrowserRouter([
   {
@@ -87,7 +87,19 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/clientDetails/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`),
+        children: [
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <Projects></Projects>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/projects/${params._id}`)
+          },
+          {
+            path: '/dashboard/clientDetails/:_id/projects',
+            element: <ClientDetails></ClientDetails>,
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+          },
+        ]
       },
 
       {
@@ -152,6 +164,17 @@ const router = createBrowserRouter([
             path: "/dashboard/profile/employees/bank",
             element: <BankAndStatutory></BankAndStatutory>
           }
+        ]
+      },
+      // --------------
+      {
+        path: "/dashboard/profile/admin",
+        element: <EmployeesProfile></EmployeesProfile>,
+        children: [
+          {
+            path: "/dashboard/profile/admin",
+            element: <Projects></Projects>
+          },
         ]
       },
       {

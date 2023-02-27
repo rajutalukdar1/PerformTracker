@@ -1,54 +1,53 @@
-import moment from "moment";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import moment from 'moment';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
-const AddPromotion = ({ refetch, setPromotion, promote }) => {
-  console.log(promote);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+const AddSalary = () => {
 
-  const handleAddPromotion = (data) => {
-    const promotion = {
-      name: data.name,
-      department: data.department,
-      designation: data.designation,
-      designation_to: data.designation_to,
-      publishDate: moment().format('Do MMMM, YYYY'),
-      img: promote.img,
-    };
-
-    // save promotion information to the database
-    fetch("https://perform-tracker-server.vercel.app/promotion", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(promotion),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        toast.success(`${data.name} is added successfully`);
-        refetch();
-        setPromotion(null);
-      });
-  };
-
-  return (
-    <>
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+    
+      const handleAddPromotion = (data) => {
+        // const promotion = {
+        //   name: data.name,
+        //   department: data.department,
+        //   designation: data.designation,
+        //   designation_to: data.designation_to,
+        //   publishDate: moment().format('Do MMMM, YYYY'),
+        //   img: promote.img,
+        // };
+    
+        // // save promotion information to the database
+        // fetch("https://perform-tracker-server.vercel.app/promotion", {
+        //   method: "POST",
+        //   headers: {
+        //     "content-type": "application/json",
+        //   },
+        //   body: JSON.stringify(promotion),
+        // })
+        //   .then((res) => res.json())
+        //   .then((result) => {
+        //     toast.success(`${data.name} is added successfully`);
+        //     refetch();
+        //     setPromotion(null);
+        //   });
+      };
+    return (
+        <>
       <div className="">
         <input
           type="checkbox"
-          id="addPromotionModal"
+          id="addSalaryModal"
           className="modal-toggle "
         />
         <div className="modal pt-24">
           <div className="modal-box pt-10">
             <label
-              htmlFor="addPromotionModal"
+              htmlFor="addSalaryModal"
               className="btn btn-sm btn-circle absolute right-2 top-0"
             >
               ✕
@@ -60,7 +59,7 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
                     type="text"
                     // disabled value={date}
                     placeholder="Promotion For *"
-                    defaultValue={promote.name}
+                    // defaultValue={promote.name}
                     className="input input-bordered my-2 w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("name", {
                       required: "employee name is required",
@@ -77,7 +76,7 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
                     name="designation"
                     type="text"
                     placeholder="Promotion From *"
-                    defaultValue={promote.designation}
+                    // defaultValue={promote.designation}
                     className="input input-bordered my-2 w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600 "
                     {...register("designation", {
                       required: "Phone Number is required",
@@ -124,7 +123,7 @@ const AddPromotion = ({ refetch, setPromotion, promote }) => {
         </div>
       </div>
     </>
-  );
+    );
 };
 
-export default AddPromotion;
+export default AddSalary;

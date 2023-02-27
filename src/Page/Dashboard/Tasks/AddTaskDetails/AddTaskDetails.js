@@ -9,8 +9,6 @@ const AddTaskDetails = ({ task, refetch }) => {
   const [checkbox, setCheckbox] = useState(task.status === "completed");
   const [deletingTask, setDeletingTask] = useState(null);
 
-  // console.log(task.status === "completed");
-
   const closeModal = () => {
     setDeletingTask(null);
   };
