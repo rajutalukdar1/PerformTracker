@@ -52,10 +52,10 @@ const AllEmployees = () => {
           {/* The button to open modal */}
           <label
             htmlFor="my-modal"
-            className="px-3 py-2 flex items-center bg-gray-900 rounded-full text-white font-semibold 
+            className="cursor-pointer px-3 py-2 flex items-center bg-gray-900 hover:bg-gray-800 rounded-full text-white font-semibold 
             text-xl"
           >
-            <GrFormAdd className=" bg-white rounded-full text-white mr-3" /> Add Employee
+            <GrFormAdd className=" bg-white rounded-full text-white mr-3 " /> Add Employee
           </label>
           <AddEmployeeFromModal />
         </div>
@@ -87,7 +87,7 @@ const AllEmployees = () => {
                 </li>
               </ul>
             </div>
-            <Link to={`/dashboard/employee/${singleEmployee._id}`}>
+            <Link to={`/dashboard/employees/${singleEmployee._id}`}>
               <div className="flex  justify-center ">
                 <img
                   className="w-20 h-20 rounded-full object-cover bg-slate-100"

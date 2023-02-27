@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, Outlet, useLoaderData, useParams } from 'react-router-dom';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
+// import img1 from '../../../Assets/success_img/Vicky.jpg'
 
 const ClientDetails = () => {
+
     const { img, company, name, email, phone, birthday, address, position, gender, clientId } = useLoaderData();
     const { _id } = useParams();
     return (
@@ -28,10 +30,10 @@ const ClientDetails = () => {
                                     <p className='text-sm font-semibold mb-2'>{position}</p>
                                     <p className='text-sm font-semibold'>Client ID : {clientId}</p>
                                     <a
-                                        className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2
+                                        className="inline-block rounded bg-orange-500  mt-8 px-6 py-2
                                         text-sm font-medium text-white transition hover:scale-110
                                         hover:shadow-xl focus:outline-none
-                                        focus:ring active:bg-[#FD7265]"
+                                        focus:ring active:bg-[#171717]"
                                         href=' '
                                     >
                                         Send Message
@@ -87,6 +89,5 @@ const ClientDetails = () => {
         </div>
     );
 };
-
 
 export default ClientDetails;

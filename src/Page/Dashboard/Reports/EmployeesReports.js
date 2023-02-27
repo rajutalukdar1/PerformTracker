@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EmployeesReports = ({ report }) => {
-    const { img, name, employeeType, address, email,
+    const {_id, img, name, employeeType, address, email,
         department, designation, joiningDate,
         DOB, phone, salary, maritalStatus,
         gender, EmergencyContactDetails, nationality, Experience, Status } = report
@@ -10,14 +11,15 @@ const EmployeesReports = ({ report }) => {
         <tbody className=''>
             <tr className='text-gray-300 font-bold'>
                 <td>
-                    <div className="flex items-center space-x-3">
+                    
+                    <Link to={`/dashboard/employees/${_id}`} className="flex items-center space-x-3">
                         <div className="avatar">
                             <div className="w-12 rounded-full">
                                 <img src={img} alt="" />
                             </div>
                         </div>
                         <div className="font-bold">{name}</div>
-                    </div>
+                    </Link>
                 </td>
                 <td>
                     <p>{employeeType}</p>

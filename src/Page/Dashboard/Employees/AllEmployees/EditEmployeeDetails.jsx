@@ -59,8 +59,8 @@ const EditEmployeeDetails = ({ id }) => {
           })
             .then(res => res.json())
             .then(result => {
-              toast.success('Employee is successfully Updated!');
               refetch();
+              toast.success('Employee is successfully Updated!')
             })
         }
       })
