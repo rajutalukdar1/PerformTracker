@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { FaEllipsisV } from 'react-icons/fa';
+import { FaEllipsisV, FaPencilAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import ConfirmationModal from '../../../Share/ConfirmationModal/ConfirmationModal';
 import EditClientModal from '../EditClientModal/EditClientModal';
@@ -23,7 +23,7 @@ const Client = ({ client, refetch }) => {
       .then((data) => {
         if (data.deletedCount > 0) {
           refetch();
-          toast.success(`Promotion ${client.name} deleted successfully`);
+          toast.success(`${client.name} deleted successfully.`);
         }
       });
   };
@@ -37,7 +37,7 @@ const Client = ({ client, refetch }) => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content p-2 shadow bg-gray-700 rounded-box w-44 fixed"
+              className="dropdown-content menu p-2 bg-slate-800 text-white rounded-box w-40"
             >
               <label
                 onClick={() => setDeletingClient(client)}
@@ -58,7 +58,7 @@ const Client = ({ client, refetch }) => {
           <div className=''>
             <div className="avatar">
               <div className="w-20 rounded-full">
-                <Link to={`/dashboard/clientDetails/${_id}`}>
+                <Link to={`/dashboard/client/${_id}`}>
                   <img src={img} alt="img" />
                 </Link>
               </div>
@@ -71,8 +71,7 @@ const Client = ({ client, refetch }) => {
                 <button className='text-[#BBC4CC]'>Message</button>
               </div>
               <div>
-
-                <Link to={`/dashboard/clientDetails/${_id}`}>
+                <Link to={`/dashboard/client/${_id}`}>
                   <button className='text-[#BBC4CC]'>View Profile</button>
                 </Link>
               </div>
@@ -83,7 +82,7 @@ const Client = ({ client, refetch }) => {
       {deletingClient && (
         <ConfirmationModal
           title={`Are you sure you want to delete?`}
-          message={`if you delete ${deletingClient.name}. It cannot be undone`}
+          message={`If you delete ${deletingClient.name}. It can not be undone.`}
           successAction={handleDeleteClient}
           modalData={deletingClient}
           successButtonName="Delete"

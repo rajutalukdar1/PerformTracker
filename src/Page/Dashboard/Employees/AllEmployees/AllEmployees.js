@@ -15,6 +15,7 @@ const AllEmployees = () => {
   useTitle('Employees');
 
   const [id, setId] = useState(null);
+
   const { data: allEmployees = [], refetch } = useQuery({
     queryKey: ['employees'],
     queryFn: () =>
@@ -22,7 +23,7 @@ const AllEmployees = () => {
   });
 
   const handleReviewDelete = (id) => {
-    const process = window.confirm("are you sure delete this Employee")
+    const process = window.confirm("Are you sure delete this Employee")
     if (process) {
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`, {
         method: 'DELETE',
@@ -30,7 +31,8 @@ const AllEmployees = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            toast("deleted successfully !! ");
+            toast.success("Deleted successfully !!");
+            refetch();
 
             // const remainigAllEmployees =  .filter((review) => review._id !==  id);
             // setMyReviews(remainigReview);
@@ -67,21 +69,25 @@ const AllEmployees = () => {
             <div className="dropdown dropdown-bottom dropdown-right">
               <div tabIndex={0}>
                 <h2 className="text-center mt-3 ml-4 font-semibold text-gray-400 text-xl cursor-pointer">
-                  <BsThreeDotsVertical /> </h2>
+                  <BsThreeDotsVertical /></h2>
               </div>
               <ul
                 tabIndex={0}
                 className="dropdown-content menu p-2 bg-slate-800 text-white rounded-box w-40"
               >
                 <li>
-                  <label onClick={() => setId(singleEmployee._id)} htmlFor="my-modal-2"><span className="flex  items-center text-bold"> <FaPencilAlt className="mr-3" />edit</span> </label>
+                  <label onClick={() => setId(singleEmployee._id)}
+                    htmlFor="my-modal-2"><span
+                      className="flex  items-center text-bold">
+                      <FaPencilAlt className="mr-3" />Edit</span> </label>
                 </li>
+
                 <li>
-                  <Link className="text-bold" onClick={() => handleReviewDelete(singleEmployee._id)} > <RiDeleteBinLine />delete</Link>
+                  <Link className="text-bold" onClick={() => handleReviewDelete(singleEmployee._id)} > <RiDeleteBinLine />Delete</Link>
                 </li>
               </ul>
             </div>
-            <Link to={`/dashboard/employees/${singleEmployee._id}`}>
+            <Link to={`/dashboard/employee/${singleEmployee._id}`}>
               <div className="flex  justify-center ">
                 <img
                   className="w-20 h-20 rounded-full object-cover bg-slate-100"

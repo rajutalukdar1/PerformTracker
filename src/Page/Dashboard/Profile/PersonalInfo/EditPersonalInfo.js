@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const EditPersonalInfo = ({ refetch, employees, setEditingInfo }) => {
 
-  const { passport_no, tel, nationality, religion, marital_status, employment_of_spouse, no_of_children, name, _id } = employees;
+  const { passport_no, tel, nationality, religion, marital_status, employment_of_spouse, no_of_children, _id } = employees;
 
   const {
     register,

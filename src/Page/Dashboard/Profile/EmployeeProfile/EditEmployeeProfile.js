@@ -12,34 +12,56 @@ const EditEmployeeProfile = ({ refetch, employees, setEditingEmployee }) => {
     formState: { errors },
   } = useForm();
 
-  const handleEditEmployee = (data) => {
-    const EmployeeInfo = {
-      name: data.name,
-      phone: data.phone,
-      employeeId: data.employeeId,
-      gender: data.gender,
-      address: data.address,
-      joiningDate: data.joiningDate,
-      DOB: data.DOB,
-      maritalStatus: data.maritalStatus,
-      nationality: data.nationality,
-      designation: data.designation
-    };
+  const imageHostKey = process.env.REACT_APP_imgbb_key;
 
-    // Save employee personal information to the database
-    fetch(`http://localhost:5000/employees/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(EmployeeInfo),
+  const handleEditEmployee = (data) => {
+
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageHostKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
     })
       .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        toast.success(`${name} Profile is update successfully`);
-        setEditingEmployee(null);
-        refetch();
+      .then((imgData) => {
+        if (imgData.success) {
+
+          const EmployeeInfo = {
+            name: data.name,
+            phone: data.phone,
+            employeeId: data.employeeId,
+            gender: data.gender,
+            address: data.address,
+            joiningDate: data.joiningDate,
+            DOB: data.DOB,
+            maritalStatus: data.maritalStatus,
+            nationality: data.nationality,
+            designation: data.designation,
+
+            img: imgData.data.url
+          };
+
+          // Save employee personal information to the database
+          fetch(`http://localhost:5000/employees/${_id}`, {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(EmployeeInfo),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              console.log(result);
+              toast.success(`${name} Profile is update successfully`);
+              setEditingEmployee(null);
+              refetch();
+            });
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   };
 
@@ -82,6 +104,24 @@ const EditEmployeeProfile = ({ refetch, employees, setEditingEmployee }) => {
                     </p>
                   )}
                 </div>
+
+
+                <div>
+                <label className="label">
+                  <span className="label-text">Photo</span>
+                </label>
+                <input
+                  type="file"
+                  {...register("image", { required: "Your Photo is required" })}
+                  className="file-input file-input-bordered w-full "
+                />
+                {errors.img && (
+                  <p className="text-red-600" role="alert">
+                    {errors.img?.message}
+                  </p>
+                )}
+              </div>
+
 
                 <div>
                   <span className="label-text">Designation</span>

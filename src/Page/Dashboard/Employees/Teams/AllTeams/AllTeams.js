@@ -7,8 +7,11 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import AddTeamModal from '../AddTeamModal/AddTeamModal';
 import MemberImg from './MemberImg';
 import "./AllTeams.css";
+import useTitle from '../../../../../hooks/useTitle';
 
 const AllTeams = () => {
+  useTitle("Teams");
+
   const [shown, setShown] = useState(true);
 
   const { data: teams = [], refetch } = useQuery({
@@ -62,25 +65,25 @@ const AllTeams = () => {
                 <td className='flex'>
                   {
                     team.members.length > 4 ? <>
-                    {
-                    team.members.slice(0, 3).map(member => <MemberImg
-                      key={member.uid}
-                      uid={member.uid}
-                    />)
-                    }
-                    <MemberImg
-                      uid={null}
-                      txt={team.members.slice(3, team.members.length - 1).length}
-                    />
+                      {
+                        team.members.slice(0, 3).map(member => <MemberImg
+                          key={member.uid}
+                          uid={member.uid}
+                        />)
+                      }
+                      <MemberImg
+                        uid={null}
+                        txt={team.members.slice(3, team.members.length - 1).length}
+                      />
                     </> :
-                    team.members.map(member => <MemberImg
-                      key={member.uid}
-                      uid={member.uid}
-                    />)
+                      team.members.map(member => <MemberImg
+                        key={member.uid}
+                        uid={member.uid}
+                      />)
                   }
                 </td>
                 <td>
-                <div className="dropdown relative">
+                  <div className="dropdown relative">
                     <div tabIndex={0}>
                       <h2 className="text-center mt-3 ml-4 font-semibold text-gray-500 text-xl cursor-pointer"><BsThreeDotsVertical /> </h2>
                     </div>
@@ -89,7 +92,7 @@ const AllTeams = () => {
                       className="dropdown-content menu p-2 bg-gray-800 rounded-box w-40 absolute right-0"
                     >
                       <li className='bg-transparent'>
-                        <label onClick={() => { }} htmlFor="editTeamModal"><a className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
+                        <label onClick={() => { }} htmlFor="editTeamModal"><a href=' ' className="flex items-center text-bold"> <FaPencilAlt className=" mr-3" />Edit</a> </label>
                       </li>
                       <li>
                         <span className="text-bold" onClick={() => handleTeamDelete(team._id)} > <RiDeleteBinLine />Delete</span>
