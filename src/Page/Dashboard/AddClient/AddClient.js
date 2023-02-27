@@ -33,7 +33,7 @@ const AddClient = ({ refetch, setClients }) => {
             gender: data.gender,
             address: data.address,
             birthday: moment(new Date(data.birthday)).format("Do MMMM, YYYY"),
-            img: imgData.data.url,
+            img: imgData.data.url
           };
 
           // save clients information to the database
