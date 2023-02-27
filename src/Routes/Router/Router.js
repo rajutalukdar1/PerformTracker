@@ -98,23 +98,23 @@ const router = createBrowserRouter([
       {
         path: '/dashboard/employee/:_id',
         element: <EmployeesDetails></EmployeesDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/employees/${params._id}`)
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/employees/${params._id}`)
       },
 
       {
         path: '/dashboard/client/:_id',
         element: <ClientDetails></ClientDetails>,
-        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`),
+        loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/client/${params._id}`),
         children: [
           {
-            path: '/dashboard/clientDetails/:_id/projects',
+            path: '/dashboard/client/:_id/',
             element: <Projects></Projects>,
             loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/projects/${params._id}`)
           },
           {
-            path: '/dashboard/clientDetails/:_id/projects',
+            path: '/dashboard/client/:_id/projects',
             element: <ClientDetails></ClientDetails>,
-            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/clients/${params._id}`)
+            loader: ({ params }) => fetch(`https://perform-tracker-server.vercel.app/client/${params._id}`)
           },
         ]
       },

@@ -44,7 +44,7 @@ const EditEmployeeProfile = ({ refetch, employees, setEditingEmployee }) => {
           };
 
           // Save employee personal information to the database
-          fetch(`http://localhost:5000/employees/${_id}`, {
+          fetch(`https://perform-tracker-server.vercel.app/employees/${_id}`, {
             method: "PATCH",
             headers: {
               "content-type": "application/json",
@@ -107,20 +107,20 @@ const EditEmployeeProfile = ({ refetch, employees, setEditingEmployee }) => {
 
 
                 <div>
-                <label className="label">
-                  <span className="label-text">Photo</span>
-                </label>
-                <input
-                  type="file"
-                  {...register("image", { required: "Your Photo is required" })}
-                  className="file-input file-input-bordered w-full "
-                />
-                {errors.img && (
-                  <p className="text-red-600" role="alert">
-                    {errors.img?.message}
-                  </p>
-                )}
-              </div>
+                  <label className="label">
+                    <span className="label-text">Photo</span>
+                  </label>
+                  <input
+                    type="file"
+                    {...register("image", { required: "Your Photo is required" })}
+                    className="file-input file-input-bordered w-full "
+                  />
+                  {errors.img && (
+                    <p className="text-red-600" role="alert">
+                      {errors.img?.message}
+                    </p>
+                  )}
+                </div>
 
 
                 <div>

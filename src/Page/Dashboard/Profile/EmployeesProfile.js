@@ -20,7 +20,7 @@ const EmployeesProfile = () => {
   const { data: employees = {}, refetch } = useQuery({
     queryKey: ["employees", user?.email],
     queryFn: () =>
-      fetch(`http://localhost:5000/employee?email=${user?.email}`).then((res) =>
+      fetch(`https://perform-tracker-server.vercel.app/employee?email=${user?.email}`).then((res) =>
         res.json()
       ),
   });

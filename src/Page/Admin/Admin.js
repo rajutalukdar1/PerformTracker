@@ -14,12 +14,12 @@ const Admin = () => {
   const { data: adminData = [], refetch } = useQuery({
     queryKey: ["adminData"],
     queryFn: () =>
-      fetch(`http://localhost:5000/dashboard/admin`).then((res) =>
+      fetch(`https://perform-tracker-server.vercel.app/dashboard/admin`).then((res) =>
         res.json()
       ),
   });
 
-  const {tasksData, projectsData, totalClients, totalEmployees, promotedEmployees} = adminData;
+  const { tasksData, projectsData, totalClients, totalEmployees, promotedEmployees } = adminData;
 
   return (
     <div>
@@ -94,7 +94,7 @@ const Admin = () => {
       </div>
       <div>
         <AdminProgress
-            adminData={adminData}
+          adminData={adminData}
         ></AdminProgress>
       </div>
       <div className="flex">

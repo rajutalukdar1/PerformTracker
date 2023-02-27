@@ -7,14 +7,14 @@ import Project from "../Projects/Project";
 
 const Projects = () => {
   const { loading, user_id } = useSelector((state) => state.userReducer);
-  const {id} = useParams();
+  const { id } = useParams();
   console.log(id);
 
   const { data: projects = [] } = useQuery({
     queryKey: ["projects", id, user_id],
     queryFn: () =>
       fetch(
-        `http://localhost:5000/employee/projects/${id ? id : user_id}`
+        `https://perform-tracker-server.vercel.app/employee/projects/${id ? id : user_id}`
       ).then((res) => res.json()),
   });
 

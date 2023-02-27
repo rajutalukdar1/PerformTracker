@@ -68,12 +68,12 @@ const ClientDetails = () => {
                     rounded-b-sm">
                         <ul className="menu menu-horizontal px-1">
                             <li>
-                                <Link to={`/dashboard/clientDetails/${_id}/projects`}>
+                                <Link to={`/dashboard/client/${_id}`}>
                                     Projects
                                 </Link>
                             </li>
                             <li tabIndex={0}>
-                                <Link to={`/dashboard/clientDetails/${_id}/task`}>
+                                <Link to={`/dashboard/client/${_id}/task`}>
                                     Tasks
                                 </Link>
                             </li>

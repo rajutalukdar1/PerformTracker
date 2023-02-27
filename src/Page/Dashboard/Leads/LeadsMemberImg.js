@@ -9,7 +9,7 @@ const LeadsMemberImg = ({ uid, txt }) => {
         if (!uid) {
             return;
         }
-        fetch(`http://localhost:5000/employees/${uid}`)
+        fetch(`https://perform-tracker-server.vercel.app/employees/${uid}`)
             .then(res => res.json())
             .then(data => setUser(data))
             .catch(err => console.error(err))

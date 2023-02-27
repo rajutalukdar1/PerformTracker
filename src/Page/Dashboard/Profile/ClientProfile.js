@@ -20,7 +20,7 @@ const ClientProfile = () => {
     queryKey: ["client", user?.email],
     queryFn: () =>
       fetch(
-        `http://localhost:5000/clientData?email=${user?.email}`
+        `https://perform-tracker-server.vercel.app/clientData?email=${user?.email}`
       ).then((res) => res.json()),
   });
   console.log(client);
