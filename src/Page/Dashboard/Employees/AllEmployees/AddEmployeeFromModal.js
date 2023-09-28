@@ -76,7 +76,7 @@ const AddEmployeeFromModal = () => {
               </label>
               <input
                 name="name"
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Name"
                 type="text"
                 id="name"
@@ -88,7 +88,7 @@ const AddEmployeeFromModal = () => {
               </label>
               <input
                 name="designation"
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="designation"
                 type="text"
               />
@@ -99,7 +99,7 @@ const AddEmployeeFromModal = () => {
               </label>
               <input
                 name="address"
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Address"
                 type="text"
               />
@@ -111,7 +111,7 @@ const AddEmployeeFromModal = () => {
                 </label>
                 <input
                   name="salary"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Salary"
                   type="text"
                 />
@@ -122,7 +122,7 @@ const AddEmployeeFromModal = () => {
                 </label>
                 <input
                   name="nationality"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="nationality"
                   type="text"
                 />
@@ -135,7 +135,7 @@ const AddEmployeeFromModal = () => {
                 </label>
                 <input
                   name="email"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Email address"
                   type="email"
                   id="email"
@@ -147,7 +147,7 @@ const AddEmployeeFromModal = () => {
                 </label>
                 <input
                   name="phone"
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                  className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                   placeholder="Phone Number"
                   type="tel"
                   id="phone"
@@ -156,7 +156,7 @@ const AddEmployeeFromModal = () => {
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
-                <select name="gender" className="select rounded-lg border-gray-200 p-3 w-full max-w-xs">
+                <select name="gender" className="select w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600">
                   <option value="" hidden>
                     Select Gender
                   </option>
@@ -166,7 +166,7 @@ const AddEmployeeFromModal = () => {
                 </select>
               </div>
               <div>
-                <select name="maritalStatus" className="select  rounded-lg border-gray-200 p-3 w-full max-w-xs">
+                <select name="maritalStatus" className="select  w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600">
                   <option value="" hidden>
                     Select marital Status
                   </option>
@@ -176,10 +176,10 @@ const AddEmployeeFromModal = () => {
               </div>
             </div>
             <div>
-              <input name="employeeImg" type="file" placeholder="select your photo" className="file-input file-input-bordered  w-full" />
+              <input name="employeeImg" type="file" placeholder="select your photo" className="file-input file-input-bordered  w-full rounded-lg   text-sm bg-gray-900 placeholder:text-gray-600" />
             </div>
             <div className="modal-action justify-center">
-              <button className="px-3 py-2 rounded-lg w-full bg-orange-600  text-white text-xl" type="submit">Submit</button>
+              <button className="cursor-pointer hover:bg-slate-900 px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold" type="submit">Add Employee</button>
             </div>
           </form>
         </div>

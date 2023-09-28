@@ -126,27 +126,6 @@ const MarkComplete = () => {
               />
             </div>
           </div>
-          <div className="avatar cursor-pointer">
-            <div className="w-8">
-              <img
-                src="https://i.ibb.co/gPDDW7S/IMG-20220603-205920.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="avatar cursor-pointer">
-            <div className="w-8">
-              <img
-                src="https://i.ibb.co/gPDDW7S/IMG-20220603-205920.jpg"
-                alt=""
-              />
-            </div>
-          </div>
-          <div className="avatar cursor-pointer placeholder cursor-pointer">
-            <div className="w-8 bg-slate-400  text-white">
-              <span className="font-bold text-4xl -mt-2">+</span>
-            </div>
-          </div>
         </div>
       </div>
     </div>

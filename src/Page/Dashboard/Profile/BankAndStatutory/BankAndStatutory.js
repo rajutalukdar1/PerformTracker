@@ -23,8 +23,7 @@ const BankAndStatutory = () => {
                             <label className="label">
                                 <span className="label-text">Salary amount per month</span>
                             </label>
-                            <input type="text" placeholder="$ 0.00" className="input input-bordered w-full 
-                        " />
+                            <input type="text" placeholder="$ 0.00" className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">

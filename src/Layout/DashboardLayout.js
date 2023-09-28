@@ -106,6 +106,10 @@ const DashboardLayout = () => {
                                             to: "/dashboard/profile/client",
                                             title: "Client Profile"
                                         },
+                                        {
+                                            to: "/dashboard/profile/admin",
+                                            title: "My Profile"
+                                        },
                                     ]}
                                 />
                                 <DashboardSideItems
@@ -158,7 +162,7 @@ const DashboardLayout = () => {
                                     title='PayRoll'
                                     subMenus={[
                                         {
-                                            to: "/dashboard/employees/salary",
+                                            to: "/dashboard/salary",
                                             title: "Employees Salary"
                                         },
                                     ]}

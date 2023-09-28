@@ -79,10 +79,10 @@ const SignUp = () => {
       }
     } else {
       saveUser({
-        name: loggedUser.displayName,
-        email: loggedUser.email,
-        img: loggedUser.photoURL,
-        uid: loggedUser.uid
+        name: loggedUser?.displayName,
+        email: loggedUser?.email,
+        img: loggedUser?.photoURL,
+        uid: loggedUser?.uid
       });
     }
   }
@@ -112,7 +112,7 @@ const SignUp = () => {
     } else if (role === "Client") {
       navigate('/dashboard/client');
     } else {
-      navigate('/dashboard');
+      navigate('/dashboard/dashboardEmployees');
     }
   }
 

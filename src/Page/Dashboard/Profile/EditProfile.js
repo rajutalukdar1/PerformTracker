@@ -28,7 +28,7 @@ const EditProfile = ({ refetch, client, setEditingClient }) => {
     console.log(clientInfo);
 
     // Save employee personal information to the database
-    fetch(`http://localhost:5000/client/${_id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/client/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

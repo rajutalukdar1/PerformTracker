@@ -23,7 +23,7 @@ const EditBankInformation = ({ refetch, employees, setEditingBankInformation }) 
         };
 
         // Save employee personal information to the database
-        fetch(`http://localhost:5000/employees/${_id}`, {
+        fetch(`https://perform-tracker-server.vercel.app/employees/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

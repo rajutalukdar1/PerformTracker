@@ -15,7 +15,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
       setErrors(prevErrors => {
         if (!!prevErrors.find(err => err.for === errorFor)) {
           return prevErrors;
-        }else{
+        } else {
           return [
             ...prevErrors,
             {
@@ -25,7 +25,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
           ];
         }
       })
-    }else{
+    } else {
       setErrors(prevErrors => prevErrors.filter(err => err.for !== errorFor))
     }
   }
@@ -36,29 +36,29 @@ const AddTeamModal = ({ setShown, refetch }) => {
     const teamId = e.target.teamId.value
 
     if (errors.length > 0 || !name || !teamId || leaders.length < 1 || members.length < 2) {
-      
-    if (!name) {
-      handleSetError({name, errorMsg: "Team name is required"});
-    }
 
-    if (!teamId) {
-      handleSetError({teamId, errorMsg: "Team ID is required"});
-    }
+      if (!name) {
+        handleSetError({ name, errorMsg: "Team name is required" });
+      }
 
-    if (leaders.length < 1) {
-      handleSetError({leaders, errorMsg: "Choose one or two leader(s)"});
-    }
+      if (!teamId) {
+        handleSetError({ teamId, errorMsg: "Team ID is required" });
+      }
 
-    if (members.length < 2) {
-      handleSetError({members, errorMsg: "Select at least two members"});
-    }
+      if (leaders.length < 1) {
+        handleSetError({ leaders, errorMsg: "Choose one or two leader(s)" });
+      }
+
+      if (members.length < 2) {
+        handleSetError({ members, errorMsg: "Select at least two members" });
+      }
       return;
     }
 
-    
+
     const team = { name, teamId, leaders, members }
 
-    fetch(`http://localhost:5000/teams`, {
+    fetch(`https://perform-tracker-server.vercel.app/teams`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -98,7 +98,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 placeholder="Team Name"
                 type="text"
                 id="name"
-                onBlur={(e) => handleSetError({name: e.target.value, errorMsg: "Team name is required"})}
+                onBlur={(e) => handleSetError({ name: e.target.value, errorMsg: "Team name is required" })}
               />
               <ShowError errors={errors} errFor="name" />
             </div>
@@ -108,7 +108,7 @@ const AddTeamModal = ({ setShown, refetch }) => {
                 className="w-full rounded-lg border-gray-200 p-3 text-sm bg-gray-900 placeholder:text-gray-600"
                 placeholder="Team ID"
                 type="text"
-                onBlur={(e) => handleSetError({teamId: e.target.value, errorMsg: "Team ID is required"})}
+                onBlur={(e) => handleSetError({ teamId: e.target.value, errorMsg: "Team ID is required" })}
               />
               <ShowError errors={errors} errFor="teamId" />
             </div>

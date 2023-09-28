@@ -4,7 +4,7 @@ import AddTaskDetails from '../AddTaskDetails/AddTaskDetails';
 import { HiArrowSmRight, IconName } from "react-icons/hi";
 import { useParams } from 'react-router-dom';
 
-const AddTask = ({hidden, setHidden}) => {
+const AddTask = ({ hidden, setHidden }) => {
   const [tasks, setTasks] = useState([]);
   const [projectTasks, setProjectTasks] = useState([]);
   const { id } = useParams();
@@ -39,7 +39,7 @@ const AddTask = ({hidden, setHidden}) => {
       projectId: id,
     }
 
-    fetch('http://localhost:5000/tasks', {
+    fetch('https://perform-tracker-server.vercel.app/tasks', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

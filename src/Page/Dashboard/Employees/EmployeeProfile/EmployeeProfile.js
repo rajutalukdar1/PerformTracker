@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query'
-import { FaFacebook, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import EmployeeProfileInfo from '../../Profile/EmployeeProfileInfo';
-import EmployeeInfo from '../';
 import AddPromotion from '../../Promotion/AddPromotion/AddPromotion';
-import { FaEdit } from 'react-icons/fa';
 
 
 const EmployeeProfile = () => {
+  // const { user } = useSelector(state => state.userReducer);
   const [promotion, setPromotion] = useState({});
   const { id } = useParams();
-  const { data: { name, designation, address, company, position, employee_id, birthday, email, gender, img, phone, } = {}, refetch } = useQuery({
+  const { data: { name, designation, address, company, joiningDate, employeeId, DOB, email, gender, img, phone, nationality, maritalStatus } = {}, refetch } = useQuery({
     queryKey: ['employee', id],
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`).then(res => res.json()),
   });
+
   return (
     <div>
       <div className='w-full max-w-[1440px] mx-auto mb-20'>
@@ -32,20 +31,24 @@ const EmployeeProfile = () => {
                   </div>
                 </div>
                 <div className='text-[#BBC4CC]'>
-                  <h3 className="text-2xl font-bold">{company}</h3>
-                  <p className='font-bold'>{name}</p>
-                  <p className='text-sm font-semibold mb-2'>{position}</p>
-                  <p className='text-sm font-semibold'>Employee ID : {employee_id}</p>
-                  
-                  <a className="inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#FD7265]" href=' ' >
-                    Send Message
-                  </a>
+                  <h3 className="text-2xl font-bold">{name}</h3>
+                  <p className="text-xs mb-2">{designation}</p>
+                  <p className="font-bold">Employee ID: {employeeId}</p>
+                  <p className="text-xs">Date of Join: {joiningDate}</p>
+
+                  <label className=" cursor-pointer inline-block rounded bg-[#FD7265] mt-8 px-6 py-2 text-sm font-medium text-white transition hover:bg-slate-900 hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:bg-[#0f0302]"
+                    htmlFor='addPromotionModal'
+                    onClick={() => setPromotion({
+                      employeeId: id,
+                      name,
+                      img,
+                      designation
+                    })}
+                  >Promote
+                  </label>
                 </div>
               </div>
               <div className='grid text-[#BBC4CC] grid-cols-[8rem_1fr]'>
-              <div className="">
-            
-          </div>
                 <EmployeeProfileInfo
                   lab='Phone:'
                   val={<a
@@ -53,12 +56,7 @@ const EmployeeProfile = () => {
                 />
                 <EmployeeProfileInfo
                   lab='Email:'
-                  val={<a className='flex-1 link
-                         text-blue-600' href={`mailto:${email}`}>{email}</a>}
-                />
-                <EmployeeProfileInfo
-                  lab='Birthday:'
-                  val={birthday}
+                  val={<a className='flex-1 link text-blue-600' href={`mailto:${email}`}>{email}</a>}
                 />
                 <EmployeeProfileInfo
                   lab='Address:'
@@ -68,30 +66,24 @@ const EmployeeProfile = () => {
                   lab='Gender:'
                   val={gender}
                 />
+
+                <EmployeeProfileInfo lab="Nationality:" val={nationality} />
+                <EmployeeProfileInfo lab="Birthday:" val={DOB} />
+                <EmployeeProfileInfo lab="Marital status:" val={maritalStatus} />
               </div>
             </div>
-            <label className="btn btn-outline"
-              htmlFor='addPromotionModal'
-              onClick={() => setPromotion({
-                employeeId: id,
-                name,
-                img,
-                designation
-              })}
-            >Add Promotion
-            </label>
           </div>
 
           <div className="flex-none w-full bg-[#16191C] text-white lg:text-sm font-semibold
             rounded-b-sm">
             <ul className="menu menu-horizontal px-1">
               <li>
-                <Link to='/dashboard/profile/client'>
+                <Link to={`/dashboard/employees/${id}/projects`}>
                   Projects
                 </Link>
               </li>
               <li tabIndex={0}>
-                <Link to='/dashboard/profile/client/task'>
+                <Link to={`/dashboard/employees/${id}/tasks`}>
                   Tasks
                 </Link>
               </li>
@@ -101,6 +93,7 @@ const EmployeeProfile = () => {
 
           </Outlet>
         </div>
+
       </div>
       {promotion && <AddPromotion
         refetch={refetch}

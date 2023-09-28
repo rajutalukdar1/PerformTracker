@@ -63,14 +63,13 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
   };
   return (
     <>
-      <div className="">
         <input
           type="checkbox"
           id="editPromotionModal"
           className="modal-toggle "
         />
         <div className="modal pt-24">
-          <div className="modal-box relative ">
+          <div className="modal-box pt-10 ">
             <label
               htmlFor="editPromotionModal"
               className="btn btn-sm btn-circle absolute right-2  top-2"
@@ -84,7 +83,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     type="text"
                     // disabled value={date}
                     placeholder="clientId"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2"
                     {...register("clientId", {
                       required: "Client Id is required",
                     })}
@@ -101,7 +100,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     defaultValue={company}
                     type="text"
                     placeholder="Promotion From *"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("company", {
                       required: "Company is required",
                     })}
@@ -118,7 +117,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     defaultValue={name}
                     type="text"
                     placeholder="Promotion For *"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("name", {
                       required: "name is required",
                     })}
@@ -135,7 +134,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     type="email"
                     defaultValue={email}
                     placeholder="Email Address"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("email", {
                       required: "Email address is required",
                     })}
@@ -152,7 +151,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     type="number"
                     defaultValue={phone}
                     placeholder="Phone Number"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("phone", {
                       required: "Phone Number is required",
                     })}
@@ -167,7 +166,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                   <select
                     name="position"
                     defaultValue={position}
-                    className="select select-bordered my-2 w-full "
+                    className="select  my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("position", {
                       required: "Your position is required",
                     })}
@@ -188,7 +187,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                 <div>
                   <select
                     name="gender"
-                    className="select select-bordered my-2 w-full "
+                    className="select  my-2 w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("gender", {
                       required: "Your Name is required",
                     })}
@@ -212,7 +211,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     type="date"
                     defaultValue={birthday}
                     placeholder="Your Birthday"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("birthday", {
                       required: "Your Name is required",
                     })}
@@ -229,7 +228,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                     type="text"
                     defaultValue={address}
                     placeholder="Your address"
-                    className="input input-bordered my-2 w-full "
+                    className="w-full rounded-lg  p-3 text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                     {...register("address", {
                       required: "Your address is required",
                     })}
@@ -248,7 +247,7 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                 <input
                   type="file"
                   {...register("image", { required: "Your Photo is required" })}
-                  className="file-input file-input-bordered w-full "
+                  className="file-input file-input-bordered w-full rounded-lg   text-sm bg-gray-900 placeholder:text-gray-600 mt-2 "
                 />
                 {errors.img && (
                   <p className="text-red-600" role="alert">
@@ -257,15 +256,16 @@ const EditClientModal = ({ client, refetch, setEditingClient }) => {
                 )}
               </div>
               <br />
-              <input
-                className="btn btn-accent w-full my-4"
+                <div className="modal-action justify-center">
+                <input
+                className="cursor-pointer hover:bg-slate-900 px-3 py-2 rounded-lg bg-orange-600 text-white font-semibold"
                 type="submit"
-                value="Submit"
+                value="Edit Client"
               />
+                </div>
             </form>
           </div>
         </div>
-      </div>
     </>
   );
 };

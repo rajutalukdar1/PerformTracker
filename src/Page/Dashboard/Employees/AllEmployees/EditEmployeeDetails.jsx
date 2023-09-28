@@ -4,8 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const EditEmployeeDetails = ({ id }) => {
 
-
-  const { data: { name, address, designation, email, gender, img, maritalStatus, nationality, phone, salary } = {}, refetch } = useQuery({
+  const { data: { name, address, designation, email, img, nationality, phone, salary } = {}, refetch } = useQuery({
     queryKey: ['employee', id],
     queryFn: () =>
       fetch(`https://perform-tracker-server.vercel.app/employees/${id}`).then(res => res.json()),
@@ -60,12 +59,14 @@ const EditEmployeeDetails = ({ id }) => {
           })
             .then(res => res.json())
             .then(result => {
+              refetch();
               toast.success('Employee is successfully Updated!')
             })
         }
       })
     e.target.reset()
   }
+
   return (
     <div>
       <input type="checkbox" id="my-modal-2" className="modal-toggle" />

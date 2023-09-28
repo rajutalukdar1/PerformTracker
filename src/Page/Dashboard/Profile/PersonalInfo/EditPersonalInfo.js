@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const EditPersonalInfo = ({ refetch, employees, setEditingInfo }) => {
 
-  const { passport_no, tel, nationality, religion, marital_status, employment_of_spouse, no_of_children, name, _id } = employees;
+  const { passport_no, tel, nationality, religion, marital_status, employment_of_spouse, no_of_children, _id } = employees;
 
   const {
     register,
@@ -24,7 +24,7 @@ const EditPersonalInfo = ({ refetch, employees, setEditingInfo }) => {
     };
 
     // Save employee personal information to the database
-    fetch(`http://localhost:5000/employees/${_id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/employees/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

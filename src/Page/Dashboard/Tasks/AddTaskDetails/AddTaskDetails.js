@@ -9,8 +9,6 @@ const AddTaskDetails = ({ task, refetch }) => {
   const [checkbox, setCheckbox] = useState(task.status === "completed");
   const [deletingTask, setDeletingTask] = useState(null);
 
-  // console.log(task.status === "completed");
-
   const closeModal = () => {
     setDeletingTask(null);
   };
@@ -24,7 +22,7 @@ const AddTaskDetails = ({ task, refetch }) => {
       setCheckbox(true);
     }
 
-    fetch(`http://localhost:5000/tasks/${task._id}`, {
+    fetch(`https://perform-tracker-server.vercel.app/tasks/${task._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -39,8 +37,8 @@ const AddTaskDetails = ({ task, refetch }) => {
   };
 
   const handleDeleteTask = (task) => {
-    
-    fetch(`http://localhost:5000/tasks/${task._id}`, {
+
+    fetch(`https://perform-tracker-server.vercel.app/tasks/${task._id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

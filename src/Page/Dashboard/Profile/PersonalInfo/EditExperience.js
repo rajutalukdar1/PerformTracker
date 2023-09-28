@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 const EditExperience = ({ refetch, employees, setEditingExperience }) => {
 
-    const { experience_1, experience_1_join, experience_2, experience_2_join,experience_3, experience_3_join, _id } = employees;
+    const { experience_1, experience_1_join, experience_2, experience_2_join, experience_3, experience_3_join, _id } = employees;
 
     const {
         register,
@@ -23,7 +23,7 @@ const EditExperience = ({ refetch, employees, setEditingExperience }) => {
         };
 
         // Save employee personal information to the database
-        fetch(`http://localhost:5000/employees/${_id}`, {
+        fetch(`https://perform-tracker-server.vercel.app/employees/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
