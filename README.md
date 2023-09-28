@@ -7,11 +7,13 @@ Perform Tracker is a platform that tracks the performance and activity of a comp
 - Admin:
 
   > Email: chris@mail.com
+
   > Pass: admin012
 
 - Client:
 
   > Email: chris@mail.com
+
   > Pass: client01
 
 - Employee:
